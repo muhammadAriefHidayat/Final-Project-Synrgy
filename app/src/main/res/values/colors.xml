@@ -18,6 +18,8 @@
     <!-- Final Project Color -->
     <color name="darkBrown">#A67A4A</color>
     <color name="goldie">#FFEDCD</color>
+    <color name="cream">#FCF5EA</color>
+    <color name="textBlack">#515151</color>
 
 
     <color name="trans">@android:color/transparent</color>
