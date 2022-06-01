@@ -19,4 +19,10 @@
     <string name="masuk">Masuk</string>
     <string name="description_register">Dengan melakukan pendaftaran, kamu telah menyetujui</string>
     <string name="description_register2">Ketentuan layanan dan Kebijakan privasi</string>
+    <string name="kategori">Kategori</string>
+    <string name="home">Home</string>
+    <string name="beauty_feed">Beautyfeed</string>
+    <string name="order">Order</string>
+    <string name="my_profile">My Profile</string>
+    <string name="make_up">Make Up</string>
 </resources>
