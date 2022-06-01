@@ -51,4 +51,6 @@
             app:layout_constraintTop_toTopOf="parent"
             app:navGraph="@navigation/kategori_navigation" />
     </androidx.constraintlayout.widget.ConstraintLayout>
+
+
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
