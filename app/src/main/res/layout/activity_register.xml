@@ -8,7 +8,8 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:background="@drawable/bg_gradien">
 
         <androidx.appcompat.widget.Toolbar
             android:id="@+id/toolbar_top"
@@ -82,21 +83,23 @@
             android:fadingEdge="vertical"
             android:fadingEdgeLength="@dimen/space_20"
             app:cardCornerRadius="@dimen/space_16"
-            app:layout_constraintBottom_toTopOf="@+id/view"
+            app:layout_constraintBottom_toTopOf="@+id/linearLayout"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tv_info"
             app:layout_constraintTop_toTopOf="parent" />
 
         <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/constrain_login"
+            android:id="@+id/constrain_register"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="278dp"
+            android:paddingBottom="@dimen/space_24"
             android:background="@drawable/bg_rounded_card_view"
             app:cardCornerRadius="@dimen/space_16"
-            app:layout_constraintBottom_toTopOf="@+id/view"
+            app:layout_constraintBottom_toTopOf="@+id/linearLayout"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tv_info"
             app:layout_constraintTop_toTopOf="parent">
@@ -193,8 +196,9 @@
 
             <Button
                 android:id="@+id/btn_daftar"
-                android:layout_width="380dp"
-                android:layout_height="40dp"
+                android:layout_width="match_parent"
+                android:layout_height="36dp"
+                android:layout_marginHorizontal="16dp"
                 android:layout_marginTop="20dp"
                 android:background="@drawable/btn_rounded_login"
                 android:text="@string/daftar"
@@ -208,45 +212,39 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="25dp"
-                android:textAlignment="center"
                 android:text="@string/description_register"
-                app:layout_constraintTop_toBottomOf="@id/btn_daftar"
+                android:textAlignment="center"
+                android:textSize="@dimen/space_12"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"/>
+                app:layout_constraintTop_toBottomOf="@id/btn_daftar" />
 
             <TextView
                 android:id="@+id/tv_description_register2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"
-                android:textAlignment="center"
+                android:textSize="@dimen/space_12"
                 android:text="@string/description_register2"
+                android:textAlignment="center"
                 android:textColor="@color/darkBrown"
-                app:layout_constraintTop_toBottomOf="@id/tv_description_register"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"/>
+                app:layout_constraintTop_toBottomOf="@id/tv_description_register" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
-    <View
-        android:id="@+id/view"
-        android:layout_width="0dp"
-        android:layout_height="@dimen/space_56"
-        android:background="@color/cream"
-        android:layout_marginTop="40dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/constrain_login"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <LinearLayout
+        <LinearLayout
         android:id="@+id/linearLayout"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:background="@color/cream"
+        android:orientation="horizontal"
+        android:gravity="center"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/constrain_login">
+        app:layout_constraintTop_toBottomOf="@+id/constrain_register">
 
         <TextView
             android:layout_width="wrap_content"
@@ -254,6 +252,7 @@
             android:fontFamily="@font/nunito"
             android:text="@string/sudah_memiliki_akun"
             android:textColor="@color/textBlack"
+            android:textAlignment="center"
             android:textSize="11sp" />
 
         <TextView
