@@ -1,7 +1,7 @@
 package com.apps.finalproject
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupActionBarWithNavController
@@ -14,7 +14,14 @@ class CategoryActivity : AppCompatActivity() {
         setContentView(R.layout.activity_category)
         val bottomNavigationView = findViewById<BottomNavigationView>(R.id.bottomNavigationView)
         val navController = findNavController(R.id.fragmentContainerView)
-        val appBarConfiguration = AppBarConfiguration(setOf(R.id.homeFragment, R.id.beautyFeedFragment, R.id.orderFragment, R.id.myProfileFragment))
+        val appBarConfiguration = AppBarConfiguration(
+            setOf(
+                R.id.homeFragment,
+                R.id.beautyFeedFragment,
+                R.id.orderFragment,
+                R.id.myProfileFragment
+            )
+        )
         setupActionBarWithNavController(navController, appBarConfiguration)
         bottomNavigationView.setupWithNavController(navController)
     }
