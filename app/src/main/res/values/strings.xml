@@ -9,4 +9,10 @@
     <string name="alamat_email">Alamat Email</string>
     <string name="password">Password</string>
     <string name="lupa_password">lupa Password?</string>
+    <string name="kategori">Kategori</string>
+    <string name="home">Home</string>
+    <string name="beauty_feed">Beautyfeed</string>
+    <string name="order">Order</string>
+    <string name="my_profile">My Profile</string>
+    <string name="make_up">Make Up</string>
 </resources>
