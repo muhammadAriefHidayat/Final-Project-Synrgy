@@ -9,4 +9,14 @@
     <string name="alamat_email">Alamat Email</string>
     <string name="password">Password</string>
     <string name="lupa_password">lupa Password?</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="register">Register</string>
+    <string name="buat_akun">Buat Akun</string>
+    <string name="info_register">Yuk, gabung dengan komunitas kami</string>
+    <string name="name">Nama</string>
+    <string name="sudah_memiliki_akun">Sudah memiliki akun</string>
+    <string name="masuk">Masuk</string>
+    <string name="description_register">Dengan melakukan pendaftaran, kamu telah menyetujui</string>
+    <string name="description_register2">Ketentuan layanan dan Kebijakan privasi</string>
 </resources>
