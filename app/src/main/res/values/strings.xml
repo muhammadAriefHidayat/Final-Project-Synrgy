@@ -24,7 +24,12 @@
     <string name="beauty_feed">Beautyfeed</string>
     <string name="order">Order</string>
     <string name="my_profile">My Profile</string>
-    <string name="make_up">Make Up</string>
+    <string name="skincare">Skincare</string>
+    <string name="bundle_skincare">Bundle Skincare</string>
+    <string name="produk_pria">Produk Pria</string>
+    <string name="makeup">Makeup</string>
+    <string name="makeup_organik">Makeup Organik</string>
+    <string name="skincare_organik">Skincare Organik</string>
     <string name="masuk_dengan_akun_google">Masuk Dengan Akun google</string>
     <string name="rp_7000">Rp. 7000</string>
 </resources>
