@@ -104,6 +104,78 @@
             app:layout_constraintTop_toBottomOf="@+id/tv_info"
             app:layout_constraintTop_toTopOf="parent">
 
+            <androidx.appcompat.widget.AppCompatImageButton
+                android:id="@+id/appCompatImageButton"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/space_36"
+                android:layout_marginHorizontal="@dimen/space_16"
+                android:layout_marginTop="@dimen/space_20"
+                android:background="@drawable/item_google"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:ignore="SmallSp" />
+
+            <View
+                android:id="@+id/view2"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/space_1"
+                android:layout_marginHorizontal="@dimen/space_16"
+                android:layout_marginTop="@dimen/space_28"
+                android:background="#C4C4C4"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/appCompatImageButton" />
+
+            <View
+                android:layout_width="@dimen/space_40"
+                android:layout_height="@dimen/space_40"
+                android:background="@color/md_white_1000"
+                app:layout_constraintBottom_toBottomOf="@+id/view2"
+                app:layout_constraintEnd_toEndOf="@+id/view2"
+                app:layout_constraintStart_toStartOf="@+id/view2"
+                app:layout_constraintTop_toTopOf="@+id/view2" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Atau"
+                app:layout_constraintBottom_toBottomOf="@+id/view2"
+                app:layout_constraintEnd_toEndOf="@+id/view2"
+                app:layout_constraintStart_toStartOf="@+id/view2"
+                app:layout_constraintTop_toTopOf="@+id/view2" />
+
+            <LinearLayout
+                android:id="@+id/linearLayout2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                app:layout_constraintBottom_toBottomOf="@+id/appCompatImageButton"
+                app:layout_constraintEnd_toEndOf="@+id/appCompatImageButton"
+                app:layout_constraintStart_toStartOf="@+id/appCompatImageButton"
+                app:layout_constraintTop_toTopOf="@+id/appCompatImageButton">
+
+
+                <ImageView
+                    android:layout_width="@dimen/space_16"
+                    android:layout_height="@dimen/space_16"
+                    android:layout_marginHorizontal="@dimen/space_8"
+                    android:src="@drawable/img_google" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/space_8"
+                    android:fontFamily="@font/nunito"
+                    android:includeFontPadding="false"
+                    android:text="@string/masuk_dengan_akun_google"
+                    android:textAllCaps="false"
+                    android:textColor="@color/textBlack"
+                    android:textSize="10sp" />
+
+            </LinearLayout>
+
             <TextView
                 android:id="@+id/tvName"
                 android:layout_width="wrap_content"
