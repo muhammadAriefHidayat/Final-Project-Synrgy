@@ -7,12 +7,12 @@
 
     <activity
         android:id="@+id/loginActivity"
-        android:name="com.apps.finalproject.LoginActivity"
+        android:name="com.apps.finalproject.LoginFragment"
         android:label="activity_login"
-        tools:layout="@layout/activity_login" />
+        tools:layout="@layout/fragment_login" />
     <activity
         android:id="@+id/registerActivity"
-        android:name="com.apps.finalproject.RegisterActivity"
+        android:name="com.apps.finalproject.RegisterFragment"
         android:label="activity_register"
-        tools:layout="@layout/activity_register" />
+        tools:layout="@layout/fragment_register" />
 </navigation>
