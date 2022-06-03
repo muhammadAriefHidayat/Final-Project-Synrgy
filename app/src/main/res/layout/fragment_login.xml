@@ -266,6 +266,7 @@
             android:layout_marginTop="@dimen/space_8"
             android:background="@drawable/item_brown_rounded"
             android:text="@string/login"
+            android:textColor="@color/md_white_1000"
             android:textAllCaps="false"
             android:textSize="10sp"
             app:layout_constraintTop_toBottomOf="@+id/tv_lupa_password"
