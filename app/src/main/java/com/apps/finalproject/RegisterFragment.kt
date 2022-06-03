@@ -20,4 +20,25 @@ class RegisterFragment : Fragment() {
         return binding.root
     }
 
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        binding.btnDaftar.setOnClickListener {
+            val name = binding.edtName.text.toString()
+            val email = binding.edtEmail.text.toString()
+            val password = binding.edtPassword.text.toString()
+            when {
+                name.isEmpty() -> {
+                    binding.edtName.error = "Masukkan Name"
+                }
+                email.isEmpty() -> {
+                    binding.edtEmail.error = "Masukkan Email"
+                }
+                password.isEmpty() -> {
+                    binding.edtEmail.error = "Masukkan Password"
+                }
+            }
+        }
+    }
+
 }
