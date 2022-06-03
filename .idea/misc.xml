@@ -3,6 +3,8 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/SYNRGY/Final-Project-Synrgy/app/src/main/res/layout/activity_login.xml" value="0.25" />
+        <entry key="..\:/SYNRGY/Final-Project-Synrgy/app/src/main/res/layout/fragment_register.xml" value="0.25" />
         <entry key="..\:/project22/FinalProject/app/src/main/res/drawable/bg_gradien.xml" value="0.1575" />
         <entry key="..\:/project22/FinalProject/app/src/main/res/drawable/btn_lengkung_login.xml" value="0.312" />
         <entry key="..\:/project22/FinalProject/app/src/main/res/drawable/btn_rounded_hijau.xml" value="0.312" />
