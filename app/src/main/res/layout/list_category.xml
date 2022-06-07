@@ -1,191 +1,226 @@
 <?xml version="1.0" encoding="utf-8"?>
-<GridLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:layout_margin="@dimen/space_16"
-    android:columnCount="3"
-    android:rowCount="2"
-    xmlns:card_view="http://schemas.android.com/apk/res-auto"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
-    <androidx.cardview.widget.CardView
+    android:layout_height="match_parent"
+    android:layout_margin="@dimen/space_16">
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:fontFamily="@font/nunito_bold"
+        android:text="@string/kategori"
+        android:textColor="#515151"
+        android:textSize="13sp" />
+
+    <GridLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/textView"
+        android:layout_margin="@dimen/space_16"
+        android:columnCount="3"
+        android:rowCount="2">
+
+        <androidx.cardview.widget.CardView
             android:layout_width="@dimen/space_106"
             android:layout_height="@dimen/space_106"
-            app:cardCornerRadius="15dp"
-            app:cardMaxElevation="5dp"
-            app:cardElevation="5dp"
-            android:layout_margin="4dp"
+            android:layout_rowWeight="1"
             android:layout_columnWeight="1"
-            android:layout_rowWeight="1">
+            android:layout_margin="4dp"
+            app:cardCornerRadius="15dp"
+            app:cardElevation="5dp"
+            app:cardMaxElevation="5dp">
+
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:padding="4dp"
                 android:layout_gravity="center"
-                android:gravity="center">
+                android:gravity="center"
+                android:orientation="vertical">
+
                 <ImageView
                     android:id="@+id/im_skincare"
-                    android:layout_width="@dimen/space_106"
+                    android:layout_width="match_parent"
                     android:layout_height="@dimen/space_80"
-                    android:src="@drawable/category_skincare"/>
+                    android:src="@drawable/category_skincare" />
+
                 <TextView
                     android:id="@+id/tv_skincare"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:gravity="center"
                     android:text="@string/skincare"
-                    android:textColor="@color/darkBrown"
-                    android:gravity="center"/>
+                    android:textColor="@color/darkBrown" />
             </LinearLayout>
         </androidx.cardview.widget.CardView>
-    <androidx.cardview.widget.CardView
-        android:layout_width="@dimen/space_106"
-        android:layout_height="@dimen/space_106"
-        app:cardCornerRadius="15dp"
-        app:cardMaxElevation="5dp"
-        app:cardElevation="5dp"
-        android:layout_margin="4dp"
-        android:layout_columnWeight="1"
-        android:layout_rowWeight="1">
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:padding="4dp"
-            android:layout_gravity="center"
-            android:gravity="center">
-            <ImageView
-                android:id="@+id/im_bundle_skincare"
-                android:layout_width="@dimen/space_106"
-                android:layout_height="@dimen/space_80"
-                android:src="@drawable/category_bundle"/>
-            <TextView
-                android:id="@+id/tv_bundle_skincare"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/bundle_skincare"
-                android:textColor="@color/darkBrown"
-                android:gravity="center"/>
-        </LinearLayout>
-    </androidx.cardview.widget.CardView>
-    <androidx.cardview.widget.CardView
-        android:layout_width="@dimen/space_106"
-        android:layout_height="@dimen/space_106"
-        app:cardCornerRadius="15dp"
-        app:cardMaxElevation="5dp"
-        app:cardElevation="5dp"
-        android:layout_margin="4dp"
-        android:layout_columnWeight="1"
-        android:layout_rowWeight="1">
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:padding="4dp"
-            android:layout_gravity="center"
-            android:gravity="center">
-            <ImageView
-                android:id="@+id/im_produk_pria"
-                android:layout_width="@dimen/space_106"
-                android:layout_height="@dimen/space_80"
-                android:src="@drawable/category_produk_pria"/>
-            <TextView
-                android:id="@+id/tv_produk_pria"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/produk_pria"
-                android:textColor="@color/darkBrown"
-                android:gravity="center"/>
-        </LinearLayout>
-    </androidx.cardview.widget.CardView>
-    <androidx.cardview.widget.CardView
-        android:layout_width="@dimen/space_106"
-        android:layout_height="@dimen/space_106"
-        app:cardCornerRadius="15dp"
-        app:cardMaxElevation="5dp"
-        app:cardElevation="5dp"
-        android:layout_margin="4dp"
-        android:layout_columnWeight="1"
-        android:layout_rowWeight="1">
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:padding="4dp"
-            android:layout_gravity="center"
-            android:gravity="center">
-            <ImageView
-                android:id="@+id/im_makeup"
-                android:layout_width="@dimen/space_106"
-                android:layout_height="@dimen/space_80"
-                android:src="@drawable/category_makeup"/>
-            <TextView
-                android:id="@+id/tv_makeup"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/makeup"
-                android:textColor="@color/darkBrown"
-                android:gravity="center"/>
-        </LinearLayout>
-    </androidx.cardview.widget.CardView>
-    <androidx.cardview.widget.CardView
-        android:layout_width="@dimen/space_106"
-        android:layout_height="@dimen/space_106"
-        app:cardCornerRadius="15dp"
-        app:cardMaxElevation="5dp"
-        app:cardElevation="5dp"
-        android:layout_margin="4dp"
-        android:layout_columnWeight="1"
-        android:layout_rowWeight="1">
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:padding="4dp"
-            android:layout_gravity="center"
-            android:gravity="center">
-            <ImageView
-                android:id="@+id/im_makeup_organik"
-                android:layout_width="@dimen/space_106"
-                android:layout_height="@dimen/space_80"
-                android:src="@drawable/category_makeup_organik"/>
-            <TextView
-                android:id="@+id/tv_makeup_organik"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/makeup_organik"
-                android:textColor="@color/darkBrown"
-                android:gravity="center"/>
-        </LinearLayout>
-    </androidx.cardview.widget.CardView>
-    <androidx.cardview.widget.CardView
-        android:layout_width="@dimen/space_106"
-        android:layout_height="@dimen/space_106"
-        app:cardCornerRadius="15dp"
-        app:cardMaxElevation="5dp"
-        app:cardElevation="5dp"
-        android:layout_margin="4dp"
-        android:layout_columnWeight="1"
-        android:layout_rowWeight="1">
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:padding="4dp"
-            android:layout_gravity="center"
-            android:gravity="center">
-            <ImageView
-                android:id="@+id/im_skincare_organik"
-                android:layout_width="@dimen/space_106"
-                android:layout_height="@dimen/space_80"
-                android:src="@drawable/category_skincare_organik"/>
-            <TextView
-                android:id="@+id/tv_skincare_organik"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/skincare_organik"
-                android:textColor="@color/darkBrown"
-                android:gravity="center"/>
-        </LinearLayout>
-    </androidx.cardview.widget.CardView>
 
-</GridLayout>
+        <androidx.cardview.widget.CardView
+            android:layout_width="@dimen/space_106"
+            android:layout_height="@dimen/space_106"
+            android:layout_rowWeight="1"
+            android:layout_columnWeight="1"
+            android:layout_margin="4dp"
+            app:cardCornerRadius="15dp"
+            app:cardElevation="5dp"
+            app:cardMaxElevation="5dp">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:id="@+id/im_bundle_skincare"
+                    android:layout_width="@dimen/space_106"
+                    android:layout_height="@dimen/space_80"
+                    android:src="@drawable/category_bundle" />
+
+                <TextView
+                    android:id="@+id/tv_bundle_skincare"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="@string/bundle_skincare"
+                    android:textColor="@color/darkBrown" />
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="@dimen/space_106"
+            android:layout_height="@dimen/space_106"
+            android:layout_rowWeight="1"
+            android:layout_columnWeight="1"
+            android:layout_margin="4dp"
+            app:cardCornerRadius="15dp"
+            app:cardElevation="5dp"
+            app:cardMaxElevation="5dp">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:id="@+id/im_produk_pria"
+                    android:layout_width="@dimen/space_106"
+                    android:layout_height="@dimen/space_80"
+                    android:src="@drawable/category_produk_pria" />
+
+                <TextView
+                    android:id="@+id/tv_produk_pria"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="@string/produk_pria"
+                    android:textColor="@color/darkBrown" />
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="@dimen/space_106"
+            android:layout_height="@dimen/space_106"
+            android:layout_rowWeight="1"
+            android:layout_columnWeight="1"
+            android:layout_margin="4dp"
+            app:cardCornerRadius="15dp"
+            app:cardElevation="5dp"
+            app:cardMaxElevation="5dp">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:id="@+id/im_makeup"
+                    android:layout_width="@dimen/space_106"
+                    android:layout_height="@dimen/space_80"
+                    android:src="@drawable/category_makeup" />
+
+                <TextView
+                    android:id="@+id/tv_makeup"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="@string/makeup"
+                    android:textColor="@color/darkBrown" />
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="@dimen/space_106"
+            android:layout_height="@dimen/space_106"
+            android:layout_rowWeight="1"
+            android:layout_columnWeight="1"
+            android:layout_margin="4dp"
+            app:cardCornerRadius="15dp"
+            app:cardElevation="5dp"
+            app:cardMaxElevation="5dp">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:id="@+id/im_makeup_organik"
+                    android:layout_width="@dimen/space_106"
+                    android:layout_height="@dimen/space_80"
+                    android:src="@drawable/category_makeup_organik" />
+
+                <TextView
+                    android:id="@+id/tv_makeup_organik"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="@string/makeup_organik"
+                    android:textColor="@color/darkBrown" />
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="@dimen/space_106"
+            android:layout_height="@dimen/space_106"
+            android:layout_rowWeight="1"
+            android:layout_columnWeight="1"
+            android:layout_margin="4dp"
+            app:cardCornerRadius="15dp"
+            app:cardElevation="5dp"
+            app:cardMaxElevation="5dp">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:id="@+id/im_skincare_organik"
+                    android:layout_width="@dimen/space_106"
+                    android:layout_height="@dimen/space_80"
+                    android:src="@drawable/category_skincare_organik" />
+
+                <TextView
+                    android:id="@+id/tv_skincare_organik"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="@string/skincare_organik"
+                    android:textColor="@color/darkBrown" />
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+    </GridLayout>
+
+</RelativeLayout>
