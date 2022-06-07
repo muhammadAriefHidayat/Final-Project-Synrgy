@@ -3,7 +3,11 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-       
+        <entry key="..\:/project22/FinalProject/app/src/main/res/layout/fragment_cart.xml" value="0.33" />
+        <entry key="..\:/project22/FinalProject/app/src/main/res/layout/fragment_login.xml" value="0.2911500641299701" />
+        <entry key="..\:/project22/FinalProject/app/src/main/res/layout/fragment_register.xml" value="0.33" />
+        <entry key="..\:/project22/FinalProject/app/src/main/res/layout/item_list_cart.xml" value="0.33" />
+        <entry key="..\:/project22/FinalProject/app/src/main/res/layout/item_produk_cart.xml" value="0.2911500641299701" />
       </map>
     </option>
   </component>
@@ -12,5 +16,12 @@
   </component>
   <component name="ProjectType">
     <option name="id" value="Android" />
+  </component>
+  <component name="VisualizationToolProject">
+    <option name="state">
+      <ProjectState>
+        <option name="scale" value="0.67" />
+      </ProjectState>
+    </option>
   </component>
 </project>
