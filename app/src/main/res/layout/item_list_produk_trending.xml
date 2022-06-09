@@ -19,6 +19,7 @@
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:background="#FEFCF8"
             app:layout_constraintBottom_toBottomOf="@+id/imageView2"
             app:layout_constraintTop_toBottomOf="@+id/imageView2">
 
