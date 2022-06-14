@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     tools:ignore="SmallSp"
     android:background="@drawable/bg_gradien"
-    tools:context=".CartFragment">
+    tools:context=".view.CartFragment">
 
 
     <androidx.appcompat.widget.Toolbar

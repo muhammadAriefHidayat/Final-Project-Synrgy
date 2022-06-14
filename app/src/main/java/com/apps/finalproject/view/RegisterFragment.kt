@@ -1,32 +1,38 @@
-package com.apps.finalproject
+package com.apps.finalproject.view
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.apps.finalproject.databinding.FragmentLoginBinding
+import com.apps.finalproject.databinding.FragmentRegisterBinding
 
-class LoginFragment : Fragment() {
-    private lateinit var binding: FragmentLoginBinding
+
+class RegisterFragment : Fragment() {
+    private lateinit var binding: FragmentRegisterBinding
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        binding = FragmentLoginBinding.inflate(inflater, container, false)
+        binding = FragmentRegisterBinding.inflate(inflater, container, false)
         return binding.root
     }
 
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        binding.button.setOnClickListener {
-            val email = binding.editText.text.toString()
-            val password = binding.edtEmail.text.toString()
+        binding.btnDaftar.setOnClickListener {
+            val name = binding.edtName.text.toString()
+            val email = binding.edtEmail.text.toString()
+            val password = binding.edtPassword.text.toString()
             when {
+                name.isEmpty() -> {
+                    binding.edtName.error = "Masukkan Name"
+                }
                 email.isEmpty() -> {
-                    binding.editText.error = "Masukkan Email"
+                    binding.edtEmail.error = "Masukkan Email"
                 }
                 password.isEmpty() -> {
                     binding.edtEmail.error = "Masukkan Password"
@@ -34,4 +40,5 @@ class LoginFragment : Fragment() {
             }
         }
     }
+
 }
