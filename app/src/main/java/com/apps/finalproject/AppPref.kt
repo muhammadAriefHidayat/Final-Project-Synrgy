@@ -1,4 +1,4 @@
-package com.apps.jasatitip.utils
+package com.apps.finalproject
 
 import android.content.Context
 import android.content.SharedPreferences
@@ -10,13 +10,10 @@ object AppPref {
     private lateinit var preferences: SharedPreferences
 
     //SharedPreferences variables
-    private val UID = Pair("uid", "")
+    private val TOKEN = Pair("token", "")
     private val USERNAME = Pair("username", "")
     private val EMAIL = Pair("email", "")
     private val PASSWORD = Pair("password", "")
-    private val JUSER = Pair("jenisUser", "")
-    private val LATITUDE = Pair("latitude", "")
-    private val LONGITUDE = Pair("longitude", "")
 
     fun init(context: Context) {
         preferences = context.getSharedPreferences(NAME, MODE)
@@ -29,23 +26,12 @@ object AppPref {
         editor.apply()
     }
 
-    var uid: String
-        get() = preferences.getString(UID.first, UID.second) ?: ""
+    var token: String
+        get() = preferences.getString(TOKEN.first, TOKEN.second) ?: ""
         set(value) = preferences.edit(){
-            it.putString(UID.first, value)
+            it.putString(TOKEN.first, value)
         }
 
-    var latitude: String
-        get() = preferences.getString(LATITUDE.first, LATITUDE.second) ?: ""
-        set(value) = preferences.edit(){
-            it.putString(LATITUDE.first, value)
-        }
-
-    var longitude: String
-        get() = preferences.getString(LONGITUDE.first, LONGITUDE.second) ?: ""
-        set(value) = preferences.edit(){
-            it.putString(LONGITUDE.first, value)
-        }
 
     var username: String
         get() = preferences.getString(USERNAME.first, USERNAME.second) ?: ""
@@ -65,9 +51,4 @@ object AppPref {
             it.putString(PASSWORD.first, value)
         }
 
-    var jenisUser: String
-        get() = preferences.getString(JUSER.first, JUSER.second) ?: ""
-        set(value) = preferences.edit(){
-            it.putString(JUSER.first, value)
-        }
 }

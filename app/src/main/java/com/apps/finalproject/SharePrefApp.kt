@@ -1,4 +1,4 @@
-package com.apps.jasatitip.utils
+package com.apps.finalproject
 
 import android.app.Application
 

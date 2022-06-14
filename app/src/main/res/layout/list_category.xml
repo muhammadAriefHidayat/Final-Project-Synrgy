@@ -2,14 +2,14 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:layout_margin="@dimen/space_16">
+    android:layout_height="match_parent">
 
     <TextView
         android:id="@+id/textView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
+        android:layout_margin="@dimen/space_16"
         android:fontFamily="@font/nunito_bold"
         android:text="@string/kategori"
         android:textColor="#515151"
@@ -35,20 +35,24 @@
 
             <LinearLayout
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:layout_gravity="center"
+                android:weightSum="2"
                 android:gravity="center"
                 android:orientation="vertical">
 
                 <ImageView
                     android:id="@+id/im_skincare"
                     android:layout_width="match_parent"
+                    android:layout_weight="1"
+                    android:scaleType="centerCrop"
                     android:layout_height="@dimen/space_80"
                     android:src="@drawable/category_skincare" />
 
                 <TextView
                     android:id="@+id/tv_skincare"
                     android:layout_width="match_parent"
+                    android:layout_weight="1"
                     android:layout_height="wrap_content"
                     android:gravity="center"
                     android:text="@string/skincare"
