@@ -7,7 +7,7 @@
             <corners
                 android:radius="@dimen/space_10"/>
             <stroke
-                android:width="5px"
+                android:width="2px"
                 android:color="@color/darkBrown" />
             <corners android:radius="20dp" />
         </shape>

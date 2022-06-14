@@ -4,6 +4,7 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/project22/FinalProject/app/src/main/res/drawable/bg_gradien.xml" value="0.1525" />
+        <entry key="..\:/project22/FinalProject/app/src/main/res/drawable/border.xml" value="0.2385" />
         <entry key="..\:/project22/FinalProject/app/src/main/res/drawable/ic_icon___bag_filled.xml" value="0.1525" />
         <entry key="..\:/project22/FinalProject/app/src/main/res/drawable/item_rounded_circle.xml" value="0.1525" />
         <entry key="..\:/project22/FinalProject/app/src/main/res/drawable/item_rounded_circle_filled_white.xml" value="0.1525" />
@@ -11,17 +12,18 @@
         <entry key="..\:/project22/FinalProject/app/src/main/res/layout/activity_category.xml" value="0.2" />
         <entry key="..\:/project22/FinalProject/app/src/main/res/layout/activity_home_page.xml" value="0.18" />
         <entry key="..\:/project22/FinalProject/app/src/main/res/layout/fragment_cart.xml" value="0.33" />
-        <entry key="..\:/project22/FinalProject/app/src/main/res/layout/fragment_home.xml" value="0.2" />
+        <entry key="..\:/project22/FinalProject/app/src/main/res/layout/fragment_home.xml" value="0.33" />
         <entry key="..\:/project22/FinalProject/app/src/main/res/layout/fragment_login.xml" value="0.2911500641299701" />
         <entry key="..\:/project22/FinalProject/app/src/main/res/layout/fragment_register.xml" value="0.33" />
         <entry key="..\:/project22/FinalProject/app/src/main/res/layout/item_article.xml" value="0.22" />
         <entry key="..\:/project22/FinalProject/app/src/main/res/layout/item_header.xml" value="0.2" />
-        <entry key="..\:/project22/FinalProject/app/src/main/res/layout/item_list_article.xml" value="0.2" />
+        <entry key="..\:/project22/FinalProject/app/src/main/res/layout/item_list_article.xml" value="0.33" />
         <entry key="..\:/project22/FinalProject/app/src/main/res/layout/item_list_cart.xml" value="0.33" />
-        <entry key="..\:/project22/FinalProject/app/src/main/res/layout/item_list_produk_trending.xml" value="0.25" />
+        <entry key="..\:/project22/FinalProject/app/src/main/res/layout/item_list_produk_trending.xml" value="0.75" />
         <entry key="..\:/project22/FinalProject/app/src/main/res/layout/item_produk_cart.xml" value="0.2911500641299701" />
         <entry key="..\:/project22/FinalProject/app/src/main/res/layout/item_search.xml" value="0.33" />
-        <entry key="..\:/project22/FinalProject/app/src/main/res/layout/list_category.xml" value="0.15775972637879435" />
+        <entry key="..\:/project22/FinalProject/app/src/main/res/layout/list_category.xml" value="0.5" />
+        <entry key="..\:/project22/FinalProject/app/src/main/res/layout/list_produk_trending.xml" value="0.5" />
       </map>
     </option>
   </component>
