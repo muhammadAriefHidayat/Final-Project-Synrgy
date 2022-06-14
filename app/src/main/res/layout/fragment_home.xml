@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".HomeFragment">
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -23,22 +23,29 @@
 
         <include
             android:id="@+id/item_list_article"
-            app:layout_constraintTop_toBottomOf="@id/item_header"
             layout="@layout/item_list_article"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/item_header" />
+
+
+        <include
+            app:layout_constraintTop_toBottomOf="@id/item_list_article"
+            android:id="@+id/list_produk_trending"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
 
         <include
             android:id="@+id/list_category"
             layout="@layout/list_category"
-            app:layout_constraintTop_toBottomOf="@id/item_list_article"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/list_produk_trending" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
