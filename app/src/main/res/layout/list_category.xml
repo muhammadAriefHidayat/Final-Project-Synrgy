@@ -72,20 +72,24 @@
 
             <LinearLayout
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:layout_gravity="center"
+                android:weightSum="2"
                 android:gravity="center"
                 android:orientation="vertical">
 
                 <ImageView
                     android:id="@+id/im_bundle_skincare"
-                    android:layout_width="@dimen/space_106"
+                    android:layout_width="match_parent"
+                    android:layout_weight="1"
+                    android:scaleType="centerCrop"
                     android:layout_height="@dimen/space_80"
                     android:src="@drawable/category_bundle" />
 
                 <TextView
                     android:id="@+id/tv_bundle_skincare"
                     android:layout_width="match_parent"
+                    android:layout_weight="1"
                     android:layout_height="wrap_content"
                     android:gravity="center"
                     android:text="@string/bundle_skincare"
@@ -105,20 +109,24 @@
 
             <LinearLayout
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:layout_gravity="center"
+                android:weightSum="2"
                 android:gravity="center"
                 android:orientation="vertical">
 
                 <ImageView
                     android:id="@+id/im_produk_pria"
-                    android:layout_width="@dimen/space_106"
+                    android:layout_width="match_parent"
+                    android:layout_weight="1"
+                    android:scaleType="centerCrop"
                     android:layout_height="@dimen/space_80"
                     android:src="@drawable/category_produk_pria" />
 
                 <TextView
                     android:id="@+id/tv_produk_pria"
                     android:layout_width="match_parent"
+                    android:layout_weight="1"
                     android:layout_height="wrap_content"
                     android:gravity="center"
                     android:text="@string/produk_pria"
@@ -138,20 +146,24 @@
 
             <LinearLayout
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:layout_gravity="center"
+                android:weightSum="2"
                 android:gravity="center"
                 android:orientation="vertical">
 
                 <ImageView
                     android:id="@+id/im_makeup"
-                    android:layout_width="@dimen/space_106"
+                    android:layout_width="match_parent"
+                    android:layout_weight="1"
+                    android:scaleType="centerCrop"
                     android:layout_height="@dimen/space_80"
                     android:src="@drawable/category_makeup" />
 
                 <TextView
                     android:id="@+id/tv_makeup"
                     android:layout_width="match_parent"
+                    android:layout_weight="1"
                     android:layout_height="wrap_content"
                     android:gravity="center"
                     android:text="@string/makeup"
@@ -171,20 +183,24 @@
 
             <LinearLayout
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:layout_gravity="center"
+                android:weightSum="2"
                 android:gravity="center"
                 android:orientation="vertical">
 
                 <ImageView
                     android:id="@+id/im_makeup_organik"
-                    android:layout_width="@dimen/space_106"
+                    android:layout_width="match_parent"
+                    android:layout_weight="1"
+                    android:scaleType="centerCrop"
                     android:layout_height="@dimen/space_80"
                     android:src="@drawable/category_makeup_organik" />
 
                 <TextView
                     android:id="@+id/tv_makeup_organik"
                     android:layout_width="match_parent"
+                    android:layout_weight="1"
                     android:layout_height="wrap_content"
                     android:gravity="center"
                     android:text="@string/makeup_organik"
@@ -204,20 +220,24 @@
 
             <LinearLayout
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:layout_gravity="center"
+                android:weightSum="2"
                 android:gravity="center"
                 android:orientation="vertical">
 
                 <ImageView
                     android:id="@+id/im_skincare_organik"
-                    android:layout_width="@dimen/space_106"
+                    android:layout_width="match_parent"
+                    android:layout_weight="1"
+                    android:scaleType="centerCrop"
                     android:layout_height="@dimen/space_80"
                     android:src="@drawable/category_skincare_organik" />
 
                 <TextView
                     android:id="@+id/tv_skincare_organik"
                     android:layout_width="match_parent"
+                    android:layout_weight="1"
                     android:layout_height="wrap_content"
                     android:gravity="center"
                     android:text="@string/skincare_organik"
