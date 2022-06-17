@@ -42,4 +42,6 @@
     <string name="makin_hemat_pakai_promo">Makin hemat pakai promo</string>
     <string name="subtotal">Subtotal</string>
     <string name="organik">Organik</string>
+    <string name="testing">Testing</string>
+    <string name="confirm_password">Konfirmasi Password</string>
 </resources>
