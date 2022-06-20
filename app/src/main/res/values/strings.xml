@@ -42,6 +42,18 @@
     <string name="makin_hemat_pakai_promo">Makin hemat pakai promo</string>
     <string name="subtotal">Subtotal</string>
     <string name="organik">Organik</string>
-    <string name="testing">Testing</string>
+    <string name="payment">Metode Pembayaran</string>
+    <string name="payment_bank">Transfer Bank (Verifikasi Manual)</string>
+    <string name="payment_va">Transfer Virtual Account</string>
+    <string name="payment_e_wallet">e-Wallet</string>
+    <string name="payment_bca">Transfer Bank BCA</string>
+    <string name="payment_bni">Transfer Bank BNI</string>
+    <string name="payment_bri">Transfer Bank BRI</string>
+    <string name="payment_mandiri">Transfer Bank Mandiri</string>
+    <string name="payment_va_bca">BCA Virtual Account</string>
+    <string name="payment_va_bni">BNI Virtual Account</string>
+    <string name="payment_va_bri">BRIVA</string>
+    <string name="payment_va_mandiri">Mandiri Virtual Account</string>
+    <string name="gopay">GoPay</string>
     <string name="confirm_password">Konfirmasi Password</string>
 </resources>
