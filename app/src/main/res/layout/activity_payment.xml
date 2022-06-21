@@ -14,7 +14,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:src="@drawable/ic_close"
-        android:background="@color/md_white_1000"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"/>
     <TextView
@@ -22,12 +21,14 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/payment"
+        android:padding="@dimen/space_4"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toEndOf="@+id/iv_close"
         android:textAlignment="center"
         android:fontFamily="@font/nunito"
         android:textColor="@color/colorPrimary"
         android:textSize="@dimen/font_body_s_size"
+        android:textStyle="bold"
         />
     <TextView
         android:id="@+id/tv_payment_bank"
