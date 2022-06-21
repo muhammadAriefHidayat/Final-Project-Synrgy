@@ -55,5 +55,11 @@
     <string name="payment_va_bri">BRIVA</string>
     <string name="payment_va_mandiri">Mandiri Virtual Account</string>
     <string name="gopay">GoPay</string>
+    <string name="pembayaran">Pembayaran</string>
+    <string name="pengiriman">Pengiriman</string>
+    <string name="total_pembayaran">Total Pembayaran</string>
+    <string name="price_payment">Rp 280.000</string>
+    <string name="cara_pembayaran">Cara Pembayaran</string>
+    <string name="default_pembayaran">Kamu belum memilih metode pembayaran.</string>
     <string name="confirm_password">Konfirmasi Password</string>
 </resources>
