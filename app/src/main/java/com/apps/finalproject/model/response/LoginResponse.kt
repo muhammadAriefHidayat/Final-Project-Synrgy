@@ -2,10 +2,10 @@ package com.apps.finalproject.model.response
 
 import com.google.gson.annotations.SerializedName
 
-data class RegisterResponse(
+data class LoginResponse(
 
-	@field:SerializedName("registerResult")
-	val data: RegisterResult,
+	@field:SerializedName("loginResult")
+	val data: LoginResult,
 
 	@field:SerializedName("success")
 	val success: Boolean,
@@ -17,7 +17,7 @@ data class RegisterResponse(
 	val status: String
 )
 
-data class RegisterResult(
+data class LoginResult(
 
 	@field:SerializedName("token")
 	val token: String
