@@ -13,6 +13,6 @@ interface ApiServices {
 
     @POST("/api/v1/auth/register")
     suspend fun register(
-        @Body register: Register
+        @Body register: RegisterBody
     ): RegisterResponse
 }
