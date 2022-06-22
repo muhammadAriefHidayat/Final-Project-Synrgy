@@ -39,6 +39,6 @@
         android:orientation="horizontal"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tv_lihat_semua"
-        tools:itemCount="3z"
+        tools:itemCount="3"
         tools:listitem="@layout/item_article" />
 </androidx.constraintlayout.widget.ConstraintLayout>
