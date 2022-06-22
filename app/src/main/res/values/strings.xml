@@ -65,4 +65,15 @@
     <string name="ingredients">Ingredients</string>
     <string name="review">Review</string>
     <string name="confirm_password">Konfirmasi Password</string>
+    <string name="title">Title Produk</string>
+    <string name="Description">Description Produk</string>
+    <string name="size">Size</string>
+    <string name="add_coment">Berikan Komentar Kamu</string>
+    <string name="text_review">Yuk, ceritakan pengalaman kamu pakai produk ini</string>
+    <string name="add_review">Add Review</string>
+    <string name="kirim">Kirim</string>
+    <string name="add_photo_review">Tambahkan Foto Review Produk</string>
+    <string name="recomendation">Apakah kamu merekomendasikan produk ini ?</string>
+    <string name="pasti_rekomendasi">Pasti rekomendasi</string>
+    <string name="hmm_mungkin">Hmm, mungkin</string>
 </resources>
