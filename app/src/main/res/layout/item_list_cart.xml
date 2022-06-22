@@ -30,7 +30,6 @@
                 android:layout_height="@dimen/space_16"
                 android:layout_marginStart="@dimen/space_16"
                 android:layout_marginTop="@dimen/space_20"
-                android:background="draea"
                 android:buttonTint="@color/darkBrown"
                 android:checked="true"
                 android:minWidth="0dp"
@@ -81,7 +80,6 @@
                 app:layout_constraintTop_toBottomOf="@+id/view3"
                 tools:itemCount="3"
                 tools:listitem="@layout/item_produk_cart" />
-
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
