@@ -56,20 +56,13 @@
     <string name="payment_va_mandiri">Mandiri Virtual Account</string>
     <string name="gopay">GoPay</string>
     <string name="pembayaran">Pembayaran</string>
-    <string name="step_1">1</string>
-    <string name="step_2">2</string>
     <string name="pengiriman">Pengiriman</string>
     <string name="total_pembayaran">Total Pembayaran</string>
     <string name="price_payment">Rp 280.000</string>
     <string name="cara_pembayaran">Cara Pembayaran</string>
     <string name="default_pembayaran">Kamu belum memilih metode pembayaran.</string>
-    <string name="bayar">Bayar</string>
-    <string name="detail_produk">Aloe Hydramild Essence Toner</string>
-    <string name="ukuran_produk_kecil">100 ml</string>
-    <string name="ukuran_produk_besar">200 ml</string>
-    <string name="harga_produk">Rp 55.000</string>
-    <string name="rating_produk">4.0 (5 ulasan)</string>
-    <string name="brand_produk">WARDAH</string>
-    <string name="link_brand">Kunjungi katalog Brand</string>
+    <string name="description">Description</string>
+    <string name="ingredients">Ingredients</string>
+    <string name="review">Review</string>
     <string name="confirm_password">Konfirmasi Password</string>
 </resources>

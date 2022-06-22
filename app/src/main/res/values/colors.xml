@@ -21,8 +21,7 @@
     <color name="cream">#FCF5EA</color>
     <color name="textBlack">#515151</color>
     <color name="textGrey">#C4C4C4</color>
-    <color name="softGrey">#F6F6F6</color>
-    <color name="greyState">#C4C4C4</color>
+
 
     <color name="trans">@android:color/transparent</color>
 
