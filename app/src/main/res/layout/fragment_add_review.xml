@@ -220,8 +220,8 @@
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/btnKirim"
-        android:layout_width="362dp"
-        android:layout_height="@dimen/space_36"
+        android:layout_width="382dp"
+        android:layout_height="40dp"
         android:layout_marginBottom="28dp"
         android:textAllCaps="false"
         android:textColor="@color/md_white_1000"
