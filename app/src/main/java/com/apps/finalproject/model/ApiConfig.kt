@@ -13,6 +13,7 @@ class ApiConfig {
         } else {
             HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.NONE)
         }
+
         private val client = OkHttpClient.Builder()
             .addInterceptor(loggingInterceptor)
             .build()
