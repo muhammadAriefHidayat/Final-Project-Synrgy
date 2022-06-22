@@ -2,7 +2,7 @@ package com.apps.finalproject.model
 
 import com.google.gson.annotations.SerializedName
 
-data class RegisterBody(
+data class Register(
     @SerializedName("avatar")
     var avatar: String,
     @SerializedName("email")
