@@ -61,5 +61,8 @@
     <string name="price_payment">Rp 280.000</string>
     <string name="cara_pembayaran">Cara Pembayaran</string>
     <string name="default_pembayaran">Kamu belum memilih metode pembayaran.</string>
+    <string name="description">Description</string>
+    <string name="ingredients">Ingredients</string>
+    <string name="review">Review</string>
     <string name="confirm_password">Konfirmasi Password</string>
 </resources>
