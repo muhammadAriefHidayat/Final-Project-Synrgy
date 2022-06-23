@@ -7,8 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.apps.finalproject.databinding.FragmentRegisterBinding
-import com.apps.finalproject.model.ApiService
-import com.apps.finalproject.model.Register
+import com.apps.finalproject.model.RegisterBody
 import com.apps.finalproject.model.User
 import kotlin.random.Random
 
@@ -46,8 +45,9 @@ class RegisterFragment : Fragment() {
                 }
                 else -> {
                     val apiService = ApiService()
-                    val user = User(name,klik.toString())
-                    val dataUser = Register("string",email,password,role = "ROLE_ADMIN",user)
+                    val user = User(name,"")
+                    val dataUser = RegisterBody("kjlj",email,password,"ROLE_ADMIN",user)
+//                        Register("string",email,password,role = "ROLE_ADMIN",user)
                     apiService.Register(dataUser){
                         Log.d("hasil2",it.toString())
                     }

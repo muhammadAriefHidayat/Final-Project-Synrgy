@@ -59,11 +59,14 @@ dependencies {
     //lifecycle and viewmodel
     implementation "androidx.lifecycle:lifecycle-runtime-ktx:2.4.1"
     implementation "androidx.activity:activity-ktx:1.4.0"
+    implementation 'androidx.lifecycle:lifecycle-common:2.2.0'
+    implementation 'android.arch.lifecycle:extensions:2.2.0'
+    implementation 'androidx.lifecycle:lifecycle-livedata-ktx:2.2.0'
 
     //coroutine
     implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-core:1.6.0'
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:1.6.0"
 
     //Google sdk
     implementation 'com.google.android.gms:play-services-auth:20.2.0'
-    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:1.6.0"
 }

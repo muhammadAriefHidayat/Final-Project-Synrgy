@@ -1,5 +1,7 @@
-package com.apps.finalproject.model
+package com.apps.finalproject.data.api
 
+import com.apps.finalproject.model.LoginBody
+import com.apps.finalproject.model.RegisterBody
 import com.apps.finalproject.model.response.LoginResponse
 import com.apps.finalproject.model.response.RegisterResponse
 import retrofit2.http.Body

@@ -1,4 +1,4 @@
-package com.apps.finalproject.model
+package com.apps.finalproject.data.api
 
 import com.apps.finalproject.BuildConfig
 import okhttp3.OkHttpClient
@@ -22,7 +22,6 @@ class ApiConfig {
             .client(client)
             .build()
 
-        fun getApiService(): ApiServices =
-            retrofit.create(ApiServices::class.java)
+        fun getApiService(): ApiServices = retrofit.create(ApiServices::class.java)
     }
 }
