@@ -1,6 +1,7 @@
-package com.apps.finalproject.model
+package com.apps.finalproject.data.api
 
-import com.apps.finalproject.BuildConfig
+
+import androidx.viewbinding.BuildConfig
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
@@ -22,7 +23,6 @@ class ApiConfig {
             .client(client)
             .build()
 
-        fun getApiService(): ApiServices =
-            retrofit.create(ApiServices::class.java)
+        fun getApiService(): ApiServices = retrofit.create(ApiServices::class.java)
     }
 }

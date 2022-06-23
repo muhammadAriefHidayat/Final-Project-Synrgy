@@ -1,11 +1,12 @@
-package com.apps.finalproject.view
+package com.apps.finalproject.ui.view
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.apps.finalproject.R
 
-class DetailProdukActivity : AppCompatActivity() {
+class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_detail_produk)
+        setContentView(R.layout.activity_main)
     }
 }

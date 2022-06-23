@@ -1,4 +1,4 @@
-package com.apps.finalproject
+package com.apps.finalproject.utils
 
 import android.app.Application
 

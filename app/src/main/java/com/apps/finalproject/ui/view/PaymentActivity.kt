@@ -1,12 +1,11 @@
-package com.apps.finalproject.view
+package com.apps.finalproject.ui.view
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import com.apps.finalproject.R
 
-class AuthActivity : AppCompatActivity() {
+class PaymentActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_auth)
+        setContentView(R.layout.activity_payment)
     }
 }
