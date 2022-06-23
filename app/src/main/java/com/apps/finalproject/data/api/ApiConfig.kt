@@ -1,6 +1,7 @@
 package com.apps.finalproject.data.api
 
-import com.apps.finalproject.BuildConfig
+
+import androidx.viewbinding.BuildConfig
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit

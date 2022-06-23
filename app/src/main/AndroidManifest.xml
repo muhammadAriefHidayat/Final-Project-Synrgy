@@ -17,22 +17,22 @@
         android:theme="@style/Theme.FinalProject"
         tools:targetApi="31">
         <activity
-            android:name=".view.DetailProdukActivity"
+            android:name="com.apps.finalproject.ui.view.DetailProdukActivity"
             android:exported="false" />
         <activity
-            android:name=".view.PaymentPages"
+            android:name="com.apps.finalproject.ui.view.PaymentPages"
             android:exported="false" />
         <activity
-            android:name=".view.PaymentActivity"
+            android:name="com.apps.finalproject.ui.view.PaymentActivity"
             android:exported="false" />
         <activity
-            android:name=".view.ArticleActivity"
+            android:name="com.apps.finalproject.ui.view.ArticleActivity"
             android:exported="false" />
         <activity
-            android:name=".view.HomePageActivity"
+            android:name="com.apps.finalproject.ui.view.HomePageActivity"
             android:exported="false" />
         <activity
-            android:name=".view.AuthActivity"
+            android:name="com.apps.finalproject.ui.view.AuthActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
