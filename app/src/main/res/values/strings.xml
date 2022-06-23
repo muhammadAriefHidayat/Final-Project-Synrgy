@@ -83,4 +83,6 @@
     <string name="recomendation">Apakah kamu merekomendasikan produk ini ?</string>
     <string name="pasti_rekomendasi">Pasti rekomendasi</string>
     <string name="hmm_mungkin">Hmm, mungkin</string>
+    <string name="time">2 jam lalu</string>
+    <string name="description">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Eu augue ut lectus arcu bibendum at varius vel pharetra.</string>
 </resources>
