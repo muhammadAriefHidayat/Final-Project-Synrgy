@@ -1,11 +1,12 @@
 package com.apps.finalproject.model.response
 
+import com.apps.finalproject.model.Review
 import com.google.gson.annotations.SerializedName
 
 data class ReviewResponse(
 
 	@field:SerializedName("data")
-	val data: List<DataItem>,
+	val data: List<Review>,
 
 	@field:SerializedName("success")
 	val success: Boolean,

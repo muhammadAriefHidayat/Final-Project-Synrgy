@@ -30,4 +30,10 @@ fun DataItem.toReview() : Review {
 	)
 }
 
+fun List<DataItem>.toListReview(): MutableList<Review>{
+	val listReview = mutableListOf<Review>()
+	this.forEach { listReview.add(it.toReview()) }
+	return listReview
+}
+
 
