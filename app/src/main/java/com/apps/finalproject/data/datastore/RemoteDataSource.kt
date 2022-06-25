@@ -10,7 +10,7 @@ import kotlinx.coroutines.flow.flowOn
 
 class RemoteDataSource(private val apiServices: ApiServices) {
 
-    fun getReview(userId: String) = flow<List<Review>> {
+    fun getReview(userId: String) = flow {
         emit(apiServices.getReview(userId).data)
     }.catch {
         Log.d("TAG", "getReview: failed = ${it.message}")
