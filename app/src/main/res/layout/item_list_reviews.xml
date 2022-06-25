@@ -54,18 +54,15 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
-            android:layout_marginTop="@dimen/space_12"
+            android:layout_marginTop="@dimen/space_8"
             android:layout_marginEnd="@dimen/space_16"
             android:layout_marginBottom="@dimen/space_12"
             android:ellipsize="end"
             android:maxLines="3"
             android:text="@string/description"
-            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/ivFruitsHistory"
-            app:layout_constraintVertical_bias="0.0" />
+            app:layout_constraintTop_toBottomOf="@+id/ivFruitsHistory" />
 
         <ImageView
             android:id="@+id/ivReviewOne"
@@ -74,6 +71,7 @@
             android:layout_marginStart="20dp"
             android:layout_marginTop="@dimen/space_8"
             android:layout_marginBottom="@dimen/space_12"
+            android:scaleType="centerCrop"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tvDescReview"
@@ -86,6 +84,7 @@
             android:layout_marginTop="@dimen/space_8"
             android:layout_marginBottom="@dimen/space_12"
             android:layout_marginStart="@dimen/space_12"
+            android:scaleType="centerCrop"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toEndOf="@+id/ivReviewOne"
             app:layout_constraintTop_toBottomOf="@+id/tvDescReview"
