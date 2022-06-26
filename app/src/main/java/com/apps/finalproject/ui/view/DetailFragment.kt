@@ -37,7 +37,7 @@ class DetailFragment : Fragment() {
 
 
         detailViewModel.review.observe(viewLifecycleOwner){
-            populateData(it)
+//            populateData(it)
         }
     }
 
