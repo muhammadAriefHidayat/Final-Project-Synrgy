@@ -6,9 +6,10 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.apps.finalproject.databinding.ItemListReviewsBinding
 import com.apps.finalproject.model.Review
+import com.apps.finalproject.model.response.ReviewResponse
 import com.bumptech.glide.Glide
 
-class ListReviewAdapter(private val listReview: List<Review>) : RecyclerView.Adapter<ListReviewAdapter.ViewHolder>() {
+class ListReviewAdapter(private val listReview: List<ReviewResponse>) : RecyclerView.Adapter<ListReviewAdapter.ViewHolder>() {
     class ViewHolder(view: View) : RecyclerView.ViewHolder(view)
 
     private lateinit var binding: ItemListReviewsBinding
@@ -25,21 +26,24 @@ class ListReviewAdapter(private val listReview: List<Review>) : RecyclerView.Ada
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val review = listReview[position]
         with(binding){
-            Glide.with(binding.root.context)
-                .load(review.images)
-                .circleCrop()
-                .into(ivUser)
-            tvName.text = review.userId
-            tvDate.text = review.date
-            tvDescReview.text = review.content
-            Glide.with(binding.root.context)
-                .load(review.imagesCount)
-                .circleCrop()
-                .into(ivReviewOne)
-            Glide.with(binding.root.context)
-                .load(review.imagesCount)
-                .circleCrop()
-                .into(ivReviewTwo)
+            tvDescReview.text = review.data[position].content
+//            Glide.with(binding.root.context)
+//                .load(review.data.forEach {
+//                    it.images
+//                })
+//                .circleCrop()
+//                .into(ivUser)
+//            tvName.text = review.userId
+//            tvDate.text = review.date
+//            tvDescReview.text = review.content
+//            Glide.with(binding.root.context)
+//                .load(review.imagesCount)
+//                .circleCrop()
+//                .into(ivReviewOne)
+//            Glide.with(binding.root.context)
+//                .load(review.imagesCount)
+//                .circleCrop()
+//                .into(ivReviewTwo)
         }
     }
 

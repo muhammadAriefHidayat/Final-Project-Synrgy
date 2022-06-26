@@ -23,6 +23,5 @@ interface ApiServices {
 
     @GET("/api/v1/review")
     suspend fun getReview(
-        @Path("userId") userId: String
     ): ReviewResponse
 }

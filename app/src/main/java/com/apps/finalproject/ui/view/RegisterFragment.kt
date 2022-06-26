@@ -44,13 +44,13 @@ class RegisterFragment : Fragment() {
                     binding.edtPassword.error = "Masukkan Password"
                 }
                 else -> {
-                    val apiService = ApiService()
-                    val user = User(name,"")
-                    val dataUser = RegisterBody("kjlj",email,password,"ROLE_ADMIN",user)
-//                        Register("string",email,password,role = "ROLE_ADMIN",user)
-                    apiService.Register(dataUser){
-                        Log.d("hasil2",it.toString())
-                    }
+//                    val apiService = ApiService()
+//                    val user = User(name,"")
+//                    val dataUser = RegisterBody("kjlj",email,password,"ROLE_ADMIN",user)
+////                        Register("string",email,password,role = "ROLE_ADMIN",user)
+//                    apiService.Register(dataUser){
+//                        Log.d("hasil2",it.toString())
+//                    }
                 }
             }
         }
