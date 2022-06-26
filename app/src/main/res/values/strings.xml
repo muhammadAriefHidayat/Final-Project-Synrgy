@@ -72,4 +72,18 @@
     <string name="brand_produk">WARDAH</string>
     <string name="link_brand">Kunjungi katalog Brand</string>
     <string name="confirm_password">Konfirmasi Password</string>
+    <string name="title">Title Produk</string>
+    <string name="Description">Description Produk</string>
+    <string name="size">Size</string>
+    <string name="add_coment">Berikan Komentar Kamu</string>
+    <string name="text_review">Yuk, ceritakan pengalaman kamu pakai produk ini</string>
+    <string name="add_review">Add Review</string>
+    <string name="kirim">Kirim</string>
+    <string name="add_photo_review">Tambahkan Foto Review Produk</string>
+    <string name="recomendation">Apakah kamu merekomendasikan produk ini ?</string>
+    <string name="pasti_rekomendasi">Pasti rekomendasi</string>
+    <string name="hmm_mungkin">Hmm, mungkin</string>
+    <string name="time">2 jam lalu</string>
+    <string name="description">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Eu augue ut lectus arcu bibendum at varius vel pharetra.</string>
+    <string name="Wardah">Brand</string>
 </resources>
