@@ -8,7 +8,7 @@ import kotlinx.android.parcel.Parcelize
 @Parcelize
 data class Review(
 	val date: String,
-	val averageStar: Int,
+	val averageStar: Double,
 	val images: List<String>,
 	val productId: String,
 	val imagesCount: Int,

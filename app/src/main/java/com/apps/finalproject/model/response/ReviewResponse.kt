@@ -24,7 +24,7 @@ data class DataItem(
 	val date: String,
 
 	@field:SerializedName("averageStar")
-	val averageStar: Int,
+	val averageStar: Double,
 
 	@field:SerializedName("effective")
 	val effective: Int,

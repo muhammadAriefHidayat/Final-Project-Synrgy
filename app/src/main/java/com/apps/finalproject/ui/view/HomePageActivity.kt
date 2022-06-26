@@ -14,17 +14,17 @@ class HomePageActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_home_page)
 
-        val bottomNavigationView = findViewById<BottomNavigationView>(R.id.bottomNavigationView)
-        val navController = findNavController(R.id.fragmentContainerView)
-        val appBarConfiguration = AppBarConfiguration(
-            setOf(
-                R.id.homeFragment,
-                R.id.beautyFeedFragment,
-                R.id.orderFragment,
-                R.id.myProfileFragment
-            )
-        )
-        setupActionBarWithNavController(navController, appBarConfiguration)
-        bottomNavigationView.setupWithNavController(navController)
+//        val bottomNavigationView = findViewById<BottomNavigationView>(R.id.bottomNavigationView)
+//        val navController = findNavController(R.id.fragmentContainerView)
+//        val appBarConfiguration = AppBarConfiguration(
+//            setOf(
+//                R.id.homeFragment,
+//                R.id.beautyFeedFragment,
+//                R.id.orderFragment,
+//                R.id.myProfileFragment
+//            )
+//        )
+//        setupActionBarWithNavController(navController, appBarConfiguration)
+//        bottomNavigationView.setupWithNavController(navController)
     }
 }

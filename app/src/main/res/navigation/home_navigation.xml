@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/kategori_navigation"
-    app:startDestination="@id/loginFragment">
+    app:startDestination="@id/detailFragment">
     <fragment
         android:id="@+id/homeFragment"
         android:name="com.apps.finalproject.ui.view.HomeFragment"
@@ -24,4 +24,9 @@
         android:name="com.apps.finalproject.ui.view.MyProfileFragment"
         android:label="fragment_my_profile"
         tools:layout="@layout/fragment_my_profile" />
+    <fragment
+        android:id="@+id/detailFragment"
+        android:name="com.apps.finalproject.ui.view.DetailFragment"
+        android:label="fragment_detail"
+        tools:layout="@layout/fragment_detail"/>
 </navigation>
