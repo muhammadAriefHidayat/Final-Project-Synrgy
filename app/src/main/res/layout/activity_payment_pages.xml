@@ -197,6 +197,20 @@
             android:text="@string/default_pembayaran"
             android:textAppearance="?attr/textAppearanceSubtitle1"
             android:textColor="@color/colorPrimary" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/white_grey"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:visibility="invisible"
+            android:layout_marginTop="@dimen/space_12"
+            android:padding="@dimen/space_16"
+            android:textSize="@dimen/font_body_xs_size"
+            android:text="@string/default_pembayaran"
+            android:textAppearance="?attr/textAppearanceSubtitle1"
+            android:textColor="@color/colorPrimary" />
     </LinearLayout>
     <Button
         android:layout_width="match_parent"
