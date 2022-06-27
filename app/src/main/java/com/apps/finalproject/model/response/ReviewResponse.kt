@@ -6,7 +6,7 @@ import com.google.gson.annotations.SerializedName
 data class ReviewResponse(
 
 	@field:SerializedName("data")
-	val data: List<Review>,
+	val data: List<ReviewUserResponse>,
 
 	@field:SerializedName("success")
 	val success: Boolean,
@@ -18,13 +18,13 @@ data class ReviewResponse(
 	val status: String
 )
 
-data class DataItem(
+data class ReviewUserResponse(
 
 	@field:SerializedName("date")
 	val date: String,
 
 	@field:SerializedName("averageStar")
-	val averageStar: Int,
+	val averageStar: Double,
 
 	@field:SerializedName("effective")
 	val effective: Int,

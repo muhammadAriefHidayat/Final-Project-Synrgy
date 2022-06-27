@@ -59,7 +59,6 @@ class RegisterFragment : Fragment() {
                     val user = User(name,"")
                     val dataUser = RegisterBody("kjlj",email,password,"ROLE_ADMIN",user)
                         register(email,password,user)
-
                 }
             }
         }

@@ -6,6 +6,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.apps.finalproject.databinding.ItemListReviewsBinding
 import com.apps.finalproject.model.Review
+import com.apps.finalproject.model.response.ReviewResponse
 import com.bumptech.glide.Glide
 
 class ListReviewAdapter(private val listReview: List<Review>) : RecyclerView.Adapter<ListReviewAdapter.ViewHolder>() {
@@ -16,7 +17,7 @@ class ListReviewAdapter(private val listReview: List<Review>) : RecyclerView.Ada
     override fun onCreateViewHolder(
         parent: ViewGroup,
         viewType: Int
-    ): ListReviewAdapter.ViewHolder {
+    ): ViewHolder {
         binding = ItemListReviewsBinding.inflate(
             LayoutInflater.from(parent.context), parent, false)
         return ViewHolder(binding.root)

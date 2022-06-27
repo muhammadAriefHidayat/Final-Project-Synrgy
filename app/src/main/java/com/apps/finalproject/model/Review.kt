@@ -1,14 +1,13 @@
 package com.apps.finalproject.model
 
 import android.os.Parcelable
-import com.apps.finalproject.model.response.DataItem
-import com.apps.finalproject.model.response.ReviewResponse
+import com.apps.finalproject.model.response.ReviewUserResponse
 import kotlinx.android.parcel.Parcelize
 
 @Parcelize
 data class Review(
 	val date: String,
-	val averageStar: Int,
+	val averageStar: Double,
 	val images: List<String>,
 	val productId: String,
 	val imagesCount: Int,
@@ -17,7 +16,7 @@ data class Review(
 	val content: String
 ) : Parcelable
 
-fun DataItem.toReview() : Review {
+fun ReviewUserResponse.toReview() : Review {
 	return Review(
 		date = this.date,
 		averageStar = this.averageStar,
@@ -30,7 +29,7 @@ fun DataItem.toReview() : Review {
 	)
 }
 
-fun List<DataItem>.toListReview(): MutableList<Review>{
+fun List<ReviewUserResponse>.toListReview(): MutableList<Review>{
 	val listReview = mutableListOf<Review>()
 	this.forEach { listReview.add(it.toReview()) }
 	return listReview
