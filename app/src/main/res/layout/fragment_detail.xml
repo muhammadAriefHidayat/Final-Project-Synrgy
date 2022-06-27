@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_margin="@dimen/space_16"
+    android:layout_margin="@dimen/space_12"
     tools:context=".ui.view.DetailFragment">
 
     <androidx.constraintlayout.widget.ConstraintLayout
