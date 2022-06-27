@@ -33,10 +33,13 @@ class ModelviewToken :ViewModel(){
                     AppPref.username = username
                     AppPref.password = password
 
+                    Log.d("yangini", responseString.toString())
                     val responseObject = JSONObject(responseString)
                     val id_token = Token()
+                    val data = responseObject.getString("data")
+                    Log.d("yangini", "data $data")
                     id_token.token = responseObject.getString("token")
-                    Log.d("yangini", id_token.token.toString())
+                    Log.d("yangini", " token ${id_token.token}")
                     dataToken.add(id_token)
                     listToken.postValue(dataToken)
 

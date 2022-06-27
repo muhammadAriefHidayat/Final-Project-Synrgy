@@ -7,18 +7,24 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProvider
 import com.apps.finalproject.data.api.ApiServices
 import com.apps.finalproject.databinding.FragmentRegisterBinding
 import com.apps.finalproject.model.RegisterBody
 import com.apps.finalproject.model.User
+import com.apps.finalproject.model.response.RegisterResponse
 import com.apps.finalproject.ui.ViewModelFactory
 import com.apps.finalproject.ui.viewmodel.DetailViewModel
+import com.apps.finalproject.ui.viewmodel.ModelviewToken
+import com.apps.finalproject.ui.viewmodel.RegisterViewModel
+import com.apps.finalproject.utils.AppPref
 import kotlin.random.Random
 
 
 class RegisterFragment : Fragment() {
     private lateinit var binding: FragmentRegisterBinding
-    private val detailViewModel: DetailViewModel by viewModels{ ViewModelFactory.getInstance(requireContext()) }
+    private lateinit var dataToken: RegisterViewModel
 
     var klik = Random(4)
     override fun onCreateView(
@@ -52,12 +58,23 @@ class RegisterFragment : Fragment() {
                 else -> {
                     val user = User(name,"")
                     val dataUser = RegisterBody("kjlj",email,password,"ROLE_ADMIN",user)
-//                        Register("string",email,password,role = "ROLE_ADMIN",user)
-
+                        register(email,password,user)
 
                 }
             }
         }
+    }
+    fun register(username: String, password: String,user: User) {
+        dataToken = ViewModelProvider(this, ViewModelProvider.NewInstanceFactory()).get(
+            RegisterViewModel::class.java
+        )
+        dataToken.setRegister(username, password,user, requireContext())
+        dataToken.getToken().observe(requireActivity(), Observer { token ->
+            if (token != null) {
+                val token = token[0].token
+                AppPref.token = token
+            }
+        })
     }
 
 }
