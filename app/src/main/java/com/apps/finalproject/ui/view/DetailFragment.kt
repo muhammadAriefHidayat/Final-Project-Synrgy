@@ -20,7 +20,9 @@ import com.apps.finalproject.ui.viewmodel.DetailViewModel
 class DetailFragment : Fragment() {
 
     private lateinit var binding: FragmentDetailBinding
-    private val detailViewModel: DetailViewModel by viewModels{ ViewModelFactory.getInstance(requireContext()) }
+    private val detailViewModel: DetailViewModel by viewModels{
+        ViewModelFactory.getInstance(requireContext())
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,

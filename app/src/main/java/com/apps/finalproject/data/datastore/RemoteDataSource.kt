@@ -2,6 +2,7 @@ package com.apps.finalproject.data.datastore
 
 import android.util.Log
 import com.apps.finalproject.data.api.ApiServices
+import com.apps.finalproject.model.RegisterBody
 import com.apps.finalproject.model.Review
 import com.apps.finalproject.model.toListReview
 import kotlinx.coroutines.Dispatchers
@@ -17,5 +18,11 @@ class RemoteDataSource(private val apiServices: ApiServices) {
         }
     }.catch {
         Log.d("TAG", "getReview: failed = ${it.message}")
+    }.flowOn(Dispatchers.IO)
+
+    fun register(registerBody: RegisterBody) = flow {
+        emit(apiServices.register(registerBody).data)
+    }.catch {
+        Log.d("register", "register: failed = ${it.message}")
     }.flowOn(Dispatchers.IO)
 }
