@@ -27,7 +27,7 @@ class ListReviewAdapter(private val listReview: List<Review>) : RecyclerView.Ada
         val review = listReview[position]
         with(binding){
             Glide.with(binding.root.context)
-                .load(review.imagesCount)
+                .load(review.images)
                 .circleCrop()
                 .into(ivUser)
             tvName.text = review.userId
