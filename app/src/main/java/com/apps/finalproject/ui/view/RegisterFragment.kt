@@ -6,14 +6,20 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
+import com.apps.finalproject.data.api.ApiServices
 import com.apps.finalproject.databinding.FragmentRegisterBinding
 import com.apps.finalproject.model.RegisterBody
 import com.apps.finalproject.model.User
+import com.apps.finalproject.ui.ViewModelFactory
+import com.apps.finalproject.ui.viewmodel.DetailViewModel
 import kotlin.random.Random
 
 
 class RegisterFragment : Fragment() {
     private lateinit var binding: FragmentRegisterBinding
+    private val detailViewModel: DetailViewModel by viewModels{ ViewModelFactory.getInstance(requireContext()) }
+
     var klik = Random(4)
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -44,13 +50,11 @@ class RegisterFragment : Fragment() {
                     binding.edtPassword.error = "Masukkan Password"
                 }
                 else -> {
-                    val apiService = ApiService()
                     val user = User(name,"")
                     val dataUser = RegisterBody("kjlj",email,password,"ROLE_ADMIN",user)
 //                        Register("string",email,password,role = "ROLE_ADMIN",user)
-                    apiService.Register(dataUser){
-                        Log.d("hasil2",it.toString())
-                    }
+
+
                 }
             }
         }
