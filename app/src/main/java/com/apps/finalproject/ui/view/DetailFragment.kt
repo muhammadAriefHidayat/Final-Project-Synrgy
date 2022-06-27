@@ -8,6 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.DefaultItemAnimator
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.apps.finalproject.R
 import com.apps.finalproject.databinding.FragmentDetailBinding
 import com.apps.finalproject.model.Review
@@ -35,15 +36,15 @@ class DetailFragment : Fragment() {
             Log.d("getreview", "onViewCreated: detail")
             detailViewModel.getReview()
 
-
-        detailViewModel.review.observe(viewLifecycleOwner){
-//            populateData(it)
+            detailViewModel.review.observe(viewLifecycleOwner){
+            populateData(it)
         }
     }
 
-    private fun populateData(listReview: List<ReviewResponse>) {
+    private fun populateData(listReview: List<Review>) {
         val listReviewAdapter = ListReviewAdapter(listReview)
         binding.rvReview.apply {
+            setHasFixedSize(true)
             itemAnimator = DefaultItemAnimator()
             adapter = listReviewAdapter
         }
