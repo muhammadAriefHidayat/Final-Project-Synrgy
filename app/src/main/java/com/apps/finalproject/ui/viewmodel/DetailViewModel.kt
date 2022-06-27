@@ -11,19 +11,19 @@ import com.apps.finalproject.model.response.ReviewResponse
 import kotlinx.coroutines.launch
 
 class DetailViewModel (private val repository: MainRepository): ViewModel(){
-    private var _review = MutableLiveData<Review>()
-    val review get() = _review
+    private var _review = MutableLiveData<List<Review>>()
+    val review : LiveData<List<Review>> = _review
 
-    private val _isLoading = MutableLiveData<Boolean>()
-    val isLoading: LiveData<Boolean> = _isLoading
+//    private val _isLoading = MutableLiveData<Boolean>()
+//    val isLoading: LiveData<Boolean> = _isLoading
 
     fun getReview() = viewModelScope.launch {
         repository.getReview().collect{
-            val mReview = it.data.forEach { review ->
-                _review.value = review
-                Log.d("getReview", review.content)
 
-            }
+//            val mReview = it.data.forEach { review ->
+                _review.value = it
+                Log.d("getReview", review.value.toString())
+//            }
         }
     }
 }
