@@ -4,6 +4,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.apps.finalproject.R
 import com.apps.finalproject.databinding.ItemArticleBinding
 import com.apps.finalproject.model.Article
 import com.bumptech.glide.Glide
@@ -24,6 +25,7 @@ class ListArticleAdapter(private val listArticle: List<Article>) : RecyclerView.
         with(binding){
             Glide.with(binding.root.context)
                 .load(article.photo)
+                .placeholder(R.drawable.article_herbal)
                 .circleCrop()
                 .into(imPerawatanKulit)
             tvPenjelasanPerawatanKulit.text = article.title

@@ -1,7 +1,6 @@
 package com.apps.finalproject.ui.view
 
 import android.os.Bundle
-import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -33,7 +32,6 @@ class HomeFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        Log.d("getArticle", "onViewCreated: data article")
 
         homeViewModel.getArticle()
         homeViewModel.article.observe(viewLifecycleOwner){
