@@ -7,6 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.viewModels
+import androidx.navigation.Navigation
 import androidx.recyclerview.widget.DefaultItemAnimator
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.apps.finalproject.R
@@ -40,6 +41,10 @@ class DetailFragment : Fragment() {
 
             detailViewModel.review.observe(viewLifecycleOwner){
             populateData(it)
+
+//                binding.imDetailProduk.setOnClickListener(
+//                    Navigation.createNavigateOnClickListener(R.id.action_detailFragment_to_addReviewFragment)
+//                )
         }
     }
 
