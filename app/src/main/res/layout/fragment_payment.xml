@@ -4,9 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-
     android:background="@color/goldie"
-    tools:context=".ui.view.PaymentPages">
+    tools:context="ui.view.PaymentFragment">
 
     <ImageView
         android:id="@+id/iv_back"
@@ -47,22 +46,22 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content">
 
-        <androidx.appcompat.widget.AppCompatImageView
-            android:id="@+id/iv_rounded_grey"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerInParent="true"
-            android:background="@drawable/ic_rounded_grey"
-            android:textColor="@color/md_white_1000" />
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/iv_rounded_grey"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:background="@drawable/ic_rounded_grey"
+                android:textColor="@color/md_white_1000" />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerInParent="true"
-            android:text="@string/step_1"
-            android:textColor="@color/md_white_1000"
-            android:textSize="6sp" />
-    </RelativeLayout>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:text="@string/step_1"
+                android:textColor="@color/md_white_1000"
+                android:textSize="6sp" />
+        </RelativeLayout>
 
         <TextView
             android:id="@+id/tv_step_pengiriman"
@@ -84,22 +83,22 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content">
 
-        <androidx.appcompat.widget.AppCompatImageView
-            android:id="@+id/iv_rounded_brown"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerInParent="true"
-            android:background="@drawable/ic_rounded_brown"
-            android:textColor="@color/md_white_1000" />
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/iv_rounded_brown"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:background="@drawable/ic_rounded_brown"
+                android:textColor="@color/md_white_1000" />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerInParent="true"
-            android:text="@string/step_2"
-            android:textColor="@color/md_white_1000"
-            android:textSize="@dimen/font_body_6sp" />
-    </RelativeLayout>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:text="@string/step_2"
+                android:textColor="@color/md_white_1000"
+                android:textSize="@dimen/font_body_6sp" />
+        </RelativeLayout>
 
         <TextView
             android:id="@+id/tv_step_pembayaran"
@@ -164,7 +163,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="@dimen/space_180"
-            android:layout_marginTop="@dimen/space_12"
+            android:layout_marginTop="@dimen/space_19"
             android:background="@drawable/ic_next" />
     </LinearLayout>
 
