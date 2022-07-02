@@ -1,35 +1,38 @@
 package com.apps.finalproject.model
 
-data class Trending(
-	val data: List<DataItem>,
-	val success: Boolean,
-	val message: String,
-	val status: String
-)
+import android.os.Parcelable
+import com.apps.finalproject.model.response.*
+import com.apps.finalproject.model.response.Brand
+import kotlinx.parcelize.Parcelize
 
-data class DataItem(
-	val average: Int,
+
+data class Trending(
+	val average: Double,
 	val images: List<String>,
 	val isOrganic: Boolean,
-	val variant: List<VariantItem>,
+	val variant: List<ListVariantResponse>,
 	val name: String,
 	val id: String,
 	val brand: Brand
 )
 
-data class Brand(
-	val name: String,
-	val description: String,
-	val logo: String,
-	val banner: String,
-	val id: String
-)
+fun ListTrendingResponse.toTrending() : Trending {
+	return Trending(
+		average = this.average,
+		images = this.images,
+		isOrganic = this.isOrganic,
+		variant = this.variant,
+		name = this.name,
+		id = this.id,
+		brand = this.brand
+	)
+}
 
-data class VariantItem(
-	val quantity: Int,
-	val price: Int,
-	val name: String,
-	val id: String,
-	val imageIndex: Int
-)
+
+fun List<ListTrendingResponse>.toListTrending() : MutableList<Trending>{
+	val listTrendig = mutableListOf<Trending>()
+	this.forEach { listTrendig.add(it.toTrending()) }
+	return listTrendig
+}
+
 
