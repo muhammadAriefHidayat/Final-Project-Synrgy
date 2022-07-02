@@ -2,10 +2,7 @@ package com.apps.finalproject.data.api
 
 import com.apps.finalproject.model.LoginBody
 import com.apps.finalproject.model.RegisterBody
-import com.apps.finalproject.model.response.ArticleResponse
-import com.apps.finalproject.model.response.LoginResponse
-import com.apps.finalproject.model.response.RegisterResponse
-import com.apps.finalproject.model.response.ReviewResponse
+import com.apps.finalproject.model.response.*
 import retrofit2.http.Body
 import retrofit2.http.GET
 import retrofit2.http.POST
