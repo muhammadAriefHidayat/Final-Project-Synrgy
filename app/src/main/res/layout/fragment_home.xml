@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:paddingBottom="@dimen/space_60"
     tools:context=".ui.view.HomeFragment">
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -27,7 +28,6 @@
             android:layout_height="wrap_content"
             android:clipToPadding="false"
             android:orientation="horizontal"
-            android:background="@color/cream"
             tools:listitem="@layout/item_list_article"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             app:layout_constraintEnd_toEndOf="parent"
@@ -35,8 +35,10 @@
             app:layout_constraintTop_toBottomOf="@id/item_header" />
 
 
-        <include
+        <androidx.recyclerview.widget.RecyclerView
             layout="@layout/list_produk_trending"
+            android:orientation="horizontal"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             app:layout_constraintTop_toBottomOf="@id/item_list_article"
             android:id="@+id/list_produk_trending"
             android:layout_width="match_parent"

@@ -28,7 +28,7 @@ class RegisterViewModel (): ViewModel() {
         val url = "https://cosmetic-b.herokuapp.com/api/v1/auth/register"
         val dataToken  = ArrayList<Token>()
         val params = RequestParams()
-        params.put("username", username);
+        params.put("email", username);
         params.put("password", password);
         params.put("user", user);
 
@@ -37,7 +37,7 @@ class RegisterViewModel (): ViewModel() {
                                    responseString: String) {
                 try {
                     AppPref.username = username
-                    AppPref.password = password
+//                    AppPref.password = password
 
                     Log.d("yangini", responseString.toString())
                     val responseObject = JSONObject(responseString)

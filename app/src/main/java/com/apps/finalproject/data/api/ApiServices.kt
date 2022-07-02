@@ -25,4 +25,7 @@ interface ApiServices {
 
     @GET("/api/v1/article")
     suspend fun getArticle() : ArticleResponse
+
+    @GET("/api/v1/product/q/trending")
+    suspend fun getTrending() : TrendingResponse
 }
