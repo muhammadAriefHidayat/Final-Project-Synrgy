@@ -7,4 +7,5 @@ class MainRepository (private val remoteDataSource: RemoteDataSource){
     fun register(registerBody: RegisterBody) = remoteDataSource.register(registerBody)
     fun getReview() = remoteDataSource.getReview()
     fun getArticle() = remoteDataSource.getArticle()
+    fun getProductTrending() = remoteDataSource.getProductTrending()
 }
