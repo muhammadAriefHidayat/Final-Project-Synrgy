@@ -26,7 +26,6 @@ class ListArticleAdapter(private val listArticle: List<Article>) : RecyclerView.
             Glide.with(binding.root.context)
                 .load(article.photo)
                 .placeholder(R.drawable.article_herbal)
-                .circleCrop()
                 .into(imPerawatanKulit)
             tvPenjelasanPerawatanKulit.text = article.title
             tvWaktuArtikel.text = article.date
