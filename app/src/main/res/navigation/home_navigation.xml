@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/kategori_navigation"
+    app:startDestination="@id/homeFragment">
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.apps.finalproject.ui.view.HomeFragment"
+        android:label="fragment_home"
+        tools:layout="@layout/fragment_home" />
+    <fragment
+        android:id="@+id/addReviewFragment"
+        android:name="com.apps.finalproject.ui.view.AddReviewFragment"
+        android:label="fragment_order"
+        tools:layout="@layout/fragment_add_review" />
+    <fragment
+        android:id="@+id/beautyFeedFragment"
+        android:name="com.apps.finalproject.ui.view.BeautyFeedFragment"
+        android:label="fragment_beauty_feed"
+        tools:layout="@layout/fragment_beauty_feed" />
+    <fragment
+        android:id="@+id/myProfileFragment"
+        android:name="com.apps.finalproject.ui.view.MyProfileFragment"
+        android:label="fragment_my_profile"
+        tools:layout="@layout/fragment_my_profile" />
+    <fragment
+        android:id="@+id/detailFragment"
+        android:name="com.apps.finalproject.ui.view.DetailFragment"
+        android:label="fragment_detail"
+        tools:layout="@layout/fragment_detail">
+        <action
+            android:id="@+id/action_detailFragment_to_addReviewFragment"
+            app:destination="@id/addReviewFragment" />
+    </fragment>
+</navigation>
