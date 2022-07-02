@@ -5,46 +5,48 @@ import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import com.apps.finalproject.data.api.ApiServices
 import com.apps.finalproject.model.Token
-import com.apps.finalproject.utils.AppPref
 import com.apps.finalproject.utils.Utils.peringatan
+import com.google.gson.JsonObject
 import com.loopj.android.http.AsyncHttpClient
-import com.loopj.android.http.RequestParams
 import com.loopj.android.http.TextHttpResponseHandler
 import cz.msebera.android.httpclient.Header
+import cz.msebera.android.httpclient.entity.StringEntity
 import org.json.JSONObject
+import retrofit2.Retrofit
+import retrofit2.converter.gson.GsonConverterFactory
 
 
-class ModelviewToken :ViewModel(){
-    private val listToken = MutableLiveData<ArrayList<Token>>()
+class ModelviewToken : ViewModel() {
+    private val listToken = MutableLiveData<Token>()
 
-    fun setCurrentLogin(username: String,password: String,context: Context){
-        val client = AsyncHttpClient()
+    fun setCurrentLogin(username: String, password: String, context: Context) {
+        val client = AsyncHttpClient(true, 80, 443)
         val url = "https://cosmetic-b.herokuapp.com/api/v1/auth/login"
-        val dataToken  = ArrayList<Token>()
-        val params = RequestParams()
-        params.put("username", username);
-        params.put("password", password);
+        val jsonParams = JSONObject()
+        jsonParams.put("email", username);
+        jsonParams.put("password", password);
+        Log.d("yang0", jsonParams.toString())
+        val entity = StringEntity(jsonParams.toString())
 
-        client.post(url, params, object : TextHttpResponseHandler() {
-            override fun onSuccess(statusCode: Int, headers: Array<out Header>,
-                responseString: String) {
+        client.post( context, url, entity, "application/json", object : TextHttpResponseHandler() {
+            override fun onSuccess(
+                statusCode: Int, headers: Array<out Header>,
+                responseString: String
+            ) {
                 try {
-                    AppPref.username = username
-                    AppPref.password = password
-
-                    Log.d("yangini", responseString.toString())
+                    Log.d("yang1", responseString.toString())
                     val responseObject = JSONObject(responseString)
                     val id_token = Token()
                     val data = responseObject.getString("data")
-                    Log.d("yangini", "data $data")
-                    id_token.token = responseObject.getString("token")
-                    Log.d("yangini", " token ${id_token.token}")
-                    dataToken.add(id_token)
-                    listToken.postValue(dataToken)
+                    Log.d("yang2", data)
+                    id_token.token = JSONObject(data).getString("token")
+                    Log.d("yang3", " token ${id_token.token}")
+                    listToken.postValue(id_token)
 
                 } catch (e: Exception) {
-                    peringatan(context,e.message.toString())
+                    peringatan(context, e.message.toString())
                 }
             }
 
@@ -54,12 +56,19 @@ class ModelviewToken :ViewModel(){
                 responseString: String?,
                 throwable: Throwable?
             ) {
-                peringatan(context,"Username Atau Password Salah")
+                Log.d("yangsalah", responseString.toString())
+                peringatan(context, "Username Atau Password Salah")
             }
         })
     }
 
-    internal fun getToken(): LiveData<ArrayList<Token>>{
+    val retrofit = Retrofit.Builder()
+        .baseUrl("https://reqres.in/")
+        .addConverterFactory(GsonConverterFactory.create())
+        .build()
+    val apiService = retrofit.create(ApiServices::class.java)
+
+    internal fun getToken(): LiveData<Token> {
         return listToken
     }
 }
