@@ -5,7 +5,7 @@ import com.google.gson.annotations.SerializedName
 data class TrendingResponse(
 
 	@field:SerializedName("data")
-	val data: List<DataItem>,
+	val data: List<ListTrendingResponse>,
 
 	@field:SerializedName("success")
 	val success: Boolean,
@@ -35,7 +35,7 @@ data class Brand(
 	val id: String
 )
 
-data class VariantItem(
+data class ListVariantResponse(
 
 	@field:SerializedName("quantity")
 	val quantity: Int,
@@ -53,10 +53,10 @@ data class VariantItem(
 	val imageIndex: Int
 )
 
-data class DataItem(
+data class ListTrendingResponse(
 
 	@field:SerializedName("average")
-	val average: Int,
+	val average: Double,
 
 	@field:SerializedName("images")
 	val images: List<String>,
@@ -65,7 +65,7 @@ data class DataItem(
 	val isOrganic: Boolean,
 
 	@field:SerializedName("variant")
-	val variant: List<VariantItem>,
+	val variant: List<ListVariantResponse>,
 
 	@field:SerializedName("name")
 	val name: String,
