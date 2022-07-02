@@ -26,10 +26,10 @@
             android:name="com.apps.finalproject.ui.view.ArticleActivity"
             android:exported="false" />
         <activity
-            android:name="com.apps.finalproject.ui.view.AuthActivity"
+            android:name="com.apps.finalproject.ui.view.HomePageActivity"
             android:exported="false" />
         <activity
-            android:name="com.apps.finalproject.ui.view.HomePageActivity"
+            android:name="com.apps.finalproject.ui.view.AuthActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

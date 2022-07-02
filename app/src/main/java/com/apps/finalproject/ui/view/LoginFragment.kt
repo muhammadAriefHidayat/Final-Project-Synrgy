@@ -1,6 +1,5 @@
 package com.apps.finalproject.ui.view
 
-import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
@@ -12,7 +11,7 @@ import androidx.lifecycle.ViewModelProvider
 import com.apps.finalproject.databinding.FragmentLoginBinding
 import com.apps.finalproject.ui.viewmodel.ModelviewToken
 import com.apps.finalproject.utils.AppPref
-import com.apps.finalproject.utils.Utils.loading
+import com.auth0.android.jwt.JWT
 
 class LoginFragment : Fragment() {
     private lateinit var binding: FragmentLoginBinding
@@ -29,6 +28,7 @@ class LoginFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
         binding.button.setOnClickListener {
             val email = binding.editText.text.toString()
             val password = binding.edtEmail.text.toString()
@@ -40,21 +40,26 @@ class LoginFragment : Fragment() {
                     binding.edtEmail.error = "Masukkan Password"
                 }
                 else -> {
-                    logoin(email,password)
+                    logoin(email, password)
                 }
             }
         }
     }
 
     fun logoin(username: String, password: String) {
+        Log.d("yang", "email $username")
         dataToken = ViewModelProvider(this, ViewModelProvider.NewInstanceFactory()).get(
             ModelviewToken::class.java
         )
         dataToken.setCurrentLogin(username, password, requireContext())
         dataToken.getToken().observe(requireActivity(), Observer { token ->
             if (token != null) {
-                val token = token[0].token
-                AppPref.token = token
+                val token = token.token
+                val jwt = JWT(token)
+                val uid = jwt.getClaim("userId")
+                val email = jwt.getClaim("userId")
+                AppPref.userId = uid.asString().toString()
+                Log.d("itoken", uid.asString().toString())
             }
         })
     }

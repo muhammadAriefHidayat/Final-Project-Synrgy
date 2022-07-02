@@ -75,4 +75,7 @@ dependencies {
 
     implementation 'com.loopj.android:android-async-http:1.4.9'
     implementation 'com.google.code.gson:gson:2.8.5'
+
+    //jwt token
+    implementation 'com.auth0.android:jwtdecode:2.0.1'
 }
