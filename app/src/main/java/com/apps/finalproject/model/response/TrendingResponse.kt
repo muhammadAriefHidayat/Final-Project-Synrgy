@@ -2,7 +2,7 @@ package com.apps.finalproject.model.response
 
 import com.google.gson.annotations.SerializedName
 
-data class ProductResponse(
+data class TrendingResponse(
 
 	@field:SerializedName("data")
 	val data: List<DataItem>,
@@ -17,37 +17,19 @@ data class ProductResponse(
 	val status: String
 )
 
-data class DataItem(
-
-	@field:SerializedName("quantity")
-	val quantity: Int,
+data class Brand(
 
 	@field:SerializedName("name")
 	val name: String,
-
-	@field:SerializedName("variant")
-	val variant: List<VariantItem>,
-
-	@field:SerializedName("id")
-	val id: String,
-
-	@field:SerializedName("brand")
-	val brand: BrandResponse
-)
-
-data class BrandResponse(
-
-	@field:SerializedName("name")
-	val name: String,
-
-	@field:SerializedName("banner")
-	val banner: String,
 
 	@field:SerializedName("description")
 	val description: String,
 
 	@field:SerializedName("logo")
 	val logo: String,
+
+	@field:SerializedName("banner")
+	val banner: String,
 
 	@field:SerializedName("id")
 	val id: String
@@ -65,5 +47,32 @@ data class VariantItem(
 	val name: String,
 
 	@field:SerializedName("id")
-	val id: String
+	val id: String,
+
+	@field:SerializedName("imageIndex")
+	val imageIndex: Int
+)
+
+data class DataItem(
+
+	@field:SerializedName("average")
+	val average: Int,
+
+	@field:SerializedName("images")
+	val images: List<String>,
+
+	@field:SerializedName("isOrganic")
+	val isOrganic: Boolean,
+
+	@field:SerializedName("variant")
+	val variant: List<VariantItem>,
+
+	@field:SerializedName("name")
+	val name: String,
+
+	@field:SerializedName("id")
+	val id: String,
+
+	@field:SerializedName("brand")
+	val brand: Brand
 )
