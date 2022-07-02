@@ -2,10 +2,7 @@ package com.apps.finalproject.data.api
 
 import com.apps.finalproject.model.LoginBody
 import com.apps.finalproject.model.RegisterBody
-import com.apps.finalproject.model.response.ArticleResponse
-import com.apps.finalproject.model.response.LoginResponse
-import com.apps.finalproject.model.response.RegisterResponse
-import com.apps.finalproject.model.response.ReviewResponse
+import com.apps.finalproject.model.response.*
 import retrofit2.http.Body
 import retrofit2.http.GET
 import retrofit2.http.POST
@@ -28,4 +25,7 @@ interface ApiServices {
 
     @GET("/api/v1/article")
     suspend fun getArticle() : ArticleResponse
+
+    @GET("/api/v1/product/q/trending")
+    suspend fun getTrending() : TrendingResponse
 }
