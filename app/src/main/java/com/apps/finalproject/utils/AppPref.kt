@@ -13,6 +13,7 @@ object AppPref {
     private val TOKEN = Pair("token", "")
     private val USERNAME = Pair("username", "")
     private val EMAIL = Pair("email", "")
+    private val PASSWORD = Pair("pw", "")
     private val USERID = Pair("userId", "")
 
     fun init(context: Context) {
@@ -43,6 +44,12 @@ object AppPref {
         get() = preferences.getString(EMAIL.first, EMAIL.second) ?: ""
         set(value) = preferences.edit(){
             it.putString(EMAIL.first, value)
+        }
+
+    var pw: String
+        get() = preferences.getString(PASSWORD.first, PASSWORD.second) ?: ""
+        set(value) = preferences.edit(){
+            it.putString(PASSWORD.first, value)
         }
 
     var userId: String
