@@ -2,18 +2,16 @@ package com.apps.finalproject.ui.view
 
 import android.os.Bundle
 import android.util.Log
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.Navigation
 import androidx.recyclerview.widget.DefaultItemAnimator
-import androidx.recyclerview.widget.LinearLayoutManager
 import com.apps.finalproject.R
 import com.apps.finalproject.databinding.FragmentDetailBinding
 import com.apps.finalproject.model.Review
-import com.apps.finalproject.model.response.ReviewResponse
 import com.apps.finalproject.ui.ViewModelFactory
 import com.apps.finalproject.ui.adapter.ListReviewAdapter
 import com.apps.finalproject.ui.viewmodel.DetailViewModel
@@ -21,7 +19,7 @@ import com.apps.finalproject.ui.viewmodel.DetailViewModel
 class DetailFragment : Fragment() {
 
     private lateinit var binding: FragmentDetailBinding
-    private val detailViewModel: DetailViewModel by viewModels{
+    private val detailViewModel: DetailViewModel by viewModels {
         ViewModelFactory.getInstance(requireContext())
     }
 
@@ -36,15 +34,15 @@ class DetailFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-            Log.d("getreview", "onViewCreated: detail")
-            detailViewModel.getReview()
+        Log.d("getreview", "onViewCreated: detail")
+        detailViewModel.getReview()
 
-            detailViewModel.review.observe(viewLifecycleOwner){
+        detailViewModel.review.observe(viewLifecycleOwner) {
             populateData(it)
 
-//                binding.imDetailProduk.setOnClickListener(
-//                    Navigation.createNavigateOnClickListener(R.id.action_detailFragment_to_addReviewFragment)
-//                )
+//            binding.imDetailProduk.setOnClickListener(
+//                Navigation.createNavigateOnClickListener(R.id.action_detailFragment_to_addReviewFragment)
+//            )
         }
     }
 

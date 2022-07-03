@@ -189,6 +189,56 @@
             </LinearLayout>
         </androidx.cardview.widget.CardView>
 
+        <RelativeLayout
+            android:id="@+id/deskripsi"
+            android:layout_marginTop="26dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/cv_brand"
+            android:minHeight="@dimen/space_150"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/deksripsi"
+                android:text="Deskripsi"
+                android:gravity="center"
+                android:layout_alignParentStart="true"
+                android:textSize="@dimen/space_10"
+                android:fontFamily="@font/nunito_bold"
+                android:background="@drawable/item_bg_deskripsi"
+                android:textColor="@color/md_white_1000"
+                android:layout_width="@dimen/space_100"
+                android:layout_height="@dimen/space_30"/>
+
+            <TextView
+                android:layout_width="@dimen/space_100"
+                android:layout_height="@dimen/space_30"
+                android:layout_centerHorizontal="true"
+                android:fontFamily="@font/nunito_bold"
+                android:gravity="center"
+                android:text="Cara Penggunaan"
+                android:textColor="@color/darkBrown"
+                android:textSize="@dimen/space_10" />
+
+            <TextView
+                android:text="Komposisi"
+                android:gravity="center"
+                android:layout_alignParentEnd="true"
+                android:textSize="@dimen/space_10"
+                android:textColor="@color/darkBrown"
+                android:fontFamily="@font/nunito_bold"
+                android:layout_width="@dimen/space_100"
+                android:layout_height="@dimen/space_30"/>
+
+            <View
+                android:layout_alignBottom="@+id/deksripsi"
+                android:background="@color/darkBrown"
+                android:layout_width="match_parent"
+                android:layout_height="1.5dp"/>
+
+        </RelativeLayout>
+
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rvReview"
             tools:listitem="@layout/item_list_reviews"
@@ -196,9 +246,20 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/space_24"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-            app:layout_constraintTop_toBottomOf="@+id/cv_brand"
+            app:layout_constraintTop_toBottomOf="@+id/deskripsi"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"/>
+
+<!--        <View-->
+
+<!--            app:layout_constraintEnd_toEndOf="parent"-->
+<!--            app:layout_constraintStart_toStartOf="parent"-->
+<!--            android:background="@color/darkBrown"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="1dp"/>-->
+<!--        <View-->
+<!--            android:layout_width=""-->
+<!--            android:layout_height=""-->
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </ScrollView>
