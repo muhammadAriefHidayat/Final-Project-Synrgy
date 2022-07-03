@@ -317,6 +317,48 @@
             app:layout_constraintStart_toEndOf="@id/jml_produk"
             app:layout_constraintTop_toTopOf="@id/btn_min_produk" />
 
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/nunito_bold"
+            android:text="Rp 550000"
+            android:textColor="@color/darkBrown"
+            app:layout_constraintBottom_toBottomOf="@id/btn_min_produk"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@id/btn_min_produk" />
+
+        <View
+            android:id="@+id/bg_add_bg"
+            android:layout_width="90dp"
+            android:layout_height="@dimen/space_30"
+            android:layout_marginEnd="@dimen/space_36"
+            android:background="@drawable/item_rounded_8dp_edt"
+            app:layout_constraintBottom_toBottomOf="@id/btn_plus_produk"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/btn_plus_produk" />
+
+        <ImageView
+            android:id="@+id/imageView7"
+            android:layout_width="14dp"
+            android:layout_height="14dp"
+            android:layout_marginStart="@dimen/space_10"
+            android:src="@drawable/ic_add_bg"
+            app:layout_constraintBottom_toBottomOf="@+id/bg_add_bg"
+            app:layout_constraintStart_toStartOf="@id/bg_add_bg"
+            app:layout_constraintTop_toTopOf="@+id/bg_add_bg" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/nunito"
+            android:text="Add to Bag"
+            android:textColor="@color/textBlack"
+            app:layout_constraintEnd_toEndOf="@id/bg_add_bg"
+            android:textSize="@dimen/space_10"
+            app:layout_constraintBottom_toBottomOf="@+id/bg_add_bg"
+            app:layout_constraintStart_toEndOf="@+id/imageView7"
+            app:layout_constraintTop_toTopOf="@+id/bg_add_bg" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </ScrollView>
