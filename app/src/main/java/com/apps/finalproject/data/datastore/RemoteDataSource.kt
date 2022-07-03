@@ -10,6 +10,13 @@ import kotlinx.coroutines.flow.flowOn
 
 class RemoteDataSource(private val apiServices: ApiServices) {
 
+    fun login(loginBody: LoginBody) = flow {
+        emit(apiServices.login(loginBody))
+    }.catch {
+        Log.d("login", "login: failed = ${it.message}")
+    }.flowOn(Dispatchers.IO)
+
+
     fun getReview() = flow<List<Review>> {
         apiServices.getReview().data.let {
             emit(it.toListReview())

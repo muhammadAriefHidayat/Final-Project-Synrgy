@@ -6,16 +6,15 @@ import com.apps.finalproject.model.response.ArticleResponse
 import com.apps.finalproject.model.response.LoginResponse
 import com.apps.finalproject.model.response.RegisterResponse
 import com.apps.finalproject.model.response.ReviewResponse
-import retrofit2.http.Body
-import retrofit2.http.GET
-import retrofit2.http.POST
-import retrofit2.http.Path
+import retrofit2.Call
+import retrofit2.http.*
 
 interface ApiServices {
+    @Headers("Content-Type: application/json")
     @POST("/api/v1/auth/login")
-    suspend fun login(
-        @Body loginBody: LoginBody
-    ): LoginResponse
+    fun login(
+        @Body loginBody : LoginBody
+    ): Call<LoginResponse>
 
     @POST("/api/v1/auth/register")
     fun register(
