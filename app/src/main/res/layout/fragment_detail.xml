@@ -256,18 +256,67 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/deskripsi"
+            tools:itemCount="2"
             tools:listitem="@layout/item_list_reviews" />
 
-        <!--        <View-->
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btn_lihat_semua"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/space_36"
+            android:layout_marginTop="15dp"
+            android:background="@drawable/item_rounded_edt"
+            android:fontFamily="@font/nunito"
+            android:text="Lihat Semua"
+            android:textAllCaps="false"
+            android:textSize="10sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/rvReview" />
 
-        <!--            app:layout_constraintEnd_toEndOf="parent"-->
-        <!--            app:layout_constraintStart_toStartOf="parent"-->
-        <!--            android:background="@color/darkBrown"-->
-        <!--            android:layout_width="match_parent"-->
-        <!--            android:layout_height="1dp"/>-->
-        <!--        <View-->
-        <!--            android:layout_width=""-->
-        <!--            android:layout_height=""-->
+        <View
+            android:id="@+id/pembatas"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="@dimen/space_30"
+            android:background="@color/darkBrown"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/btn_lihat_semua" />
+
+        <View
+            android:id="@+id/btn_min_produk"
+            android:layout_width="26dp"
+            android:layout_height="26dp"
+            android:layout_marginStart="35dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginBottom="15dp"
+            android:background="@drawable/ic_minus_product"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/pembatas" />
+
+        <TextView
+            android:id="@+id/jml_produk"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/space_10"
+            android:fontFamily="@font/nunito_bold"
+            android:text="1"
+            android:textColor="@color/darkBrown"
+            app:layout_constraintBottom_toBottomOf="@id/btn_min_produk"
+            app:layout_constraintStart_toEndOf="@id/btn_min_produk"
+            app:layout_constraintTop_toTopOf="@+id/btn_min_produk" />
+
+        <View
+            android:id="@+id/btn_plus_produk"
+            android:layout_width="26dp"
+            android:layout_height="26dp"
+            android:layout_marginStart="@dimen/space_10"
+            android:background="@drawable/ic_plus_prodct"
+            app:layout_constraintBottom_toBottomOf="@id/btn_min_produk"
+            app:layout_constraintStart_toEndOf="@id/jml_produk"
+            app:layout_constraintTop_toTopOf="@id/btn_min_produk" />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </ScrollView>
