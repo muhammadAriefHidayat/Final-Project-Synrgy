@@ -1,5 +1,6 @@
 package com.apps.finalproject.ui.view
 
+import Variant
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -10,8 +11,10 @@ import androidx.recyclerview.widget.DefaultItemAnimator
 import com.apps.finalproject.R
 import com.apps.finalproject.databinding.FragmentHomeBinding
 import com.apps.finalproject.model.Article
+import com.apps.finalproject.model.Trending
 import com.apps.finalproject.ui.ViewModelFactory
 import com.apps.finalproject.ui.adapter.ListArticleAdapter
+import com.apps.finalproject.ui.adapter.ListTrendingAdapter
 import com.apps.finalproject.ui.viewmodel.HomeViewModel
 
 class HomeFragment : Fragment() {
@@ -37,6 +40,19 @@ class HomeFragment : Fragment() {
         homeViewModel.article.observe(viewLifecycleOwner){
             showDataArticle(it)
         }
+
+        homeViewModel.getProductTrending()
+        homeViewModel.trending.observe(viewLifecycleOwner){
+            showProductTrending(it)
+        }
+
+        homeViewModel.isLoading.observe(viewLifecycleOwner){
+            showLoading(it)
+        }
+    }
+
+    private fun showLoading(isLoading: Boolean) {
+        binding.progressBar.visibility = if (isLoading) View.VISIBLE else View.GONE
     }
 
     private fun showDataArticle(listArticle: List<Article>) {
@@ -45,6 +61,15 @@ class HomeFragment : Fragment() {
             setHasFixedSize(true)
             itemAnimator = DefaultItemAnimator()
             adapter = listArticleAdapter
+        }
+    }
+
+    private fun showProductTrending(listProductTrending: List<Trending>){
+        val listTrendingAdapter = ListTrendingAdapter(listProductTrending)
+        binding.listProdukTrending.apply {
+            setHasFixedSize(true)
+            itemAnimator = DefaultItemAnimator()
+            adapter = listTrendingAdapter
         }
     }
 }

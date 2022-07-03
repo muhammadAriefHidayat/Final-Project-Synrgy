@@ -9,4 +9,5 @@ class MainRepository (private val remoteDataSource: RemoteDataSource){
     fun login(loginBody: LoginBody) = remoteDataSource.login(loginBody)
     fun getReview() = remoteDataSource.getReview()
     fun getArticle() = remoteDataSource.getArticle()
+    fun getProductTrending() = remoteDataSource.getProductTrending()
 }
