@@ -19,6 +19,7 @@ import com.apps.finalproject.ui.viewmodel.DetailViewModel
 import com.apps.finalproject.ui.viewmodel.ModelviewToken
 import com.apps.finalproject.ui.viewmodel.RegisterViewModel
 import com.apps.finalproject.utils.AppPref
+import org.json.JSONObject
 import kotlin.random.Random
 
 
@@ -56,14 +57,16 @@ class RegisterFragment : Fragment() {
                     binding.edtPassword.error = "Masukkan Password"
                 }
                 else -> {
-                    val user = User(name,"c")
-                    val dataUser = RegisterBody("",email,password,"ROLE_ADMIN",user)
-                        register(email,password,user)
+                    val user = User(name,"skinteyp")
+                    val jsonuser = JSONObject()
+                    jsonuser.put("name", name);
+                    jsonuser.put("skinType", "skinteyp");
+                        register(email,password,jsonuser)
                 }
             }
         }
     }
-    fun register(username: String, password: String,user: User) {
+    fun register(username: String, password: String,user: JSONObject) {
         dataToken = ViewModelProvider(this, ViewModelProvider.NewInstanceFactory()).get(
             RegisterViewModel::class.java
         )
