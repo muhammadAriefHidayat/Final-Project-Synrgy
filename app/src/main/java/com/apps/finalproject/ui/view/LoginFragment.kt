@@ -1,22 +1,15 @@
 package com.apps.finalproject.ui.view
 
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.activity.viewModels
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
-import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProvider
 import com.apps.finalproject.databinding.FragmentLoginBinding
 import com.apps.finalproject.model.LoginBody
 import com.apps.finalproject.ui.ViewModelFactory
 import com.apps.finalproject.ui.viewmodel.LoginViewModel
-import com.apps.finalproject.ui.viewmodel.ModelviewToken
-import com.apps.finalproject.utils.AppPref
-import com.auth0.android.jwt.JWT
 
 class LoginFragment : Fragment() {
     private lateinit var binding: FragmentLoginBinding
