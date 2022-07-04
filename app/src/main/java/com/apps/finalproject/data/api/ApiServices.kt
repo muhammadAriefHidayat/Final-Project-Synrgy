@@ -3,16 +3,18 @@ package com.apps.finalproject.data.api
 import com.apps.finalproject.model.LoginBody
 import com.apps.finalproject.model.RegisterBody
 import com.apps.finalproject.model.response.*
+import retrofit2.Call
 import retrofit2.http.Body
 import retrofit2.http.GET
+import retrofit2.http.Headers
 import retrofit2.http.POST
-import retrofit2.http.Path
 
 interface ApiServices {
+    @Headers("Content-Type: application/json")
     @POST("/api/v1/auth/login")
-    suspend fun login(
-        @Body loginBody: LoginBody
-    ): LoginResponse
+    fun login(
+        @Body loginBody : LoginBody
+    ): Call<LoginResponse>
 
     @POST("/api/v1/auth/register")
     fun register(
