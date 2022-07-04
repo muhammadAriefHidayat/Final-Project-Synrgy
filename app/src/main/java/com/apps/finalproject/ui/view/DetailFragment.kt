@@ -13,10 +13,12 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.apps.finalproject.R
 import com.apps.finalproject.databinding.FragmentDetailBinding
 import com.apps.finalproject.model.Review
+import com.apps.finalproject.model.Trending
 import com.apps.finalproject.model.response.ReviewResponse
 import com.apps.finalproject.ui.ViewModelFactory
 import com.apps.finalproject.ui.adapter.ListReviewAdapter
 import com.apps.finalproject.ui.viewmodel.DetailViewModel
+import com.bumptech.glide.Glide
 
 class DetailFragment : Fragment() {
 
@@ -47,6 +49,18 @@ class DetailFragment : Fragment() {
 //                )
         }
     }
+
+//    private fun populateDataProduct(productTrend: Trending){
+//        with(binding){
+//            Glide.with(this@DetailFragment)
+//                .load(productTrend.images[0])
+//                .into(imDetailProduk)
+//            tvDetailProduk.text = productTrend.variant.toListVariant()[0].name
+//            tvHargaProduk.text = productTrend.variant.toListVariant()[0].price.toString()
+//            ratingBarProduk.rating = productTrend.average.toFloat()
+//            tvMl.text = productTrend.variant.toListVariant()[0].quantity.toString()
+//        }
+//    }
 
     private fun populateData(listReview: List<Review>) {
         val listReviewAdapter = ListReviewAdapter(listReview)
