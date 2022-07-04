@@ -78,4 +78,5 @@ dependencies {
 
     //jwt token
     implementation 'com.auth0.android:jwtdecode:2.0.1'
+    implementation 'de.hdodenhof:circleimageview:3.1.0'
 }

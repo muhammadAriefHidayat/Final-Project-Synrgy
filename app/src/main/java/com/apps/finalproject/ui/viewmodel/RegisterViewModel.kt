@@ -17,6 +17,7 @@ import com.loopj.android.http.AsyncHttpClient
 import com.loopj.android.http.RequestParams
 import com.loopj.android.http.TextHttpResponseHandler
 import cz.msebera.android.httpclient.Header
+import cz.msebera.android.httpclient.HttpHeaders
 import kotlinx.coroutines.launch
 import org.json.JSONObject
 
@@ -31,14 +32,13 @@ class RegisterViewModel (): ViewModel() {
         params.put("email", username);
         params.put("password", password);
         params.put("user", user);
-
+        client.addHeader(HttpHeaders.CONTENT_TYPE, "application/json")
         client.post(url, params, object : TextHttpResponseHandler() {
             override fun onSuccess(statusCode: Int, headers: Array<out Header>,
                                    responseString: String) {
                 try {
                     AppPref.username = username
-//                    AppPref.password = password
-
+                    AppPref.pw = password
                     Log.d("yangini", responseString.toString())
                     val responseObject = JSONObject(responseString)
                     val id_token = Token()
@@ -46,7 +46,6 @@ class RegisterViewModel (): ViewModel() {
                     Log.d("yangini", id_token.token.toString())
                     dataToken.add(id_token)
                     listToken.postValue(dataToken)
-
                 } catch (e: Exception) {
                     Utils.peringatan(context, e.message.toString())
                 }
