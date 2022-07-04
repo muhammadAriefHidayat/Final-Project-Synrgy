@@ -1,10 +1,13 @@
 package com.apps.finalproject.ui.viewmodel
 
 import android.util.Log
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.apps.finalproject.data.repository.MainRepository
 import com.apps.finalproject.model.LoginBody
+import com.apps.finalproject.model.Token
 import com.apps.finalproject.model.response.LoginResponse
 import com.apps.finalproject.utils.AppPref
 import com.auth0.android.jwt.JWT
@@ -15,6 +18,8 @@ import retrofit2.Response
 
 class LoginViewModel(private val repository: MainRepository) : ViewModel() {
 
+    private val listToken = MutableLiveData<Token>()
+
     fun Login(loginBody: LoginBody) = viewModelScope.launch {
         repository.login(loginBody).collect {
             it.enqueue(object : Callback<LoginResponse> {
@@ -24,7 +29,9 @@ class LoginViewModel(private val repository: MainRepository) : ViewModel() {
                 ) {
                     Log.d("hasil", "sukses")
                     val dataToken = response.body()?.data
-                    val jwt = JWT(dataToken?.token.toString())
+                    val token = Token()
+                    token.token = dataToken?.token.toString()
+                    val jwt = JWT(token.token)
                     val uid = jwt.getClaim("userId")
                     val email = jwt.getClaim("email")
                     val name = jwt.getClaim("name")
@@ -32,6 +39,8 @@ class LoginViewModel(private val repository: MainRepository) : ViewModel() {
                     AppPref.pw = loginBody.password
                     AppPref.email = email.asString().toString()
                     AppPref.username = name.asString().toString()
+
+                    listToken.postValue(token)
                 }
 
                 override fun onFailure(call: Call<LoginResponse>, t: Throwable) {
@@ -39,5 +48,9 @@ class LoginViewModel(private val repository: MainRepository) : ViewModel() {
                 }
             })
         }
+    }
+
+    internal fun getToken(): LiveData<Token> {
+        return listToken
     }
 }

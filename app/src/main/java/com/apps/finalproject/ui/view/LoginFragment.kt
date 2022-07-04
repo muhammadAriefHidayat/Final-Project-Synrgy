@@ -1,5 +1,6 @@
 package com.apps.finalproject.ui.view
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
@@ -16,6 +17,7 @@ import com.apps.finalproject.ui.ViewModelFactory
 import com.apps.finalproject.ui.viewmodel.LoginViewModel
 import com.apps.finalproject.ui.viewmodel.ModelviewToken
 import com.apps.finalproject.utils.AppPref
+import com.apps.finalproject.utils.Utils
 import com.auth0.android.jwt.JWT
 
 class LoginFragment : Fragment() {
@@ -50,6 +52,13 @@ class LoginFragment : Fragment() {
                 else -> {
                     val loginBody = LoginBody(email,password)
                     loginViewModel.Login(loginBody)
+                    loginViewModel.getToken().observe(requireActivity()) {
+                        if (it.token.toString() == ""){
+                            startActivity(Intent(requireContext(),HomePageActivity::class.java))
+                        }else {
+                            Utils.peringatan(requireContext(),"password salah")
+                        }
+                    }
                 }
             }
         }
