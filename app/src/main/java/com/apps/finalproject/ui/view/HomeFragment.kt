@@ -45,6 +45,14 @@ class HomeFragment : Fragment() {
         homeViewModel.trending.observe(viewLifecycleOwner){
             showProductTrending(it)
         }
+
+        homeViewModel.isLoading.observe(viewLifecycleOwner){
+            showLoading(it)
+        }
+    }
+
+    private fun showLoading(isLoading: Boolean) {
+        binding.progressBar.visibility = if (isLoading) View.VISIBLE else View.GONE
     }
 
     private fun showDataArticle(listArticle: List<Article>) {
@@ -58,7 +66,7 @@ class HomeFragment : Fragment() {
 
     private fun showProductTrending(listProductTrending: List<Trending>){
         val listTrendingAdapter = ListTrendingAdapter(listProductTrending)
-        binding.listProdukTrending.apply { 
+        binding.listProdukTrending.apply {
             setHasFixedSize(true)
             itemAnimator = DefaultItemAnimator()
             adapter = listTrendingAdapter

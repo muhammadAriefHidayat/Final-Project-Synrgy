@@ -25,6 +25,7 @@ class ListArticleAdapter(private val listArticle: List<Article>) : RecyclerView.
         with(binding){
             Glide.with(binding.root.context)
                 .load(article.photo)
+                .centerCrop()
                 .placeholder(R.drawable.article_herbal)
                 .into(imPerawatanKulit)
             tvPenjelasanPerawatanKulit.text = article.title

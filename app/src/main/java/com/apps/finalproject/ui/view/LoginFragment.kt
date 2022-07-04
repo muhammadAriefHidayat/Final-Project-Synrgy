@@ -1,21 +1,32 @@
 package com.apps.finalproject.ui.view
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.activity.viewModels
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.apps.finalproject.databinding.FragmentLoginBinding
+import com.apps.finalproject.model.LoginBody
+import com.apps.finalproject.ui.ViewModelFactory
+import com.apps.finalproject.ui.viewmodel.LoginViewModel
 import com.apps.finalproject.ui.viewmodel.ModelviewToken
 import com.apps.finalproject.utils.AppPref
+import com.apps.finalproject.utils.Utils
 import com.auth0.android.jwt.JWT
+import kotlin.math.log
 
 class LoginFragment : Fragment() {
     private lateinit var binding: FragmentLoginBinding
-    private lateinit var dataToken: ModelviewToken
+//    private lateinit var dataToken: ModelviewToken
+    private val loginViewModel : LoginViewModel by viewModels {
+        ViewModelFactory.getInstance(requireContext())
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -40,27 +51,37 @@ class LoginFragment : Fragment() {
                     binding.edtEmail.error = "Masukkan Password"
                 }
                 else -> {
-                    logoin(email, password)
+                    val loginBody = LoginBody(email,password)
+                    loginViewModel.Login(loginBody)
+                    loginViewModel.getToken().observe(requireActivity()) {
+                        Log.d("token0",it.token)
+                        if (it.token != ""){
+                            Log.d("token",it.token)
+                            startActivity(Intent(requireContext(),HomePageActivity::class.java))
+                        }else {
+                            Utils.peringatan(requireContext(),"password salah")
+                        }
+                    }
                 }
             }
         }
     }
 
-    fun logoin(username: String, password: String) {
-        Log.d("yang", "email $username")
-        dataToken = ViewModelProvider(this, ViewModelProvider.NewInstanceFactory()).get(
-            ModelviewToken::class.java
-        )
-        dataToken.setCurrentLogin(username, password, requireContext())
-        dataToken.getToken().observe(requireActivity(), Observer { token ->
-            if (token != null) {
-                val token = token.token
-                val jwt = JWT(token)
-                val uid = jwt.getClaim("userId")
-                val email = jwt.getClaim("userId")
-                AppPref.userId = uid.asString().toString()
-                Log.d("itoken", uid.asString().toString())
-            }
-        })
-    }
+//    fun logoin(username: String, password: String) {
+//        Log.d("yang", "email $username")
+//        dataToken = ViewModelProvider(this, ViewModelProvider.NewInstanceFactory()).get(
+//            ModelviewToken::class.java
+//        )
+//        dataToken.setCurrentLogin(username, password, requireContext())
+//        dataToken.getToken().observe(requireActivity(), Observer { token ->
+//            if (token != null) {
+//                val token = token.token
+//                val jwt = JWT(token)
+//                val uid = jwt.getClaim("userId")
+//                val email = jwt.getClaim("userId")
+//                AppPref.userId = uid.asString().toString()
+//                Log.d("itoken", uid.asString().toString())
+//            }
+//        })
+//    }
 }

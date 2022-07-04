@@ -17,6 +17,7 @@ class ListTrendingAdapter(private val listTrending: List<Trending>) : RecyclerVi
 
     private lateinit var binding: ItemListProdukTrendingBinding
 
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         binding = ItemListProdukTrendingBinding.inflate(
             LayoutInflater.from(parent.context), parent, false
@@ -26,15 +27,16 @@ class ListTrendingAdapter(private val listTrending: List<Trending>) : RecyclerVi
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val productTrending = listTrending[position]
-//        val variant = listVariant[position]
         with(binding){
             Glide.with(binding.root.context)
                 .load(productTrending.images[0])
+                .centerCrop()
                 .placeholder(R.drawable.article_herbal)
                 .into(imageView2)
             textView2.text = productTrending.brand.name
             tvNameProduk.text = productTrending.variant.toListVariant()[0].name
             textView3.text = productTrending.variant.toListVariant()[0].price.toString()
+            ratingBar2.rating = productTrending.average.toFloat()
         }
     }
 

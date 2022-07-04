@@ -24,10 +24,12 @@ class ModelviewToken : ViewModel() {
     fun setCurrentLogin(username: String, password: String, context: Context) {
         val client = AsyncHttpClient(true, 80, 443)
         val url = "https://cosmetic-b.herokuapp.com/api/v1/auth/login"
+
         val jsonParams = JSONObject()
         jsonParams.put("email", username);
         jsonParams.put("password", password);
         Log.d("yang0", jsonParams.toString())
+
         val entity = StringEntity(jsonParams.toString())
 
         client.post( context, url, entity, "application/json", object : TextHttpResponseHandler() {

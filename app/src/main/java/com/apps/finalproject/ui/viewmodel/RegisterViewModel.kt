@@ -5,10 +5,6 @@ import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import androidx.lifecycle.viewModelScope
-import com.apps.finalproject.data.repository.MainRepository
-import com.apps.finalproject.model.RegisterBody
-import com.apps.finalproject.model.Review
 import com.apps.finalproject.model.Token
 import com.apps.finalproject.model.User
 import com.apps.finalproject.utils.AppPref
@@ -17,28 +13,30 @@ import com.loopj.android.http.AsyncHttpClient
 import com.loopj.android.http.RequestParams
 import com.loopj.android.http.TextHttpResponseHandler
 import cz.msebera.android.httpclient.Header
-import kotlinx.coroutines.launch
+import cz.msebera.android.httpclient.HttpHeaders
+import cz.msebera.android.httpclient.entity.StringEntity
 import org.json.JSONObject
 
 class RegisterViewModel (): ViewModel() {
     private val listToken = MutableLiveData<ArrayList<Token>>()
 
     fun setRegister(username: String, password: String, user: User, context: Context){
-        val client = AsyncHttpClient()
+        val client = AsyncHttpClient(true, 80, 443)
         val url = "https://cosmetic-b.herokuapp.com/api/v1/auth/register"
         val dataToken  = ArrayList<Token>()
-        val params = RequestParams()
-        params.put("email", username);
-        params.put("password", password);
-        params.put("user", user);
+        val jsonParams = JSONObject()
+        jsonParams.put("email", username);
+        jsonParams.put("password", password);
+        jsonParams.put("user", user);
+        Log.d("yang0", jsonParams.toString())
+        val entity = StringEntity(jsonParams.toString())
 
-        client.post(url, params, object : TextHttpResponseHandler() {
+        client.post( context, url, entity, "application/json", object : TextHttpResponseHandler() {
             override fun onSuccess(statusCode: Int, headers: Array<out Header>,
                                    responseString: String) {
                 try {
                     AppPref.username = username
-//                    AppPref.password = password
-
+                    AppPref.pw = password
                     Log.d("yangini", responseString.toString())
                     val responseObject = JSONObject(responseString)
                     val id_token = Token()
@@ -46,7 +44,6 @@ class RegisterViewModel (): ViewModel() {
                     Log.d("yangini", id_token.token.toString())
                     dataToken.add(id_token)
                     listToken.postValue(dataToken)
-
                 } catch (e: Exception) {
                     Utils.peringatan(context, e.message.toString())
                 }
@@ -58,7 +55,7 @@ class RegisterViewModel (): ViewModel() {
                 responseString: String?,
                 throwable: Throwable?
             ) {
-                Utils.peringatan(context, "Username Atau Password Salah")
+                Log.d("yanginis", responseString.toString())
             }
         })
     }

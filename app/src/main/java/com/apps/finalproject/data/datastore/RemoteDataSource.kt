@@ -10,6 +10,20 @@ import kotlinx.coroutines.flow.flowOn
 
 class RemoteDataSource(private val apiServices: ApiServices) {
 
+    fun login(loginBody: LoginBody) = flow {
+        emit(apiServices.login(loginBody))
+    }.catch {
+        Log.d("login", "login: failed = ${it.message}")
+    }.flowOn(Dispatchers.IO)
+
+    fun register(registerBody: RegisterBody) = flow {
+        emit(apiServices.register(registerBody))
+    }.catch {
+        Log.d("register", "register: failed = ${it.message}")
+    }.flowOn(Dispatchers.IO)
+
+
+
     fun getReview() = flow<List<Review>> {
         apiServices.getReview().data.let {
             emit(it.toListReview())
@@ -18,11 +32,6 @@ class RemoteDataSource(private val apiServices: ApiServices) {
         Log.d("TAG", "getReview: failed = ${it.message}")
     }.flowOn(Dispatchers.IO)
 
-    fun register(registerBody: RegisterBody) = flow {
-        emit(apiServices.register(registerBody).data)
-    }.catch {
-        Log.d("register", "register: failed = ${it.message}")
-    }.flowOn(Dispatchers.IO)
 
     fun getArticle() = flow<List<Article>> {
         apiServices.getArticle().data.let {

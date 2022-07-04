@@ -17,16 +17,23 @@ class HomeViewModel(private val repository: MainRepository): ViewModel() {
     private var _productTrending = MutableLiveData<List<Trending>>()
     val trending : LiveData<List<Trending>> = _productTrending
 
+        private val _isLoading = MutableLiveData<Boolean>()
+        val isLoading: LiveData<Boolean> = _isLoading
+
     fun getArticle() = viewModelScope.launch {
+        _isLoading.value = true
         repository.getArticle().collect{
             _article.value = it
+            _isLoading.value = false
         }
     }
 
     fun getProductTrending() = viewModelScope.launch {
         repository.getProductTrending().collect{
+            _isLoading.value = true
             _productTrending.value = it
             Log.d("getTrending", trending.value.toString())
+            _isLoading.value = false
         }
     }
 }
