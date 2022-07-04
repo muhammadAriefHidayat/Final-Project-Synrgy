@@ -19,6 +19,7 @@ import com.apps.finalproject.ui.viewmodel.ModelviewToken
 import com.apps.finalproject.utils.AppPref
 import com.apps.finalproject.utils.Utils
 import com.auth0.android.jwt.JWT
+import kotlin.math.log
 
 class LoginFragment : Fragment() {
     private lateinit var binding: FragmentLoginBinding
@@ -53,7 +54,9 @@ class LoginFragment : Fragment() {
                     val loginBody = LoginBody(email,password)
                     loginViewModel.Login(loginBody)
                     loginViewModel.getToken().observe(requireActivity()) {
-                        if (it.token.toString() == ""){
+                        Log.d("token0",it.token)
+                        if (it.token != ""){
+                            Log.d("token",it.token)
                             startActivity(Intent(requireContext(),HomePageActivity::class.java))
                         }else {
                             Utils.peringatan(requireContext(),"password salah")

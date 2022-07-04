@@ -56,8 +56,8 @@ class RegisterFragment : Fragment() {
                     binding.edtPassword.error = "Masukkan Password"
                 }
                 else -> {
-                    val user = User(name,"")
-                    val dataUser = RegisterBody("kjlj",email,password,"ROLE_ADMIN",user)
+                    val user = User(name,"c")
+                    val dataUser = RegisterBody("",email,password,"ROLE_ADMIN",user)
                         register(email,password,user)
                 }
             }
