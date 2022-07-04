@@ -17,19 +17,22 @@
         android:theme="@style/Theme.FinalProject"
         tools:targetApi="31">
         <activity
-            android:name="com.apps.finalproject.ui.view.PaymentPages"
+            android:name=".ProfilActivity"
             android:exported="false" />
         <activity
-            android:name="com.apps.finalproject.ui.view.PaymentActivity"
+            android:name=".PaymentPages"
             android:exported="false" />
         <activity
-            android:name="com.apps.finalproject.ui.view.ArticleActivity"
+            android:name=".PaymentActivity"
             android:exported="false" />
         <activity
-            android:name="com.apps.finalproject.ui.view.HomePageActivity"
+            android:name=".ArticleActivity"
             android:exported="false" />
         <activity
-            android:name="com.apps.finalproject.ui.view.AuthActivity"
+            android:name=".HomePageActivity"
+            android:exported="false" />
+        <activity
+            android:name=".AuthActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

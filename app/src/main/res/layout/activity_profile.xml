@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.view.ProfileActivity">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar_top"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="@color/md_white_1000"
+        android:minHeight="?android:attr/actionBarSize"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/toolbar_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:fontFamily="@font/nunito_bold"
+            android:text="Profil"
+            android:textColor="@color/darkBrown"
+            android:textStyle="bold" />
+    </androidx.appcompat.widget.Toolbar>
+
+    <View
+        android:id="@+id/bg_profil"
+        android:layout_width="match_parent"
+        android:layout_height="185dp"
+        android:background="@drawable/bg_gradien_profil"
+        app:layout_constraintTop_toBottomOf="@id/toolbar_top" />
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/img_profil"
+        android:layout_width="65dp"
+        android:layout_height="65dp"
+        android:layout_marginTop="26dp"
+        android:src="@drawable/profil"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/bg_profil" />
+
+    <TextView
+        android:id="@+id/tv_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/space_10"
+        android:fontFamily="@font/nunito_bold"
+        android:text="Angle Yuli"
+        android:textColor="@color/textBlack"
+        android:textSize="12sp"
+        app:layout_constraintEnd_toEndOf="@+id/img_profil"
+        app:layout_constraintStart_toStartOf="@+id/img_profil"
+        app:layout_constraintTop_toBottomOf="@+id/img_profil" />
+
+    <TextView
+        android:id="@+id/tv_username"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:fontFamily="@font/nunito"
+        android:text="Angle Yuli"
+        android:textColor="@color/textBlack"
+        android:textSize="9sp"
+        app:layout_constraintEnd_toEndOf="@+id/img_profil"
+        app:layout_constraintStart_toStartOf="@+id/img_profil"
+        app:layout_constraintTop_toBottomOf="@+id/tv_name" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/appCompatButton2"
+        android:layout_width="74dp"
+        android:layout_height="@dimen/space_24"
+        android:layout_marginBottom="@dimen/space_12"
+        android:background="@drawable/item_rounded_edt"
+        android:fontFamily="@font/nunito_bold"
+        android:text="@string/ubah_profil"
+        android:textAllCaps="false"
+        android:textColor="@color/darkBrown"
+        android:textSize="10sp"
+        app:layout_constraintBottom_toBottomOf="@+id/bg_profil"
+        app:layout_constraintEnd_toEndOf="@+id/tv_username"
+        app:layout_constraintStart_toStartOf="@+id/tv_username"
+        tools:ignore="SmallSp" />
+
+    <View
+        android:id="@+id/user_group"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/space_90"
+        android:layout_marginHorizontal="@dimen/space_16"
+        android:layout_marginTop="@dimen/space_10"
+        android:background="@drawable/item_rounded_edt"
+        app:layout_constraintTop_toBottomOf="@id/bg_profil"
+        tools:layout_editor_absoluteX="16dp" />
+
+    <View
+        android:id="@+id/line"
+        android:layout_width="0dp"
+        android:layout_height="1dp"
+        android:background="@color/darkBrown"
+        app:layout_constraintBottom_toBottomOf="@+id/user_group"
+        app:layout_constraintEnd_toEndOf="@id/user_group"
+        app:layout_constraintStart_toStartOf="@id/user_group"
+        app:layout_constraintTop_toTopOf="@+id/user_group" />
+
+    <ImageView
+        android:id="@+id/img_email"
+        android:layout_width="14dp"
+        android:layout_height="12dp"
+        android:layout_marginStart="18dp"
+        android:scaleType="fitXY"
+        android:src="@drawable/ic_email"
+        app:layout_constraintBottom_toTopOf="@+id/line"
+        app:layout_constraintStart_toStartOf="@id/user_group"
+        app:layout_constraintTop_toTopOf="@id/user_group" />
+
+    <TextView
+        android:id="@+id/tv_email"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/space_12"
+        android:fontFamily="@font/nunito"
+        android:text="Angel@uuiui.com"
+        android:textColor="@color/md_black_1000"
+        android:textSize="@dimen/space_10"
+        app:layout_constraintBottom_toBottomOf="@+id/img_email"
+        app:layout_constraintStart_toEndOf="@+id/img_email"
+        app:layout_constraintTop_toTopOf="@+id/img_email" />
+
+
+    <ImageView
+        android:id="@+id/img_phone"
+        android:layout_width="14dp"
+        android:layout_height="12dp"
+        android:layout_marginStart="18dp"
+        android:scaleType="fitXY"
+        android:src="@drawable/ic_phone"
+        app:layout_constraintBottom_toBottomOf="@id/user_group"
+        app:layout_constraintStart_toStartOf="@id/user_group"
+        app:layout_constraintTop_toBottomOf="@+id/line" />
+
+    <TextView
+        android:id="@+id/tv_phone"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/space_12"
+        android:fontFamily="@font/nunito"
+        android:text="085809287479"
+        android:textColor="@color/md_black_1000"
+        android:textSize="@dimen/space_10"
+        app:="@+id/img_email"
+        app:layout_constraintBottom_toBottomOf="@+id/user_group"
+        app:layout_constraintStart_toEndOf="@+id/img_email"
+        app:layout_constraintTop_toBottomOf="@+id/line" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_profil"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/space_16"
+        android:layout_marginTop="15dp"
+        app:layout_constraintTop_toBottomOf="@id/user_group" />
+</androidx.constraintlayout.widget.ConstraintLayout>

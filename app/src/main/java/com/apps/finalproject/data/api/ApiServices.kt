@@ -16,10 +16,11 @@ interface ApiServices {
         @Body loginBody : LoginBody
     ): Call<LoginResponse>
 
+    @Headers("Content-Type: application/json")
     @POST("/api/v1/auth/register")
     fun register(
         @Body register: RegisterBody
-    ): RegisterResponse
+    ): Call<RegisterResponse>
 
     @GET("/api/v1/review")
     suspend fun getReview(
