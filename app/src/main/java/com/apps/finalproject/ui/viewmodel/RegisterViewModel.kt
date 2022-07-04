@@ -5,10 +5,6 @@ import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import androidx.lifecycle.viewModelScope
-import com.apps.finalproject.data.repository.MainRepository
-import com.apps.finalproject.model.RegisterBody
-import com.apps.finalproject.model.Review
 import com.apps.finalproject.model.Token
 import com.apps.finalproject.model.User
 import com.apps.finalproject.utils.AppPref
@@ -17,7 +13,7 @@ import com.loopj.android.http.AsyncHttpClient
 import com.loopj.android.http.RequestParams
 import com.loopj.android.http.TextHttpResponseHandler
 import cz.msebera.android.httpclient.Header
-import kotlinx.coroutines.launch
+import cz.msebera.android.httpclient.HttpHeaders
 import org.json.JSONObject
 
 class RegisterViewModel (): ViewModel() {
@@ -31,14 +27,14 @@ class RegisterViewModel (): ViewModel() {
         params.put("email", username);
         params.put("password", password);
         params.put("user", user);
-
+        client.addHeader(HttpHeaders.CONTENT_TYPE, "application/json")
         client.post(url, params, object : TextHttpResponseHandler() {
+
             override fun onSuccess(statusCode: Int, headers: Array<out Header>,
                                    responseString: String) {
                 try {
                     AppPref.username = username
-//                    AppPref.password = password
-
+                    AppPref.pw = password
                     Log.d("yangini", responseString.toString())
                     val responseObject = JSONObject(responseString)
                     val id_token = Token()
@@ -46,7 +42,6 @@ class RegisterViewModel (): ViewModel() {
                     Log.d("yangini", id_token.token.toString())
                     dataToken.add(id_token)
                     listToken.postValue(dataToken)
-
                 } catch (e: Exception) {
                     Utils.peringatan(context, e.message.toString())
                 }
