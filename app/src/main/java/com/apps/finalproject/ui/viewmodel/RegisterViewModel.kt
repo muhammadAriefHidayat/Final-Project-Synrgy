@@ -14,22 +14,24 @@ import com.loopj.android.http.RequestParams
 import com.loopj.android.http.TextHttpResponseHandler
 import cz.msebera.android.httpclient.Header
 import cz.msebera.android.httpclient.HttpHeaders
+import cz.msebera.android.httpclient.entity.StringEntity
 import org.json.JSONObject
 
 class RegisterViewModel (): ViewModel() {
     private val listToken = MutableLiveData<ArrayList<Token>>()
 
     fun setRegister(username: String, password: String, user: User, context: Context){
-        val client = AsyncHttpClient()
+        val client = AsyncHttpClient(true, 80, 443)
         val url = "https://cosmetic-b.herokuapp.com/api/v1/auth/register"
         val dataToken  = ArrayList<Token>()
-        val params = RequestParams()
-        params.put("email", username);
-//        params.put("password", password);
-//        params.put("user", user);
-        client.addHeader(HttpHeaders.CONTENT_TYPE, "application/json")
-        client.post(url, params, object : TextHttpResponseHandler() {
+        val jsonParams = JSONObject()
+        jsonParams.put("email", username);
+        jsonParams.put("password", password);
+        jsonParams.put("user", user);
+        Log.d("yang0", jsonParams.toString())
+        val entity = StringEntity(jsonParams.toString())
 
+        client.post( context, url, entity, "application/json", object : TextHttpResponseHandler() {
             override fun onSuccess(statusCode: Int, headers: Array<out Header>,
                                    responseString: String) {
                 try {
@@ -53,7 +55,7 @@ class RegisterViewModel (): ViewModel() {
                 responseString: String?,
                 throwable: Throwable?
             ) {
-                Utils.peringatan(context, "Username Atau Password Salah")
+                Log.d("yanginis", responseString.toString())
             }
         })
     }
