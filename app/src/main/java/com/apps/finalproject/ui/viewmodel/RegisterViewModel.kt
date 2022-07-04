@@ -25,8 +25,8 @@ class RegisterViewModel (): ViewModel() {
         val dataToken  = ArrayList<Token>()
         val params = RequestParams()
         params.put("email", username);
-        params.put("password", password);
-        params.put("user", user);
+//        params.put("password", password);
+//        params.put("user", user);
         client.addHeader(HttpHeaders.CONTENT_TYPE, "application/json")
         client.post(url, params, object : TextHttpResponseHandler() {
 
