@@ -87,4 +87,5 @@
     <string name="description">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Eu augue ut lectus arcu bibendum at varius vel pharetra.</string>
     <string name="Wardah">Brand</string>
     <string name="ubah_profil">Ubah Profil</string>
+    <string name="logout">Logout</string>
 </resources>
