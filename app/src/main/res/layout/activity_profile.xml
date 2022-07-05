@@ -136,7 +136,7 @@
         android:fontFamily="@font/nunito"
         android:text="Angel@uuiui.com"
         android:textColor="@color/md_black_1000"
-        android:textSize="@dimen/space_10"
+        android:textSize="10sp"
         app:layout_constraintBottom_toBottomOf="@+id/img_email"
         app:layout_constraintStart_toEndOf="@+id/img_email"
         app:layout_constraintTop_toTopOf="@+id/img_email" />
@@ -161,7 +161,7 @@
         android:fontFamily="@font/nunito"
         android:text="085809287479"
         android:textColor="@color/md_black_1000"
-        android:textSize="@dimen/space_10"
+        android:textSize="10sp"
         app:layout_constraintBottom_toBottomOf="@+id/user_group"
         app:layout_constraintStart_toEndOf="@+id/img_email"
         app:layout_constraintTop_toBottomOf="@+id/line" />
