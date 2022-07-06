@@ -1,21 +1,18 @@
-package com.apps.finalproject.ui.view
+package com.apps.finalproject.ui.home
 
-import Variant
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.DefaultItemAnimator
-import com.apps.finalproject.R
 import com.apps.finalproject.databinding.FragmentHomeBinding
-import com.apps.finalproject.model.Article
-import com.apps.finalproject.model.Trending
+import com.apps.finalproject.remote.model.Article
+import com.apps.finalproject.remote.model.Trending
 import com.apps.finalproject.ui.ViewModelFactory
-import com.apps.finalproject.ui.adapter.ListArticleAdapter
 import com.apps.finalproject.ui.adapter.ListTrendingAdapter
-import com.apps.finalproject.ui.viewmodel.HomeViewModel
+import com.apps.finalproject.ui.article.ListArticleAdapter
 
 class HomeFragment : Fragment() {
 

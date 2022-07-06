@@ -1,8 +1,8 @@
 package com.apps.finalproject.data.api
 
-import com.apps.finalproject.model.LoginBody
-import com.apps.finalproject.model.RegisterBody
-import com.apps.finalproject.model.response.*
+import com.apps.finalproject.remote.body.LoginBody
+import com.apps.finalproject.remote.body.RegisterBody
+import com.apps.finalproject.remote.response.*
 import retrofit2.Call
 import retrofit2.http.Body
 import retrofit2.http.GET

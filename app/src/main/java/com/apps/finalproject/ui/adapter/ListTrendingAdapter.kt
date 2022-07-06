@@ -1,16 +1,15 @@
 package com.apps.finalproject.ui.adapter
 
-import Variant
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.apps.finalproject.R
 import com.apps.finalproject.databinding.ItemListProdukTrendingBinding
-import com.apps.finalproject.model.Trending
+import com.apps.finalproject.remote.model.Trending
+import com.apps.finalproject.remote.model.toListVariant
 import com.apps.finalproject.ui.adapter.ListTrendingAdapter.*
 import com.bumptech.glide.Glide
-import toListVariant
 
 class ListTrendingAdapter(private val listTrending: List<Trending>) : RecyclerView.Adapter<ViewHolder>() {
     class ViewHolder(view: View) : RecyclerView.ViewHolder(view)

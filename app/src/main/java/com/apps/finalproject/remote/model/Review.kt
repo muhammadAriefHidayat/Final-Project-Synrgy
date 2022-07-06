@@ -1,7 +1,7 @@
-package com.apps.finalproject.model
+package com.apps.finalproject.remote.model
 
 import android.os.Parcelable
-import com.apps.finalproject.model.response.ReviewUserResponse
+import com.apps.finalproject.remote.response.ReviewUserResponse
 import kotlinx.android.parcel.Parcelize
 
 @Parcelize

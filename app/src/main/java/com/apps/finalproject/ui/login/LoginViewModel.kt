@@ -1,4 +1,4 @@
-package com.apps.finalproject.ui.viewmodel
+package com.apps.finalproject.ui.login
 
 import android.util.Log
 import androidx.lifecycle.LiveData
@@ -6,9 +6,9 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.apps.finalproject.data.repository.MainRepository
-import com.apps.finalproject.model.LoginBody
-import com.apps.finalproject.model.Token
-import com.apps.finalproject.model.response.LoginResponse
+import com.apps.finalproject.remote.body.LoginBody
+import com.apps.finalproject.remote.model.Token
+import com.apps.finalproject.remote.response.LoginResponse
 import com.apps.finalproject.utils.AppPref
 import com.auth0.android.jwt.JWT
 import kotlinx.coroutines.launch

@@ -1,9 +1,7 @@
-package com.apps.finalproject.model
+package com.apps.finalproject.remote.model
 
-import android.os.Parcelable
-import com.apps.finalproject.model.response.*
-import com.apps.finalproject.model.response.Brand
-import kotlinx.parcelize.Parcelize
+import com.apps.finalproject.remote.response.*
+import com.apps.finalproject.remote.response.Brand
 
 
 data class Trending(

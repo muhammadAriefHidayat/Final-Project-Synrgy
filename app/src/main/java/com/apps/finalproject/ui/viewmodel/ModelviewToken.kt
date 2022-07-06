@@ -6,9 +6,8 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.apps.finalproject.data.api.ApiServices
-import com.apps.finalproject.model.Token
+import com.apps.finalproject.remote.model.Token
 import com.apps.finalproject.utils.Utils.peringatan
-import com.google.gson.JsonObject
 import com.loopj.android.http.AsyncHttpClient
 import com.loopj.android.http.TextHttpResponseHandler
 import cz.msebera.android.httpclient.Header

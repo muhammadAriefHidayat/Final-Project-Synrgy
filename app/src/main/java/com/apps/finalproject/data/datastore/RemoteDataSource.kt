@@ -2,7 +2,10 @@ package com.apps.finalproject.data.datastore
 
 import android.util.Log
 import com.apps.finalproject.data.api.ApiServices
-import com.apps.finalproject.model.*
+import com.apps.finalproject.remote.*
+import com.apps.finalproject.remote.body.LoginBody
+import com.apps.finalproject.remote.body.RegisterBody
+import com.apps.finalproject.remote.model.*
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.catch
 import kotlinx.coroutines.flow.flow
