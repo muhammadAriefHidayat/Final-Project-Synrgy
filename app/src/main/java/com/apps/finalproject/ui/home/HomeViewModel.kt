@@ -1,4 +1,4 @@
-package com.apps.finalproject.ui.viewmodel
+package com.apps.finalproject.ui.home
 
 import android.util.Log
 import androidx.lifecycle.LiveData
@@ -6,8 +6,8 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.apps.finalproject.data.repository.MainRepository
-import com.apps.finalproject.model.Article
-import com.apps.finalproject.model.Trending
+import com.apps.finalproject.remote.model.Article
+import com.apps.finalproject.remote.model.Trending
 import kotlinx.coroutines.launch
 
 class HomeViewModel(private val repository: MainRepository): ViewModel() {

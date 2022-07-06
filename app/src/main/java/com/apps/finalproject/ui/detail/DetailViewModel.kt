@@ -1,4 +1,4 @@
-package com.apps.finalproject.ui.viewmodel
+package com.apps.finalproject.ui.detail
 
 import android.util.Log
 import androidx.lifecycle.LiveData
@@ -6,8 +6,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.apps.finalproject.data.repository.MainRepository
-import com.apps.finalproject.model.Review
-import com.apps.finalproject.model.response.ReviewResponse
+import com.apps.finalproject.remote.model.Review
 import kotlinx.coroutines.launch
 
 class DetailViewModel (private val repository: MainRepository): ViewModel(){

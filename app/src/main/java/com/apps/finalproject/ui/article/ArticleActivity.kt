@@ -1,4 +1,4 @@
-package com.apps.finalproject.ui.view
+package com.apps.finalproject.ui.article
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle

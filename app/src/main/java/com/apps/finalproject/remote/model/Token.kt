@@ -1,4 +1,4 @@
-package com.apps.finalproject.model
+package com.apps.finalproject.remote.model
 
 import android.os.Parcelable
 import kotlinx.android.parcel.Parcelize

@@ -1,4 +1,4 @@
-package com.apps.finalproject.ui.view
+package com.apps.finalproject.ui.detail
 
 import android.os.Bundle
 import android.util.Log
@@ -7,18 +7,11 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.viewModels
-import androidx.navigation.Navigation
 import androidx.recyclerview.widget.DefaultItemAnimator
-import androidx.recyclerview.widget.LinearLayoutManager
-import com.apps.finalproject.R
 import com.apps.finalproject.databinding.FragmentDetailBinding
-import com.apps.finalproject.model.Review
-import com.apps.finalproject.model.Trending
-import com.apps.finalproject.model.response.ReviewResponse
+import com.apps.finalproject.remote.model.Review
 import com.apps.finalproject.ui.ViewModelFactory
 import com.apps.finalproject.ui.adapter.ListReviewAdapter
-import com.apps.finalproject.ui.viewmodel.DetailViewModel
-import com.bumptech.glide.Glide
 
 class DetailFragment : Fragment() {
 

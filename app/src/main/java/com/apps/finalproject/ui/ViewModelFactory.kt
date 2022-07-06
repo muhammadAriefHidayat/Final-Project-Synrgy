@@ -5,9 +5,9 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.apps.finalproject.data.repository.MainRepository
 import com.apps.finalproject.di.Injection
-import com.apps.finalproject.ui.viewmodel.DetailViewModel
-import com.apps.finalproject.ui.viewmodel.HomeViewModel
-import com.apps.finalproject.ui.viewmodel.LoginViewModel
+import com.apps.finalproject.ui.detail.DetailViewModel
+import com.apps.finalproject.ui.home.HomeViewModel
+import com.apps.finalproject.ui.login.LoginViewModel
 import java.lang.IllegalArgumentException
 
 class ViewModelFactory (private val mainRepository: MainRepository) : ViewModelProvider.NewInstanceFactory(){

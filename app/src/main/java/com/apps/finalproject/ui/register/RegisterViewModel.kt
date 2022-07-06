@@ -1,19 +1,16 @@
-package com.apps.finalproject.ui.viewmodel
+package com.apps.finalproject.ui.register
 
 import android.content.Context
 import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.apps.finalproject.model.Token
-import com.apps.finalproject.model.User
+import com.apps.finalproject.remote.model.Token
 import com.apps.finalproject.utils.AppPref
 import com.apps.finalproject.utils.Utils
 import com.loopj.android.http.AsyncHttpClient
-import com.loopj.android.http.RequestParams
 import com.loopj.android.http.TextHttpResponseHandler
 import cz.msebera.android.httpclient.Header
-import cz.msebera.android.httpclient.HttpHeaders
 import cz.msebera.android.httpclient.entity.StringEntity
 import org.json.JSONObject
 

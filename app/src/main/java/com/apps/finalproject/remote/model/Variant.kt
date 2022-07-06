@@ -1,7 +1,7 @@
+package com.apps.finalproject.remote.model
+
 import android.os.Parcelable
-import com.apps.finalproject.model.Trending
-import com.apps.finalproject.model.response.ListTrendingResponse
-import com.apps.finalproject.model.response.ListVariantResponse
+import com.apps.finalproject.remote.response.ListVariantResponse
 import kotlinx.parcelize.Parcelize
 
 @Parcelize

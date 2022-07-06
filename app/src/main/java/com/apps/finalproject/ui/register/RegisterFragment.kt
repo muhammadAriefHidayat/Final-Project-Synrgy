@@ -1,23 +1,16 @@
-package com.apps.finalproject.ui.view
+package com.apps.finalproject.ui.register
 
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
-import com.apps.finalproject.data.api.ApiServices
+import androidx.navigation.Navigation
+import com.apps.finalproject.R
 import com.apps.finalproject.databinding.FragmentRegisterBinding
-import com.apps.finalproject.model.RegisterBody
-import com.apps.finalproject.model.User
-import com.apps.finalproject.model.response.RegisterResponse
-import com.apps.finalproject.ui.ViewModelFactory
-import com.apps.finalproject.ui.viewmodel.DetailViewModel
-import com.apps.finalproject.ui.viewmodel.ModelviewToken
-import com.apps.finalproject.ui.viewmodel.RegisterViewModel
+import com.apps.finalproject.remote.model.User
 import com.apps.finalproject.utils.AppPref
 import org.json.JSONObject
 import kotlin.random.Random
@@ -41,6 +34,9 @@ class RegisterFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        binding.tvMasuk.setOnClickListener(
+            Navigation.createNavigateOnClickListener(R.id.action_registerFragment_to_loginFragment)
+        )
         binding.btnDaftar.setOnClickListener {
 
             val name = binding.edtName.text.toString()
