@@ -17,7 +17,7 @@
         android:theme="@style/Theme.FinalProject"
         tools:targetApi="31">
         <activity
-            android:name=".ui.view.ProfileActivity"
+            android:name=".ui.view.AuthActivity"
             android:exported="false" />
 
         <activity
@@ -27,7 +27,7 @@
             android:name=".ui.view.HomePageActivity"
             android:exported="false" />
         <activity
-            android:name=".ui.view.AuthActivity"
+            android:name=".ui.view.ProfileActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
