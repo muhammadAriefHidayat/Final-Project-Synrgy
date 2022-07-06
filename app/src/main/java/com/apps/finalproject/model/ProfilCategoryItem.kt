@@ -10,11 +10,10 @@ object ProfilCategoryItem {
         get() = Gson().fromJson(
             profilItems,
             object : TypeToken<ArrayList<ProfilItem>>() {
-
             }.type
         )
 
-    private var profilItems = "[\n" +
+    var profilItems = "[\n" +
             "  {\n" +
             "    \"img\":\"ic_marker\",\n" +
             "    \"itemProfil\":\"Daftar Alamat\"\n" +
