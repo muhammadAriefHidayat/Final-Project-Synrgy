@@ -5,8 +5,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.apps.finalproject.databinding.ItemListReviewsBinding
-import com.apps.finalproject.model.Review
-import com.apps.finalproject.model.response.ReviewResponse
+import com.apps.finalproject.remote.model.Review
 import com.bumptech.glide.Glide
 
 class ListReviewAdapter(private val listReview: List<Review>) : RecyclerView.Adapter<ListReviewAdapter.ViewHolder>() {

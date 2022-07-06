@@ -1,5 +1,6 @@
-package com.apps.finalproject.model
+package com.apps.finalproject.remote.body
 
+import com.apps.finalproject.remote.model.User
 import com.google.gson.annotations.SerializedName
 
 data class RegisterBody(

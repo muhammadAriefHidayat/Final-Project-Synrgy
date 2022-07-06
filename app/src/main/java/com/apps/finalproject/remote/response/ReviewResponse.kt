@@ -1,6 +1,5 @@
-package com.apps.finalproject.model.response
+package com.apps.finalproject.remote.response
 
-import com.apps.finalproject.model.Review
 import com.google.gson.annotations.SerializedName
 
 data class ReviewResponse(

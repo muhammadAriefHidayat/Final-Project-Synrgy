@@ -1,4 +1,4 @@
-package com.apps.finalproject.model
+package com.apps.finalproject.remote.body
 
 import com.google.gson.annotations.SerializedName
 

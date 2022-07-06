@@ -21,7 +21,7 @@
             android:exported="false" />
 
         <activity
-            android:name=".ui.view.ArticleActivity"
+            android:name=".ui.article.ArticleActivity"
             android:exported="false" />
         <activity
             android:name=".ui.view.HomePageActivity"
