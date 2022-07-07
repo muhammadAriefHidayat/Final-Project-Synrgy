@@ -1,28 +1,29 @@
 package com.apps.finalproject.remote.model
 
+import android.os.Parcelable
 import com.apps.finalproject.remote.response.*
-import com.apps.finalproject.remote.response.Brand
+import kotlinx.parcelize.Parcelize
 
-
+@Parcelize
 data class Trending(
-	val average: Double,
-	val images: List<String>,
-	val isOrganic: Boolean,
-	val variant: List<ListVariantResponse>,
-	val name: String,
-	val id: String,
-	val brand: Brand
-)
+	val average: Double?,
+	val images: List<String>?,
+	val isOrganic: Boolean?,
+	val variant: List<Variant>?,
+	val name: String?,
+	val id: String?,
+	val brand: Brand?
+): Parcelable
 
 fun ListTrendingResponse.toTrending() : Trending {
 	return Trending(
-		average = this.average,
-		images = this.images,
-		isOrganic = this.isOrganic,
-		variant = this.variant,
-		name = this.name,
-		id = this.id,
-		brand = this.brand
+		average = this?.average,
+		images = this?.images,
+		isOrganic = this?.isOrganic,
+		variant = this?.variant.toListVariant(),
+		name = this?.name,
+		id = this?.id,
+		brand = this?.brand.toBrand()
 	)
 }
 
