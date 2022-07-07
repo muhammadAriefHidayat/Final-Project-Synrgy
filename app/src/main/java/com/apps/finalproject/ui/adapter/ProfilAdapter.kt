@@ -1,11 +1,10 @@
 package com.apps.finalproject.ui.adapter
 
 import android.content.Context
-import android.util.Log
 import android.widget.ImageView
 import android.widget.TextView
 import com.apps.finalproject.R
-import com.apps.finalproject.model.ProfilItem
+import com.apps.finalproject.remote.model.ProfilItem
 import com.apps.finalproject.utils.Utils
 import com.bumptech.glide.Glide
 import com.xwray.groupie.GroupieViewHolder
@@ -21,7 +20,10 @@ class ProfilAdapter(val profilItem: ProfilItem, val context: Context) : Item<Gro
             .load(idDrawable)
             .placeholder(R.drawable.home)
             .into(imge);
-        viewHolder.itemView.findViewById<TextView>(R.id.tv_email_profil).text =  profilItem.itemProfil.toString()
+        viewHolder.itemView.findViewById<TextView>(R.id.tv_email_profil).text =  profilItem.itemProfil
+        viewHolder.itemView.setOnClickListener {
+            context.startActivity(profilItem.intent)
+        }
     }
 
     override fun getLayout(): Int {
