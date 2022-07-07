@@ -8,7 +8,9 @@
         android:id="@+id/homeFragment"
         android:name="com.apps.finalproject.ui.home.HomeFragment"
         android:label="fragment_home"
-        tools:layout="@layout/fragment_home" >
+        tools:layout="@layout/fragment_home">
+        <argument android:name="item"
+            app:argType="com.apps.finalproject.remote.model.Trending"/>
         <action
             android:id="@+id/action_homeFragment_to_detailFragment"
             app:destination="@id/detailFragment" />
