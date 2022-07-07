@@ -1,5 +1,6 @@
 package com.apps.finalproject.model
 
+import com.apps.finalproject.remote.model.ProfilItem
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
 

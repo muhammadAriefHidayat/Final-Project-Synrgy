@@ -17,17 +17,26 @@
         android:theme="@style/Theme.FinalProject"
         tools:targetApi="31">
         <activity
+            android:name=".VoucerActivity"
+            android:exported="false" />
+        <activity
+            android:name=".RiwayatPembelianActivity"
+            android:exported="false" />
+        <activity
+            android:name=".DaftarAlamatActivity"
+            android:exported="false" />
+        <activity
             android:name=".ui.view.AuthActivity"
             android:exported="false" />
-
         <activity
             android:name=".ui.article.ArticleActivity"
             android:exported="false" />
         <activity
-            android:name=".ui.view.HomePageActivity"
-            android:exported="false" />
-        <activity
             android:name=".ui.view.ProfileActivity"
+            android:exported="false"
+            android:theme="@style/Theme.FinalProject.White" />
+        <activity
+            android:name=".ui.view.HomePageActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

@@ -177,6 +177,7 @@
         app:layout_constraintTop_toBottomOf="@+id/user_group" />
 
     <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btn_logout_profile"
         android:layout_marginBottom="@dimen/space_28"
         android:layout_marginHorizontal="18dp"
         android:text="@string/logout"
