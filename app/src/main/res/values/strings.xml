@@ -88,4 +88,6 @@
     <string name="Wardah">Brand</string>
     <string name="ubah_profil">Ubah Profil</string>
     <string name="logout">Logout</string>
+    <string name="no_handphone">Nomor Handphone</string>
+    <string name="ubah_password">Ubah Password</string>
 </resources>
