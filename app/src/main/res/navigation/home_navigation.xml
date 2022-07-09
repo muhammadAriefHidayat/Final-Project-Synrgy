@@ -6,9 +6,15 @@
     app:startDestination="@id/homeFragment">
     <fragment
         android:id="@+id/homeFragment"
-        android:name="com.apps.finalproject.ui.view.HomeFragment"
+        android:name="com.apps.finalproject.ui.home.HomeFragment"
         android:label="fragment_home"
-        tools:layout="@layout/fragment_home" />
+        tools:layout="@layout/fragment_home">
+        <argument android:name="item"
+            app:argType="com.apps.finalproject.remote.model.Trending"/>
+        <action
+            android:id="@+id/action_homeFragment_to_detailFragment"
+            app:destination="@id/detailFragment" />
+    </fragment>
     <fragment
         android:id="@+id/addReviewFragment"
         android:name="com.apps.finalproject.ui.view.AddReviewFragment"
@@ -26,11 +32,8 @@
         tools:layout="@layout/fragment_my_profile" />
     <fragment
         android:id="@+id/detailFragment"
-        android:name="com.apps.finalproject.ui.view.DetailFragment"
+        android:name="com.apps.finalproject.ui.detail.DetailFragment"
         android:label="fragment_detail"
         tools:layout="@layout/fragment_detail">
-        <action
-            android:id="@+id/action_detailFragment_to_addReviewFragment"
-            app:destination="@id/addReviewFragment" />
     </fragment>
 </navigation>

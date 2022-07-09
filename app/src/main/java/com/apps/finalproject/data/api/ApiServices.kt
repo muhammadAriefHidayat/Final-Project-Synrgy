@@ -1,13 +1,11 @@
 package com.apps.finalproject.data.api
 
-import com.apps.finalproject.model.LoginBody
-import com.apps.finalproject.model.RegisterBody
-import com.apps.finalproject.model.response.*
+import com.apps.finalproject.remote.body.LoginBody
+import com.apps.finalproject.remote.body.RegisterBody
+import com.apps.finalproject.remote.model.Brand
+import com.apps.finalproject.remote.response.*
 import retrofit2.Call
-import retrofit2.http.Body
-import retrofit2.http.GET
-import retrofit2.http.Headers
-import retrofit2.http.POST
+import retrofit2.http.*
 
 interface ApiServices {
     @Headers("Content-Type: application/json")
@@ -31,4 +29,9 @@ interface ApiServices {
 
     @GET("/api/v1/product/q/trending")
     suspend fun getTrending() : TrendingResponse
+
+    @GET("/api/v1/product/{id}")
+    suspend fun getDetailTrending(
+        @Path("productId") productId: String
+    ): ListTrendingResponse
 }

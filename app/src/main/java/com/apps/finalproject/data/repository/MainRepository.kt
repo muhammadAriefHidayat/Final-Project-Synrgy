@@ -1,8 +1,8 @@
 package com.apps.finalproject.data.repository
 
 import com.apps.finalproject.data.datastore.RemoteDataSource
-import com.apps.finalproject.model.LoginBody
-import com.apps.finalproject.model.RegisterBody
+import com.apps.finalproject.remote.body.LoginBody
+import com.apps.finalproject.remote.body.RegisterBody
 
 class MainRepository (private val remoteDataSource: RemoteDataSource){
     fun register(registerBody: RegisterBody) = remoteDataSource.register(registerBody)
@@ -10,4 +10,5 @@ class MainRepository (private val remoteDataSource: RemoteDataSource){
     fun getReview() = remoteDataSource.getReview()
     fun getArticle() = remoteDataSource.getArticle()
     fun getProductTrending() = remoteDataSource.getProductTrending()
+    fun getDetailTrending(productId: String) = remoteDataSource.getDetailTrending(productId)
 }

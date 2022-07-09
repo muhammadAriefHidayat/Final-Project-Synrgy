@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_margin="@dimen/space_12"
-    tools:context=".ui.view.DetailFragment">
+    tools:context=".ui.detail.DetailFragment">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -84,6 +84,7 @@
             app:layout_constraintTop_toBottomOf="@id/tv_detail_produk">
 
             <TextView
+                android:id="@+id/tv_quantity"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginRight="@dimen/space_16"
