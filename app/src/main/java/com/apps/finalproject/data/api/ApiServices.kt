@@ -2,6 +2,7 @@ package com.apps.finalproject.data.api
 
 import com.apps.finalproject.remote.body.LoginBody
 import com.apps.finalproject.remote.body.RegisterBody
+import com.apps.finalproject.remote.model.Review
 import com.apps.finalproject.remote.response.*
 import retrofit2.Call
 import retrofit2.http.Body
@@ -10,6 +11,12 @@ import retrofit2.http.Headers
 import retrofit2.http.POST
 
 interface ApiServices {
+    @Headers("Content-Type: application/json")
+    @POST("/api/v1/review")
+    fun addReview(
+        @Body review :Review
+    ): Call<LoginResponse>
+
     @Headers("Content-Type: application/json")
     @POST("/api/v1/auth/login")
     fun login(

@@ -15,7 +15,7 @@
     </fragment>
     <fragment
         android:id="@+id/addReviewFragment"
-        android:name="com.apps.finalproject.ui.view.AddReviewFragment"
+        android:name="com.apps.finalproject.ui.review.AddReviewFragment"
         android:label="fragment_order"
         tools:layout="@layout/fragment_add_review" />
     <fragment

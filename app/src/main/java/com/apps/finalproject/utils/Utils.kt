@@ -143,9 +143,8 @@ object Utils {
      */
     fun progressToTimer(progress: Int, totalDuration: Int): Int {
         var totalDuration = totalDuration
-        val currentDuration: Int
-        totalDuration = totalDuration / 1000
-        currentDuration = (progress.toDouble() / 100 * totalDuration).toInt()
+        totalDuration /= 1000
+        val currentDuration: Int = (progress.toDouble() / 100 * totalDuration).toInt()
 
         // return current duration in milliseconds
         return currentDuration * 1000
