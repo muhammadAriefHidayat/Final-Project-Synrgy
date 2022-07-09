@@ -1,4 +1,4 @@
-package com.apps.finalproject.ui.view
+package com.apps.finalproject.ui.cart
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment

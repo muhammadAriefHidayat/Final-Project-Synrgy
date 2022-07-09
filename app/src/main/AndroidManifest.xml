@@ -16,17 +16,23 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.FinalProject"
         tools:targetApi="31">
+
         <activity
-            android:name=".EditProfileActivity"
+            android:screenOrientation="portrait"
+            android:name="com.theartofdev.edmodo.cropper.CropImageActivity"
+            android:theme="@style/Base.Theme.AppCompat" />
+
+        <activity
+            android:name=".ui.view.EditProfileActivity"
             android:exported="false" />
         <activity
-            android:name=".VoucerActivity"
+            android:name=".ui.view.VoucerActivity"
             android:exported="false" />
         <activity
-            android:name=".RiwayatPembelianActivity"
+            android:name=".ui.view.RiwayatPembelianActivity"
             android:exported="false" />
         <activity
-            android:name=".DaftarAlamatActivity"
+            android:name=".ui.view.DaftarAlamatActivity"
             android:exported="false" />
         <activity
             android:name=".ui.view.AuthActivity"
