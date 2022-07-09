@@ -17,7 +17,7 @@ data class TrendingResponse(
 	val status: String
 )
 
-data class Brand(
+data class BrandResponse(
 
 	@field:SerializedName("name")
 	val name: String,
@@ -74,5 +74,5 @@ data class ListTrendingResponse(
 	val id: String,
 
 	@field:SerializedName("brand")
-	val brand: Brand
+	val brand: BrandResponse
 )
