@@ -41,7 +41,9 @@ class AddReviewFragment : Fragment() {
                 startActivityForResult(Intent.createChooser(intentGalery, "Pilih foto"), 0)
             }
             addPhoto2.setOnClickListener {
-
+                val intentGalery = Intent(Intent.ACTION_PICK)
+                intentGalery.type = "image/*"
+                startActivityForResult(Intent.createChooser(intentGalery, "Pilih foto"), 3)
             }
         }
     }
