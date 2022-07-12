@@ -14,17 +14,19 @@
         <action
             android:id="@+id/action_homeFragment_to_detailFragment"
             app:destination="@id/detailFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_beautyFeedFragment2"
+            app:destination="@id/beautyFeedFragment" />
     </fragment>
-    <fragment
-        android:id="@+id/addReviewFragment"
-        android:name="com.apps.finalproject.ui.review.AddReviewFragment"
-        android:label="fragment_order"
-        tools:layout="@layout/fragment_add_review" />
     <fragment
         android:id="@+id/beautyFeedFragment"
         android:name="com.apps.finalproject.ui.view.BeautyFeedFragment"
         android:label="fragment_beauty_feed"
-        tools:layout="@layout/fragment_beauty_feed" />
+        tools:layout="@layout/fragment_beauty_feed" >
+        <action
+            android:id="@+id/action_beautyFeedFragment_to_orderFragment2"
+            app:destination="@id/orderFragment2" />
+    </fragment>
     <fragment
         android:id="@+id/myProfileFragment"
         android:name="com.apps.finalproject.ui.view.MyProfileFragment"
@@ -36,4 +38,9 @@
         android:label="fragment_detail"
         tools:layout="@layout/fragment_detail">
     </fragment>
+    <fragment
+        android:id="@+id/orderFragment2"
+        android:name="com.apps.finalproject.ui.view.OrderFragment"
+        android:label="fragment_order"
+        tools:layout="@layout/fragment_order" />
 </navigation>
