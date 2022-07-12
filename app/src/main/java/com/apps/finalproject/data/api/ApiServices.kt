@@ -41,4 +41,9 @@ interface ApiServices {
     suspend fun getDetailTrending(
         @Path("productId") productId: String
     ): ListTrendingResponse
+
+    @GET("/api/v1/product/p")
+    suspend fun searchProduct(
+        @Query("q") name: String
+    ): TrendingResponse
 }
