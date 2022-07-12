@@ -23,7 +23,7 @@ class RegisterViewModel (): ViewModel() {
         val dataToken  = ArrayList<Token>()
         val jsonParams = JSONObject()
         jsonParams.put("email", username);
-        jsonParams.put("role", "ROLE_ADMIN");
+        jsonParams.put("role", "ROLE_CUSTOMER");
         jsonParams.put("password", password);
         jsonParams.put("user",user)
         Log.d("yang0", jsonParams.toString())
