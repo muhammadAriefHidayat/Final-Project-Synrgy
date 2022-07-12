@@ -22,6 +22,14 @@ interface ApiServices {
     ): Call<LoginResponse>
 
     @Headers("Content-Type: application/json")
+    @POST("/api/v1/carts")
+    fun addCart(
+        @Header("Authorization") token:String,
+        @Field("quantity") quantity:String,
+        @Field("variantId") variantId:String
+        ):Call<CartResponse>
+
+    @Headers("Content-Type: application/json")
     @POST("/api/v1/auth/register")
     fun register(
         @Body register: RegisterBody
