@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".ui.view.OrderFragment">
+    tools:context=".ui.view.OrderBelumBayarFragment">
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -83,5 +83,5 @@
         </LinearLayout>
     </LinearLayout>
 
-    <include layout="@layout/item_order"/>
+    <include layout="@layout/item_order_belum_bayar"/>
 </LinearLayout>
