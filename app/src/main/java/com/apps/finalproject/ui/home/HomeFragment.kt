@@ -6,6 +6,7 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.inputmethod.EditorInfo
 import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
@@ -48,6 +49,7 @@ class HomeFragment : Fragment() {
             showDataArticle(it)
         }
 
+        homeViewModel.searchProductByName("Product Name")
         homeViewModel.getProductTrending()
         homeViewModel.trending.observe(viewLifecycleOwner){
             showProductTrending(it)
@@ -56,6 +58,21 @@ class HomeFragment : Fragment() {
         homeViewModel.isLoading.observe(viewLifecycleOwner){
             showLoading(it)
         }
+
+        binding.itemHeader.itemSearch.ivSearch.setOnClickListener{
+            searchProduct(homeViewModel)
+        }
+
+        binding.itemHeader.itemSearch.search.setOnEditorActionListener{ _, productId, _ ->
+            if (productId == EditorInfo.IME_ACTION_NEXT) {
+                searchProduct(homeViewModel)
+            }
+            true
+        }
+    }
+
+    private fun searchProduct(mainViewModel: HomeViewModel){
+        mainViewModel.searchProductByName(binding.itemHeader.itemSearch.search.text.toString())
     }
 
     private fun showLoading(isLoading: Boolean) {
