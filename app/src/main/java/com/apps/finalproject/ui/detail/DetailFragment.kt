@@ -68,7 +68,13 @@ class DetailFragment : Fragment() {
             tvDetailProduk.text = dataTrending.variant?.get(0)?.name ?: "-"
             tvHargaProduk.text = dataTrending.variant?.get(0)?.price.toString()
             ratingBarProduk.rating = dataTrending.average?.toFloat() ?: 0f
-            tvQuantity.text = dataTrending.variant?.get(0)?.quantity.toString()
+            tvRate.text = dataTrending.average.toString()
+            tvQuantity.text = dataTrending.variant?.get(0)?.quantity.toString() + " ml"
+            Glide.with(this@DetailFragment)
+                .load(dataTrending.brand?.logo)
+                .into(imBrand)
+            brandName.text = dataTrending.brand?.name ?: ""
+            tabValue.text = dataTrending.brand?.description
         }
         } else {
             Utils.peringatan(requireContext(),"Koneksi tidak stabil, Terjadi kesalahan")

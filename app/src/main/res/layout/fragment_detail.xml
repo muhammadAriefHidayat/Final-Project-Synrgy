@@ -31,7 +31,7 @@
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="@dimen/space_250"
+                android:layout_marginLeft="@dimen/space_230"
                 android:layout_marginTop="@dimen/space_6"
                 android:src="@drawable/ic_search" />
 
@@ -58,7 +58,7 @@
                 <ImageView
                     android:id="@+id/im_detail_produk"
                     android:layout_width="match_parent"
-                    android:layout_height="@dimen/space_300"
+                    android:layout_height="wrap_content"
                     android:src="@drawable/img_produk"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
@@ -95,17 +95,6 @@
                 android:paddingBottom="@dimen/space_8"
                 android:text="@string/ukuran_produk_kecil"
                 android:textColor="@color/colorPrimary" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:background="@drawable/rounded_white_grey"
-                android:paddingLeft="@dimen/space_16"
-                android:paddingTop="@dimen/space_8"
-                android:paddingRight="@dimen/space_16"
-                android:paddingBottom="@dimen/space_8"
-                android:text="@string/ukuran_produk_besar"
-                android:textColor="@color/colorPrimary" />
         </LinearLayout>
 
         <TextView
@@ -135,6 +124,7 @@
                 tools:progress="2" />
 
             <TextView
+                android:id="@+id/tv_rate"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/space_16"
@@ -161,6 +151,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="@dimen/space_80"
                     android:src="@drawable/brand_produk"
+                    android:layout_marginTop="@dimen/space_4"
+                    android:layout_marginBottom="@dimen/space_4"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
@@ -173,6 +165,7 @@
                     app:layout_constraintTop_toTopOf="parent">
 
                     <TextView
+                        android:id="@+id/brand_name"
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
                         android:layout_marginLeft="@dimen/space_16"
@@ -193,7 +186,7 @@
         <RelativeLayout
             android:id="@+id/deskripsi"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="@dimen/space_120"
             android:layout_marginTop="26dp"
             android:minHeight="@dimen/space_150"
             app:layout_constraintEnd_toEndOf="parent"
