@@ -11,10 +11,12 @@ import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.DefaultItemAnimator
 import com.apps.finalproject.R
 import com.apps.finalproject.databinding.FragmentDetailBinding
+import com.apps.finalproject.remote.model.Cart
 import com.apps.finalproject.remote.model.Review
 import com.apps.finalproject.remote.model.Trending
 import com.apps.finalproject.ui.ViewModelFactory
 import com.apps.finalproject.ui.adapter.ListReviewAdapter
+import com.apps.finalproject.ui.cart.CartViewModel
 import com.apps.finalproject.ui.view.AuthActivity
 import com.apps.finalproject.utils.AppPref
 import com.apps.finalproject.utils.Utils.peringatan
@@ -23,9 +25,15 @@ import com.bumptech.glide.Glide
 
 
 class DetailFragment : Fragment() {
-    var quantity = 0
+    var quantity = 1
+    var varian_id = ""
     private lateinit var binding: FragmentDetailBinding
+
     private val detailViewModel: DetailViewModel by viewModels {
+        ViewModelFactory.getInstance(requireContext())
+    }
+
+    private val cartViewMOdel: CartViewModel by viewModels {
         ViewModelFactory.getInstance(requireContext())
     }
 
@@ -44,22 +52,26 @@ class DetailFragment : Fragment() {
 
         val dataTrending = arguments?.getString(EXTRA_PRODUCT)
         val data = stringToObject(dataTrending, Trending::class.java)
+        varian_id = data?.variant?.get(0)?.id.toString()
         populateDataProduct(data)
 
         detailViewModel.getReview()
+
         detailViewModel.review.observe(viewLifecycleOwner) {
             populateData(it)
         }
 
         binding.apply {
-            btnPlusProduk.setOnClickListener{
-                if (quantity>=0){
-                    quantity+=1
+            btnPlusProduk.setOnClickListener {
+                if (quantity >= 0) {
+                    quantity += 1
+                    tvQyt.text = quantity.toString()
                 }
             }
             btnMinProduk.setOnClickListener {
-                if (quantity>=0){
-                    quantity-=1
+                if (quantity > 0) {
+                    quantity -= 1
+                    tvQyt.text = quantity.toString()
                 }
             }
 
@@ -67,13 +79,18 @@ class DetailFragment : Fragment() {
                 if (AppPref.token == "") {
                     peringatan(requireContext(), getString(R.string.haraplogin))
                     startActivity(Intent(requireContext(), AuthActivity::class.java))
-                } else {
 
+                } else if ((varian_id != "") and (quantity != 0)){
+                    Log.d("data_id",varian_id.toString())
+                    Log.d("data_id",quantity.toString())
+                    val cart = Cart(AppPref.token,quantity.toString(),varian_id)
+                    cartViewMOdel.AddCart(cart)
+
+                    peringatan(requireContext(), "suksess add keranjang")
                 }
             }
         }
     }
-
 
     private fun populateDataProduct(dataTrending: Trending?) {
 //        Log.d(TAG, "populateDataProduct: ${dataTrending?.variant?.get(0)?.name}")
