@@ -13,4 +13,5 @@ class MainRepository (private val remoteDataSource: RemoteDataSource){
     fun addCart(cart: Cart) = remoteDataSource.addCart(cart)
     fun getProductTrending() = remoteDataSource.getProductTrending()
     fun getDetailTrending(productId: String) = remoteDataSource.getDetailTrending(productId)
+    fun searchProductByName(name: String) = remoteDataSource.searchProductByName(name)
 }
