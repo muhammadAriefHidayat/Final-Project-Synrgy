@@ -4,10 +4,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_margin="@dimen/space_12"
     tools:context=".ui.detail.DetailFragment">
 
     <androidx.constraintlayout.widget.ConstraintLayout
+        android:paddingBottom="@dimen/space_60"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
@@ -18,6 +18,7 @@
             android:orientation="horizontal"
             android:padding="@dimen/space_16"
             android:weightSum="4"
+            android:gravity="center_vertical"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
@@ -340,7 +341,7 @@
             app:layout_constraintTop_toTopOf="@id/btn_plus_produk" />
 
         <ImageView
-            android:id="@+id/imageView7"
+            android:id="@+id/img_addtobg"
             android:layout_width="14dp"
             android:layout_height="14dp"
             android:onClick="addChart"
@@ -351,6 +352,7 @@
             app:layout_constraintTop_toTopOf="@+id/bg_add_bg" />
 
         <TextView
+            android:id="@+id/tv_addtobg"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="@font/nunito"
@@ -360,7 +362,7 @@
             app:layout_constraintEnd_toEndOf="@id/bg_add_bg"
             android:textSize="@dimen/space_10"
             app:layout_constraintBottom_toBottomOf="@+id/bg_add_bg"
-            app:layout_constraintStart_toEndOf="@+id/imageView7"
+            app:layout_constraintStart_toEndOf="@+id/img_addtobg"
             app:layout_constraintTop_toTopOf="@+id/bg_add_bg" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 

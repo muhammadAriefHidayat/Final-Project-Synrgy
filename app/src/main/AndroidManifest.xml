@@ -8,6 +8,7 @@
     <application
         android:name=".utils.SharePrefApp"
         android:allowBackup="true"
+        android:minSdkVersion="23"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
         android:icon="@mipmap/ic_launcher"
@@ -20,7 +21,8 @@
         <activity
             android:screenOrientation="portrait"
             android:name="com.theartofdev.edmodo.cropper.CropImageActivity"
-            android:theme="@style/Base.Theme.AppCompat" />
+            android:theme="@style/Base.Theme.AppCompat"
+            tools:ignore="LockedOrientationActivity" />
 
         <activity
             android:name=".ui.view.EditProfileActivity"

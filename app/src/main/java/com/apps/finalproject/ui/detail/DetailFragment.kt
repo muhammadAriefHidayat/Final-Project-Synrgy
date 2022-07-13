@@ -1,5 +1,6 @@
 package com.apps.finalproject.ui.detail
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -7,18 +8,21 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.DefaultItemAnimator
+import com.apps.finalproject.R
 import com.apps.finalproject.databinding.FragmentDetailBinding
 import com.apps.finalproject.remote.model.Review
 import com.apps.finalproject.remote.model.Trending
 import com.apps.finalproject.ui.ViewModelFactory
 import com.apps.finalproject.ui.adapter.ListReviewAdapter
-import com.apps.finalproject.utils.Utils
+import com.apps.finalproject.ui.view.AuthActivity
+import com.apps.finalproject.utils.AppPref
+import com.apps.finalproject.utils.Utils.peringatan
 import com.apps.finalproject.utils.stringToObject
 import com.bumptech.glide.Glide
 
 
 class DetailFragment : Fragment() {
-
+    var quantity = 0
     private lateinit var binding: FragmentDetailBinding
     private val detailViewModel: DetailViewModel by viewModels {
         ViewModelFactory.getInstance(requireContext())
@@ -42,9 +46,19 @@ class DetailFragment : Fragment() {
         populateDataProduct(data)
 
         detailViewModel.getReview()
-
         detailViewModel.review.observe(viewLifecycleOwner) {
             populateData(it)
+        }
+
+        binding.apply {
+            tvAddtobg.setOnClickListener {
+                if (AppPref.token == ""){
+                    peringatan(requireContext(),getString(R.string.haraplogin))
+                    startActivity(Intent(requireContext(),AuthActivity::class.java))
+                }else {
+
+                }
+            }
         }
     }
 
@@ -60,7 +74,7 @@ class DetailFragment : Fragment() {
 //            tvQuantity.text = dataTrending.variant?.get(0)?.quantity.toString()
             }
         } else {
-            Utils.peringatan(requireContext(), "Koneksi tidak stabil, Terjadi kesalahan")
+            peringatan(requireContext(), "Koneksi tidak stabil, Terjadi kesalahan")
             requireActivity().onBackPressed()
         }
     }
@@ -77,9 +91,4 @@ class DetailFragment : Fragment() {
     companion object {
         const val EXTRA_PRODUCT = "product"
     }
-
-    fun addChart(view: View) {
-        Utils.peringatan(requireContext(), "Berhasil di klik")
-    }
-
 }
