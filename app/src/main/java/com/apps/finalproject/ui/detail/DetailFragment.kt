@@ -2,6 +2,7 @@ package com.apps.finalproject.ui.detail
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -51,19 +52,33 @@ class DetailFragment : Fragment() {
         }
 
         binding.apply {
+            btnPlusProduk.setOnClickListener{
+                if (quantity>=0){
+                    quantity+=1
+                }
+            }
+            btnMinProduk.setOnClickListener {
+                if (quantity>=0){
+                    quantity-=1
+                }
+            }
+
             tvAddtobg.setOnClickListener {
-                if (AppPref.token == ""){
-                    peringatan(requireContext(),getString(R.string.haraplogin))
-                    startActivity(Intent(requireContext(),AuthActivity::class.java))
-                }else {
+                if (AppPref.token == "") {
+                    peringatan(requireContext(), getString(R.string.haraplogin))
+                    startActivity(Intent(requireContext(), AuthActivity::class.java))
+                } else {
 
                 }
             }
         }
     }
 
+
     private fun populateDataProduct(dataTrending: Trending?) {
+//        Log.d(TAG, "populateDataProduct: ${dataTrending?.variant?.get(0)?.name}")
         if (dataTrending != null) {
+
             with(binding) {
                 Glide.with(this@DetailFragment)
                     .load(dataTrending.images?.get(0))
@@ -71,7 +86,13 @@ class DetailFragment : Fragment() {
                 tvDetailProduk.text = dataTrending.variant?.get(0)?.name ?: "-"
                 tvHargaProduk.text = dataTrending.variant?.get(0)?.price.toString()
                 ratingBarProduk.rating = dataTrending.average?.toFloat() ?: 0f
-//            tvQuantity.text = dataTrending.variant?.get(0)?.quantity.toString()
+                tvRate.text = dataTrending.average.toString()
+                tvQuantity.text = dataTrending.variant?.get(0)?.quantity.toString() + " ml"
+                Glide.with(this@DetailFragment)
+                    .load(dataTrending.brand?.logo)
+                    .into(imBrand)
+                brandName.text = dataTrending.brand?.name ?: ""
+                tabValue.text = dataTrending.brand?.description
             }
         } else {
             peringatan(requireContext(), "Koneksi tidak stabil, Terjadi kesalahan")
