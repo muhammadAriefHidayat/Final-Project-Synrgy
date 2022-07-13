@@ -41,6 +41,7 @@ class ProfileActivity : AppCompatActivity() {
         }
         binding.rvProfil.adapter = adapter
 
+
         binding.apply {
             tvName.text = AppPref.username
             tvEmailProfil.text = AppPref.email

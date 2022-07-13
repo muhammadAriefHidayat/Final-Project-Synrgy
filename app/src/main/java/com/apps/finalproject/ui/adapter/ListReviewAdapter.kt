@@ -4,6 +4,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.apps.finalproject.R
 import com.apps.finalproject.databinding.ItemListReviewsBinding
 import com.apps.finalproject.remote.model.Review
 import com.bumptech.glide.Glide
@@ -26,19 +27,19 @@ class ListReviewAdapter(private val listReview: List<Review>) : RecyclerView.Ada
         val review = listReview[position]
         with(binding){
             Glide.with(binding.root.context)
-                .load(review.images)
+                .load(review.user.avatar)
                 .circleCrop()
                 .into(ivUser)
-            tvName.text = review.userId
+            tvName.text = review.user.name
             tvDate.text = review.date
             tvDescReview.text = review.content
             Glide.with(binding.root.context)
-                .load(review.imagesCount)
-                .circleCrop()
+                .load(review.images[0])
+                .placeholder(R.drawable.img_produk)
                 .into(ivReviewOne)
             Glide.with(binding.root.context)
-                .load(review.imagesCount)
-                .circleCrop()
+                .load(review.images[1])
+                .placeholder(R.drawable.img_produk)
                 .into(ivReviewTwo)
         }
     }

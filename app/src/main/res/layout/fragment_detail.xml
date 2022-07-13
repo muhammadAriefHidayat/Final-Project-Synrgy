@@ -32,7 +32,7 @@
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="@dimen/space_250"
+                android:layout_marginLeft="@dimen/space_230"
                 android:layout_marginTop="@dimen/space_6"
                 android:src="@drawable/ic_search" />
 
@@ -59,7 +59,7 @@
                 <ImageView
                     android:id="@+id/im_detail_produk"
                     android:layout_width="match_parent"
-                    android:layout_height="@dimen/space_300"
+                    android:layout_height="wrap_content"
                     android:src="@drawable/img_produk"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
@@ -85,6 +85,7 @@
             app:layout_constraintTop_toBottomOf="@id/tv_detail_produk">
 
             <TextView
+                android:id="@+id/tv_quantity"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginRight="@dimen/space_16"
@@ -94,17 +95,6 @@
                 android:paddingRight="@dimen/space_16"
                 android:paddingBottom="@dimen/space_8"
                 android:text="@string/ukuran_produk_kecil"
-                android:textColor="@color/colorPrimary" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:background="@drawable/rounded_white_grey"
-                android:paddingLeft="@dimen/space_16"
-                android:paddingTop="@dimen/space_8"
-                android:paddingRight="@dimen/space_16"
-                android:paddingBottom="@dimen/space_8"
-                android:text="@string/ukuran_produk_besar"
                 android:textColor="@color/colorPrimary" />
         </LinearLayout>
 
@@ -135,6 +125,7 @@
                 tools:progress="2" />
 
             <TextView
+                android:id="@+id/tv_rate"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/space_16"
@@ -161,6 +152,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="@dimen/space_80"
                     android:src="@drawable/brand_produk"
+                    android:layout_marginTop="@dimen/space_4"
+                    android:layout_marginBottom="@dimen/space_4"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
@@ -173,6 +166,7 @@
                     app:layout_constraintTop_toTopOf="parent">
 
                     <TextView
+                        android:id="@+id/brand_name"
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
                         android:layout_marginLeft="@dimen/space_16"
@@ -260,6 +254,7 @@
             tools:itemCount="2"
             tools:listitem="@layout/item_list_reviews" />
 
+
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/btn_lihat_semua"
             android:layout_width="match_parent"
@@ -313,7 +308,7 @@
             android:layout_width="26dp"
             android:layout_height="26dp"
             android:layout_marginStart="@dimen/space_10"
-            android:background="@drawable/ic_plus_prodct"
+            android:background="@drawable/ic_plus_product"
             app:layout_constraintBottom_toBottomOf="@id/btn_min_produk"
             app:layout_constraintStart_toEndOf="@id/jml_produk"
             app:layout_constraintTop_toTopOf="@id/btn_min_produk" />

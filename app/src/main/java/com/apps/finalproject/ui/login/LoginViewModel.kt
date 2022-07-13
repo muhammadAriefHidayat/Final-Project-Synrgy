@@ -35,6 +35,7 @@ class LoginViewModel(private val repository: MainRepository) : ViewModel() {
                     val uid = jwt.getClaim("userId")
                     val email = jwt.getClaim("email")
                     val name = jwt.getClaim("name")
+
                     AppPref.userId = uid.asString().toString()
                     AppPref.pw = loginBody.password
                     AppPref.email = email.asString().toString()
