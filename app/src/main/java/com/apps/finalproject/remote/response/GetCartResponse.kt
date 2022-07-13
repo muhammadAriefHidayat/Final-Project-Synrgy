@@ -32,4 +32,5 @@ data class Overview(
     val total: String,
     @field:SerializedName("weight")
     val weight: String
+
 )
