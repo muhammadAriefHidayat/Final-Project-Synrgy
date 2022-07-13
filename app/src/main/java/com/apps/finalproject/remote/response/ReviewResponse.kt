@@ -5,7 +5,7 @@ import com.google.gson.annotations.SerializedName
 data class ReviewResponse(
 
 	@field:SerializedName("data")
-	val data: List<DataItem>,
+	val data: List<ReviewUserResponse>,
 
 	@field:SerializedName("success")
 	val success: Boolean,
@@ -17,13 +17,11 @@ data class ReviewResponse(
 	val status: String
 )
 
-data class User(
+data class UserReviewResponse(
 
 	@field:SerializedName("skinType")
 	val skinType: String,
 
-	@field:SerializedName("address")
-	val address: Any,
 
 	@field:SerializedName("phone")
 	val phone: String,
@@ -38,7 +36,7 @@ data class User(
 	val avatar: String
 )
 
-data class DataItem(
+data class ReviewUserResponse(
 
 	@field:SerializedName("date")
 	val date: String,
@@ -47,7 +45,7 @@ data class DataItem(
 	val effective: Int,
 
 	@field:SerializedName("averageStar")
-	val averageStar: Int,
+	val averageStar: Double,
 
 	@field:SerializedName("images")
 	val images: List<String>,
@@ -71,7 +69,7 @@ data class DataItem(
 	val id: String,
 
 	@field:SerializedName("user")
-	val user: User,
+	val user: UserReviewResponse,
 
 	@field:SerializedName("content")
 	val content: String
