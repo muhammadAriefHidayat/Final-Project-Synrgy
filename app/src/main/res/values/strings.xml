@@ -104,4 +104,7 @@
     <string name="remainder_order">Bayar sebelum 07 Juni 2022, 05:40 WIB.</string>
     <string name="bayar_sekarang">Bayar Sekarang</string>
     <string name="item_order">4 items</string>
+    <string name="keterangan_diproses">Produk akan dikirimkan paling lambat pada 09 Juni 2022.</string>
+    <string name="ketereangan_dikirim">Estimasi terima produk sebelum 12 Juni 2022.</string>
+    <string name="keterangan_selesai">Paket telah diterima Angel.</string>
 </resources>

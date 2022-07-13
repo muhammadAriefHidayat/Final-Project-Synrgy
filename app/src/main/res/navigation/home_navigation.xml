@@ -40,7 +40,7 @@
     </fragment>
     <fragment
         android:id="@+id/orderFragment2"
-        android:name="com.apps.finalproject.ui.view.OrderFragment"
+        android:name="com.apps.finalproject.ui.view.OrderBelumBayarFragment"
         android:label="fragment_order"
-        tools:layout="@layout/fragment_order" />
+        tools:layout="@layout/fragment_order_belum_bayar" />
 </navigation>
