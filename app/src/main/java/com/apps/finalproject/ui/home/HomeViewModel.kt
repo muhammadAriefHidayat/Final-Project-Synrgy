@@ -36,4 +36,10 @@ class HomeViewModel(private val repository: MainRepository): ViewModel() {
             _isLoading.value = false
         }
     }
+
+    fun searchProductByName(name: String) = viewModelScope.launch {
+        repository.searchProductByName(name).collect{
+            _productTrending.value = it
+        }
+    }
 }
