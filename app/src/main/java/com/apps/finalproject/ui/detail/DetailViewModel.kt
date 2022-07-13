@@ -18,7 +18,6 @@ class DetailViewModel (private val repository: MainRepository): ViewModel(){
     fun getReview() = viewModelScope.launch {
         repository.getReview().collect{
              _review.value = it
-                Log.d("getReview", review.value.toString())
         }
     }
 }

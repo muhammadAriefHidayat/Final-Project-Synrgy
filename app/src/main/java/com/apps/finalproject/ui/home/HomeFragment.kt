@@ -88,7 +88,6 @@ class HomeFragment : Fragment() {
     }
 
     private fun detailTrending(data: Trending){
-        Log.d("Trending", "detailTrending: ${data}")
         val mBundle = bundleOf(EXTRA_PRODUCT to objectToString(data))
 
         Navigation.findNavController(requireView()).navigate(R.id.action_homeFragment_to_detailFragment, mBundle)
