@@ -38,6 +38,7 @@ class LoginViewModel(private val repository: MainRepository) : ViewModel() {
 
                     AppPref.userId = uid.asString().toString()
                     AppPref.pw = loginBody.password
+                    AppPref.token = token.token
                     AppPref.email = email.asString().toString()
                     AppPref.username = name.asString().toString()
 
