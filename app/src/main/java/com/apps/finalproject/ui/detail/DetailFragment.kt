@@ -1,11 +1,14 @@
 package com.apps.finalproject.ui.detail
 
+import android.app.Dialog
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
+import android.view.*
+import android.widget.Button
+import android.widget.EditText
+import android.widget.LinearLayout
+import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.DefaultItemAnimator
@@ -81,21 +84,60 @@ class DetailFragment : Fragment() {
                     startActivity(Intent(requireContext(), AuthActivity::class.java))
 
                 } else if ((varian_id != "") and (quantity != 0)){
-                    Log.d("data_id",varian_id.toString())
-                    Log.d("data_id",quantity.toString())
                     val cart = Cart(quantity,varian_id)
                     cartViewMOdel.AddCart(cart)
-
-                    peringatan(requireContext(), "suksess add keranjang")
+                    cartViewMOdel.getResponse().observe(requireActivity()){
+                        if (it == "data"){
+                            getCustomLayoutDialog(R.layout.dialog_cart_sukses,R.color.colorPrimary)
+                        }else{
+                            getCustomLayoutDialog(R.layout.dialog_cart_error,R.color.colorPrimary)
+                        }
+                    }
                 }
             }
+        }
+    }
+
+    private fun getCustomLayoutDialog(layoutId: Int, colorId: Int) {
+        val dialog = Dialog(requireContext())
+        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE)
+        dialog.setContentView(layoutId)
+
+        val lp = WindowManager.LayoutParams()
+        if (dialog.window != null) {
+
+            lp.copyFrom(dialog.window?.attributes)
+            lp.width = WindowManager.LayoutParams.MATCH_PARENT
+            lp.height = WindowManager.LayoutParams.WRAP_CONTENT
+
+            val linearLayout = dialog.findViewById<LinearLayout>(R.id.customAlertTitleLayout)
+            val minimal = dialog.findViewById<EditText>(R.id.nameEditText)
+            val maximal = dialog.findViewById<EditText>(R.id.emailEditText)
+
+            val positiveButton = dialog.findViewById<Button>(R.id.customAlertPositiveButton)
+
+
+            linearLayout.setBackgroundColor(ContextCompat.getColor(this, colorId))
+            positiveButton.text = "OK"
+
+            positiveButton.setBackgroundColor(ContextCompat.getColor(this, colorId))
+            positiveButton.setOnClickListener {
+                val min = minimal.text.toString().toInt()
+                val max = maximal.text.toString().toInt()
+                adapter.clear()
+                setDataCluster(min,max)
+                dialog.cancel()
+            }
+
+            dialog.show()
+
+            dialog.window?.attributes = lp
         }
     }
 
     private fun populateDataProduct(dataTrending: Trending?) {
 //        Log.d(TAG, "populateDataProduct: ${dataTrending?.variant?.get(0)?.name}")
         if (dataTrending != null) {
-
             with(binding) {
                 Glide.with(this@DetailFragment)
                     .load(dataTrending.images?.get(0))
