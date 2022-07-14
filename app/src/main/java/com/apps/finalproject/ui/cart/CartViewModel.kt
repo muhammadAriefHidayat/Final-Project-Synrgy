@@ -20,7 +20,12 @@ class CartViewModel(private val repository: MainRepository) : ViewModel() {
                     call: Call<CartResponse>,
                     response: Response<CartResponse>
                 ) {
-                    Log.d("hasil", response.body()?.success.toString())
+                    Log.d("cart","masuk")
+                    Log.d("cartrer", response.errorBody().toString())
+                    Log.d("cartrer", call.toString())
+                    Log.d("carters", response.body()?.status.toString())
+                    Log.d("cartbod", response.body().toString())
+                    Log.d("cartres", response.body()?.data?.id.toString())
                 }
 
                 override fun onFailure(call: Call<CartResponse>, t: Throwable) {

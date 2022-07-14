@@ -6,10 +6,8 @@ import kotlinx.parcelize.Parcelize
 
 @Parcelize
 data class Cart(
-    @SerializedName("Authorization")
-    var token: String,
     @SerializedName("quantity")
-    var quantity: String,
+    var quantity: Int,
     @SerializedName("variantId")
     var variantId: String,
 ) : Parcelable

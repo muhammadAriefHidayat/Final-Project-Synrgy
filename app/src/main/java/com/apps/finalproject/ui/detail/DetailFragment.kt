@@ -83,7 +83,7 @@ class DetailFragment : Fragment() {
                 } else if ((varian_id != "") and (quantity != 0)){
                     Log.d("data_id",varian_id.toString())
                     Log.d("data_id",quantity.toString())
-                    val cart = Cart(AppPref.token,quantity.toString(),varian_id)
+                    val cart = Cart(quantity,varian_id)
                     cartViewMOdel.AddCart(cart)
 
                     peringatan(requireContext(), "suksess add keranjang")
