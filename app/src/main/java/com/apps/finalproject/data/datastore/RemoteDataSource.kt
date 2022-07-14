@@ -6,6 +6,7 @@ import com.apps.finalproject.remote.*
 import com.apps.finalproject.remote.body.LoginBody
 import com.apps.finalproject.remote.body.RegisterBody
 import com.apps.finalproject.remote.model.*
+import com.apps.finalproject.utils.AppPref
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.catch
 import kotlinx.coroutines.flow.flow
@@ -27,9 +28,15 @@ class RemoteDataSource(private val apiServices: ApiServices) {
 
 
     fun addCart(cart: Cart) = flow {
-        emit(apiServices.addCart(cart.token,cart.quantity,cart.variantId))
+        emit(apiServices.addCart(cart))
     }.catch {
-        Log.d("login", "login: failed = ${it.message}")
+        Log.d("cart", "cart: failed = ${it.message}")
+    }.flowOn(Dispatchers.IO)
+
+    fun getCart() = flow  {
+       emit(apiServices.getCart())
+    }.catch {
+        Log.d("TAG", "getReview: failed = ${it.message}")
     }.flowOn(Dispatchers.IO)
 
     fun getReview() = flow<List<Review>> {
