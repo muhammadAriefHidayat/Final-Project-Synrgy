@@ -26,7 +26,6 @@ class RemoteDataSource(private val apiServices: ApiServices) {
         Log.d("register", "register: failed = ${it.message}")
     }.flowOn(Dispatchers.IO)
 
-
     fun addCart(cart: Cart) = flow {
         emit(apiServices.addCart(cart))
     }.catch {
