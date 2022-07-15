@@ -21,7 +21,7 @@ class ApiConfig {
             return Interceptor { cain ->
                 val request = cain.request()
                 val headerInterceptorRequest = request.newBuilder()
-                    .addHeader("Authorization", "Bearer ${AppPref.token}")
+//                    .header("Authorization", "Bearer ${AppPref.token}")
                     .header("Content-Type", "application/json")
                     .header("Accept", "application/json")
                     .method(request.method,request.body)

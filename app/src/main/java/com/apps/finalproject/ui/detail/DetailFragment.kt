@@ -8,6 +8,7 @@ import android.view.*
 import android.widget.Button
 import android.widget.EditText
 import android.widget.LinearLayout
+import android.widget.TextView
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
@@ -19,9 +20,11 @@ import com.apps.finalproject.remote.model.Review
 import com.apps.finalproject.remote.model.Trending
 import com.apps.finalproject.ui.ViewModelFactory
 import com.apps.finalproject.ui.adapter.ListReviewAdapter
+import com.apps.finalproject.ui.cart.CartActivity
 import com.apps.finalproject.ui.cart.CartViewModel
 import com.apps.finalproject.ui.view.AuthActivity
 import com.apps.finalproject.utils.AppPref
+import com.apps.finalproject.utils.Utils
 import com.apps.finalproject.utils.Utils.peringatan
 import com.apps.finalproject.utils.stringToObject
 import com.bumptech.glide.Glide
@@ -52,7 +55,6 @@ class DetailFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-
         val dataTrending = arguments?.getString(EXTRA_PRODUCT)
         val data = stringToObject(dataTrending, Trending::class.java)
         varian_id = data?.variant?.get(0)?.id.toString()
@@ -82,15 +84,16 @@ class DetailFragment : Fragment() {
                 if (AppPref.token == "") {
                     peringatan(requireContext(), getString(R.string.haraplogin))
                     startActivity(Intent(requireContext(), AuthActivity::class.java))
-
-                } else if ((varian_id != "") and (quantity != 0)){
+                }
+                else if ((varian_id != "") and (quantity != 0)){
                     val cart = Cart(quantity,varian_id)
+                    Log.d("cart",AppPref.token)
                     cartViewMOdel.AddCart(cart)
                     cartViewMOdel.getResponse().observe(requireActivity()){
-                        if (it == "data"){
-                            getCustomLayoutDialog(R.layout.dialog_cart_sukses,R.color.colorPrimary)
+                        if (it == "200"){
+                            getCustomLayoutDialog(R.layout.dialog_cart_sukses,"sukses",R.color.colorPrimary)
                         }else{
-                            getCustomLayoutDialog(R.layout.dialog_cart_error,R.color.colorPrimary)
+                            getCustomLayoutDialog(R.layout.dialog_cart_sukses,"GAGAL",R.color.colorPrimary)
                         }
                     }
                 }
@@ -98,7 +101,7 @@ class DetailFragment : Fragment() {
         }
     }
 
-    private fun getCustomLayoutDialog(layoutId: Int, colorId: Int) {
+    private fun getCustomLayoutDialog(layoutId: Int,status:String, colorId: Int) {
         val dialog = Dialog(requireContext())
         dialog.requestWindowFeature(Window.FEATURE_NO_TITLE)
         dialog.setContentView(layoutId)
@@ -110,22 +113,13 @@ class DetailFragment : Fragment() {
             lp.width = WindowManager.LayoutParams.MATCH_PARENT
             lp.height = WindowManager.LayoutParams.WRAP_CONTENT
 
-            val linearLayout = dialog.findViewById<LinearLayout>(R.id.customAlertTitleLayout)
-            val minimal = dialog.findViewById<EditText>(R.id.nameEditText)
-            val maximal = dialog.findViewById<EditText>(R.id.emailEditText)
+            val positiveButton = dialog.findViewById<Button>(R.id.btn_keranjang_saya)
+//            val text = dialog.findViewById<TextView>(R.id.tx_info)
+//            text.text = "Gagal memasukkan ke keranjang"
 
-            val positiveButton = dialog.findViewById<Button>(R.id.customAlertPositiveButton)
-
-
-            linearLayout.setBackgroundColor(ContextCompat.getColor(this, colorId))
-            positiveButton.text = "OK"
-
-            positiveButton.setBackgroundColor(ContextCompat.getColor(this, colorId))
+            positiveButton.setBackgroundColor(ContextCompat.getColor(requireContext(), colorId))
             positiveButton.setOnClickListener {
-                val min = minimal.text.toString().toInt()
-                val max = maximal.text.toString().toInt()
-                adapter.clear()
-                setDataCluster(min,max)
+                requireContext().startActivity(Intent(requireContext(),CartActivity::class.java))
                 dialog.cancel()
             }
 
@@ -136,7 +130,6 @@ class DetailFragment : Fragment() {
     }
 
     private fun populateDataProduct(dataTrending: Trending?) {
-//        Log.d(TAG, "populateDataProduct: ${dataTrending?.variant?.get(0)?.name}")
         if (dataTrending != null) {
             with(binding) {
                 Glide.with(this@DetailFragment)

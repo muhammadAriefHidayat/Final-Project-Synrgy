@@ -16,9 +16,11 @@ import retrofit2.Response
 
 class CartViewModel(private val repository: MainRepository) : ViewModel() {
 
+
     private val mResponse = MutableLiveData<String>()
 
     fun AddCart(cart: Cart) = viewModelScope.launch {
+        Log.d("cart",cart.toString())
         repository.addCart(cart).collect {
             it.enqueue(object : Callback<CartResponse> {
                 override fun onResponse(
@@ -26,7 +28,9 @@ class CartViewModel(private val repository: MainRepository) : ViewModel() {
                     response: Response<CartResponse>
                 ) {
                     Log.d("cart","masuk")
-                    Log.d("cart", response.body()?.status.toString())
+                    Log.d("cartrer", response.errorBody().toString())
+                    Log.d("cartrer", call.toString())
+                    Log.d("carters", response.body().toString())
                     mResponse.postValue(response.body()?.status.toString())
                 }
 
