@@ -6,6 +6,7 @@ import com.apps.finalproject.remote.*
 import com.apps.finalproject.remote.body.LoginBody
 import com.apps.finalproject.remote.body.RegisterBody
 import com.apps.finalproject.remote.model.*
+import com.apps.finalproject.utils.AppPref
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.catch
 import kotlinx.coroutines.flow.flow
@@ -25,11 +26,24 @@ class RemoteDataSource(private val apiServices: ApiServices) {
         Log.d("register", "register: failed = ${it.message}")
     }.flowOn(Dispatchers.IO)
 
-
     fun addCart(cart: Cart) = flow {
-        emit(apiServices.addCart(cart.token,cart.quantity,cart.variantId))
+        emit(apiServices.addCart("Bearer ${AppPref.token}",cart))
     }.catch {
-        Log.d("login", "login: failed = ${it.message}")
+        Log.d("cart", "cart: failed = ${it.message}")
+    }.flowOn(Dispatchers.IO)
+
+    fun getCart() = flow  {
+       emit(apiServices.getCart("Bearer ${AppPref.token}"))
+    }.catch {
+        Log.d("cart", "getCart: failed = ${it.message}")
+    }.flowOn(Dispatchers.IO)
+
+    fun getProductTrending() = flow<List<Trending>> {
+        apiServices.getTrending().data.let {
+            emit(it.toListTrending())
+        }
+    }.catch {
+        Log.d("TAG", "getProductTrending: failed = ${it.message}")
     }.flowOn(Dispatchers.IO)
 
     fun getReview() = flow<List<Review>> {
@@ -48,13 +62,6 @@ class RemoteDataSource(private val apiServices: ApiServices) {
         Log.d("TAG", "getArticle: failed = ${it.message}")
     }.flowOn(Dispatchers.IO)
 
-    fun getProductTrending() = flow<List<Trending>> {
-        apiServices.getTrending().data.let {
-            emit(it.toListTrending())
-        }
-    }.catch {
-        Log.d("TAG", "getProductTrending: failed = ${it.message}")
-    }.flowOn(Dispatchers.IO)
 
     fun getDetailTrending(productId: String) = flow {
         emit(apiServices.getDetailTrending(productId).toTrending())

@@ -43,6 +43,7 @@
                 android:fontFamily="@font/nunito"
                 android:text="Wardah"
                 android:textAllCaps="true"
+                android:gravity="center_horizontal"
                 android:textColor="@color/darkBrown"
                 android:textSize="@dimen/space_10"
                 app:layout_constraintEnd_toEndOf="parent"

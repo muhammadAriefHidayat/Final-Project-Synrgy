@@ -5,6 +5,8 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.apps.finalproject.data.repository.MainRepository
 import com.apps.finalproject.di.Injection
+import com.apps.finalproject.ui.cart.CartViewModel
+import com.apps.finalproject.ui.cart.GetCartViewModel
 import com.apps.finalproject.ui.detail.DetailViewModel
 import com.apps.finalproject.ui.home.HomeViewModel
 import com.apps.finalproject.ui.login.LoginViewModel
@@ -19,7 +21,12 @@ class ViewModelFactory (private val mainRepository: MainRepository) : ViewModelP
             return HomeViewModel(mainRepository) as T
         }else  if (modelClass.isAssignableFrom(LoginViewModel::class.java)){
             return LoginViewModel(mainRepository) as T
+        }else  if (modelClass.isAssignableFrom(CartViewModel::class.java)){
+            return CartViewModel(mainRepository) as T
+        }else  if (modelClass.isAssignableFrom(GetCartViewModel::class.java)){
+            return GetCartViewModel(mainRepository) as T
         }
+
         throw IllegalArgumentException("unknown ViewModel class: " + modelClass.name)
     }
 

@@ -92,7 +92,6 @@ class HomeFragment : Fragment() {
         val listTrendingAdapter = ListTrendingAdapter(listProductTrending)
         listTrendingAdapter.setOnItemClickListener(onItemClicked)
         binding.listProdukTrending.apply {
-            setHasFixedSize(true)
             itemAnimator = DefaultItemAnimator()
             adapter = listTrendingAdapter
         }
@@ -105,7 +104,6 @@ class HomeFragment : Fragment() {
     }
 
     private fun detailTrending(data: Trending){
-        Log.d("Trending", "detailTrending: ${data}")
         val mBundle = bundleOf(EXTRA_PRODUCT to objectToString(data))
 
         Navigation.findNavController(requireView()).navigate(R.id.action_homeFragment_to_detailFragment, mBundle)
