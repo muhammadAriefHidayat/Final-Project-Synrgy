@@ -30,6 +30,7 @@ class LoginViewModel(private val repository: MainRepository) : ViewModel() {
                     Log.d("hasil", "sukses")
                     val dataToken = response.body()?.data
                     val token = Token()
+                    Log.d("hasil", dataToken?.token.toString())
                     token.token = dataToken?.token.toString()
                     val jwt = JWT(token.token)
                     val uid = jwt.getClaim("userId")

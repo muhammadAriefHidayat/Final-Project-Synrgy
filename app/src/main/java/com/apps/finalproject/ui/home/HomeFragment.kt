@@ -92,7 +92,6 @@ class HomeFragment : Fragment() {
         val listTrendingAdapter = ListTrendingAdapter(listProductTrending)
         listTrendingAdapter.setOnItemClickListener(onItemClicked)
         binding.listProdukTrending.apply {
-            setHasFixedSize(true)
             itemAnimator = DefaultItemAnimator()
             adapter = listTrendingAdapter
         }
