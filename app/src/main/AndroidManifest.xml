@@ -41,6 +41,9 @@
             android:name=".ui.cart.CartActivity"
             android:exported="false" />
         <activity
+            android:name=".ui.checkoutshiping.CheckoutActivity"
+            android:exported="false" />
+        <activity
             android:name=".ui.view.AuthActivity"
             android:exported="false" />
         <activity

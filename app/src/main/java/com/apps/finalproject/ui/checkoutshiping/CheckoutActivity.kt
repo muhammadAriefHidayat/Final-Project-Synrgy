@@ -8,6 +8,7 @@ import android.view.Gravity
 import android.view.Window
 import android.view.WindowManager
 import android.widget.Button
+import android.widget.ImageView
 import androidx.core.content.ContextCompat
 import com.apps.finalproject.R
 import com.apps.finalproject.databinding.ActivityCheckoutBinding
@@ -26,7 +27,7 @@ class CheckoutActivity : AppCompatActivity() {
 //
 //            }
             btnMotodePengiriman.setOnClickListener {
-
+                getMetodePengiriman(R.layout.dialog_metode_pengiriman,R.color.colorPrimary)
             }
             tvPillihAlamat.setOnClickListener {
 
@@ -38,7 +39,7 @@ class CheckoutActivity : AppCompatActivity() {
         }
     }
 
-    private fun get(layoutId: Int) {
+    private fun getMetodePengiriman(layoutId: Int,colorid:Int) {
         val dialog = Dialog(this)
         dialog.requestWindowFeature(Window.FEATURE_NO_TITLE)
         dialog.setContentView(layoutId)
@@ -51,11 +52,11 @@ class CheckoutActivity : AppCompatActivity() {
             lp.width = WindowManager.LayoutParams.MATCH_PARENT
             lp.height = WindowManager.LayoutParams.WRAP_CONTENT
 
-            val positiveButton = dialog.findViewById<Button>(R.id.btn_keranjang_saya)
+            val positiveButton = dialog.findViewById<ImageView>(R.id.btn_x)
 //            val text = dialog.findViewById<TextView>(R.id.tx_info)
 //            text.text = "Gagal memasukkan ke keranjang"
 
-            positiveButton.setBackgroundColor(ContextCompat.getColor(this,R.color.colorPrimary))
+//            positiveButton.setBackgroundColor(ContextCompat.getColor(this,colorid))
             positiveButton.setOnClickListener {
                 this.startActivity(Intent(this, CartActivity::class.java))
                 dialog.cancel()
