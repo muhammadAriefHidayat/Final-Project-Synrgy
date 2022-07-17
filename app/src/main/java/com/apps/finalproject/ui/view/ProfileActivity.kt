@@ -17,6 +17,7 @@ class ProfileActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
         binding = ActivityProfileBinding.inflate(layoutInflater)
         val view = binding.root
         setContentView(view)
@@ -36,11 +37,7 @@ class ProfileActivity : AppCompatActivity() {
             adapter.add(ProfilAdapter(it, this))
         }
 
-        adapter.setOnItemClickListener { item, view ->
-
-        }
         binding.rvProfil.adapter = adapter
-
 
         binding.apply {
             tvName.text = AppPref.username
