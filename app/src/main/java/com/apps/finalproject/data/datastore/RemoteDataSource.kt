@@ -4,6 +4,7 @@ import android.util.Log
 import com.apps.finalproject.data.api.ApiServices
 import com.apps.finalproject.remote.*
 import com.apps.finalproject.remote.body.LoginBody
+import com.apps.finalproject.remote.body.PengirimanBody
 import com.apps.finalproject.remote.body.RegisterBody
 import com.apps.finalproject.remote.model.*
 import com.apps.finalproject.utils.AppPref
@@ -36,6 +37,12 @@ class RemoteDataSource(private val apiServices: ApiServices) {
        emit(apiServices.getCart("Bearer ${AppPref.token}"))
     }.catch {
         Log.d("cart", "getCart: failed = ${it.message}")
+    }.flowOn(Dispatchers.IO)
+
+    fun postOngkir(pengirimanBody: PengirimanBody) = flow {
+        emit(apiServices.postOngkir(pengirimanBody))
+    }.catch {
+        Log.d("ongkir", "ongkir: failed = ${it.message}")
     }.flowOn(Dispatchers.IO)
 
     fun getProductTrending() = flow<List<Trending>> {
