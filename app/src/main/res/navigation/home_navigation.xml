@@ -15,7 +15,7 @@
             android:id="@+id/action_homeFragment_to_detailFragment"
             app:destination="@id/detailFragment" />
         <action
-            android:id="@+id/action_homeFragment_to_beautyFeedFragment"
+            android:id="@+id/action_homeFragment_to_beautyFeedFragment2"
             app:destination="@id/beautyFeedFragment" />
     </fragment>
     <fragment
@@ -24,8 +24,8 @@
         android:label="fragment_beauty_feed"
         tools:layout="@layout/fragment_beauty_feed" >
         <action
-            android:id="@+id/action_beautyFeedFragment_to_orderBelumBayarFragment"
-            app:destination="@id/orderBelumBayarFragment" />
+            android:id="@+id/action_beautyFeedFragment_to_orderFragment2"
+            app:destination="@id/orderFragment2" />
     </fragment>
     <fragment
         android:id="@+id/myProfileFragment"
@@ -39,9 +39,8 @@
         tools:layout="@layout/fragment_detail">
     </fragment>
     <fragment
-        android:id="@+id/orderBelumBayarFragment"
+        android:id="@+id/orderFragment2"
         android:name="com.apps.finalproject.ui.view.OrderBelumBayarFragment"
-        android:label="fragment_order_belum_bayar"
+        android:label="fragment_order"
         tools:layout="@layout/fragment_order_belum_bayar" />
-
 </navigation>

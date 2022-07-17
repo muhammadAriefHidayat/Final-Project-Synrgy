@@ -57,6 +57,7 @@
     </RelativeLayout>
 
     <RelativeLayout
+        android:id="@+id/menu_keranjang"
         android:layout_width="36dp"
         android:layout_height="36dp"
         android:layout_marginStart="1dp"
