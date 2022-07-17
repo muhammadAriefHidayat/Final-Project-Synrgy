@@ -16,6 +16,8 @@ import com.apps.finalproject.ui.cart.CartActivity
 
 class CheckoutActivity : AppCompatActivity() {
     lateinit var binding :ActivityCheckoutBinding
+    var kurir = ""
+    var metodePembayaran = ""
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -23,11 +25,13 @@ class CheckoutActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         binding.apply {
-//            btnMotodePembayaran.setOnClickListener {
-//
-//            }
             btnMotodePengiriman.setOnClickListener {
-                getMetodePengiriman(R.layout.dialog_metode_pengiriman,R.color.colorPrimary)
+                if (kurir == ""){
+                    getKurir(R.layout.dialog_pilihan_kurir)
+                }else{
+                    getMetodePengiriman(R.layout.dialog_metode_pengiriman)
+                }
+
             }
             tvPillihAlamat.setOnClickListener {
 
@@ -39,7 +43,7 @@ class CheckoutActivity : AppCompatActivity() {
         }
     }
 
-    private fun getMetodePengiriman(layoutId: Int,colorid:Int) {
+    private fun getMetodePengiriman(layoutId: Int) {
         val dialog = Dialog(this)
         dialog.requestWindowFeature(Window.FEATURE_NO_TITLE)
         dialog.setContentView(layoutId)
@@ -53,10 +57,30 @@ class CheckoutActivity : AppCompatActivity() {
             lp.height = WindowManager.LayoutParams.WRAP_CONTENT
 
             val positiveButton = dialog.findViewById<ImageView>(R.id.btn_x)
-//            val text = dialog.findViewById<TextView>(R.id.tx_info)
-//            text.text = "Gagal memasukkan ke keranjang"
+            positiveButton.setOnClickListener {
+                this.startActivity(Intent(this, CartActivity::class.java))
+                dialog.cancel()
+            }
 
-//            positiveButton.setBackgroundColor(ContextCompat.getColor(this,colorid))
+            dialog.show()
+
+            dialog.window?.attributes = lp
+        }
+    }
+    private fun getKurir(layoutId: Int) {
+        val dialog = Dialog(this)
+        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE)
+        dialog.setContentView(layoutId)
+
+        val lp = WindowManager.LayoutParams()
+        if (dialog.window != null) {
+
+            lp.copyFrom(dialog.window?.attributes)
+            lp.gravity = Gravity.BOTTOM
+            lp.width = WindowManager.LayoutParams.MATCH_PARENT
+            lp.height = WindowManager.LayoutParams.WRAP_CONTENT
+
+            val positiveButton = dialog.findViewById<ImageView>(R.id.btn_x)
             positiveButton.setOnClickListener {
                 this.startActivity(Intent(this, CartActivity::class.java))
                 dialog.cancel()
