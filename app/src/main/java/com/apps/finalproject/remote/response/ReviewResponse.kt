@@ -17,16 +17,35 @@ data class ReviewResponse(
 	val status: String
 )
 
+data class UserReviewResponse(
+
+	@field:SerializedName("skinType")
+	val skinType: String,
+
+
+	@field:SerializedName("phone")
+	val phone: String,
+
+	@field:SerializedName("name")
+	val name: String,
+
+	@field:SerializedName("id")
+	val id: String,
+
+	@field:SerializedName("avatar")
+	val avatar: String
+)
+
 data class ReviewUserResponse(
 
 	@field:SerializedName("date")
 	val date: String,
 
-	@field:SerializedName("averageStar")
-	val averageStar: Double,
-
 	@field:SerializedName("effective")
 	val effective: Int,
+
+	@field:SerializedName("averageStar")
+	val averageStar: Double,
 
 	@field:SerializedName("images")
 	val images: List<String>,
@@ -34,11 +53,11 @@ data class ReviewUserResponse(
 	@field:SerializedName("productId")
 	val productId: String,
 
-	@field:SerializedName("price")
-	val price: Int,
-
 	@field:SerializedName("texture")
 	val texture: Int,
+
+	@field:SerializedName("price")
+	val price: Int,
 
 	@field:SerializedName("imagesCount")
 	val imagesCount: Int,
@@ -49,8 +68,8 @@ data class ReviewUserResponse(
 	@field:SerializedName("id")
 	val id: String,
 
-	@field:SerializedName("userId")
-	val userId: String,
+	@field:SerializedName("user")
+	val user: UserReviewResponse,
 
 	@field:SerializedName("content")
 	val content: String

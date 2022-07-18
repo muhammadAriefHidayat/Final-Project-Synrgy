@@ -9,6 +9,7 @@ import com.apps.finalproject.ui.adapter.ProfilAdapter
 import com.apps.finalproject.utils.AppPref
 import com.xwray.groupie.GroupAdapter
 import com.xwray.groupie.GroupieViewHolder
+import kotlinx.coroutines.delay
 
 class ProfileActivity : AppCompatActivity() {
 
@@ -17,6 +18,7 @@ class ProfileActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
         binding = ActivityProfileBinding.inflate(layoutInflater)
         val view = binding.root
         setContentView(view)
@@ -36,16 +38,16 @@ class ProfileActivity : AppCompatActivity() {
             adapter.add(ProfilAdapter(it, this))
         }
 
-        adapter.setOnItemClickListener { item, view ->
-
-        }
         binding.rvProfil.adapter = adapter
 
         binding.apply {
             tvName.text = AppPref.username
             tvEmailProfil.text = AppPref.email
             btnLogoutProfile.setOnClickListener {
-                startActivity(Intent(this@ProfileActivity,AuthActivity::class.java))
+                AppPref.token = ""
+                AppPref.username = ""
+                AppPref.email = ""
+                    startActivity(Intent(this@ProfileActivity,AuthActivity::class.java))
             }
         }
 

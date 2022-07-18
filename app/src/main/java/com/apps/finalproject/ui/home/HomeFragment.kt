@@ -1,17 +1,15 @@
 package com.apps.finalproject.ui.home
 
-import android.content.ContentValues.TAG
+import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.inputmethod.EditorInfo
 import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.Navigation
-import androidx.navigation.findNavController
-import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.DefaultItemAnimator
 import com.apps.finalproject.R
 import com.apps.finalproject.databinding.FragmentHomeBinding
@@ -20,8 +18,11 @@ import com.apps.finalproject.remote.model.Trending
 import com.apps.finalproject.ui.ViewModelFactory
 import com.apps.finalproject.ui.adapter.ListTrendingAdapter
 import com.apps.finalproject.ui.article.ListArticleAdapter
-import com.apps.finalproject.ui.detail.DetailFragment
+import com.apps.finalproject.ui.cart.CartActivity
 import com.apps.finalproject.ui.detail.DetailFragment.Companion.EXTRA_PRODUCT
+import com.apps.finalproject.ui.view.AuthActivity
+import com.apps.finalproject.utils.AppPref
+import com.apps.finalproject.utils.Utils
 import com.apps.finalproject.utils.objectToString
 
 class HomeFragment : Fragment() {
@@ -48,6 +49,7 @@ class HomeFragment : Fragment() {
             showDataArticle(it)
         }
 
+        homeViewModel.searchProductByName("Product Name")
         homeViewModel.getProductTrending()
         homeViewModel.trending.observe(viewLifecycleOwner){
             showProductTrending(it)
@@ -56,6 +58,29 @@ class HomeFragment : Fragment() {
         homeViewModel.isLoading.observe(viewLifecycleOwner){
             showLoading(it)
         }
+
+        binding.itemHeader.itemSearch.ivSearch.setOnClickListener{
+            searchProduct(homeViewModel)
+        }
+
+        binding.itemHeader.itemSearch.search.setOnEditorActionListener{ _, productId, _ ->
+            if (productId == EditorInfo.IME_ACTION_NEXT) {
+                searchProduct(homeViewModel)
+            }
+            true
+        }
+        binding.itemHeader.itemSearch.menuKeranjang.setOnClickListener {
+            if (AppPref.token == ""){
+                Utils.peringatan(requireContext(),"harap login terlebih dahulu")
+                startActivity(Intent(requireContext(), AuthActivity::class.java))
+            }else{
+                startActivity(Intent(requireContext(),CartActivity::class.java))
+            }
+        }
+    }
+
+    private fun searchProduct(mainViewModel: HomeViewModel){
+        mainViewModel.searchProductByName(binding.itemHeader.itemSearch.search.text.toString())
     }
 
     private fun showLoading(isLoading: Boolean) {
@@ -75,7 +100,6 @@ class HomeFragment : Fragment() {
         val listTrendingAdapter = ListTrendingAdapter(listProductTrending)
         listTrendingAdapter.setOnItemClickListener(onItemClicked)
         binding.listProdukTrending.apply {
-            setHasFixedSize(true)
             itemAnimator = DefaultItemAnimator()
             adapter = listTrendingAdapter
         }
@@ -88,7 +112,6 @@ class HomeFragment : Fragment() {
     }
 
     private fun detailTrending(data: Trending){
-        Log.d("Trending", "detailTrending: ${data}")
         val mBundle = bundleOf(EXTRA_PRODUCT to objectToString(data))
 
         Navigation.findNavController(requireView()).navigate(R.id.action_homeFragment_to_detailFragment, mBundle)

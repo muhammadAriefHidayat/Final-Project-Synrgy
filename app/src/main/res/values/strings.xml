@@ -121,4 +121,7 @@
     <string name="tanggal_beauty_feed_1">22 Maret 2022</string>
     <string name="item_feed_2">A Guide to Layering Active Ingredients</string>
     <string name="tanggal_beauty_feed_2">23 Maret 2022</string>
+    <string name="haraplogin">harap login terlebih dahulu</string>
+    <string name="sukses_keranjang">Produk Berhasil dimasukkan ke keranjang</string>
+    <string name="error_keranjang">Produk GAGAL dimasukkan ke keranjang</string>
 </resources>

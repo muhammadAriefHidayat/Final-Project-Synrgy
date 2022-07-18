@@ -30,17 +30,26 @@ class LoginViewModel(private val repository: MainRepository) : ViewModel() {
                     Log.d("hasil", "sukses")
                     val dataToken = response.body()?.data
                     val token = Token()
+                    Log.d("hasil", dataToken?.token.toString())
                     token.token = dataToken?.token.toString()
-                    val jwt = JWT(token.token)
-                    val uid = jwt.getClaim("userId")
-                    val email = jwt.getClaim("email")
-                    val name = jwt.getClaim("name")
-                    AppPref.userId = uid.asString().toString()
-                    AppPref.pw = loginBody.password
-                    AppPref.email = email.asString().toString()
-                    AppPref.username = name.asString().toString()
+                    try {
+                        val jwt = JWT(token.token)
+                        val uid = jwt.getClaim("userId")
+                        val email = jwt.getClaim("email")
+                        val name = jwt.getClaim("name")
 
-                    listToken.postValue(token)
+                        AppPref.userId = uid.asString().toString()
+                        AppPref.pw = loginBody.password
+                        AppPref.token = token.token
+                        AppPref.email = email.asString().toString()
+                        AppPref.username = name.asString().toString()
+
+                        listToken.postValue(token)
+                    }catch (e: Throwable){
+                        Log.d("errr",e.message.toString())
+                    }
+
+
                 }
 
                 override fun onFailure(call: Call<LoginResponse>, t: Throwable) {
