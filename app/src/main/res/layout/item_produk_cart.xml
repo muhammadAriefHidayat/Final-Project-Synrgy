@@ -42,7 +42,7 @@
         app:layout_constraintTop_toTopOf="@+id/view4" />
 
     <TextView
-        android:id="@+id/textView5"
+        android:id="@+id/tv_items_varians_varians"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="10dp"
@@ -67,7 +67,7 @@
         android:textColor="@color/textBlack"
         android:textSize="10sp"
         app:layout_constraintStart_toEndOf="@+id/view4"
-        app:layout_constraintTop_toBottomOf="@+id/textView5"
+        app:layout_constraintTop_toBottomOf="@+id/tv_items_varians_varians"
         tools:ignore="SmallSp" />
 
     <TextView

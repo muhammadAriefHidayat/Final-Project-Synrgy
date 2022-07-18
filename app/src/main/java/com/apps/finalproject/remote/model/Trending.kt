@@ -33,7 +33,8 @@ fun ListTrendingResponse.toTrending() : Trending {
 
 fun List<ListTrendingResponse>.toListTrending() : MutableList<Trending>{
 	val listTrendig = mutableListOf<Trending>()
-	this.forEach { listTrendig.add(it.toTrending()) }
+	this.forEach {
+		listTrendig.add(it.toTrending()) }
 	return listTrendig
 }
 

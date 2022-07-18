@@ -32,7 +32,6 @@ class HomeViewModel(private val repository: MainRepository): ViewModel() {
         repository.getProductTrending().collect{
             _isLoading.value = true
             _productTrending.value = it
-            Log.d("getTrending", trending.value.toString())
             _isLoading.value = false
         }
     }

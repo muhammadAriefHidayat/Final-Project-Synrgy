@@ -1,30 +1,37 @@
 package com.apps.finalproject.ui.view
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import androidx.navigation.findNavController
-import androidx.navigation.ui.AppBarConfiguration
-import androidx.navigation.ui.setupActionBarWithNavController
-import androidx.navigation.ui.setupWithNavController
 import com.apps.finalproject.R
-import com.google.android.material.bottomnavigation.BottomNavigationView
+import com.apps.finalproject.databinding.ActivityHomePageBinding
 
 class HomePageActivity : AppCompatActivity() {
+    lateinit var binding: ActivityHomePageBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_home_page)
+        binding = ActivityHomePageBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
-//        val bottomNavigationView = findViewById<BottomNavigationView>(R.id.bottomNavigationView)
 //        val navController = findNavController(R.id.fragmentContainerView)
 //        val appBarConfiguration = AppBarConfiguration(
 //            setOf(
 //                R.id.homeFragment,
 //                R.id.beautyFeedFragment,
-//                R.id.orderFragment,
-//                R.id.myProfileFragment
+//                R.id.orderFragment
 //            )
 //        )
 //        setupActionBarWithNavController(navController, appBarConfiguration)
-//        bottomNavigationView.setupWithNavController(navController)
+//        binding.bottomNavigationHomeView.setupWithNavController(navController)
+
+        binding.bottomNavigationHomeView.setOnNavigationItemSelectedListener {
+            val bool: Boolean = if (it.itemId == R.id.myProfileFragment) {
+                startActivity(Intent(this, ProfileActivity::class.java))
+                true
+            } else {
+                false
+            }
+            return@setOnNavigationItemSelectedListener bool
+        }
     }
 }

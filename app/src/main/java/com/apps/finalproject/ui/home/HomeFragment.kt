@@ -1,8 +1,7 @@
 package com.apps.finalproject.ui.home
 
-import android.content.ContentValues.TAG
+import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -11,8 +10,6 @@ import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.Navigation
-import androidx.navigation.findNavController
-import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.DefaultItemAnimator
 import com.apps.finalproject.R
 import com.apps.finalproject.databinding.FragmentHomeBinding
@@ -21,7 +18,7 @@ import com.apps.finalproject.remote.model.Trending
 import com.apps.finalproject.ui.ViewModelFactory
 import com.apps.finalproject.ui.adapter.ListTrendingAdapter
 import com.apps.finalproject.ui.article.ListArticleAdapter
-import com.apps.finalproject.ui.detail.DetailFragment
+import com.apps.finalproject.ui.cart.CartActivity
 import com.apps.finalproject.ui.detail.DetailFragment.Companion.EXTRA_PRODUCT
 import com.apps.finalproject.utils.objectToString
 
@@ -69,6 +66,9 @@ class HomeFragment : Fragment() {
             }
             true
         }
+        binding.itemHeader.itemSearch.menuKeranjang.setOnClickListener {
+            startActivity(Intent(requireContext(),CartActivity::class.java))
+        }
     }
 
     private fun searchProduct(mainViewModel: HomeViewModel){
@@ -92,7 +92,6 @@ class HomeFragment : Fragment() {
         val listTrendingAdapter = ListTrendingAdapter(listProductTrending)
         listTrendingAdapter.setOnItemClickListener(onItemClicked)
         binding.listProdukTrending.apply {
-            setHasFixedSize(true)
             itemAnimator = DefaultItemAnimator()
             adapter = listTrendingAdapter
         }
@@ -105,7 +104,6 @@ class HomeFragment : Fragment() {
     }
 
     private fun detailTrending(data: Trending){
-        Log.d("Trending", "detailTrending: ${data}")
         val mBundle = bundleOf(EXTRA_PRODUCT to objectToString(data))
 
         Navigation.findNavController(requireView()).navigate(R.id.action_homeFragment_to_detailFragment, mBundle)
