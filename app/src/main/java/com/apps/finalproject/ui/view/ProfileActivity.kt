@@ -9,6 +9,7 @@ import com.apps.finalproject.ui.adapter.ProfilAdapter
 import com.apps.finalproject.utils.AppPref
 import com.xwray.groupie.GroupAdapter
 import com.xwray.groupie.GroupieViewHolder
+import kotlinx.coroutines.delay
 
 class ProfileActivity : AppCompatActivity() {
 
@@ -43,7 +44,10 @@ class ProfileActivity : AppCompatActivity() {
             tvName.text = AppPref.username
             tvEmailProfil.text = AppPref.email
             btnLogoutProfile.setOnClickListener {
-                startActivity(Intent(this@ProfileActivity,AuthActivity::class.java))
+                AppPref.token = ""
+                AppPref.username = ""
+                AppPref.email = ""
+                    startActivity(Intent(this@ProfileActivity,AuthActivity::class.java))
             }
         }
 
