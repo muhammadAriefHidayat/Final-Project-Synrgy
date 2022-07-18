@@ -87,6 +87,16 @@
                 android:textColor="@color/textBlack"
                 app:layout_constraintTop_toBottomOf="@id/cardView" />
 
+            <ImageView
+                android:id="@+id/iv_favorite"
+                android:layout_width="30dp"
+                android:layout_height="50dp"
+                android:layout_marginTop="@dimen/space_4"
+                android:layout_marginEnd="16dp"
+                android:src="@drawable/ic_favorite"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/cardView" />
+
             <LinearLayout
                 android:id="@+id/ukuran_produk"
                 android:layout_width="match_parent"
@@ -94,6 +104,7 @@
                 android:layout_marginTop="@dimen/space_16"
                 android:orientation="horizontal"
                 app:layout_constraintTop_toBottomOf="@id/tv_detail_produk">
+
 
                 <TextView
                     android:id="@+id/tv_quantity"

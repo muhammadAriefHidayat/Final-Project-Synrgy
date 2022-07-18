@@ -39,6 +39,8 @@ class DetailFragment : Fragment() {
     private val cartViewMOdel: CartViewModel by viewModels {
         ViewModelFactory.getInstance(requireContext())
     }
+    private var favorite = false
+
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -52,15 +54,35 @@ class DetailFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+
         val dataTrending = arguments?.getString(EXTRA_PRODUCT)
         val data = stringToObject(dataTrending, Trending::class.java)
-        varian_id = data?.variant?.get(0)?.id.toString()
+        varian_id = data?.variant?.get(0)?.id_product.toString()
         sub_Total = data?.variant?.get(0)?.price?.toInt() ?: 0
         populateDataProduct(data)
 
+        detailViewModel.getMyFavorite(productName = "")
+        binding.ivFavorite.setOnClickListener{
+            if (favorite)
+                data?.let { it -> detailViewModel.deleteFavorite(it) }
+            else
+                data?.let { it -> detailViewModel.addFavorite(it) }
+        }
+
+        Log.d("getreview", "$dataTrending")
         detailViewModel.getReview()
-        detailViewModel.review.observe(viewLifecycleOwner) {
+
+        detailViewModel.review.observe(viewLifecycleOwner){
             populateData(it)
+
+//                binding.imDetailProduk.setOnClickListener(
+//                    Navigation.createNavigateOnClickListener(R.id.action_detailFragment_to_addReviewFragment)
+//                )
+        }
+
+        detailViewModel.myFavorite.observe(viewLifecycleOwner){
+            favorite = it
+            populateDataFavorite(it)
         }
 
         binding.apply {
@@ -103,6 +125,7 @@ class DetailFragment : Fragment() {
                 }
             }
         }
+
     }
 
     private fun getCustomLayoutDialog(layoutId: Int,status:String, colorId: Int) {
@@ -131,6 +154,16 @@ class DetailFragment : Fragment() {
 
             dialog.window?.attributes = lp
         }
+    }
+
+
+    private fun populateDataFavorite(isFavorite: Boolean?) {
+        binding.ivFavorite.setImageResource(
+            if (isFavorite == false)
+                R.drawable.ic_favorite
+            else
+                R.drawable.ic_favorite_click
+        )
     }
 
     private fun populateDataProduct(dataTrending: Trending?) {

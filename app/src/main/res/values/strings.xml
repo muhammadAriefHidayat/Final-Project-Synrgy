@@ -124,4 +124,5 @@
     <string name="haraplogin">harap login terlebih dahulu</string>
     <string name="sukses_keranjang">Produk Berhasil dimasukkan ke keranjang</string>
     <string name="error_keranjang">Produk GAGAL dimasukkan ke keranjang</string>
+    <string name="nama_produk">Nama Produk</string>
 </resources>

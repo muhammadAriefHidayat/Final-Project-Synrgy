@@ -61,7 +61,7 @@ interface ApiServices {
         @Path("productId") productId: String
     ): ListTrendingResponse
 
-    @GET("/api/v1/product/p")
+    @GET("/api/v1/product/q/trending")
     suspend fun searchProduct(
         @Query("q") name: String
     ): TrendingResponse
