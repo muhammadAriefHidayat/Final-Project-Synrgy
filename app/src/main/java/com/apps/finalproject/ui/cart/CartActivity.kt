@@ -73,6 +73,4 @@ class CartActivity : AppCompatActivity() {
             binding.rvCart.visibility = View.GONE
         }
     }
-
-
 }
