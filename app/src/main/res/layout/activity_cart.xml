@@ -29,8 +29,10 @@
             android:textStyle="bold" />
     </androidx.appcompat.widget.Toolbar>
 
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rv_cart"
+        android:visibility="gone"
         android:layout_width="0dp"
         android:layout_height="0dp"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
@@ -40,6 +42,28 @@
         app:layout_constraintTop_toBottomOf="@id/toolbar_top"
         tools:itemCount="2"
         tools:listitem="@layout/item_list_cart" />
+
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/img_cart_kosong"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="invisible"
+        android:src="@drawable/ic_cart_kosong"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <ProgressBar
+        android:id="@+id/progress"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline"
@@ -98,7 +122,7 @@
         android:layout_marginStart="18dp"
         android:fontFamily="@font/nunito"
         android:includeFontPadding="false"
-        android:text="Rp.5000"
+        android:text="Rp.0"
         android:textColor="@color/darkBrown"
         android:textFontWeight="700"
         android:textSize="16sp"

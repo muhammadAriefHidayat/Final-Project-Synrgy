@@ -23,7 +23,7 @@
         tools:ignore="SmallSp" />
 
     <TextView
-        android:id="@+id/tv_service"
+        android:id="@+id/harga_service"
         android:layout_width="wrap_content"
         android:layout_marginHorizontal="@dimen/space_10"
         android:layout_height="wrap_content"
@@ -43,7 +43,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="5dp"
         android:text="Estimasi tiba:"
-        android:textSize="7sp"
+        android:textSize="9sp"
         app:layout_constraintStart_toStartOf="@+id/tv_code_kurir"
         app:layout_constraintTop_toBottomOf="@+id/tv_code_kurir"
         tools:ignore="SmallSp" />
@@ -55,7 +55,7 @@
         android:layout_marginStart="5dp"
         android:layout_marginTop="5dp"
         android:text="8 Hari"
-        android:textSize="7sp"
+        android:textSize="9sp"
         app:layout_constraintStart_toEndOf="@+id/textView7"
         app:layout_constraintTop_toBottomOf="@+id/tv_code_kurir"
         tools:ignore="SmallSp" />
