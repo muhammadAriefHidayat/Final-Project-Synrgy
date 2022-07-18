@@ -5,6 +5,9 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.apps.finalproject.R
 import com.apps.finalproject.databinding.ActivityHomePageBinding
+import com.apps.finalproject.ui.cart.CartActivity
+import com.apps.finalproject.utils.AppPref
+import com.apps.finalproject.utils.Utils
 
 class HomePageActivity : AppCompatActivity() {
     lateinit var binding: ActivityHomePageBinding
@@ -26,7 +29,12 @@ class HomePageActivity : AppCompatActivity() {
 
         binding.bottomNavigationHomeView.setOnNavigationItemSelectedListener {
             val bool: Boolean = if (it.itemId == R.id.myProfileFragment) {
-                startActivity(Intent(this, ProfileActivity::class.java))
+                if (AppPref.token == ""){
+                    Utils.peringatan(this,"harap login terlebih dahulu")
+                    startActivity(Intent(this, AuthActivity::class.java))
+                }else{
+                    startActivity(Intent(this, ProfileActivity::class.java))
+                }
                 true
             } else {
                 false

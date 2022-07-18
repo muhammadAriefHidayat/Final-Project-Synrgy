@@ -8,6 +8,7 @@ import androidx.lifecycle.ViewModel
 import com.apps.finalproject.remote.model.Token
 import com.apps.finalproject.utils.AppPref
 import com.apps.finalproject.utils.Utils
+import com.auth0.android.jwt.JWT
 import com.loopj.android.http.AsyncHttpClient
 import com.loopj.android.http.TextHttpResponseHandler
 import cz.msebera.android.httpclient.Header
@@ -15,12 +16,11 @@ import cz.msebera.android.httpclient.entity.StringEntity
 import org.json.JSONObject
 
 class RegisterViewModel (): ViewModel() {
-    private val listToken = MutableLiveData<ArrayList<Token>>()
+    private val listToken = MutableLiveData<Token>()
 
     fun setRegister(username: String, password: String, user: JSONObject, context: Context){
         val client = AsyncHttpClient(true, 80, 443)
         val url = "https://cosmetic-b.herokuapp.com/api/v1/auth/register"
-        val dataToken  = ArrayList<Token>()
         val jsonParams = JSONObject()
         jsonParams.put("email", username);
         jsonParams.put("role", "ROLE_CUSTOMER");
@@ -35,14 +35,25 @@ class RegisterViewModel (): ViewModel() {
                 try {
                     AppPref.username = username
                     AppPref.pw = password
-                    Log.d("yangini", responseString.toString())
                     val responseObject = JSONObject(responseString)
+
+
                     val id_token = Token()
                     val data = responseObject.getString("data")
-                    Log.d("yang2", data)
                     id_token.token = JSONObject(data).getString("token")
-                    Log.d("yang3", " token ${id_token.token}")
-                    listToken.postValue(dataToken)
+                    val jwt = JWT(id_token.token)
+                    val uid = jwt.getClaim("userId")
+                    val email = jwt.getClaim("email")
+                    val name = jwt.getClaim("name")
+
+                    AppPref.userId = uid.asString().toString()
+                    AppPref.pw = password
+                    AppPref.token = id_token.token
+                    AppPref.email = email.asString().toString()
+                    AppPref.username = name.asString().toString()
+
+
+                    listToken.postValue(id_token)
                 } catch (e: Exception) {
                     Utils.peringatan(context, e.message.toString())
                 }
@@ -59,7 +70,7 @@ class RegisterViewModel (): ViewModel() {
         })
     }
 
-    internal fun getToken(): LiveData<ArrayList<Token>>{
+    internal fun getToken(): LiveData<Token>{
         return listToken
     }
 }
