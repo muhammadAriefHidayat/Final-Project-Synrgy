@@ -23,6 +23,7 @@ class HomeViewModel(private val repository: MainRepository): ViewModel() {
     fun getArticle() = viewModelScope.launch {
         _isLoading.value = true
         repository.getArticle().collect{
+            Log.d("articel", it.toString())
             _article.value = it
             _isLoading.value = false
         }
@@ -30,6 +31,7 @@ class HomeViewModel(private val repository: MainRepository): ViewModel() {
 
     fun getProductTrending() = viewModelScope.launch {
         repository.getProductTrending().collect{
+            Log.d("articel", it.toString())
             _isLoading.value = true
             _productTrending.value = it
             _isLoading.value = false
