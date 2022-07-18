@@ -14,7 +14,6 @@ class CartBrandAdapter(val cartItems: CartItems, val context: Context) : Item<Gr
     private val adapteitems = GroupAdapter<GroupieViewHolder>()
 
     override fun bind(viewHolder: GroupieViewHolder, position: Int) {
-        Log.d("adtcart", cartItems.brandName.toString())
         val brand = viewHolder.itemView.findViewById<TextView>(R.id.tv_brand_brand)
         val rv = viewHolder.itemView.findViewById<RecyclerView>(R.id.rv_itemvarian)
         brand.text = cartItems.brandName.toString()

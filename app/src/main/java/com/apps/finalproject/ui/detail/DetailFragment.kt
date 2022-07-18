@@ -6,9 +6,6 @@ import android.os.Bundle
 import android.util.Log
 import android.view.*
 import android.widget.Button
-import android.widget.EditText
-import android.widget.LinearLayout
-import android.widget.TextView
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
@@ -24,7 +21,6 @@ import com.apps.finalproject.ui.cart.CartActivity
 import com.apps.finalproject.ui.cart.CartViewModel
 import com.apps.finalproject.ui.view.AuthActivity
 import com.apps.finalproject.utils.AppPref
-import com.apps.finalproject.utils.Utils
 import com.apps.finalproject.utils.Utils.peringatan
 import com.apps.finalproject.utils.stringToObject
 import com.bumptech.glide.Glide
@@ -32,6 +28,7 @@ import com.bumptech.glide.Glide
 
 class DetailFragment : Fragment() {
     var quantity = 1
+    var sub_Total = 0
     var varian_id = ""
     private lateinit var binding: FragmentDetailBinding
 
@@ -58,25 +55,32 @@ class DetailFragment : Fragment() {
         val dataTrending = arguments?.getString(EXTRA_PRODUCT)
         val data = stringToObject(dataTrending, Trending::class.java)
         varian_id = data?.variant?.get(0)?.id.toString()
+        sub_Total = data?.variant?.get(0)?.price?.toInt() ?: 0
         populateDataProduct(data)
 
         detailViewModel.getReview()
-
         detailViewModel.review.observe(viewLifecycleOwner) {
             populateData(it)
         }
 
         binding.apply {
+            tvSubtotl.text = "Rp $sub_Total"
             btnPlusProduk.setOnClickListener {
                 if (quantity >= 0) {
                     quantity += 1
-                    tvQyt.text = quantity.toString()
+                    tvQyt.text = "$quantity"
+
+                    val hasil = sub_Total * quantity
+                    tvSubtotl.text = "Rp$hasil"
                 }
             }
             btnMinProduk.setOnClickListener {
                 if (quantity > 0) {
-                    quantity -= 1
-                    tvQyt.text = quantity.toString()
+                    quantity -=1
+                    tvQyt.text = "$quantity"
+
+                    val hasil = sub_Total * quantity
+                    tvSubtotl.text = "Rp$hasil"
                 }
             }
 

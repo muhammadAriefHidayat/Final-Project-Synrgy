@@ -1,6 +1,7 @@
 package com.apps.finalproject.data.api
 
 import com.apps.finalproject.remote.body.LoginBody
+import com.apps.finalproject.remote.body.PengirimanBody
 import com.apps.finalproject.remote.body.RegisterBody
 import com.apps.finalproject.remote.model.Cart
 import com.apps.finalproject.remote.model.Review
@@ -29,6 +30,11 @@ interface ApiServices {
         @Header("Authorization") token: String,
         @Body cart: Cart
         ):Call<CartResponse>
+
+    @POST("/api/v1/raja-ongkir/cost")
+    fun postOngkir(
+        @Body pengirimanBody: PengirimanBody
+    ):Call<OngkirResponse>
 
     @GET("/api/v1/carts")
     fun getCart(
