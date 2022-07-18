@@ -4,6 +4,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.view.View
 import androidx.activity.viewModels
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.DefaultItemAnimator
@@ -27,6 +28,7 @@ class CartActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityCartBinding.inflate(layoutInflater)
+
         val view = binding.root
         setContentView(view)
 
@@ -42,24 +44,35 @@ class CartActivity : AppCompatActivity() {
         }
     }
 
+    private fun setData(it: CartOverview?) {
+        if (it?.total != null){
+            binding.apply {
+                imgCartKosong.visibility = View.GONE
+                tvSubtotal.text = it.total.toString()
+            }
+        }else{
+            binding.imgCartKosong.visibility = View.VISIBLE
+        }
+        binding.progress.visibility = View.GONE
+    }
+
     private fun setCartItems(it: List<CartItems>?) {
-        if(it != null){
+        if(it?.get(0)?.id != null){
             it.forEach { cartItems ->
                 adapterrv.add(CartBrandAdapter(cartItems,this))
             }
             binding.rvCart.apply {
+                visibility = View.VISIBLE
                 setHasFixedSize(true)
                 itemAnimator = DefaultItemAnimator()
                 adapter = adapterrv
             }
+            binding.imgCartKosong.visibility = View.GONE
         }else{
-            Log.d("sdf","err")
+            binding.imgCartKosong.visibility = View.VISIBLE
+            binding.rvCart.visibility = View.GONE
         }
     }
 
-    private fun setData(it: CartOverview?) {
-        if (it != null){
-            binding.tvSubtotal.text = it.total.toString()
-        }
-    }
+
 }
