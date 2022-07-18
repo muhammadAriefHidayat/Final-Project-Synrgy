@@ -20,6 +20,9 @@ import com.apps.finalproject.ui.adapter.ListTrendingAdapter
 import com.apps.finalproject.ui.article.ListArticleAdapter
 import com.apps.finalproject.ui.cart.CartActivity
 import com.apps.finalproject.ui.detail.DetailFragment.Companion.EXTRA_PRODUCT
+import com.apps.finalproject.ui.view.AuthActivity
+import com.apps.finalproject.utils.AppPref
+import com.apps.finalproject.utils.Utils
 import com.apps.finalproject.utils.objectToString
 
 class HomeFragment : Fragment() {
@@ -67,7 +70,12 @@ class HomeFragment : Fragment() {
             true
         }
         binding.itemHeader.itemSearch.menuKeranjang.setOnClickListener {
-            startActivity(Intent(requireContext(),CartActivity::class.java))
+            if (AppPref.token == ""){
+                Utils.peringatan(requireContext(),"harap login terlebih dahulu")
+                startActivity(Intent(requireContext(), AuthActivity::class.java))
+            }else{
+                startActivity(Intent(requireContext(),CartActivity::class.java))
+            }
         }
     }
 

@@ -1,6 +1,8 @@
 package com.apps.finalproject.ui.register
 
+import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -11,6 +13,7 @@ import androidx.navigation.Navigation
 import com.apps.finalproject.R
 import com.apps.finalproject.databinding.FragmentRegisterBinding
 import com.apps.finalproject.remote.model.User
+import com.apps.finalproject.ui.view.HomePageActivity
 import com.apps.finalproject.utils.AppPref
 import org.json.JSONObject
 import kotlin.random.Random
@@ -69,8 +72,10 @@ class RegisterFragment : Fragment() {
         dataToken.setRegister(username, password,user, requireContext())
         dataToken.getToken().observe(requireActivity(), Observer { token ->
             if (token != null) {
-                val token = token[0].token
+                val token = token.token
                 AppPref.token = token
+                Log.d("regis",token.toString())
+                startActivity(Intent(requireActivity(),HomePageActivity::class.java))
             }
         })
     }

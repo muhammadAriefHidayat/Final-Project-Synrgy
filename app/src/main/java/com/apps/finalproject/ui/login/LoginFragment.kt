@@ -8,6 +8,8 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.navigation.Navigation
+import com.apps.finalproject.R
 import com.apps.finalproject.databinding.FragmentLoginBinding
 import com.apps.finalproject.remote.body.LoginBody
 import com.apps.finalproject.ui.ViewModelFactory
@@ -17,6 +19,7 @@ import com.apps.finalproject.utils.Utils
 class LoginFragment : Fragment() {
     private lateinit var binding: FragmentLoginBinding
 //    private lateinit var dataToken: ModelviewToken
+
     private val loginViewModel : LoginViewModel by viewModels {
         ViewModelFactory.getInstance(requireContext())
     }
@@ -32,6 +35,9 @@ class LoginFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        binding.tvDaftar.setOnClickListener (
+            Navigation.createNavigateOnClickListener(R.id.action_loginFragment_to_registerFragment)
+        )
 
         binding.button.setOnClickListener {
             val email = binding.editText.text.toString()
