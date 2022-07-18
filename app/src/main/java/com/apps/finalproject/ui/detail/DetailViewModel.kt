@@ -6,9 +6,9 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.apps.finalproject.data.repository.MainRepository
-import com.apps.finalproject.remote.model.Brand
-import com.apps.finalproject.remote.model.Review
-import com.apps.finalproject.remote.model.Trending
+import com.apps.finalproject.local.entity.Favorite
+import com.apps.finalproject.remote.model.*
+import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
 
 class DetailViewModel (private val repository: MainRepository): ViewModel(){
@@ -20,5 +20,22 @@ class DetailViewModel (private val repository: MainRepository): ViewModel(){
              _review.value = it
                 Log.d("getReview", review.value.toString())
         }
+    }
+
+    private val _myFavorite = MutableLiveData<Boolean>()
+    val myFavorite get() = _myFavorite
+
+    fun getMyFavorite(productName: String) = viewModelScope.launch {
+        repository.getMyFavorite(productName).collect{
+            _myFavorite.value = it != null
+        }
+    }
+
+    fun addFavorite(favoriteProduct: Trending) = viewModelScope.launch {
+        favoriteProduct.toFavorite()?.let { repository.addFavorite(it) }
+    }
+
+    fun deleteFavorite(favoriteProduct: Trending) = viewModelScope.launch {
+        favoriteProduct.toFavorite()?.let { repository.deleteFavorite(it) }
     }
 }

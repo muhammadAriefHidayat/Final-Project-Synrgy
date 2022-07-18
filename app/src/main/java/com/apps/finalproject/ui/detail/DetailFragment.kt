@@ -10,6 +10,7 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.DefaultItemAnimator
+import com.apps.finalproject.R
 import com.apps.finalproject.databinding.FragmentDetailBinding
 import com.apps.finalproject.remote.model.Review
 import com.apps.finalproject.remote.model.Trending
@@ -27,6 +28,8 @@ class DetailFragment : Fragment() {
     private val detailViewModel: DetailViewModel by viewModels{
         ViewModelFactory.getInstance(requireContext())
     }
+    private var favorite = false
+
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -45,6 +48,14 @@ class DetailFragment : Fragment() {
         val data = stringToObject(dataTrending, Trending::class.java)
         populateDataProduct(data)
 
+        detailViewModel.getMyFavorite(productName = "")
+        binding.ivFavorite.setOnClickListener{
+            if (favorite)
+                data?.let { it -> detailViewModel.deleteFavorite(it) }
+            else
+                data?.let { it -> detailViewModel.addFavorite(it) }
+        }
+
         Log.d("getreview", "$dataTrending")
         detailViewModel.getReview()
 
@@ -55,6 +66,21 @@ class DetailFragment : Fragment() {
 //                    Navigation.createNavigateOnClickListener(R.id.action_detailFragment_to_addReviewFragment)
 //                )
         }
+
+        detailViewModel.myFavorite.observe(viewLifecycleOwner){
+            favorite = it
+            populateDataFavorite(it)
+        }
+
+    }
+
+    private fun populateDataFavorite(isFavorite: Boolean?) {
+        binding.ivFavorite.setImageResource(
+            if (isFavorite == false)
+                R.drawable.ic_favorite
+            else
+                R.drawable.ic_favorite_click
+        )
     }
 
     private fun populateDataProduct(dataTrending : Trending?){

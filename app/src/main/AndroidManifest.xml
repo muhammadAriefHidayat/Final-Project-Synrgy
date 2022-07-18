@@ -16,12 +16,13 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.FinalProject"
         tools:targetApi="31">
-
         <activity
-            android:screenOrientation="portrait"
+            android:name=".FavoriteActivity"
+            android:exported="false" />
+        <activity
             android:name="com.theartofdev.edmodo.cropper.CropImageActivity"
+            android:screenOrientation="portrait"
             android:theme="@style/Base.Theme.AppCompat" />
-
         <activity
             android:name=".ui.view.EditProfileActivity"
             android:exported="false" />

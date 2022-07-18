@@ -12,18 +12,21 @@ data class Trending(
 	val variant: List<Variant>?,
 	val name: String?,
 	val id: String?,
-	val brand: Brand?
+	val brand: Brand?,
 ): Parcelable
+
+fun Trending.toFavorite() =
+	this.variant?.get(0).let { it?.let { it1 -> FavoriteProduct(it1.id_entity, it.id_product, it.name, it.price, it.imageIndex ) } }
 
 fun ListTrendingResponse.toTrending() : Trending {
 	return Trending(
-		average = this?.average,
-		images = this?.images,
-		isOrganic = this?.isOrganic,
-		variant = this?.variant.toListVariant(),
-		name = this?.name,
-		id = this?.id,
-		brand = this?.brand.toBrand()
+		average = this.average,
+		images = this.images,
+		isOrganic = this.isOrganic,
+		variant = this.variant.toListVariant(),
+		name = this.name,
+		id = this.id,
+		brand = this.brand.toBrand()
 	)
 }
 

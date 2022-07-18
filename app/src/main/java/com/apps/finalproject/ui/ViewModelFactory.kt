@@ -6,6 +6,7 @@ import androidx.lifecycle.ViewModelProvider
 import com.apps.finalproject.data.repository.MainRepository
 import com.apps.finalproject.di.Injection
 import com.apps.finalproject.ui.detail.DetailViewModel
+import com.apps.finalproject.ui.favorite.FavoriteViewModel
 import com.apps.finalproject.ui.home.HomeViewModel
 import com.apps.finalproject.ui.login.LoginViewModel
 import java.lang.IllegalArgumentException
@@ -17,9 +18,11 @@ class ViewModelFactory (private val mainRepository: MainRepository) : ViewModelP
             return DetailViewModel(mainRepository) as T
         } else if (modelClass.isAssignableFrom(HomeViewModel::class.java)){
             return HomeViewModel(mainRepository) as T
-        }else  if (modelClass.isAssignableFrom(LoginViewModel::class.java)){
+        } else  if (modelClass.isAssignableFrom(LoginViewModel::class.java)){
             return LoginViewModel(mainRepository) as T
-        }
+        } else  if (modelClass.isAssignableFrom(FavoriteViewModel::class.java)){
+        return FavoriteViewModel(mainRepository) as T
+    }
         throw IllegalArgumentException("unknown ViewModel class: " + modelClass.name)
     }
 
