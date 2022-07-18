@@ -1,9 +1,8 @@
 package com.apps.finalproject.ui.view
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
 import com.apps.finalproject.R
-import com.apps.finalproject.utils.AppPref
 
 class EditProfileActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
