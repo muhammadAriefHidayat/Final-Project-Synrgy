@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
@@ -28,7 +28,7 @@
         app:layout_constraintTop_toTopOf="@+id/view4" />
 
     <TextView
-        android:id="@+id/textView5"
+        android:id="@+id/tv_itemProdukAdapterCheck"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="10dp"
@@ -42,7 +42,7 @@
         tools:ignore="SmallSp" />
 
     <TextView
-        android:id="@+id/textView6"
+        android:id="@+id/tv_itemHargqAdapterCheck"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="5dp"
@@ -51,8 +51,8 @@
         android:text="Rp 75.000"
         android:textColor="@color/textBlack"
         android:textSize="10sp"
-        app:layout_constraintStart_toStartOf="@+id/textView5"
-        app:layout_constraintTop_toBottomOf="@+id/textView5"
+        app:layout_constraintStart_toStartOf="@+id/tv_itemProdukAdapterCheck"
+        app:layout_constraintTop_toBottomOf="@+id/tv_itemProdukAdapterCheck"
         tools:ignore="SmallSp" />
 
     <TextView
@@ -62,8 +62,8 @@
         android:layout_marginTop="5dp"
         android:text="Size: 100ml"
         android:textSize="7sp"
-        app:layout_constraintStart_toStartOf="@+id/textView6"
-        app:layout_constraintTop_toBottomOf="@+id/textView6"
+        app:layout_constraintStart_toStartOf="@+id/tv_itemHargqAdapterCheck"
+        app:layout_constraintTop_toBottomOf="@+id/tv_itemHargqAdapterCheck"
         tools:ignore="SmallSp" />
 
     <TextView
@@ -72,7 +72,7 @@
         android:text="1 pcs"
         android:textSize="8sp"
         android:layout_marginEnd="@dimen/space_16"
-        app:layout_constraintBottom_toBottomOf="@+id/textView5"
+        app:layout_constraintBottom_toBottomOf="@+id/tv_itemProdukAdapterCheck"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/textView5" />
+        app:layout_constraintTop_toTopOf="@+id/tv_itemProdukAdapterCheck" />
 </androidx.constraintlayout.widget.ConstraintLayout>

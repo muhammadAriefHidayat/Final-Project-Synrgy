@@ -1,4 +1,4 @@
-package com.apps.finalproject.ui.cart
+package com.apps.finalproject.ui.checkoutshiping
 
 import android.content.Context
 import android.util.Log
@@ -11,10 +11,10 @@ import com.xwray.groupie.GroupAdapter
 import com.xwray.groupie.GroupieViewHolder
 import com.xwray.groupie.Item
 
-class CartItemVarAdapter(val itemVarian: ItemVarian, val context: Context) : Item<GroupieViewHolder>() {
+class CheckoutItemVarAdapter(val itemVarian: ItemVarian, val context: Context) : Item<GroupieViewHolder>() {
 
     override fun bind(viewHolder: GroupieViewHolder, position: Int) {
-        val varians = viewHolder.itemView.findViewById<TextView>(R.id.tv_itemProdukAdapterCheck)
+        val varians = viewHolder.itemView.findViewById<TextView>(R.id.tv_items_varians_varians)
         varians.text = itemVarian.name
     }
 

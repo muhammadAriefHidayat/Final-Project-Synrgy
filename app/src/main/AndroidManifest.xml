@@ -18,18 +18,16 @@
         android:theme="@style/Theme.FinalProject"
         tools:targetApi="31">
         <activity
-            android:name=".SearchActivity"
+            android:name=".ui.view.SearchActivity"
             android:exported="false" />
         <activity
-            android:name=".FavoriteActivity"
-            android:exported="false" />
-        <activity
-            android:name=".CheckoutActivity"
+            android:name=".ui.favorite.FavoriteActivity"
             android:exported="false" />
         <activity
             android:name="com.theartofdev.edmodo.cropper.CropImageActivity"
             android:screenOrientation="portrait"
-            android:theme="@style/Base.Theme.AppCompat" />
+            android:theme="@style/Base.Theme.AppCompat"
+            tools:ignore="LockedOrientationActivity" />
         <activity
             android:name=".ui.view.EditProfileActivity"
             android:exported="false" />
