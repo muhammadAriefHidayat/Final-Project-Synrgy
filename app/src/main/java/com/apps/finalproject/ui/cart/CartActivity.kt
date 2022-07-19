@@ -37,7 +37,9 @@ class CartActivity : AppCompatActivity() {
             setData(it)
         }
         cartViewmodel.getCartItems().observe(this){
-            setCartItems(it)
+            if (it.isNotEmpty()){
+                setCartItems(it)
+            }
         }
         binding.btnCheckout.setOnClickListener{
             startActivity(Intent(this,CheckoutActivity::class.java))
@@ -45,19 +47,23 @@ class CartActivity : AppCompatActivity() {
     }
 
     private fun setData(it: CartOverview?) {
-        if (it?.total != null){
+        if (it?.total != 0){
             binding.apply {
+                tvCartkosong.visibility = View.GONE
                 imgCartKosong.visibility = View.GONE
-                tvSubtotal.text = it.total.toString()
+                tvSubtotal.text = it?.total.toString()
             }
         }else{
-            binding.imgCartKosong.visibility = View.VISIBLE
+            binding.apply {
+                imgCartKosong.visibility = View.VISIBLE
+                tvCartkosong.visibility = View.VISIBLE
+            }
         }
         binding.progress.visibility = View.GONE
     }
 
     private fun setCartItems(it: List<CartItems>?) {
-        if(it?.get(0)?.id != null){
+        if(it?.isNotEmpty() == true){
             it.forEach { cartItems ->
                 adapterrv.add(CartBrandAdapter(cartItems,this))
             }
@@ -70,6 +76,7 @@ class CartActivity : AppCompatActivity() {
             binding.imgCartKosong.visibility = View.GONE
         }else{
             binding.imgCartKosong.visibility = View.VISIBLE
+            binding.tvCartkosong.visibility = View.VISIBLE
             binding.rvCart.visibility = View.GONE
         }
     }

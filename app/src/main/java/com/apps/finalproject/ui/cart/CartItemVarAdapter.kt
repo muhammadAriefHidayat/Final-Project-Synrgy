@@ -14,11 +14,11 @@ import com.xwray.groupie.Item
 class CartItemVarAdapter(val itemVarian: ItemVarian, val context: Context) : Item<GroupieViewHolder>() {
 
     override fun bind(viewHolder: GroupieViewHolder, position: Int) {
-        val varians = viewHolder.itemView.findViewById<TextView>(R.id.tv_items_varians_varians)
+        val varians = viewHolder.itemView.findViewById<TextView>(R.id.tv_itemProdukAdapterCheck)
         varians.text = itemVarian.name
     }
 
     override fun getLayout(): Int {
-        return R.layout.item_produk_cart
+        return R.layout.item_produk
     }
 }
