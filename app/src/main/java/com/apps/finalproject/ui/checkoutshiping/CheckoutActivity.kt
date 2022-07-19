@@ -1,6 +1,7 @@
 package com.apps.finalproject.ui.checkoutshiping
 
 import android.app.Dialog
+import android.content.Intent
 import android.os.Bundle
 import android.view.Gravity
 import android.view.View
@@ -24,6 +25,7 @@ import com.apps.finalproject.ui.adapter.PengirimanAdapter
 import com.apps.finalproject.ui.cart.CartBrandAdapter
 import com.apps.finalproject.ui.cart.GetCartViewModel
 import com.apps.finalproject.ui.viewmodel.OngkirViewModel
+import com.apps.finalproject.utils.Utils
 import com.xwray.groupie.GroupAdapter
 import com.xwray.groupie.GroupieViewHolder
 
@@ -37,11 +39,13 @@ class CheckoutActivity : AppCompatActivity() {
 
     lateinit var binding: ActivityCheckoutBinding
     private val adapterrv = GroupAdapter<GroupieViewHolder>()
-    val adapterkurir = GroupAdapter<GroupieViewHolder>()
-    val adapterPengiriman = GroupAdapter<GroupieViewHolder>()
+    private val adapterkurir = GroupAdapter<GroupieViewHolder>()
+    private val adapterPengiriman = GroupAdapter<GroupieViewHolder>()
 
     var kurir = ""
     var txOngkir = 0
+    var txTotal = 0
+    var txTotalAkhir = 0
     var metodePengiriman = ""
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -84,6 +88,13 @@ class CheckoutActivity : AppCompatActivity() {
 
             }
             btnCeckoutPembayaran.setOnClickListener {
+                if (txTotalAkhir==0){
+                    Utils.peringatan(this@CheckoutActivity,"pilih metode pembayaran")
+                }else{
+                    val intent = Intent(this@CheckoutActivity,PaymentActivity::class.java)
+                    intent.putExtra("bayar",txTotalAkhir.toString())
+                    startActivity(intent)
+                }
 
             }
             btnRedeemVoucer.setOnClickListener {
@@ -97,15 +108,15 @@ class CheckoutActivity : AppCompatActivity() {
 
     private fun setCart(it: List<CartItems>?) {
         if(it?.get(0)?.id != null){
-//            it.forEach { cartItems ->
-//                adapterrv.add(CartBrandAdapter(cartItems,this))
-//            }
-//            binding.reycleviewRingkasanBelanja.apply {
-//                visibility = View.VISIBLE
-//                setHasFixedSize(true)
-//                itemAnimator = DefaultItemAnimator()
-//                adapter = adapterrv
-//            }
+            it.forEach { cartItems ->
+                adapterrv.add(CheckoutBrandAdapter(cartItems,this))
+            }
+            binding.reycleviewRingkasanBelanja.apply {
+                visibility = View.VISIBLE
+                setHasFixedSize(true)
+                itemAnimator = DefaultItemAnimator()
+                adapter = adapterrv
+            }
         }
     }
 
@@ -113,6 +124,7 @@ class CheckoutActivity : AppCompatActivity() {
         if (it?.total != null){
             binding.apply {
                 tvSubtotal.text = it.total.toString()
+                txTotal = it.total
                 tvTotalPembayaran.text = "${it.total + txOngkir}"
             }
         }
@@ -137,7 +149,7 @@ class CheckoutActivity : AppCompatActivity() {
         if (dialog.window != null) {
 
             lp.copyFrom(dialog.window?.attributes)
-            lp.gravity = Gravity.BOTTOM
+            lp.gravity = Gravity.CENTER
             lp.width = WindowManager.LayoutParams.MATCH_PARENT
             lp.height = WindowManager.LayoutParams.WRAP_CONTENT
 
@@ -147,11 +159,14 @@ class CheckoutActivity : AppCompatActivity() {
             adapterPengiriman.setOnItemClickListener { item, view ->
                 val itemekspedisi = item as PengirimanAdapter
                 metodePengiriman =  "${ekspediri.uppercase()} ${itemekspedisi.itemService.service}"
-                dialog.cancel()
-                binding.tvMetodePengiriman.text = metodePengiriman
-                binding.tvOngkoskirim.text = "${itemekspedisi.itemService.cost[0].value.toString()}"
-                txOngkir = itemekspedisi.itemService.cost[0].value
-                dialog.cancel()
+                binding.apply {
+                    tvMetodePengiriman.text = metodePengiriman
+                    tvOngkoskirim.text = "${itemekspedisi.itemService.cost[0].value.toString()}"
+                    txOngkir = itemekspedisi.itemService.cost[0].value
+                    txTotalAkhir = txTotal + txOngkir
+                    tvTotalPembayaran.text = txTotalAkhir.toString()
+                    dialog.cancel()
+                }
             }
 
             rvMetode.adapter = adapterPengiriman
@@ -174,7 +189,7 @@ class CheckoutActivity : AppCompatActivity() {
         if (dialog.window != null) {
 
             lp.copyFrom(dialog.window?.attributes)
-            lp.gravity = Gravity.BOTTOM
+            lp.gravity = Gravity.CENTER
             lp.width = WindowManager.LayoutParams.MATCH_PARENT
             lp.height = WindowManager.LayoutParams.WRAP_CONTENT
             val rv = dialog.findViewById<RecyclerView>(R.id.rv_kurir)
