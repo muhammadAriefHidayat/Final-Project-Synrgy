@@ -1,20 +1,16 @@
 package com.apps.finalproject.ui.cart
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import android.view.View
 import androidx.activity.viewModels
-import androidx.fragment.app.viewModels
+import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.DefaultItemAnimator
-import com.apps.finalproject.R
 import com.apps.finalproject.databinding.ActivityCartBinding
 import com.apps.finalproject.remote.response.CartItems
 import com.apps.finalproject.remote.response.CartOverview
 import com.apps.finalproject.ui.ViewModelFactory
 import com.apps.finalproject.ui.checkoutshiping.CheckoutActivity
-import com.apps.finalproject.ui.detail.DetailViewModel
 import com.xwray.groupie.GroupAdapter
 import com.xwray.groupie.GroupieViewHolder
 

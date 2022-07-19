@@ -165,13 +165,13 @@ class CheckoutActivity : AppCompatActivity() {
                     txOngkir = itemekspedisi.itemService.cost[0].value
                     txTotalAkhir = txTotal + txOngkir
                     tvTotalPembayaran.text = txTotalAkhir.toString()
-                    dialog.cancel()
+                    dialog.hide()
                 }
             }
 
             rvMetode.adapter = adapterPengiriman
             positiveButton.setOnClickListener {
-                dialog.cancel()
+                dialog.hide()
             }
 
             dialog.show()
