@@ -3,8 +3,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:background="@color/md_white_1000"
     android:layout_height="match_parent"
+    android:background="@color/md_white_1000"
     tools:context=".ui.checkoutshiping.FinishingPaymentActivity">
 
     <androidx.appcompat.widget.Toolbar
@@ -31,9 +31,9 @@
 
     <androidx.appcompat.widget.AppCompatImageView
         android:id="@+id/iv_selsaikan_pembayaran"
-        android:layout_marginTop="@dimen/space_20"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/space_20"
         android:src="@drawable/ic_waiting_payment"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -41,9 +41,226 @@
 
     <View
         android:id="@+id/view6"
-        app:layout_constraintTop_toBottomOf="@id/iv_selsaikan_pembayaran"
         android:layout_width="match_parent"
         android:layout_height="@dimen/space_36"
-        android:background="@drawable/item_roundedtop_brown_gradiend" />
+        android:layout_marginHorizontal="@dimen/space_64"
+        android:layout_marginTop="-16dp"
+        android:background="@drawable/item_roundedtop_brown_gradiend"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/iv_selsaikan_pembayaran" />
+
+    <TextView
+        android:id="@+id/textView15"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/nunito_bold"
+        android:text="Bayar sebelum 07 Juni 2022, 05:40 WIB"
+        android:textColor="@color/md_white_1000"
+        android:textSize="12sp"
+        app:layout_constraintBottom_toBottomOf="@id/view6"
+        app:layout_constraintEnd_toEndOf="@id/view6"
+        app:layout_constraintStart_toStartOf="@id/view6"
+        app:layout_constraintTop_toTopOf="@+id/view6" />
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/space_20"
+        android:fontFamily="@font/nunito"
+        android:text="Pembayaran dengan "
+        android:textColor="@color/darkBrown"
+        android:textSize="10sp"
+        app:layout_constraintEnd_toEndOf="@+id/view6"
+        app:layout_constraintStart_toStartOf="@+id/view6"
+        app:layout_constraintTop_toBottomOf="@+id/view6" />
+
+    <ImageView
+        android:id="@+id/icon_virtualimg"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/space_10"
+        android:src="@drawable/mandiri_virtual"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView4" />
+
+    <View
+        android:id="@+id/views"
+        android:layout_width="0dp"
+        android:layout_height="0.76dp"
+        android:layout_marginTop="@dimen/space_16"
+        android:background="@color/darkBrown"
+        app:layout_constraintEnd_toEndOf="@id/view6"
+        app:layout_constraintStart_toStartOf="@id/view6"
+        app:layout_constraintTop_toBottomOf="@+id/icon_virtualimg" />
+
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/gl_payment"
+        android:layout_width="1dp"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.5" />
+
+    <TextView
+        android:id="@+id/textView14"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/space_15"
+        android:fontFamily="@font/nunito"
+        android:text="Nomor Pembayaran"
+        android:textColor="@color/darkBrown"
+        android:textSize="@dimen/space_10"
+        app:layout_constraintStart_toStartOf="@id/views"
+        app:layout_constraintTop_toBottomOf="@+id/views" />
+
+
+    <TextView
+        android:id="@+id/tv_nomor_virtual"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/nunito_bold"
+        android:text="9030958-03957"
+        android:textColor="@color/textBlack"
+        app:layout_constraintStart_toStartOf="@+id/views"
+        app:layout_constraintTop_toBottomOf="@+id/textView14" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_frame_27"
+        app:layout_constraintBottom_toBottomOf="@+id/tv_nomor_virtual"
+        app:layout_constraintEnd_toEndOf="@+id/views"
+        app:layout_constraintTop_toTopOf="@+id/textView14" />
+
+    <View
+        android:id="@+id/view7"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/space_56"
+        android:layout_marginStart="@dimen/space_16"
+        android:layout_marginTop="26dp"
+        android:layout_marginEnd="@dimen/space_5"
+        android:background="@drawable/item_rounded_8dp_edt"
+        app:layout_constraintEnd_toEndOf="@id/gl_payment"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_nomor_virtual" />
+
+    <TextView
+        android:id="@+id/textView16"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/space_10"
+        android:fontFamily="@font/nunito"
+        android:text="ID Pesanan"
+        android:textColor="@color/darkBrown"
+        android:textSize="9sp"
+        app:layout_constraintEnd_toEndOf="@+id/view7"
+        app:layout_constraintStart_toStartOf="@+id/view7"
+        app:layout_constraintTop_toTopOf="@+id/view7" />
+
+    <TextView
+        android:id="@+id/textView17"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/space_10"
+        android:fontFamily="@font/nunito_bold"
+        android:text="68790723"
+        android:textColor="@color/darkBrown"
+        android:textSize="12sp"
+        app:layout_constraintBottom_toBottomOf="@+id/view7"
+        app:layout_constraintEnd_toEndOf="@+id/textView16"
+        app:layout_constraintStart_toStartOf="@+id/textView16"
+        app:layout_constraintTop_toBottomOf="@+id/textView16" />
+
+
+    <View
+        android:id="@+id/view8"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/space_56"
+        android:layout_marginStart="@dimen/space_5"
+        android:layout_marginTop="26dp"
+        android:layout_marginEnd="@dimen/space_16"
+        android:background="@drawable/item_rounded_8dp_edt"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@id/gl_payment"
+        app:layout_constraintTop_toBottomOf="@+id/tv_nomor_virtual" />
+
+    <TextView
+        android:id="@+id/textView18"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/space_10"
+        android:fontFamily="@font/nunito"
+        android:text="Total Pembayaran"
+        android:textColor="@color/darkBrown"
+        android:textSize="9sp"
+        app:layout_constraintEnd_toEndOf="@+id/view8"
+        app:layout_constraintStart_toStartOf="@+id/view8"
+        app:layout_constraintTop_toTopOf="@+id/view8" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/space_10"
+        android:fontFamily="@font/nunito_bold"
+        android:text="Rp. 20000"
+        android:textColor="@color/darkBrown"
+        android:textSize="12sp"
+        app:layout_constraintBottom_toBottomOf="@+id/view8"
+        app:layout_constraintEnd_toEndOf="@+id/textView18"
+        app:layout_constraintStart_toStartOf="@+id/textView18"
+        app:layout_constraintTop_toBottomOf="@+id/textView18" />
+
+    <TextView
+        android:id="@+id/textView19"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/space_20"
+        android:fontFamily="@font/nunito"
+        android:text="Petunjuk Melakukan Pembayaran"
+        android:textColor="@color/darkBrown"
+        android:textSize="10sp"
+        app:layout_constraintStart_toStartOf="@+id/view7"
+        app:layout_constraintTop_toBottomOf="@+id/view7" />
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/panduan"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_texts"
+        app:layout_constraintStart_toStartOf="@+id/textView19"
+        app:layout_constraintTop_toBottomOf="@+id/textView19" />
+
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/space_36"
+        android:layout_marginHorizontal="@dimen/space_16"
+        android:layout_marginBottom="@dimen/space_8"
+        android:background="@drawable/rounded_full_brown"
+        android:text="Belanja Lagi"
+        android:fontFamily="@font/nunito"
+        android:textAllCaps="false"
+        android:textColor="@color/md_white_1000"
+        app:layout_constraintBottom_toTopOf="@id/btn_belanjaLagi"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btn_belanjaLagi"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/space_36"
+        android:layout_marginHorizontal="@dimen/space_16"
+        android:layout_marginBottom="@dimen/space_8"
+        android:background="@drawable/item_rounded_edt"
+        android:text="Belanja Lagi"
+        android:fontFamily="@font/nunito"
+        android:textAllCaps="false"
+        android:textColor="@color/textBlack"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
