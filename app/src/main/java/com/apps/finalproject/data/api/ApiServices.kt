@@ -1,6 +1,7 @@
 package com.apps.finalproject.data.api
 
 import com.apps.finalproject.remote.body.LoginBody
+import com.apps.finalproject.remote.body.PaymentBody
 import com.apps.finalproject.remote.body.PengirimanBody
 import com.apps.finalproject.remote.body.RegisterBody
 import com.apps.finalproject.remote.model.Cart
@@ -19,11 +20,16 @@ interface ApiServices {
     ): Call<LoginResponse>
 
 
+    @POST("/api/v1/checkout")
+    fun payment(
+        @Header("Authorization") token: String,
+        @Body paymentBody: PaymentBody
+    ): Call<PaymentResponse>
+
     @POST("/api/v1/auth/login")
     fun login(
         @Body loginBody : LoginBody
     ): Call<LoginResponse>
-
 
     @POST("/api/v1/carts")
     fun addCart(
