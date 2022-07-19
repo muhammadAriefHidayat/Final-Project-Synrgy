@@ -9,6 +9,7 @@ import com.apps.finalproject.ui.cart.CartViewModel
 import com.apps.finalproject.ui.cart.GetCartViewModel
 import com.apps.finalproject.ui.checkoutshiping.PaymentViewModel
 import com.apps.finalproject.ui.detail.DetailViewModel
+import com.apps.finalproject.ui.favorite.FavoriteViewModel
 import com.apps.finalproject.ui.home.HomeViewModel
 import com.apps.finalproject.ui.login.LoginViewModel
 import com.apps.finalproject.ui.viewmodel.OngkirViewModel
@@ -21,18 +22,19 @@ class ViewModelFactory (private val mainRepository: MainRepository) : ViewModelP
             return DetailViewModel(mainRepository) as T
         } else if (modelClass.isAssignableFrom(HomeViewModel::class.java)){
             return HomeViewModel(mainRepository) as T
-        }else  if (modelClass.isAssignableFrom(LoginViewModel::class.java)){
+        } else  if (modelClass.isAssignableFrom(LoginViewModel::class.java)){
             return LoginViewModel(mainRepository) as T
-        }else  if (modelClass.isAssignableFrom(CartViewModel::class.java)){
+        } else  if (modelClass.isAssignableFrom(FavoriteViewModel::class.java)){
+            return FavoriteViewModel(mainRepository) as T
+        } else  if (modelClass.isAssignableFrom(CartViewModel::class.java)){
             return CartViewModel(mainRepository) as T
-        }else  if (modelClass.isAssignableFrom(GetCartViewModel::class.java)){
+        } else  if (modelClass.isAssignableFrom(GetCartViewModel::class.java)){
             return GetCartViewModel(mainRepository) as T
         }else  if (modelClass.isAssignableFrom(OngkirViewModel::class.java)){
             return OngkirViewModel(mainRepository) as T
         }else  if (modelClass.isAssignableFrom(PaymentViewModel::class.java)){
             return PaymentViewModel(mainRepository) as T
         }
-
         throw IllegalArgumentException("unknown ViewModel class: " + modelClass.name)
     }
 

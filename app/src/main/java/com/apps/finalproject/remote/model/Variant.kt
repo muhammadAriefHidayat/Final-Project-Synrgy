@@ -6,20 +6,22 @@ import kotlinx.parcelize.Parcelize
 
 @Parcelize
 data class Variant(
-    val quantity: Int,
+    val id_entity: Int,
     val price: Int,
     val name: String,
-    val id: String,
-    val imageIndex: Int
+    val id_product: String,
+    val imageIndex: Int,
+    val quantity: Int
 ): Parcelable
 
 fun ListVariantResponse.toVariant() : Variant {
     return Variant(
-        quantity = this.quantity,
+        id_entity = this.quantity,
         price = this.price ,
         name = this.name,
-        id = this.id,
-        imageIndex = this.imageIndex
+        id_product = this.id,
+        imageIndex = this.imageIndex,
+        quantity = 0
     )
 }
 
