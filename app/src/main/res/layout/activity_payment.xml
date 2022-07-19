@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/bg_gradien"
-    tools:context=".ui.checkoutshiping.PaymentFragment">
+    tools:context=".ui.checkoutshiping.PaymentActivity">
 
     <ImageView
         android:id="@+id/iv_back"
@@ -131,6 +131,7 @@
             android:textStyle="bold" />
 
         <TextView
+            android:id="@+id/totalpembayran"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="@dimen/space_120"
@@ -152,6 +153,7 @@
         app:layout_constraintTop_toBottomOf="@id/linear_pembayaran_2">
 
         <TextView
+            android:id="@+id/textbank"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/space_16"
@@ -212,12 +214,13 @@
             android:textColor="@color/colorPrimary" />
     </LinearLayout>
     <Button
+        android:id="@+id/btn_bayar_checkout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/space_16"
-        android:background="@drawable/ic_button_payment"
+        android:background="@drawable/rounded_full_brown"
         android:text="@string/bayar"
-        android:textColor="@color/greyState"
+        android:textColor="@color/md_white_1000"
         app:layout_constraintBottom_toBottomOf="parent"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

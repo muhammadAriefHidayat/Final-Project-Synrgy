@@ -5,95 +5,98 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_margin="@dimen/space_12"
-    android:padding="@dimen/space_16"
     android:background="@drawable/bg_rounded_payment"
-    tools:context=".ui.view.PaymentMethodFragment">
+    android:padding="@dimen/space_16"
+    tools:context=".ui.checkoutshiping.PaymentMethodFragment">
 
     <ImageView
         android:id="@+id/iv_close"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:src="@drawable/ic_close"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="parent"/>
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <TextView
         android:id="@+id/tv_metode_pembayaran"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/payment"
-        android:padding="@dimen/space_4"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/iv_close"
-        android:textAlignment="center"
         android:fontFamily="@font/nunito"
+        android:padding="@dimen/space_4"
+        android:text="@string/payment"
+        android:textAlignment="center"
         android:textColor="@color/colorPrimary"
         android:textSize="@dimen/font_body_s_size"
         android:textStyle="bold"
-        />
+        app:layout_constraintStart_toEndOf="@+id/iv_close"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <TextView
         android:id="@+id/tv_payment_bank"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/space_12"
         android:fontFamily="@font/nunito"
         android:text="@string/payment_bank"
         android:textColor="@color/textBlack"
         android:textSize="@dimen/font_body_xs_size"
-        android:layout_marginTop="@dimen/space_12"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/iv_close"/>
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/iv_close" />
+
     <androidx.recyclerview.widget.RecyclerView
-        android:layout_marginLeft="-15dp"
         android:id="@+id/rv_payment_bank"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        android:orientation="vertical"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tv_payment_bank"
         tools:itemCount="1"
         tools:listitem="@layout/item_list_payment" />
-    <TextView
-        android:id="@+id/tv_payment_va"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:fontFamily="@font/nunito"
-        android:text="@string/payment_va"
-        android:textColor="@color/textBlack"
-        android:textSize="@dimen/font_body_xs_size"
-        android:layout_marginTop="@dimen/space_12"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/rv_payment_bank"/>
-    <androidx.recyclerview.widget.RecyclerView
-        android:layout_marginLeft="-15dp"
-        android:id="@+id/rv_payment_va"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tv_payment_va"
-        tools:itemCount="1"
-        tools:listitem="@layout/item_list_payment" />
-    <TextView
-        android:id="@+id/tv_payment_e_wallet"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:fontFamily="@font/nunito"
-        android:text="@string/payment_e_wallet"
-        android:textColor="@color/textBlack"
-        android:textSize="@dimen/font_body_xs_size"
-        android:layout_marginTop="@dimen/space_12"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/rv_payment_va"/>
-    <androidx.recyclerview.widget.RecyclerView
-        android:layout_marginLeft="-15dp"
-        android:id="@+id/rv_payment_e_wallet"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tv_payment_e_wallet"
-        tools:itemCount="1"
-        tools:listitem="@layout/item_list_payment" />
+    <!--    -->
+    <!--    <TextView-->
+    <!--        android:id="@+id/tv_payment_va"-->
+    <!--        android:layout_width="match_parent"-->
+    <!--        android:layout_height="wrap_content"-->
+    <!--        android:fontFamily="@font/nunito"-->
+    <!--        android:text="@string/payment_va"-->
+    <!--        android:textColor="@color/textBlack"-->
+    <!--        android:textSize="@dimen/font_body_xs_size"-->
+    <!--        android:layout_marginTop="@dimen/space_12"-->
+    <!--        app:layout_constraintStart_toStartOf="parent"-->
+    <!--        app:layout_constraintEnd_toEndOf="parent"-->
+    <!--        app:layout_constraintTop_toBottomOf="@+id/rv_payment_bank"/>-->
+    <!--    <androidx.recyclerview.widget.RecyclerView-->
+    <!--        android:layout_marginLeft="-15dp"-->
+    <!--        android:id="@+id/rv_payment_va"-->
+    <!--        android:layout_width="match_parent"-->
+    <!--        android:layout_height="wrap_content"-->
+    <!--        android:orientation="horizontal"-->
+    <!--        app:layout_constraintStart_toStartOf="parent"-->
+    <!--        app:layout_constraintTop_toBottomOf="@id/tv_payment_va"-->
+    <!--        tools:itemCount="1"-->
+    <!--        tools:listitem="@layout/item_list_payment" />-->
+    <!--    <TextView-->
+    <!--        android:id="@+id/tv_payment_e_wallet"-->
+    <!--        android:layout_width="match_parent"-->
+    <!--        android:layout_height="wrap_content"-->
+    <!--        android:fontFamily="@font/nunito"-->
+    <!--        android:text="@string/payment_e_wallet"-->
+    <!--        android:textColor="@color/textBlack"-->
+    <!--        android:textSize="@dimen/font_body_xs_size"-->
+    <!--        android:layout_marginTop="@dimen/space_12"-->
+    <!--        app:layout_constraintStart_toStartOf="parent"-->
+    <!--        app:layout_constraintEnd_toEndOf="parent"-->
+    <!--        app:layout_constraintTop_toBottomOf="@+id/rv_payment_va"/>-->
+    <!--    <androidx.recyclerview.widget.RecyclerView-->
+    <!--        android:layout_marginLeft="-15dp"-->
+    <!--        android:id="@+id/rv_payment_e_wallet"-->
+    <!--        android:layout_width="match_parent"-->
+    <!--        android:layout_height="wrap_content"-->
+    <!--        android:orientation="horizontal"-->
+    <!--        app:layout_constraintStart_toStartOf="parent"-->
+    <!--        app:layout_constraintTop_toBottomOf="@id/tv_payment_e_wallet"-->
+    <!--        tools:itemCount="1"-->
+    <!--        tools:listitem="@layout/item_list_payment" />-->
 </androidx.constraintlayout.widget.ConstraintLayout>

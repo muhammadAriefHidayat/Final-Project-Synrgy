@@ -3,8 +3,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:background="@color/md_white_1000"
     android:layout_height="match_parent"
+    android:background="@color/md_white_1000"
     tools:context=".ui.checkoutshiping.CheckoutActivity">
 
     <androidx.appcompat.widget.Toolbar
@@ -31,16 +31,16 @@
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="0dp"
+        app:layout_constraintBottom_toTopOf="@+id/total_pembyran"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintBottom_toTopOf="@+id/total_pembyran"
         app:layout_constraintTop_toBottomOf="@+id/toolbar_top">
 
         <androidx.constraintlayout.widget.ConstraintLayout
-            android:background="@drawable/bg_gradien"
-            android:paddingBottom="@dimen/space_32"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:background="@drawable/bg_gradien"
+            android:paddingBottom="@dimen/space_32">
 
             <LinearLayout
                 android:id="@+id/linear_pembayaran"
@@ -472,11 +472,11 @@
     </androidx.core.widget.NestedScrollView>
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:background="@color/md_white_1000"
         android:id="@+id/total_pembyran"
         android:layout_width="match_parent"
         android:layout_height="@dimen/space_56"
         android:layout_marginTop="@dimen/space_5"
+        android:background="@color/md_white_1000"
         android:paddingBottom="@dimen/space_10"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

@@ -19,6 +19,7 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <androidx.constraintlayout.widget.ConstraintLayout
+            android:paddingBottom="@dimen/space_16"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
@@ -35,7 +36,6 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 tools:text="&#8203;" />
-
 
             <TextView
                 android:id="@+id/tv_brand_brand"
