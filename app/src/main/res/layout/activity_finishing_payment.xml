@@ -235,13 +235,13 @@
 
 
     <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/btn_"
+        android:id="@+id/btn_cekstatuspesanan"
         android:layout_width="match_parent"
         android:layout_height="@dimen/space_36"
         android:layout_marginHorizontal="@dimen/space_16"
         android:layout_marginBottom="@dimen/space_8"
         android:background="@drawable/rounded_full_brown"
-        android:text="Belanja Lagi"
+        android:text="Check Status Pesanan"
         android:fontFamily="@font/nunito"
         android:textAllCaps="false"
         android:textColor="@color/md_white_1000"
