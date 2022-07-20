@@ -3,6 +3,7 @@ package com.apps.finalproject.data.repository
 import com.apps.finalproject.data.datastore.LocalDataSource
 import com.apps.finalproject.data.datastore.RemoteDataSource
 import com.apps.finalproject.remote.body.LoginBody
+import com.apps.finalproject.remote.body.PaymentBody
 import com.apps.finalproject.remote.body.PengirimanBody
 import com.apps.finalproject.remote.body.RegisterBody
 import com.apps.finalproject.remote.model.Cart
@@ -19,6 +20,7 @@ class MainRepository (
     fun addCart(cart: Cart) = remoteDataSource.addCart(cart)
     fun getCart() = remoteDataSource.getCart()
     fun postOngkir(pengirimanBody:PengirimanBody) = remoteDataSource.postOngkir(pengirimanBody)
+    fun payment(paymentbody:PaymentBody) = remoteDataSource.postPayment(paymentbody)
     fun getReview() = remoteDataSource.getReview()
     fun getArticle() = remoteDataSource.getArticle()
     fun getProductTrending() = remoteDataSource.getProductTrending()

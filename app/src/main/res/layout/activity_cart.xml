@@ -32,9 +32,10 @@
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rv_cart"
-        android:visibility="gone"
+        android:paddingBottom="@dimen/space_16"
         android:layout_width="0dp"
         android:layout_height="0dp"
+        android:visibility="gone"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         app:layout_constraintBottom_toTopOf="@id/view5"
         app:layout_constraintEnd_toEndOf="parent"
@@ -48,13 +49,25 @@
         android:id="@+id/img_cart_kosong"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:visibility="gone"
         android:src="@drawable/ic_cart_kosong"
+        android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+
+    <TextView
+        android:id="@+id/tv_cartkosong"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/nunito_black"
+        android:visibility="gone"
+        android:text="Cart Kosong"
+        android:textColor="@color/darkBrown"
+        app:layout_constraintEnd_toEndOf="@+id/img_cart_kosong"
+        app:layout_constraintStart_toStartOf="@+id/img_cart_kosong"
+        app:layout_constraintTop_toBottomOf="@+id/img_cart_kosong" />
 
     <ProgressBar
         android:id="@+id/progress"
@@ -120,11 +133,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="18dp"
-        android:fontFamily="@font/nunito"
+        android:fontFamily="@font/nunito_bold"
+        android:textColor="@color/darkBrown"
         android:includeFontPadding="false"
         android:text="Rp.0"
-        android:textColor="@color/darkBrown"
-        android:textFontWeight="700"
+
         android:textSize="16sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/subtotal" />

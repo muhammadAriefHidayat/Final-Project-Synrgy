@@ -125,4 +125,23 @@
     <string name="sukses_keranjang">Produk Berhasil dimasukkan ke keranjang</string>
     <string name="error_keranjang">Produk GAGAL dimasukkan ke keranjang</string>
     <string name="nama_produk">Nama Produk</string>
+    <string name="search_result">Cari Produk</string>
+    <string name="last_search">Terakhir dicari</string>
+    <string name="delete_search"><u>Hapus Semua</u></string>
+    <string name="produk_search">skintific moisturizer</string>
+    <string name="produk_search2">cosrx snail</string>
+    <string name="produk_search3">looke</string>
+    <string name="top_search">Pencarian populer</string>
+    <string name="produk_whitelab">WHITELAB</string>
+    <string name="produk_azarine">AZARINE</string>
+    <string name="produk_some_by_mi">SOME BY MI</string>
+    <string name="deskripsi_produk_whitelab">Brightening Facial Wash</string>
+    <string name="deskripsi_produk_azarine">Hydrasoothe Sunscreen GEL SPF45 PA++++</string>
+    <string name="deskripsi_some_by_mi">Yuja Niacin 30 Days Blemish Care Serum</string>
+    <string name="harga_produk_whitelab">Rp 39.000</string>
+    <string name="harga_produk_azarine">Rp 65.000</string>
+    <string name="harga_produk_some_by_mi">Rp 220.000</string>
+    <string name="penilaian_produk_whitelab">4.0</string>
+    <string name="penilaian_produk_azarine">4.9</string>
+    <string name="penilaian_produk_some_by_mi">4.4</string>
 </resources>
