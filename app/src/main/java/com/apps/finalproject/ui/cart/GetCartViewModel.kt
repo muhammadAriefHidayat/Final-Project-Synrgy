@@ -25,7 +25,6 @@ class GetCartViewModel(private val repository: MainRepository) : ViewModel() {
             Log.d("test",    it.toString())
             it.enqueue(object : Callback<GetCartResponse> {
                 override fun onResponse(call: Call<GetCartResponse>,response: Response<GetCartResponse>) {
-                    Log.d("test",response.body()?.data.toString())
                     overview.postValue(response.body()?.data?.overview)
                     cartItems.postValue(response.body()?.data?.cartItems)
                 }

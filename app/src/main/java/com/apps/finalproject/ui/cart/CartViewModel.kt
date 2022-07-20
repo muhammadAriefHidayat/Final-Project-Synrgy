@@ -27,10 +27,6 @@ class CartViewModel(private val repository: MainRepository) : ViewModel() {
                     call: Call<CartResponse>,
                     response: Response<CartResponse>
                 ) {
-                    Log.d("cart","masuk")
-                    Log.d("cartrer", response.errorBody().toString())
-                    Log.d("cartrer", call.toString())
-                    Log.d("carters", response.body().toString())
                     mResponse.postValue(response.body()?.status.toString())
                 }
 

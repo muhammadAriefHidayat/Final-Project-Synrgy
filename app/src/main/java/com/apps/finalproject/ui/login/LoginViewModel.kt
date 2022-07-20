@@ -27,10 +27,8 @@ class LoginViewModel(private val repository: MainRepository) : ViewModel() {
                     call: Call<LoginResponse>,
                     response: Response<LoginResponse>
                 ) {
-                    Log.d("hasil", "sukses")
                     val dataToken = response.body()?.data
                     val token = Token()
-                    Log.d("hasil", dataToken?.token.toString())
                     token.token = dataToken?.token.toString()
                     try {
                         val jwt = JWT(token.token)
