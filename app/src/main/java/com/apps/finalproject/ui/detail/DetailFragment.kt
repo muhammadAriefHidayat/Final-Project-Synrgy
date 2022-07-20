@@ -166,7 +166,6 @@ class DetailFragment : Fragment() {
         }
     }
 
-
     private fun populateDataFavorite(isFavorite: Boolean) {
         binding.ivFavorite.setImageResource(
             if (isFavorite)
