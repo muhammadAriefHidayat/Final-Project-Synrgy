@@ -47,7 +47,7 @@ class CartActivity : AppCompatActivity() {
     }
 
     private fun setData(it: CartOverview?) {
-        if ((it?.total != 0 ) and (it?.total!== null)){
+        if ((it?.total != 0 ) and (it?.total != null)){
             binding.apply {
                 tvCartkosong.visibility = View.GONE
                 imgCartKosong.visibility = View.GONE
