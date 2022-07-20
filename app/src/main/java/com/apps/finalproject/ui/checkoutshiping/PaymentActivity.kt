@@ -1,6 +1,7 @@
 package com.apps.finalproject.ui.checkoutshiping
 
 import android.app.Dialog
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Gravity
@@ -53,6 +54,7 @@ class PaymentActivity : AppCompatActivity() {
         binding.btnBayarCheckout.setOnClickListener {
             val data = PaymentBody("BCA","JNE","REGULAR","BANK_TRANSFER")
             paymentviewmodel.chekcout(data)
+            startActivity(Intent(this,FinishingPaymentActivity::class.java))
         }
 
         binding.linearPembayaran3.setOnClickListener {

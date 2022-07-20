@@ -235,6 +235,7 @@
 
 
     <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btn_"
         android:layout_width="match_parent"
         android:layout_height="@dimen/space_36"
         android:layout_marginHorizontal="@dimen/space_16"
