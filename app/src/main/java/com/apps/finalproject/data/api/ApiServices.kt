@@ -47,6 +47,11 @@ interface ApiServices {
         @Header("Authorization") token: String,
     ):Call<GetCartResponse>
 
+    @GET("/api/v1/order")
+    fun getOrders(
+        @Header("Authorization") token: String,
+    ):Call<OrdersResponse>
+
     @POST("/api/v1/auth/register")
     fun register(
         @Body register: RegisterBody

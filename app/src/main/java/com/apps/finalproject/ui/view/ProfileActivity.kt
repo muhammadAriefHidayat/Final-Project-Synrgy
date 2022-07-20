@@ -2,16 +2,21 @@ package com.apps.finalproject.ui.view
 
 import android.content.Intent
 import android.os.Bundle
+import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import com.apps.finalproject.databinding.ActivityProfileBinding
-import com.apps.finalproject.remote.model.ProfilItem
+import com.apps.finalproject.ui.ViewModelFactory
 import com.apps.finalproject.ui.adapter.ProfilAdapter
+import com.apps.finalproject.ui.viewmodel.ProfileviewModel
 import com.apps.finalproject.utils.AppPref
 import com.xwray.groupie.GroupAdapter
 import com.xwray.groupie.GroupieViewHolder
-import kotlinx.coroutines.delay
 
 class ProfileActivity : AppCompatActivity() {
+
+    private val profileViewModel: ProfileviewModel by viewModels {
+        ViewModelFactory.getInstance(this)
+    }
 
     lateinit var binding: ActivityProfileBinding
     private val adapter = GroupAdapter<GroupieViewHolder>()
@@ -23,21 +28,12 @@ class ProfileActivity : AppCompatActivity() {
         val view = binding.root
         setContentView(view)
 
-        val daftarAlamat = Intent(this,DaftarAlamatActivity::class.java)
-        val riwayatPembelian = Intent(this,DaftarAlamatActivity::class.java)
-        val Voucerku = Intent(this,VoucerActivity::class.java)
-        val ArtikelTersimpan = Intent(this,VoucerActivity::class.java)
-
-        val itemProfils: MutableList<ProfilItem> = mutableListOf()
-        itemProfils.add(ProfilItem("ic_marker","Daftar Alamat",daftarAlamat))
-        itemProfils.add(ProfilItem("ic_clipboard","Riwayat Pembelian",riwayatPembelian))
-        itemProfils.add(ProfilItem("ic_voucer","Voucer Ku",Voucerku))
-        itemProfils.add(ProfilItem("ic_bookmark","Artikel tersimpan",ArtikelTersimpan))
-
-        itemProfils.forEach {
-            adapter.add(ProfilAdapter(it, this))
+        profileViewModel.setProfilItems(this)
+        profileViewModel.getProfilItems().observe(this) {
+            it.forEach { profile ->
+                adapter.add(ProfilAdapter(profile, this))
+            }
         }
-
         binding.rvProfil.adapter = adapter
 
         binding.apply {
@@ -47,15 +43,9 @@ class ProfileActivity : AppCompatActivity() {
                 AppPref.token = ""
                 AppPref.username = ""
                 AppPref.email = ""
-                    startActivity(Intent(this@ProfileActivity,AuthActivity::class.java))
+                startActivity(Intent(this@ProfileActivity, AuthActivity::class.java))
             }
         }
 
     }
-
-
-    private fun initUI() {
-
-    }
-
 }

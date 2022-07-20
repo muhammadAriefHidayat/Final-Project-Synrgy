@@ -33,8 +33,12 @@ class CartActivity : AppCompatActivity() {
             setData(it)
         }
         cartViewmodel.getCartItems().observe(this){
-            if (it.isNotEmpty()){
+            if (it?.isNotEmpty() == true){
                 setCartItems(it)
+            }else{
+                binding.imgCartKosong.visibility = View.VISIBLE
+                binding.tvCartkosong.visibility = View.VISIBLE
+                binding.rvCart.visibility = View.GONE
             }
         }
         binding.btnCheckout.setOnClickListener{
@@ -43,7 +47,7 @@ class CartActivity : AppCompatActivity() {
     }
 
     private fun setData(it: CartOverview?) {
-        if (it?.total != 0){
+        if ((it?.total != 0 ) and (it?.total != null)){
             binding.apply {
                 tvCartkosong.visibility = View.GONE
                 imgCartKosong.visibility = View.GONE

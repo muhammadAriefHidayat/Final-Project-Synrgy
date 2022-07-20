@@ -18,7 +18,16 @@
         android:theme="@style/Theme.FinalProject"
         tools:targetApi="31">
         <activity
+            android:name=".ui.order.OrderActivity"
+            android:exported="false" />
+        <activity
             android:name=".ui.favorite.FavoriteActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.checkoutshiping.PaymentActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.checkoutshiping.FinishingPaymentActivity"
             android:exported="false" />
         <activity
             android:name=".ui.view.SearchActivity"

@@ -16,6 +16,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
+        android:id="@+id/iv_cart_adapter_varian"
         android:layout_width="@dimen/space_56"
         android:layout_height="@dimen/space_56"
         android:layout_marginStart="@dimen/space_16"

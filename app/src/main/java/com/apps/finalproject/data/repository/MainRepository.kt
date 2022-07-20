@@ -22,6 +22,7 @@ class MainRepository (
     fun postOngkir(pengirimanBody:PengirimanBody) = remoteDataSource.postOngkir(pengirimanBody)
     fun payment(paymentbody:PaymentBody) = remoteDataSource.postPayment(paymentbody)
     fun getReview() = remoteDataSource.getReview()
+    fun getOrders() = remoteDataSource.getOrders()
     fun getArticle() = remoteDataSource.getArticle()
     fun getProductTrending() = remoteDataSource.getProductTrending()
     fun getDetailTrending(productId: String) = remoteDataSource.getDetailTrending(productId)

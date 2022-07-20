@@ -13,6 +13,7 @@ import com.apps.finalproject.ui.favorite.FavoriteViewModel
 import com.apps.finalproject.ui.home.HomeViewModel
 import com.apps.finalproject.ui.login.LoginViewModel
 import com.apps.finalproject.ui.viewmodel.OngkirViewModel
+import com.apps.finalproject.ui.viewmodel.ProfileviewModel
 import java.lang.IllegalArgumentException
 
 class ViewModelFactory (private val mainRepository: MainRepository) : ViewModelProvider.NewInstanceFactory(){
@@ -34,6 +35,8 @@ class ViewModelFactory (private val mainRepository: MainRepository) : ViewModelP
             return OngkirViewModel(mainRepository) as T
         }else  if (modelClass.isAssignableFrom(PaymentViewModel::class.java)){
             return PaymentViewModel(mainRepository) as T
+        }else  if (modelClass.isAssignableFrom(ProfileviewModel::class.java)){
+            return ProfileviewModel(mainRepository) as T
         }
         throw IllegalArgumentException("unknown ViewModel class: " + modelClass.name)
     }
