@@ -225,13 +225,13 @@
         app:layout_constraintStart_toStartOf="@+id/view7"
         app:layout_constraintTop_toBottomOf="@+id/view7" />
 
-    <androidx.appcompat.widget.AppCompatImageView
-        android:id="@+id/panduan"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@drawable/ic_texts"
-        app:layout_constraintStart_toStartOf="@+id/textView19"
-        app:layout_constraintTop_toBottomOf="@+id/textView19" />
+<!--    <androidx.appcompat.widget.AppCompatImageView-->
+<!--        android:id="@+id/panduan"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:src="@drawable/ic_texts"-->
+<!--        app:layout_constraintStart_toStartOf="@+id/textView19"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/textView19" />-->
 
 
     <androidx.appcompat.widget.AppCompatButton
