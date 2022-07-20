@@ -21,7 +21,7 @@ fun ListVariantResponse.toVariant() : Variant {
         name = this.name,
         id_product = this.id,
         imageIndex = this.imageIndex,
-        quantity = 0
+        quantity = this.quantity
     )
 }
 

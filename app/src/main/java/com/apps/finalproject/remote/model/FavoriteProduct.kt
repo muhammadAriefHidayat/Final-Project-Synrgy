@@ -7,7 +7,7 @@ data class FavoriteProduct(
     val id_product: String,
     val productName: String,
     val price: Int,
-    val picture: Int
+    val picture: String
 )
 
 fun FavoriteProduct.toFavoriteEntity() = Favorite(
@@ -18,19 +18,27 @@ fun FavoriteProduct.toFavoriteEntity() = Favorite(
     this.picture
 )
 
-fun FavoriteProduct.toVariant() = Variant(
-    id_entity = this.id,
-    id_product = this.id_product,
-    name = this.productName,
-    price = this.price ,
-    imageIndex = this.picture,
-    quantity = 0,
+fun FavoriteProduct.toFavTrending() = Trending(
+    average = 0.0,
+    images = listOf(this.picture),
+    isOrganic = null,
+    variant = listOf(Variant(
+        id_entity = 0,
+        price = this.price,
+        name = this.productName,
+        id_product = this.id_product,
+        imageIndex = 0,
+        quantity = 0,
+    )),
+    name = "",
+    id = "",
+    brand = null,
 )
 
-fun List<FavoriteProduct>.toListProduct(): MutableList<Variant>{
-    val listVariant = mutableListOf<Variant>()
+fun List<FavoriteProduct>.toListProduct(): MutableList<Trending>{
+    val listFavTrending = mutableListOf<Trending>()
     this.forEach {
-        listVariant.add(it.toVariant())
+        listFavTrending.add(it.toFavTrending())
     }
-    return listVariant
+    return listFavTrending
 }

@@ -6,9 +6,11 @@ import android.os.Bundle
 import android.util.Log
 import android.view.*
 import android.widget.Button
+import android.widget.ImageView
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.navigation.Navigation
 import androidx.recyclerview.widget.DefaultItemAnimator
 import com.apps.finalproject.R
 import com.apps.finalproject.databinding.FragmentDetailBinding
@@ -19,6 +21,7 @@ import com.apps.finalproject.ui.ViewModelFactory
 import com.apps.finalproject.ui.adapter.ListReviewAdapter
 import com.apps.finalproject.ui.cart.CartActivity
 import com.apps.finalproject.ui.cart.CartViewModel
+import com.apps.finalproject.ui.favorite.FavoriteActivity
 import com.apps.finalproject.ui.view.AuthActivity
 import com.apps.finalproject.utils.AppPref
 import com.apps.finalproject.utils.Utils.peringatan
@@ -45,7 +48,7 @@ class DetailFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         // Inflate the layout for this fragment
         binding = FragmentDetailBinding.inflate(inflater, container, false)
         return binding.root
@@ -58,15 +61,18 @@ class DetailFragment : Fragment() {
         val dataTrending = arguments?.getString(EXTRA_PRODUCT)
         val data = stringToObject(dataTrending, Trending::class.java)
         varian_id = data?.variant?.get(0)?.id_product.toString()
-        sub_Total = data?.variant?.get(0)?.price?.toInt() ?: 0
+        sub_Total = data?.variant?.get(0)?.price ?: 0
         populateDataProduct(data)
 
-        detailViewModel.getMyFavorite(productName = "")
+        if (data != null) {
+            data.variant?.get(0)?.let { detailViewModel.getMyFavorite(it.name) }
+        }
+
         binding.ivFavorite.setOnClickListener{
             if (favorite)
-                data?.let { it -> detailViewModel.deleteFavorite(it) }
+                data?.let { productName -> detailViewModel.deleteFavorite(productName) }
             else
-                data?.let { it -> detailViewModel.addFavorite(it) }
+                data?.let { productName -> detailViewModel.addFavorite(productName) }
         }
 
         Log.d("getreview", "$dataTrending")
@@ -75,14 +81,18 @@ class DetailFragment : Fragment() {
         detailViewModel.review.observe(viewLifecycleOwner){
             populateData(it)
 
-//                binding.imDetailProduk.setOnClickListener(
-//                    Navigation.createNavigateOnClickListener(R.id.action_detailFragment_to_addReviewFragment)
-//                )
         }
 
         detailViewModel.myFavorite.observe(viewLifecycleOwner){
             favorite = it
             populateDataFavorite(it)
+        }
+
+        binding.favorite.setOnClickListener {
+            activity?.let {
+                val intent = Intent(it, FavoriteActivity::class.java)
+                it.startActivity(intent)
+            }
         }
 
         binding.apply {
@@ -156,13 +166,12 @@ class DetailFragment : Fragment() {
         }
     }
 
-
-    private fun populateDataFavorite(isFavorite: Boolean?) {
+    private fun populateDataFavorite(isFavorite: Boolean) {
         binding.ivFavorite.setImageResource(
-            if (isFavorite == false)
-                R.drawable.ic_favorite
-            else
+            if (isFavorite)
                 R.drawable.ic_favorite_click
+            else
+                R.drawable.ic_favorite
         )
     }
 
@@ -202,3 +211,6 @@ class DetailFragment : Fragment() {
         const val EXTRA_PRODUCT = "product"
     }
 }
+
+
+
