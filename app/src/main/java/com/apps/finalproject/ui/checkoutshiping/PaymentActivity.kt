@@ -15,6 +15,7 @@ import com.apps.finalproject.R
 import com.apps.finalproject.databinding.ActivityPaymentBinding
 import com.apps.finalproject.remote.body.PaymentBody
 import com.apps.finalproject.remote.model.EkspedisiItem
+import com.apps.finalproject.remote.response.DataPayment
 import com.apps.finalproject.ui.ViewModelFactory
 import com.apps.finalproject.ui.adapter.KurirAdapter
 import com.apps.finalproject.ui.adapter.PengirimanAdapter
@@ -54,7 +55,14 @@ class PaymentActivity : AppCompatActivity() {
         binding.btnBayarCheckout.setOnClickListener {
             val data = PaymentBody("BCA","JNE","REGULAR","BANK_TRANSFER")
             paymentviewmodel.chekcout(data)
-            startActivity(Intent(this,FinishingPaymentActivity::class.java))
+            paymentviewmodel.getDataPayment().observe(this){
+                if (it.toString() != "null"){
+                    val paymentData:DataPayment = it
+                    val intentData = Intent(this,FinishingPaymentActivity::class.java)
+                    intentData.putExtra("payment",paymentData)
+                    startActivity(intentData)
+                }
+            }
         }
 
         binding.linearPembayaran3.setOnClickListener {
@@ -95,4 +103,6 @@ class PaymentActivity : AppCompatActivity() {
             dialog.window?.attributes = lp
         }
     }
+
+
 }

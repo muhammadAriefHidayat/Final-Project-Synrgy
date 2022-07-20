@@ -1,16 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    tools:context=".ui.order.OrderDiprosesFragment">
+    tools:context=".ui.order.OrderActivity">
 
     <LinearLayout
+        android:id="@+id/linear"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/cream"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -45,7 +49,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginRight="@dimen/space_24"
-                android:fontFamily="@font/nunito"
+                android:background="@drawable/bg_rounded_order"
+                android:fontFamily="@font/nunito_bold"
                 android:padding="@dimen/space_12"
                 android:text="@string/belum_bayar"
                 android:textColor="@color/md_brown_400"
@@ -55,8 +60,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginRight="@dimen/space_24"
-                android:background="@drawable/bg_rounded_order"
-                android:fontFamily="@font/nunito_bold"
+                android:fontFamily="@font/nunito"
                 android:padding="@dimen/space_12"
                 android:text="@string/diproses"
                 android:textColor="@color/md_brown_400"
@@ -85,6 +89,14 @@
         </LinearLayout>
     </LinearLayout>
 
-    <include layout="@layout/item_order_belum_bayar" />
+    <include
 
-</LinearLayout>
+        android:id="@+id/include"
+        layout="@layout/item_order_belum_bayar"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/space_16"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linear" />
+</androidx.constraintlayout.widget.ConstraintLayout>

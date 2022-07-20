@@ -9,6 +9,7 @@ import com.apps.finalproject.data.repository.MainRepository
 import com.apps.finalproject.remote.body.LoginBody
 import com.apps.finalproject.remote.body.PaymentBody
 import com.apps.finalproject.remote.model.Token
+import com.apps.finalproject.remote.response.DataPayment
 import com.apps.finalproject.remote.response.LoginResponse
 import com.apps.finalproject.remote.response.PaymentResponse
 import com.apps.finalproject.utils.AppPref
@@ -20,7 +21,7 @@ import retrofit2.Response
 
 class PaymentViewModel(private val repository: MainRepository) : ViewModel() {
 
-//    private val listToken = MutableLiveData<Token>()
+    private val dataPayment = MutableLiveData<DataPayment>()
 
     fun chekcout(paymentBody: PaymentBody) = viewModelScope.launch {
         repository.payment(paymentBody).collect {
@@ -32,6 +33,7 @@ class PaymentViewModel(private val repository: MainRepository) : ViewModel() {
                     Log.d("payment",response.errorBody().toString())
                     Log.d("payment",response.errorBody().toString())
                     Log.d("payment",response.body()?.status.toString())
+                    dataPayment.postValue(response.body()?.data)
                 }
                 override fun onFailure(call: Call<PaymentResponse>, t: Throwable) {
                     Log.d("payment","payment error")
@@ -41,7 +43,7 @@ class PaymentViewModel(private val repository: MainRepository) : ViewModel() {
         }
     }
 
-//    internal fun getToken(): LiveData<Token> {
-//        return listToken
-//    }
+    internal fun getDataPayment(): LiveData<DataPayment> {
+        return dataPayment
+    }
 }
