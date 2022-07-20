@@ -48,7 +48,7 @@ class DetailFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         // Inflate the layout for this fragment
         binding = FragmentDetailBinding.inflate(inflater, container, false)
         return binding.root
@@ -61,15 +61,18 @@ class DetailFragment : Fragment() {
         val dataTrending = arguments?.getString(EXTRA_PRODUCT)
         val data = stringToObject(dataTrending, Trending::class.java)
         varian_id = data?.variant?.get(0)?.id_product.toString()
-        sub_Total = data?.variant?.get(0)?.price?.toInt() ?: 0
+        sub_Total = data?.variant?.get(0)?.price ?: 0
         populateDataProduct(data)
 
-        detailViewModel.getMyFavorite(productName = "")
+        if (data != null) {
+            data.variant?.get(0)?.let { detailViewModel.getMyFavorite(it.name) }
+        }
+
         binding.ivFavorite.setOnClickListener{
             if (favorite)
-                data?.let { it -> detailViewModel.deleteFavorite(it) }
+                data?.let { productName -> detailViewModel.deleteFavorite(productName) }
             else
-                data?.let { it -> detailViewModel.addFavorite(it) }
+                data?.let { productName -> detailViewModel.addFavorite(productName) }
         }
 
         Log.d("getreview", "$dataTrending")
@@ -78,9 +81,6 @@ class DetailFragment : Fragment() {
         detailViewModel.review.observe(viewLifecycleOwner){
             populateData(it)
 
-//                binding.imDetailProduk.setOnClickListener(
-//                    Navigation.createNavigateOnClickListener(R.id.action_detailFragment_to_addReviewFragment)
-//                )
         }
 
         detailViewModel.myFavorite.observe(viewLifecycleOwner){
@@ -170,9 +170,9 @@ class DetailFragment : Fragment() {
     private fun populateDataFavorite(isFavorite: Boolean) {
         binding.ivFavorite.setImageResource(
             if (isFavorite)
-                R.drawable.ic_favorite
-            else
                 R.drawable.ic_favorite_click
+            else
+                R.drawable.ic_favorite
         )
     }
 
