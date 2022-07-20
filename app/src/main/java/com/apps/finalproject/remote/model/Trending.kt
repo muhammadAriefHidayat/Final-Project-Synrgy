@@ -18,9 +18,10 @@ data class Trending(
 fun Trending.toFavorite() = this.variant?.get(0)?.let {
 	FavoriteProduct(
 		it.id_entity,
-		this.variant.get(0).id_product,
-		this.variant.get(0).name,
-		this.variant.get(0).price, this.images.toString()
+		this.variant[0].id_product,
+		this.variant[0].name,
+		this.variant[0].price,
+		this.images?.get(0) ?: ""
 	)
 }
 

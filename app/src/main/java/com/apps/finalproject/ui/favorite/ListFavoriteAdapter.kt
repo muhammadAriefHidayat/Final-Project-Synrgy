@@ -27,7 +27,6 @@ class ListFavoriteAdapter (private val listTrending: List<Trending>) : RecyclerV
         val productFavorite = listTrending[position]
         with(binding){
             Glide.with(binding.root.context)
-//                .load("https://images.unsplash.com/photo-1501644898242-cfea317d7faf?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=900&ixid=MnwxfDB8MXxyYW5kb218MHx8Y29zbWV0aWN8fHx8fHwxNjU2NDAwOTM1&ixlib=rb-1.2.1&q=80&utm_campaign=api-credit&utm_medium=referral&utm_source=unsplash_source&w=1600, https://images.unsplash.com/photo-1631730486572-226d1f595b68?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=900&ixid=MnwxfDB8MXxyYW5kb218MHx8Y29zbWV0aWN8fHx8fHwxNjU2NDAwOTMy&ixlib=rb-1.2.1&q=80&utm_campaign=api-credit&utm_medium=referral&utm_source=unsplash_source&w=1600")
                 .load(productFavorite.images?.get(0))
                 .centerCrop()
                 .placeholder(R.drawable.article_herbal)
