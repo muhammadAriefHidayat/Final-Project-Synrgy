@@ -6,9 +6,11 @@ import android.os.Bundle
 import android.util.Log
 import android.view.*
 import android.widget.Button
+import android.widget.ImageView
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.navigation.Navigation
 import androidx.recyclerview.widget.DefaultItemAnimator
 import com.apps.finalproject.R
 import com.apps.finalproject.databinding.FragmentDetailBinding
@@ -19,6 +21,7 @@ import com.apps.finalproject.ui.ViewModelFactory
 import com.apps.finalproject.ui.adapter.ListReviewAdapter
 import com.apps.finalproject.ui.cart.CartActivity
 import com.apps.finalproject.ui.cart.CartViewModel
+import com.apps.finalproject.ui.favorite.FavoriteActivity
 import com.apps.finalproject.ui.view.AuthActivity
 import com.apps.finalproject.utils.AppPref
 import com.apps.finalproject.utils.Utils.peringatan
@@ -83,6 +86,13 @@ class DetailFragment : Fragment() {
         detailViewModel.myFavorite.observe(viewLifecycleOwner){
             favorite = it
             populateDataFavorite(it)
+        }
+
+        binding.favorite.setOnClickListener {
+            activity?.let {
+                val intent = Intent(it, FavoriteActivity::class.java)
+                it.startActivity(intent)
+            }
         }
 
         binding.apply {
@@ -157,9 +167,9 @@ class DetailFragment : Fragment() {
     }
 
 
-    private fun populateDataFavorite(isFavorite: Boolean?) {
+    private fun populateDataFavorite(isFavorite: Boolean) {
         binding.ivFavorite.setImageResource(
-            if (isFavorite == false)
+            if (isFavorite)
                 R.drawable.ic_favorite
             else
                 R.drawable.ic_favorite_click
@@ -202,3 +212,6 @@ class DetailFragment : Fragment() {
         const val EXTRA_PRODUCT = "product"
     }
 }
+
+
+

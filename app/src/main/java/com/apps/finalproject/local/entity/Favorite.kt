@@ -21,7 +21,7 @@ class Favorite(
     val price: Int = 0,
 
     @ColumnInfo(name = "picture")
-    val picture: Int
+    val picture: String
 )
 
 fun Favorite.toFavorite() = FavoriteProduct(
