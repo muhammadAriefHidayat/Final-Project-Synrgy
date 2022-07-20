@@ -1,17 +1,14 @@
 package com.apps.finalproject.ui.favorite
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import androidx.activity.viewModels
+import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.DefaultItemAnimator
-import com.apps.finalproject.R
 import com.apps.finalproject.databinding.ActivityFavoriteBinding
 import com.apps.finalproject.remote.model.Trending
-import com.apps.finalproject.remote.model.Variant
 import com.apps.finalproject.remote.model.toListProduct
 import com.apps.finalproject.ui.ViewModelFactory
-import com.apps.finalproject.ui.adapter.ListTrendingAdapter
 
 class FavoriteActivity : AppCompatActivity() {
     private lateinit var binding: ActivityFavoriteBinding
@@ -29,12 +26,10 @@ class FavoriteActivity : AppCompatActivity() {
         }
         viewModel.isLoading.observe(this) {
             showLoading(it)
-
         }
-
     }
 
-    private fun showRecylerList(listProduct: List<Variant>){
+    private fun showRecylerList(listProduct: List<Trending>){
         val listFavoriteAdapter = ListFavoriteAdapter(listProduct)
         binding.tvFavorites.apply {
             setHasFixedSize(true)
@@ -46,4 +41,5 @@ class FavoriteActivity : AppCompatActivity() {
     private fun showLoading(isLoading: Boolean?) {
         binding.progressBar.visibility = if (isLoading == true) View.VISIBLE else View.GONE
     }
+
 }
