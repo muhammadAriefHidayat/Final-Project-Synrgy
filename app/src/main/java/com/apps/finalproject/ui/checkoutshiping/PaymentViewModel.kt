@@ -8,6 +8,7 @@ import androidx.lifecycle.viewModelScope
 import com.apps.finalproject.data.repository.MainRepository
 import com.apps.finalproject.remote.body.LoginBody
 import com.apps.finalproject.remote.body.PaymentBody
+import com.apps.finalproject.remote.model.EkspedisiItem
 import com.apps.finalproject.remote.model.Token
 import com.apps.finalproject.remote.response.DataPayment
 import com.apps.finalproject.remote.response.LoginResponse
@@ -22,6 +23,17 @@ import retrofit2.Response
 class PaymentViewModel(private val repository: MainRepository) : ViewModel() {
 
     private val dataPayment = MutableLiveData<DataPayment>()
+    private val dataBank = MutableLiveData<List<EkspedisiItem>>()
+
+    fun getbank() = viewModelScope.launch {
+        val itembank: MutableList<EkspedisiItem> = mutableListOf()
+        itembank.add(EkspedisiItem("bank_bca","BCA"))
+        itembank.add(EkspedisiItem("bank_bni","BNI"))
+        itembank.add(EkspedisiItem("bank_bri","BRI"))
+        itembank.add(EkspedisiItem("bank_mandiri","PERMATA"))
+
+        dataBank.postValue(itembank)
+    }
 
     fun chekcout(paymentBody: PaymentBody) = viewModelScope.launch {
         repository.payment(paymentBody).collect {
@@ -41,6 +53,10 @@ class PaymentViewModel(private val repository: MainRepository) : ViewModel() {
 
             })
         }
+    }
+
+    internal fun getDataBank(): LiveData<List<EkspedisiItem>> {
+        return dataBank
     }
 
     internal fun getDataPayment(): LiveData<DataPayment> {

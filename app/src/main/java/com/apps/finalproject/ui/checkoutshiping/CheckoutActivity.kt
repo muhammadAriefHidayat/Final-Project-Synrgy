@@ -15,14 +15,12 @@ import androidx.recyclerview.widget.RecyclerView
 import com.apps.finalproject.R
 import com.apps.finalproject.databinding.ActivityCheckoutBinding
 import com.apps.finalproject.remote.body.PengirimanBody
-import com.apps.finalproject.remote.model.EkspedisiItem
 import com.apps.finalproject.remote.response.CartItems
 import com.apps.finalproject.remote.response.CartOverview
 import com.apps.finalproject.remote.response.Ekspedisi
 import com.apps.finalproject.ui.ViewModelFactory
 import com.apps.finalproject.ui.adapter.KurirAdapter
 import com.apps.finalproject.ui.adapter.PengirimanAdapter
-import com.apps.finalproject.ui.cart.CartBrandAdapter
 import com.apps.finalproject.ui.cart.GetCartViewModel
 import com.apps.finalproject.ui.viewmodel.OngkirViewModel
 import com.apps.finalproject.utils.Utils
@@ -42,31 +40,29 @@ class CheckoutActivity : AppCompatActivity() {
     private val adapterkurir = GroupAdapter<GroupieViewHolder>()
     private val adapterPengiriman = GroupAdapter<GroupieViewHolder>()
 
-    var kurir = ""
-    var txOngkir = 0
-    var txTotal = 0
-    var txTotalAkhir = 0
-    var metodePengiriman = ""
+    private var kurir = ""
+    private var txOngkir = 0
+    private var txTotal = 0
+    private var txTotalAkhir = 0
+    private var metodePengiriman = ""
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityCheckoutBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        val itemKurir: MutableList<EkspedisiItem> = mutableListOf()
-        itemKurir.add(EkspedisiItem("jne", "JNE"))
-        itemKurir.add(EkspedisiItem("tiki", "TIKI"))
-        itemKurir.add(EkspedisiItem("pos", "POS"))
-
-        itemKurir.forEach {
-            adapterkurir.add(KurirAdapter(it, this))
+        ongkirViewModel.ekspedisi()
+        ongkirViewModel.getItemEkspedisi().observe(this) {
+            it.forEach { eksp ->
+                adapterkurir.add(KurirAdapter(eksp, this))
+            }
         }
 
         cartViewmodel.GetCart()
-        cartViewmodel.getOverview().observe(this){
+        cartViewmodel.getOverview().observe(this) {
             setDataRingkasan(it)
         }
-        cartViewmodel.getCartItems().observe(this){
+        cartViewmodel.getCartItems().observe(this) {
             setCart(it)
         }
 
@@ -78,7 +74,7 @@ class CheckoutActivity : AppCompatActivity() {
                     val pengirimanBody = PengirimanBody("2", kurir, "1", 1)
                     ongkirViewModel.postOngkir(pengirimanBody)
 
-                    ongkirViewModel.getExpedisi().observe(this@CheckoutActivity){
+                    ongkirViewModel.getExpedisi().observe(this@CheckoutActivity) {
                         setData(it)
                     }
 
@@ -88,11 +84,11 @@ class CheckoutActivity : AppCompatActivity() {
 
             }
             btnCeckoutPembayaran.setOnClickListener {
-                if (txTotalAkhir==0){
-                    Utils.peringatan(this@CheckoutActivity,"pilih metode pembayaran")
-                }else{
-                    val intent = Intent(this@CheckoutActivity,PaymentActivity::class.java)
-                    intent.putExtra("bayar",txTotalAkhir.toString())
+                if (txTotalAkhir == 0) {
+                    Utils.peringatan(this@CheckoutActivity, "pilih metode pembayaran")
+                } else {
+                    val intent = Intent(this@CheckoutActivity, PaymentActivity::class.java)
+                    intent.putExtra("bayar", txTotalAkhir.toString())
                     startActivity(intent)
                 }
 
@@ -107,9 +103,9 @@ class CheckoutActivity : AppCompatActivity() {
     }
 
     private fun setCart(it: List<CartItems>?) {
-        if(it?.get(0)?.id != null){
+        if (it?.get(0)?.id != null) {
             it.forEach { cartItems ->
-                adapterrv.add(CheckoutBrandAdapter(cartItems,this))
+                adapterrv.add(CheckoutBrandAdapter(cartItems, this))
             }
             binding.reycleviewRingkasanBelanja.apply {
                 visibility = View.VISIBLE
@@ -121,7 +117,7 @@ class CheckoutActivity : AppCompatActivity() {
     }
 
     private fun setDataRingkasan(it: CartOverview?) {
-        if (it?.total != null){
+        if (it?.total != null) {
             binding.apply {
                 tvSubtotal.text = it.total.toString()
                 txTotal = it.total
@@ -134,13 +130,13 @@ class CheckoutActivity : AppCompatActivity() {
         adapterPengiriman.clear()
         adapterPengiriman.notifyDataSetChanged()
         ekspedisi?.costs?.forEach {
-            adapterPengiriman.add(PengirimanAdapter(it,ekspedisi?.code.toString(),this))
+            adapterPengiriman.add(PengirimanAdapter(it, ekspedisi?.code.toString(), this))
         }
 
-        getMetodePengiriman(R.layout.dialog_metode_pengiriman,ekspedisi?.code.toString())
+        getMetodePengiriman(R.layout.dialog_metode_pengiriman, ekspedisi?.code.toString())
     }
 
-    private fun getMetodePengiriman(layoutId: Int,ekspediri:String) {
+    private fun getMetodePengiriman(layoutId: Int, ekspediri: String) {
         val dialog = Dialog(this)
         dialog.requestWindowFeature(Window.FEATURE_NO_TITLE)
         dialog.setContentView(layoutId)
@@ -158,7 +154,7 @@ class CheckoutActivity : AppCompatActivity() {
 
             adapterPengiriman.setOnItemClickListener { item, view ->
                 val itemekspedisi = item as PengirimanAdapter
-                metodePengiriman =  "${ekspediri.uppercase()} ${itemekspedisi.itemService.service}"
+                metodePengiriman = "${ekspediri.uppercase()} ${itemekspedisi.itemService.service}"
                 binding.apply {
                     tvMetodePengiriman.text = metodePengiriman
                     tvOngkoskirim.text = "${itemekspedisi.itemService.cost[0].value.toString()}"
@@ -198,16 +194,14 @@ class CheckoutActivity : AppCompatActivity() {
             adapterkurir.setOnItemClickListener { item, view ->
                 val itemkurir = item as KurirAdapter
                 kurir = itemkurir.itemKurir.kurir
-                dialog.cancel()
                 binding.tvKurir.text = "Ekspedisi $kurir"
-                dialog.cancel()
+                dialog.hide()
             }
 
             rv.adapter = adapterkurir
 
             positiveButton.setOnClickListener {
-//                this.startActivity(Intent(this, CartActivity::class.java))
-                dialog.cancel()
+                dialog.hide()
             }
 
             dialog.show()
