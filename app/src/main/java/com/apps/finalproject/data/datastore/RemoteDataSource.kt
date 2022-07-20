@@ -40,6 +40,14 @@ class RemoteDataSource(private val apiServices: ApiServices) {
         Log.d("cart", "getCart: failed = ${it.message}")
     }.flowOn(Dispatchers.IO)
 
+
+    fun getOrders() = flow  {
+        emit(apiServices.getOrders("Bearer ${AppPref.token}"))
+    }.catch {
+        Log.d("orders", "orders: failed = ${it.message}")
+    }.flowOn(Dispatchers.IO)
+
+
     fun postPayment(paymentBody: PaymentBody) = flow {
         emit(apiServices.payment("Bearer ${AppPref.token}",paymentBody))
     }.catch {
