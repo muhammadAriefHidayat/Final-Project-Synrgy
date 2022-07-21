@@ -10,7 +10,7 @@ import com.apps.finalproject.R
 import com.apps.finalproject.databinding.ItemListProdukTrendingBinding
 import com.apps.finalproject.remote.model.Trending
 import com.apps.finalproject.ui.adapter.ListTrendingAdapter.*
-import com.apps.finalproject.utils.Utils
+import com.apps.finalproject.utils.Utils.rupiah
 import com.bumptech.glide.Glide
 
 class ListTrendingAdapter(private val listTrending: List<Trending>) : RecyclerView.Adapter<ViewHolder>() {
@@ -40,7 +40,7 @@ class ListTrendingAdapter(private val listTrending: List<Trending>) : RecyclerVi
                 .into(imageView2)
             textView2.text = productTrending.brand?.name ?: ""
             tvNameProduk.text = productTrending.variant?.get(0)?.name ?: ""
-            textView3.text = Utils.rupiah(productTrending.variant?.get(0)?.price!!.toDouble())
+            textView3.text = rupiah(productTrending.variant?.get(0)?.price!!.toDouble())
             ratingBar2.rating = productTrending.average?.toFloat()!!
             root.setOnClickListener{
                 Log.d(TAG, "onBindViewHolder: ${productTrending.variant?.get(0)?.name}")
