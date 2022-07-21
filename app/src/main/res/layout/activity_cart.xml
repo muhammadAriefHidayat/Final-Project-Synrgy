@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg_gradien"
+    tools:context=".ui.cart.CartActivity"
+    tools:ignore="SmallSp">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar_top"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="@color/cream"
+        android:minHeight="?android:attr/actionBarSize"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/toolbar_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:fontFamily="@font/nunito_bold"
+            android:text="Cart"
+            android:textColor="@color/darkBrown"
+            android:textStyle="bold" />
+    </androidx.appcompat.widget.Toolbar>
+
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_cart"
+        android:paddingBottom="@dimen/space_16"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:visibility="gone"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        app:layout_constraintBottom_toTopOf="@id/view5"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/toolbar_top"
+        tools:itemCount="2"
+        tools:listitem="@layout/item_list_cart" />
+
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/img_cart_kosong"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_cart_kosong"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <TextView
+        android:id="@+id/tv_cartkosong"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/nunito_black"
+        android:visibility="gone"
+        android:text="Cart Kosong"
+        android:textColor="@color/darkBrown"
+        app:layout_constraintEnd_toEndOf="@+id/img_cart_kosong"
+        app:layout_constraintStart_toStartOf="@+id/img_cart_kosong"
+        app:layout_constraintTop_toBottomOf="@+id/img_cart_kosong" />
+
+    <ProgressBar
+        android:id="@+id/progress"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_end="115dp" />
+
+    <View
+        android:id="@+id/view5"
+        android:layout_width="wrap_content"
+        android:layout_height="1dp"
+        android:alpha="0.5"
+        android:background="@color/textBlack"
+        app:layout_constraintBottom_toBottomOf="@+id/guideline"
+        app:layout_constraintStart_toStartOf="@+id/rv_cart" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/appCompatButton"
+        android:layout_width="match_parent"
+        android:layout_height="46dp"
+        android:layout_marginHorizontal="18dp"
+        android:layout_marginTop="@dimen/space_12"
+        android:background="@drawable/item_rounded_edt"
+        android:drawableStart="@drawable/ic_ticket"
+        android:drawableEnd="@drawable/img_cart_arrow"
+        android:drawablePadding="@dimen/space_8"
+        android:fontFamily="@font/nunito"
+        android:gravity="left|center_vertical"
+        android:paddingHorizontal="@dimen/space_12"
+        android:text="@string/makin_hemat_pakai_promo"
+        android:textAllCaps="false"
+        android:textColor="@color/textBlack"
+        app:layout_constraintTop_toBottomOf="@id/view5"
+        tools:layout_editor_absoluteX="18dp" />
+
+    <TextView
+        android:id="@+id/subtotal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="18dp"
+        android:layout_marginTop="@dimen/space_12"
+        android:fontFamily="@font/nunito"
+        android:includeFontPadding="false"
+        android:text="@string/subtotal"
+        android:textColor="@color/md_black_1000"
+        android:textFontWeight="400"
+        android:textSize="10sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/appCompatButton" />
+
+    <TextView
+        android:id="@+id/tvSubtotal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="18dp"
+        android:fontFamily="@font/nunito_bold"
+        android:textColor="@color/darkBrown"
+        android:includeFontPadding="false"
+        android:text="Rp.0"
+
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/subtotal" />
+
+    <ImageView
+        android:layout_width="@dimen/space_10"
+        android:layout_height="6dp"
+        android:layout_marginStart="@dimen/space_10"
+        android:rotation="270"
+        android:src="@drawable/img_cart_arrow"
+        app:layout_constraintBottom_toBottomOf="@+id/tvSubtotal"
+        app:layout_constraintStart_toEndOf="@+id/tvSubtotal"
+        app:layout_constraintTop_toTopOf="@+id/tvSubtotal" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btn_checkout"
+        android:layout_width="176dp"
+        android:layout_height="@dimen/space_36"
+        android:layout_marginEnd="18dp"
+        android:background="@drawable/item_brown_rounded"
+        android:fontFamily="@font/nunito"
+        android:text="Checkout (1)"
+        android:textAllCaps="false"
+        android:textColor="@color/md_white_1000"
+        android:textFontWeight="700"
+        android:textSize="10sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/appCompatButton" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

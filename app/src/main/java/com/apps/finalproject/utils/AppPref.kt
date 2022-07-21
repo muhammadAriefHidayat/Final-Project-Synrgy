@@ -13,7 +13,9 @@ object AppPref {
     private val TOKEN = Pair("token", "")
     private val USERNAME = Pair("username", "")
     private val EMAIL = Pair("email", "")
-    private val PASSWORD = Pair("password", "")
+    private val AVATAR = Pair("avatar", "")
+    private val PASSWORD = Pair("pw", "")
+    private val USERID = Pair("userId", "")
 
     fun init(context: Context) {
         preferences = context.getSharedPreferences(NAME, MODE)
@@ -32,6 +34,11 @@ object AppPref {
             it.putString(TOKEN.first, value)
         }
 
+    var avatar: String
+        get() = preferences.getString(AVATAR.first, AVATAR.second) ?: ""
+        set(value) = preferences.edit(){
+            it.putString(AVATAR.first, value)
+        }
 
     var username: String
         get() = preferences.getString(USERNAME.first, USERNAME.second) ?: ""
@@ -45,10 +52,16 @@ object AppPref {
             it.putString(EMAIL.first, value)
         }
 
-    var password: String
+    var pw: String
         get() = preferences.getString(PASSWORD.first, PASSWORD.second) ?: ""
         set(value) = preferences.edit(){
             it.putString(PASSWORD.first, value)
+        }
+
+    var userId: String
+        get() = preferences.getString(USERID.first, USERID.second) ?: ""
+        set(value) = preferences.edit(){
+            it.putString(USERID.first, value)
         }
 
 }

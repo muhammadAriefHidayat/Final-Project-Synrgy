@@ -79,11 +79,69 @@
     <string name="text_review">Yuk, ceritakan pengalaman kamu pakai produk ini</string>
     <string name="add_review">Add Review</string>
     <string name="kirim">Kirim</string>
-    <string name="add_photo_review">Tambahkan Foto Review Produk</string>
+    <string name="add_photo_review">add Foto Review</string>
     <string name="recomendation">Apakah kamu merekomendasikan produk ini ?</string>
     <string name="pasti_rekomendasi">Pasti rekomendasi</string>
     <string name="hmm_mungkin">Hmm, mungkin</string>
     <string name="time">2 jam lalu</string>
     <string name="description">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Eu augue ut lectus arcu bibendum at varius vel pharetra.</string>
     <string name="Wardah">Brand</string>
+    <string name="ubah_profil">Ubah Profil</string>
+    <string name="logout">Logout</string>
+    <string name="no_handphone">Nomor Handphone</string>
+    <string name="ubah_password">Ubah Password</string>
+    <string name="status_pesanan">Status Pesanan</string>
+    <string name="belum_bayar">Belum Bayar</string>
+    <string name="diproses">Diproses</string>
+    <string name="dikirim">Dikirim</string>
+    <string name="selesai">Selesai</string>
+    <string name="nomor_pesanan">060622001</string>
+    <string name="detail_order">Detail Order</string>
+    <string name="tanggal_order">Tanggal Order: 06 Juni 2022</string>
+    <string name="total_pembayaran_produk">Total Price: Rp 280.000</string>
+    <string name="keterangan_produk">Hyaluronic Acid Intensive Cream</string>
+    <string name="tambahan_detail_order">(dan 3 produk lainnya)</string>
+    <string name="remainder_order">Bayar sebelum 07 Juni 2022, 05:40 WIB.</string>
+    <string name="bayar_sekarang">Bayar Sekarang</string>
+    <string name="item_order">4 items</string>
+    <string name="keterangan_diproses">Produk akan dikirimkan paling lambat pada 09 Juni 2022.</string>
+    <string name="ketereangan_dikirim">Estimasi terima produk sebelum 12 Juni 2022.</string>
+    <string name="keterangan_selesai">Paket telah diterima Angel.</string>
+    <string name="beauty_feed_article">Beauty Feed</string>
+    <string-array name="dropdown_beauty_feed">
+        <item>Skincare</item>
+        <item>Make Up</item>
+        <item>Organik</item>
+        <item>Pria</item>
+    </string-array>
+    <string name="item_beauty_feed">Insightful, easy-to-follow hacks and how tos.</string>
+    <string name="total_feed">215 artikel</string>
+    <string name="tips_and_trick">TIPS and TRICKS</string>
+    <string name="item_feed_1">When to Dump Your Makeup Stash</string>
+    <string name="tanggal_beauty_feed_1">22 Maret 2022</string>
+    <string name="item_feed_2">A Guide to Layering Active Ingredients</string>
+    <string name="tanggal_beauty_feed_2">23 Maret 2022</string>
+    <string name="haraplogin">harap login terlebih dahulu</string>
+    <string name="sukses_keranjang">Produk Berhasil dimasukkan ke keranjang</string>
+    <string name="error_keranjang">Produk GAGAL dimasukkan ke keranjang</string>
+    <string name="nama_produk">Nama Produk</string>
+    <string name="search_result">Cari Produk</string>
+    <string name="last_search">Terakhir dicari</string>
+    <string name="delete_search"><u>Hapus Semua</u></string>
+    <string name="produk_search">skintific moisturizer</string>
+    <string name="produk_search2">cosrx snail</string>
+    <string name="produk_search3">looke</string>
+    <string name="top_search">Pencarian populer</string>
+    <string name="produk_whitelab">WHITELAB</string>
+    <string name="produk_azarine">AZARINE</string>
+    <string name="produk_some_by_mi">SOME BY MI</string>
+    <string name="deskripsi_produk_whitelab">Brightening Facial Wash</string>
+    <string name="deskripsi_produk_azarine">Hydrasoothe Sunscreen GEL SPF45 PA++++</string>
+    <string name="deskripsi_some_by_mi">Yuja Niacin 30 Days Blemish Care Serum</string>
+    <string name="harga_produk_whitelab">Rp 39.000</string>
+    <string name="harga_produk_azarine">Rp 65.000</string>
+    <string name="harga_produk_some_by_mi">Rp 220.000</string>
+    <string name="penilaian_produk_whitelab">4.0</string>
+    <string name="penilaian_produk_azarine">4.9</string>
+    <string name="penilaian_produk_some_by_mi">4.4</string>
 </resources>

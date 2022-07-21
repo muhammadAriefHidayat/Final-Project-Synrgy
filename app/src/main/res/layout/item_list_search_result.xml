@@ -1,0 +1,384 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginVertical="@dimen/space_12"
+    android:orientation="vertical">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingVertical="@dimen/space_12">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/nunito_bold"
+            android:text="@string/last_search"
+            android:textColor="@color/textBlack"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/nunito"
+            android:text="@string/delete_search"
+            android:textColor="@color/colorPrimary"
+            android:textSize="@dimen/font_body_xs_size"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/space_12"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="@dimen/space_8"
+            android:background="@drawable/item_rounded_edt"
+            android:orientation="horizontal"
+            android:padding="@dimen/space_8">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/produk_search" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginLeft="@dimen/space_8"
+                android:src="@drawable/ic_close_search" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="@dimen/space_8"
+            android:background="@drawable/item_rounded_edt"
+            android:orientation="horizontal"
+            android:padding="@dimen/space_8">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/produk_search2" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginLeft="@dimen/space_8"
+                android:src="@drawable/ic_close_search" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="@dimen/space_8"
+            android:background="@drawable/item_rounded_edt"
+            android:orientation="horizontal"
+            android:padding="@dimen/space_8">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/produk_search3" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginLeft="@dimen/space_8"
+                android:src="@drawable/ic_close_search" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/space_24"
+        android:src="@drawable/line_horizontal" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginVertical="@dimen/space_12"
+        android:fontFamily="@font/nunito_bold"
+        android:text="@string/top_search"
+        android:textColor="@color/textBlack" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/space_12"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:layout_width="@dimen/space_90"
+            android:layout_height="@dimen/space_60"
+            android:layout_marginRight="@dimen/space_8"
+            android:background="@drawable/item_rounded_edt"
+            android:orientation="horizontal"
+            android:padding="@dimen/space_8">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:src="@drawable/produk_wardah" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="@dimen/space_90"
+            android:layout_height="@dimen/space_60"
+            android:layout_marginRight="@dimen/space_8"
+            android:background="@drawable/item_rounded_edt"
+            android:orientation="horizontal"
+            android:padding="@dimen/space_8">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:src="@drawable/produk_cosrx" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="@dimen/space_90"
+            android:layout_height="@dimen/space_60"
+            android:layout_marginRight="@dimen/space_8"
+            android:background="@drawable/item_rounded_edt"
+            android:orientation="horizontal"
+            android:padding="@dimen/space_8">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:src="@drawable/produk_scarlett" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="@dimen/space_90"
+            android:layout_height="@dimen/space_60"
+            android:layout_marginRight="@dimen/space_8"
+            android:background="@drawable/item_rounded_edt"
+            android:orientation="horizontal"
+            android:padding="@dimen/space_8">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:src="@drawable/produk_emina" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/space_24"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="@dimen/space_80"
+                android:layout_height="@dimen/space_80"
+                android:background="@drawable/item_rounded_edt"
+                android:padding="@dimen/space_12"
+                android:src="@drawable/brand_whitelab" />
+
+            <LinearLayout
+                android:layout_gravity="center"
+                android:layout_width="@dimen/space_250"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/space_8"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/nunito"
+                    android:text="@string/produk_whitelab"
+                    android:textColor="@color/colorPrimary" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/space_8"
+                    android:fontFamily="@font/nunito"
+                    android:textSize="@dimen/font_body_xss_size"
+                    android:text="@string/deskripsi_produk_whitelab"
+                    android:textColor="@color/md_black_1000" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/space_8"
+                    android:fontFamily="@font/nunito_bold"
+                    android:text="@string/harga_produk_whitelab"
+                    android:textColor="@color/md_black_1000" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/space_4"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:src="@drawable/ic_star" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/space_8"
+                    android:text="@string/penilaian_produk_whitelab" />
+            </LinearLayout>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/space_12"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="@dimen/space_80"
+                android:layout_height="@dimen/space_80"
+                android:background="@drawable/item_rounded_edt"
+                android:padding="@dimen/space_12"
+                android:src="@drawable/brand_azarine" />
+
+            <LinearLayout
+                android:layout_width="@dimen/space_250"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginLeft="@dimen/space_8"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/nunito"
+                    android:text="@string/produk_azarine"
+                    android:textColor="@color/colorPrimary" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="@dimen/font_body_xss_size"
+                    android:layout_marginTop="@dimen/space_8"
+                    android:fontFamily="@font/nunito"
+                    android:text="@string/deskripsi_produk_azarine"
+                    android:textColor="@color/md_black_1000" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/space_8"
+                    android:fontFamily="@font/nunito_bold"
+                    android:text="@string/harga_produk_azarine"
+                    android:textColor="@color/md_black_1000" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/space_4"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:src="@drawable/ic_star" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/space_8"
+                    android:text="@string/penilaian_produk_azarine" />
+            </LinearLayout>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/space_12"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="@dimen/space_80"
+                android:layout_height="@dimen/space_80"
+                android:background="@drawable/item_rounded_edt"
+                android:padding="@dimen/space_12"
+                android:src="@drawable/brand_some_by_mi" />
+
+            <LinearLayout
+                android:layout_width="@dimen/space_250"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginLeft="@dimen/space_8"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/nunito"
+                    android:text="@string/produk_some_by_mi"
+                    android:textColor="@color/colorPrimary" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="@dimen/font_body_xss_size"
+                    android:layout_marginTop="@dimen/space_8"
+                    android:fontFamily="@font/nunito"
+                    android:text="@string/deskripsi_some_by_mi"
+                    android:textColor="@color/md_black_1000" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/space_8"
+                    android:fontFamily="@font/nunito_bold"
+                    android:text="@string/harga_produk_some_by_mi"
+                    android:textColor="@color/md_black_1000" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/space_4"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:src="@drawable/ic_star" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/space_8"
+                    android:text="@string/penilaian_produk_some_by_mi" />
+            </LinearLayout>
+        </LinearLayout>
+
+    </LinearLayout>
+</LinearLayout>

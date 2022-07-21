@@ -4,96 +4,223 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_margin="@dimen/space_12"
-    android:padding="@dimen/space_16"
-    android:background="@drawable/bg_rounded_payment"
-    tools:context=".ui.view.PaymentActivity">
+    android:background="@drawable/bg_gradien"
+    tools:context=".ui.checkoutshiping.PaymentActivity">
 
     <ImageView
-        android:id="@+id/iv_close"
+        android:id="@+id/iv_back"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:src="@drawable/ic_close"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="parent"/>
+        android:layout_margin="@dimen/space_16"
+        android:src="@drawable/ic_back"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <TextView
-        android:id="@+id/tv_metode_pembayaran"
+        android:id="@+id/tv_pembayaran"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/payment"
-        android:padding="@dimen/space_4"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/iv_close"
-        android:textAlignment="center"
+        android:layout_margin="@dimen/space_16"
         android:fontFamily="@font/nunito"
+        android:padding="@dimen/space_4"
+        android:text="@string/pembayaran"
+        android:textAlignment="center"
         android:textColor="@color/colorPrimary"
         android:textSize="@dimen/font_body_s_size"
         android:textStyle="bold"
-        />
-    <TextView
-        android:id="@+id/tv_payment_bank"
+        app:layout_constraintStart_toEndOf="@+id/iv_back"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+    <LinearLayout
+        android:id="@+id/linear_pembayaran"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:fontFamily="@font/nunito"
-        android:text="@string/payment_bank"
-        android:textColor="@color/textBlack"
-        android:textSize="@dimen/font_body_xs_size"
-        android:layout_marginTop="@dimen/space_12"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/iv_close"/>
-    <androidx.recyclerview.widget.RecyclerView
-        android:layout_marginLeft="-15dp"
-        android:id="@+id/rv_payment_bank"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/space_16"
+        android:gravity="center"
         android:orientation="horizontal"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tv_payment_bank"
-        tools:itemCount="1"
-        tools:listitem="@layout/item_list_payment" />
-    <TextView
-        android:id="@+id/tv_payment_va"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:fontFamily="@font/nunito"
-        android:text="@string/payment_va"
-        android:textColor="@color/textBlack"
-        android:textSize="@dimen/font_body_xs_size"
-        android:layout_marginTop="@dimen/space_12"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/rv_payment_bank"/>
-    <androidx.recyclerview.widget.RecyclerView
-        android:layout_marginLeft="-15dp"
-        android:id="@+id/rv_payment_va"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_pembayaran">
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/iv_rounded_grey"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:background="@drawable/ic_rounded_grey"
+                android:textColor="@color/md_white_1000" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:text="@string/step_1"
+                android:textColor="@color/md_white_1000"
+                android:textSize="6sp" />
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/tv_step_pengiriman"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/space_4"
+            android:text="@string/pengiriman"
+            android:textColor="@color/textGrey"
+            android:textSize="@dimen/font_body_xs_size"/>
+
+        <ImageView
+            android:id="@+id/im_next"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/space_4"
+            android:background="@drawable/ic_next" />
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/iv_rounded_brown"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:background="@drawable/ic_rounded_brown"
+                android:textColor="@color/md_white_1000" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:text="@string/step_2"
+                android:textColor="@color/md_white_1000"
+                android:textSize="@dimen/font_body_6sp" />
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/tv_step_pembayaran"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/space_4"
+            android:text="@string/pembayaran"
+            android:textColor="@color/colorPrimary"
+            android:textSize="@dimen/font_body_xs_size" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linear_pembayaran_2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_margin="@dimen/space_16"
+        android:background="@drawable/rounded_full_brown"
         android:orientation="horizontal"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tv_payment_va"
-        tools:itemCount="1"
-        tools:listitem="@layout/item_list_payment" />
-    <TextView
-        android:id="@+id/tv_payment_e_wallet"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:fontFamily="@font/nunito"
-        android:text="@string/payment_e_wallet"
-        android:textColor="@color/textBlack"
-        android:textSize="@dimen/font_body_xs_size"
-        android:layout_marginTop="@dimen/space_12"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/rv_payment_va"/>
-    <androidx.recyclerview.widget.RecyclerView
-        android:layout_marginLeft="-15dp"
-        android:id="@+id/rv_payment_e_wallet"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/linear_pembayaran">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/space_16"
+            android:padding="@dimen/space_12"
+            android:text="@string/total_pembayaran"
+            android:textColor="@color/md_white_1000"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/totalpembayran"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/space_120"
+            android:text="@string/price_payment"
+            android:textColor="@color/md_white_1000"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linear_pembayaran_3"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_margin="@dimen/space_16"
+        android:background="@drawable/rounded_white_grey"
         android:orientation="horizontal"
+        android:padding="@dimen/space_8"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tv_payment_e_wallet"
-        tools:itemCount="1"
-        tools:listitem="@layout/item_list_payment" />
+        app:layout_constraintTop_toBottomOf="@id/linear_pembayaran_2">
+
+        <TextView
+            android:id="@+id/textbank"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/space_16"
+            android:text="@string/payment"
+            android:textColor="@color/textBlack"
+            android:textSize="@dimen/font_body_s_size" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/space_180"
+            android:layout_marginTop="@dimen/space_19"
+            android:background="@drawable/ic_next" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linear_pembayaran_4"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/space_16"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/linear_pembayaran_3">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/space_6"
+            android:text="@string/cara_pembayaran"
+            android:textColor="@color/colorPrimary"
+            android:textSize="@dimen/font_body_s_size" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/white_grey"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:padding="@dimen/space_16"
+            android:textSize="@dimen/font_body_xs_size"
+            android:text="@string/default_pembayaran"
+            android:textAppearance="?attr/textAppearanceSubtitle1"
+            android:textColor="@color/colorPrimary" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/white_grey"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:visibility="invisible"
+            android:layout_marginTop="@dimen/space_12"
+            android:padding="@dimen/space_16"
+            android:textSize="@dimen/font_body_xs_size"
+            android:text="@string/default_pembayaran"
+            android:textAppearance="?attr/textAppearanceSubtitle1"
+            android:textColor="@color/colorPrimary" />
+    </LinearLayout>
+    <Button
+        android:id="@+id/btn_bayar_checkout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/space_16"
+        android:background="@drawable/rounded_full_brown"
+        android:text="@string/bayar"
+        android:textColor="@color/md_white_1000"
+        app:layout_constraintBottom_toBottomOf="parent"/>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

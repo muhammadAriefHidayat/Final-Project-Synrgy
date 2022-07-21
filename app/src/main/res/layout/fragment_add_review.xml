@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".ui.view.AddReviewFragment">
+    tools:context=".ui.review.AddReviewFragment">
 
     <ImageView
         android:id="@+id/imageView5"
@@ -16,7 +16,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.291" />
-
 
     <com.google.android.material.card.MaterialCardView
         android:id="@+id/cvProduk"
@@ -167,9 +166,16 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/rating" />
 
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/gL"
+        app:layout_constraintGuide_percent="0.5"
+        android:orientation="vertical"
+        android:layout_width="1dp"
+        android:layout_height="0dp"/>
+
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/add_photo"
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
         android:layout_height="60dp"
         android:layout_marginHorizontal="@dimen/space_16"
         android:layout_marginStart="@dimen/space_20"
@@ -178,13 +184,33 @@
         android:background="@drawable/item_rounded_grey_gap"
         android:drawableLeft="@drawable/ic_icon___photo"
         android:hint="@string/add_photo_review"
-        android:paddingHorizontal="@dimen/space_96"
+        android:paddingHorizontal="@dimen/space_20"
         android:textColor="@color/textBlack"
         android:textColorHint="@color/textGrey"
         android:textSize="9sp"
+        app:layout_constraintEnd_toStartOf="@+id/gL"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvComment"
+        tools:ignore="SmallSp" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/add_photo2"
+        android:layout_width="0dp"
+        android:layout_height="60dp"
+        android:layout_marginHorizontal="@dimen/space_16"
+        android:layout_marginStart="@dimen/space_20"
+        android:layout_marginTop="108dp"
+        android:layout_marginEnd="@dimen/space_20"
+        android:background="@drawable/item_rounded_grey_gap"
+        android:drawableLeft="@drawable/ic_icon___photo"
+        android:hint="@string/add_photo_review"
+        android:paddingHorizontal="@dimen/space_20"
+        android:textColor="@color/textBlack"
+        android:textColorHint="@color/textGrey"
+        android:textSize="9sp"
+        app:layout_constraintStart_toEndOf="@id/gL"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tvComment"
         tools:ignore="SmallSp" />
 

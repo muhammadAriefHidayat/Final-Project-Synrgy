@@ -1,13 +1,43 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ui.view.BeautyFeedFragment">
-
-    <TextView
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="@string/beauty_feed" />
+        android:orientation="vertical">
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/space_250"
+            android:background="@drawable/background_beauty_feed">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bg_beauty_feed"
+                android:fontFamily="@font/nunito_bold"
+                android:gravity="center"
+                android:paddingHorizontal="@dimen/space_56"
+                android:paddingVertical="@dimen/space_12"
+                android:text="@string/beauty_feed_article"
+                android:textColor="@color/textBlack"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+            <Spinner
+                android:id="@+id/spinner"
+                android:layout_margin="@dimen/space_16"
+                android:padding="@dimen/space_20"
+                android:layout_width="match_parent"
+                android:background="@drawable/item_rounded_edt"
+                android:entries="@array/dropdown_beauty_feed"
+                android:layout_height="wrap_content"/>
+
+        <include layout="@layout/item_beauty_feed"/>
+    </LinearLayout>
+</ScrollView>

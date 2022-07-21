@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.view.HomeFragment">
+    android:paddingBottom="@dimen/space_60"
+    tools:context=".ui.home.HomeFragment">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -20,23 +21,112 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-
-        <include
-            android:id="@+id/item_list_article"
-            layout="@layout/item_list_article"
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/home_articel"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:background="#FCF5EA"
+            android:paddingBottom="@dimen/space_12"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/item_header" />
+            app:layout_constraintTop_toBottomOf="@+id/item_header">
 
+            <TextView
+                android:id="@+id/tv_artikel_terbaru"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/space_16"
+                android:fontFamily="@font/nunito_bold"
+                android:text="@string/artikel_terbaru"
+                android:textColor="#515151"
+                android:textSize="13sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
-        <include
-            layout="@layout/list_produk_trending"
-            app:layout_constraintTop_toBottomOf="@id/item_list_article"
-            android:id="@+id/list_produk_trending"
+            <TextView
+                android:id="@+id/tv_lihat_semua_artikel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/space_16"
+                android:background="@drawable/border"
+                android:fontFamily="@font/nunito"
+                android:paddingHorizontal="@dimen/space_6"
+                android:paddingVertical="@dimen/space_5"
+                android:text="@string/lihat_semua"
+                android:textColor="@color/darkBrown"
+                android:textSize="10sp"
+                app:layout_constraintBottom_toBottomOf="@+id/tv_artikel_terbaru"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/tv_artikel_terbaru" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:layout_marginStart="@dimen/space_12"
+                android:id="@+id/item_list_article"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/space_16"
+                android:clipToPadding="false"
+                android:orientation="horizontal"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tv_artikel_terbaru"
+                tools:listitem="@layout/item_article" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:paddingBottom="@dimen/space_16"
+            android:id="@+id/home_produk_trending"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:background="@color/md_white_1000"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@+id/home_articel">
+
+            <TextView
+                android:id="@+id/tv_produk_trending"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/space_16"
+                android:fontFamily="@font/nunito_bold"
+                android:paddingTop="@dimen/space_4"
+                android:paddingBottom="@dimen/space_4"
+                android:text="Produk Trending"
+                android:textColor="#515151"
+                android:textSize="13sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"/>
+
+            <TextView
+                android:id="@+id/tv_lihat_produk_trending"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/space_16"
+                android:background="@drawable/border"
+                android:fontFamily="@font/nunito"
+                android:paddingHorizontal="@dimen/space_6"
+                android:paddingVertical="@dimen/space_5"
+                android:text="@string/lihat_semua"
+                android:textColor="@color/darkBrown"
+                android:textSize="10sp"
+                app:layout_constraintBottom_toBottomOf="@+id/tv_produk_trending"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/tv_produk_trending" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:layout_marginStart="16dp"
+                android:id="@+id/list_produk_trending"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/space_16"
+                android:background="@color/md_white_1000"
+                android:orientation="horizontal"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                app:layout_constraintTop_toBottomOf="@id/tv_produk_trending"
+                tools:listitem="@layout/item_list_produk_trending" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
 
         <include
             android:id="@+id/list_category"
@@ -46,7 +136,19 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/list_produk_trending" />
+            app:layout_constraintTop_toBottomOf="@+id/home_produk_trending" />
+
+        <ProgressBar
+            android:id="@+id/progressBar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="visible"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:visibility="visible" />
+
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

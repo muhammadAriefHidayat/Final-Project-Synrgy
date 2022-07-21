@@ -1,28 +1,79 @@
 package com.apps.finalproject.data.api
 
-import com.apps.finalproject.model.LoginBody
-import com.apps.finalproject.model.RegisterBody
-import com.apps.finalproject.model.response.LoginResponse
-import com.apps.finalproject.model.response.RegisterResponse
-import com.apps.finalproject.model.response.ReviewResponse
-import retrofit2.http.Body
-import retrofit2.http.GET
-import retrofit2.http.POST
-import retrofit2.http.Path
+import com.apps.finalproject.remote.body.LoginBody
+import com.apps.finalproject.remote.body.PaymentBody
+import com.apps.finalproject.remote.body.PengirimanBody
+import com.apps.finalproject.remote.body.RegisterBody
+import com.apps.finalproject.remote.model.Cart
+import com.apps.finalproject.remote.model.Review
+import com.apps.finalproject.remote.model.Token
+import com.apps.finalproject.remote.response.*
+import com.apps.finalproject.utils.AppPref
+import retrofit2.Call
+import retrofit2.http.*
 
 interface ApiServices {
+
+    @POST("/api/v1/review")
+    fun addReview(
+        @Body review :Review
+    ): Call<LoginResponse>
+
+
+    @POST("/api/v1/checkout")
+    fun payment(
+        @Header("Authorization") token: String,
+        @Body paymentBody: PaymentBody
+    ): Call<PaymentResponse>
+
     @POST("/api/v1/auth/login")
-    suspend fun login(
-        @Body loginBody: LoginBody
-    ): LoginResponse
+    fun login(
+        @Body loginBody : LoginBody
+    ): Call<LoginResponse>
+
+    @POST("/api/v1/carts")
+    fun addCart(
+        @Header("Authorization") token: String,
+        @Body cart: Cart
+        ):Call<CartResponse>
+
+    @POST("/api/v1/raja-ongkir/cost")
+    fun postOngkir(
+        @Body pengirimanBody: PengirimanBody
+    ):Call<OngkirResponse>
+
+    @GET("/api/v1/carts")
+    fun getCart(
+        @Header("Authorization") token: String,
+    ):Call<GetCartResponse>
+
+    @GET("/api/v1/order")
+    fun getOrders(
+        @Header("Authorization") token: String,
+    ):Call<OrdersResponse>
 
     @POST("/api/v1/auth/register")
-    suspend fun register(
+    fun register(
         @Body register: RegisterBody
-    ): RegisterResponse
+    ): Call<RegisterResponse>
 
     @GET("/api/v1/review")
     suspend fun getReview(
-        @Path("userId") userId: String
     ): ReviewResponse
+
+    @GET("/api/v1/article")
+    suspend fun getArticle() : ArticleResponse
+
+    @GET("/api/v1/product/q/trending")
+    suspend fun getTrending() : TrendingResponse
+
+    @GET("/api/v1/product/{id}")
+    suspend fun getDetailTrending(
+        @Path("productId") productId: String
+    ): ListTrendingResponse
+
+    @GET("/api/v1/product/q/trending")
+    suspend fun searchProduct(
+        @Query("q") name: String
+    ): TrendingResponse
 }

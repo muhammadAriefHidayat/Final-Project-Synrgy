@@ -5,33 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:background="@color/cream"
-    tools:context=".ui.view.ArticleActivity">
-
-    <TextView
-        android:id="@+id/tv_artikel_terbaru"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_margin="@dimen/space_16"
-        android:fontFamily="@font/nunito_bold"
-        android:paddingTop="@dimen/space_4"
-        android:text="@string/artikel_terbaru"
-        android:textColor="#515151"
-        android:textSize="13sp"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/tv_lihat_semua"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_margin="@dimen/space_16"
-        android:background="@drawable/border"
-        android:paddingHorizontal="@dimen/space_8"
-        android:paddingVertical="@dimen/space_6"
-        android:text="@string/lihat_semua"
-        android:textColor="@color/darkBrown"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+    tools:context=".ui.article.ArticleActivity">
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rv_artikel_terbaru"
@@ -42,7 +16,6 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tv_lihat_semua"
         tools:itemCount="1"
         tools:listitem="@layout/item_article" />
 </androidx.constraintlayout.widget.ConstraintLayout>
