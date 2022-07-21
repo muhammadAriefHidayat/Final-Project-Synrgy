@@ -33,6 +33,7 @@ import com.google.android.material.bottomnavigation.BottomNavigationMenuView
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import java.io.IOException
 import java.io.InputStream
+import java.text.NumberFormat
 import java.util.*
 
 /**
@@ -45,6 +46,12 @@ object Utils {
     val isRTL: Boolean
         get() = isRTL(Locale.getDefault())
 
+
+    fun rupiah(number: Double): String{
+        val localeID =  Locale("in", "ID")
+        val numberFormat = NumberFormat.getCurrencyInstance(localeID)
+        return numberFormat.format(number).toString()
+    }
 
     fun inputStreamToString(inputStream: InputStream): String? {
         try {
