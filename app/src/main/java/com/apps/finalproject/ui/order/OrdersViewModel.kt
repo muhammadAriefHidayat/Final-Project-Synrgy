@@ -15,7 +15,6 @@ import retrofit2.Response
 
 class OrdersViewModel(private val repository: MainRepository) : ViewModel() {
 
-
     private val mResponse = MutableLiveData<List<DataOrders>>()
 
     fun getOrders() = viewModelScope.launch {
@@ -25,10 +24,6 @@ class OrdersViewModel(private val repository: MainRepository) : ViewModel() {
                     call: Call<OrdersResponse>,
                     response: Response<OrdersResponse>
                 ) {
-                    Log.d("cart","masuk")
-                    Log.d("cartrer", response.errorBody().toString())
-                    Log.d("cartrer", call.toString())
-                    Log.d("carters", response.body().toString())
                     mResponse.postValue(response.body()?.data)
                 }
 
