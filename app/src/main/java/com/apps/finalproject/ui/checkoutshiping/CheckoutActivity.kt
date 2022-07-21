@@ -122,7 +122,7 @@ class CheckoutActivity : AppCompatActivity() {
             binding.apply {
                 tvSubtotal.text = rupiah( it.total.toDouble())
                 txTotal = it.total
-                tvTotalPembayaran.text = "${it.total + txOngkir}"
+                tvTotalPembayaran.text = rupiah((it.total + txOngkir).toDouble())
             }
         }
     }

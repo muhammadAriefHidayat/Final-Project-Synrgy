@@ -50,7 +50,8 @@ object Utils {
     fun rupiah(number: Double): String{
         val localeID =  Locale("in", "ID")
         val numberFormat = NumberFormat.getCurrencyInstance(localeID)
-        return numberFormat.format(number).toString()
+        val matauang =numberFormat.format(number).toString().split(",")
+        return matauang[0]
     }
 
     fun inputStreamToString(inputStream: InputStream): String? {
