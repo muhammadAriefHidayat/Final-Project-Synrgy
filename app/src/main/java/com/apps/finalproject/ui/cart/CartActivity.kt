@@ -11,6 +11,7 @@ import com.apps.finalproject.remote.response.CartItems
 import com.apps.finalproject.remote.response.CartOverview
 import com.apps.finalproject.ui.ViewModelFactory
 import com.apps.finalproject.ui.checkoutshiping.CheckoutActivity
+import com.apps.finalproject.utils.Utils
 import com.xwray.groupie.GroupAdapter
 import com.xwray.groupie.GroupieViewHolder
 
@@ -21,6 +22,7 @@ class CartActivity : AppCompatActivity() {
     private val cartViewmodel: GetCartViewModel by viewModels {
         ViewModelFactory.getInstance(this)
     }
+    var barang = false
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityCartBinding.inflate(layoutInflater)
@@ -42,7 +44,11 @@ class CartActivity : AppCompatActivity() {
             }
         }
         binding.btnCheckout.setOnClickListener{
-            startActivity(Intent(this,CheckoutActivity::class.java))
+            if (!barang){
+                Utils.peringatan(this,"Keranjang mu Kosong nih, Pilih dulu makeup impian mu")
+            }else{
+                startActivity(Intent(this,CheckoutActivity::class.java))
+            }
         }
     }
 

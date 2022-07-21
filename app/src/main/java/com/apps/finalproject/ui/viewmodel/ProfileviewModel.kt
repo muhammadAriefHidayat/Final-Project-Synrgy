@@ -37,6 +37,7 @@ class ProfileviewModel(private val repository: MainRepository) : ViewModel() {
         itemProfils.add(ProfilItem("ic_voucer","Voucer Ku",Voucerku))
         itemProfils.add(ProfilItem("ic_bookmark","Artikel tersimpan",ArtikelTersimpan))
 
+        PI.postValue(itemProfils)
     }
 
     internal fun getProfilItems(): LiveData<List<ProfilItem>> {
