@@ -17,6 +17,8 @@ import com.apps.finalproject.remote.body.PaymentBody
 import com.apps.finalproject.remote.response.DataPayment
 import com.apps.finalproject.ui.ViewModelFactory
 import com.apps.finalproject.ui.adapter.KurirAdapter
+import com.apps.finalproject.utils.Utils
+import com.apps.finalproject.utils.Utils.rupiah
 import com.xwray.groupie.GroupAdapter
 import com.xwray.groupie.GroupieViewHolder
 
@@ -36,7 +38,7 @@ class PaymentActivity : AppCompatActivity() {
         val total  = intent.getStringExtra("bayar")
         val bank  = intent.getStringExtra("transfer")
 
-        binding.totalpembayran.text = total.toString()
+        binding.totalpembayran.text = rupiah(total!!.toDouble())
         paymentviewmodel.getbank()
         paymentviewmodel.getDataBank().observe(this){
             it.forEach { bank->

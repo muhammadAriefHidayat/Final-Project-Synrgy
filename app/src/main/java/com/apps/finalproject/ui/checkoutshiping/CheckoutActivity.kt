@@ -24,6 +24,7 @@ import com.apps.finalproject.ui.adapter.PengirimanAdapter
 import com.apps.finalproject.ui.cart.GetCartViewModel
 import com.apps.finalproject.ui.viewmodel.OngkirViewModel
 import com.apps.finalproject.utils.Utils
+import com.apps.finalproject.utils.Utils.rupiah
 import com.xwray.groupie.GroupAdapter
 import com.xwray.groupie.GroupieViewHolder
 
@@ -119,9 +120,9 @@ class CheckoutActivity : AppCompatActivity() {
     private fun setDataRingkasan(it: CartOverview?) {
         if (it?.total != null) {
             binding.apply {
-                tvSubtotal.text = it.total.toString()
+                tvSubtotal.text = rupiah( it.total.toDouble())
                 txTotal = it.total
-                tvTotalPembayaran.text = "${it.total + txOngkir}"
+                tvTotalPembayaran.text = rupiah((it.total + txOngkir).toDouble())
             }
         }
     }
@@ -157,10 +158,10 @@ class CheckoutActivity : AppCompatActivity() {
                 metodePengiriman = "${ekspediri.uppercase()} ${itemekspedisi.itemService.service}"
                 binding.apply {
                     tvMetodePengiriman.text = metodePengiriman
-                    tvOngkoskirim.text = "${itemekspedisi.itemService.cost[0].value.toString()}"
+                    tvOngkoskirim.text = rupiah(itemekspedisi.itemService.cost[0].value.toDouble())
                     txOngkir = itemekspedisi.itemService.cost[0].value
                     txTotalAkhir = txTotal + txOngkir
-                    tvTotalPembayaran.text = txTotalAkhir.toString()
+                    tvTotalPembayaran.text = rupiah(txTotalAkhir.toDouble())
                     dialog.hide()
                 }
             }
