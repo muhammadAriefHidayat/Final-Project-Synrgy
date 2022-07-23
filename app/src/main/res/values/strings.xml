@@ -144,4 +144,9 @@
     <string name="penilaian_produk_whitelab">4.0</string>
     <string name="penilaian_produk_azarine">4.9</string>
     <string name="penilaian_produk_some_by_mi">4.4</string>
+    <string name="alamat">Daftar Alamat</string>
+    <string name="banyaknya_alamat">2 Alamat Tersimpan</string>
+    <string name="tambah_alamat">Tambah Alamat</string>
+    <string name="rumah">Rumah</string>
+    <string name="alamat_rumah">Perumahan A, Jalan Bandung 8 Blok I5, Kecamatan Bandung, Kota Bandung, Jawa Barat 16320</string>
 </resources>
