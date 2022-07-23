@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.order.OrdersFragment">
+    tools:context=".ui.view.OrdersFragment">
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar_top"
@@ -22,7 +22,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:fontFamily="@font/nunito_bold"
-            android:text="Orders"
+            android:text="Status Pesanan"
             android:textColor="@color/darkBrown"
             android:textStyle="bold" />
     </androidx.appcompat.widget.Toolbar>
@@ -30,15 +30,17 @@
     <com.google.android.material.tabs.TabLayout
         android:id="@+id/tablayoutid"
         android:layout_width="0dp"
+        app:tabTextAppearance="@android:style/TextAppearance.Widget.TabWidget"
         android:layout_height="wrap_content"
         android:background="@color/cream"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/toolbar_top"
         app:tabGravity="fill"
-        app:tabIndicatorColor="@color/darkBrown"
+        app:tabBackground="@drawable/item_orders"
+        app:tabIndicatorColor="#CA9965"
         app:tabMode="fixed"
-        app:tabSelectedTextColor="@color/md_white_1000"
+        app:tabSelectedTextColor="@color/darkBrown"
         app:tabTextColor="@color/darkBrown" />
 
     <androidx.viewpager.widget.ViewPager
