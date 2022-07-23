@@ -1,4 +1,4 @@
-package com.apps.finalproject.ui.view
+package com.apps.finalproject.ui.order
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -7,9 +7,10 @@ import android.view.View
 import android.view.ViewGroup
 import com.apps.finalproject.R
 
-class OrderBelumBayarFragment : Fragment() {
+class OrderDikirimFragment : Fragment() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
     }
 
     override fun onCreateView(
@@ -17,6 +18,6 @@ class OrderBelumBayarFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_order_belum_bayar, container, false)
+        return inflater.inflate(R.layout.fragment_order_diproses, container, false)
     }
 }

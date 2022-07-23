@@ -36,7 +36,10 @@ class HomePageActivity : AppCompatActivity() {
                     startActivity(Intent(this, ProfileActivity::class.java))
                 }
                 true
-            } else {
+            } else if(it.itemId == R.id.orderFragment){
+               ""
+                true
+            }else{
                 false
             }
             return@setOnNavigationItemSelectedListener bool
