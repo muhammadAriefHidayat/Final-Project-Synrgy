@@ -23,19 +23,19 @@ data class ProductCategoriesItem(
 	val subChild: String,
 
 	@field:SerializedName("subCategory")
-	val subCategory: Any,
+	val subCategory: String,
 
 	@field:SerializedName("subCategoryId")
-	val subCategoryId: Any,
+	val subCategoryId: String,
 
 	@field:SerializedName("subChildId")
 	val subChildId: String,
 
 	@field:SerializedName("category")
-	val category: Any,
+	val category: String,
 
 	@field:SerializedName("categoryId")
-	val categoryId: Any
+	val categoryId: String
 )
 
 data class IngredientCategoriesItem(

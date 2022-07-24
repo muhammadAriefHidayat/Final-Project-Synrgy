@@ -78,4 +78,7 @@ interface ApiServices {
         @Query("page") page: Int,
         @Query("size") size: Int
     ): SearchResponse
+
+    @GET("/api/v1/product")
+    suspend fun getAllProduct() : TrendingResponse
 }
