@@ -1,4 +1,4 @@
-package com.apps.finalproject.ui.adapter
+package com.apps.finalproject.ui.beautyfeed
 
 import android.view.LayoutInflater
 import android.view.View
@@ -7,7 +7,6 @@ import androidx.recyclerview.widget.RecyclerView
 import com.apps.finalproject.R
 import com.apps.finalproject.databinding.ItemListBeautyFeedBinding
 import com.apps.finalproject.remote.model.Article
-import com.apps.finalproject.ui.article.ListArticleAdapter
 import com.bumptech.glide.Glide
 
 class ListBeautyFeedAdapter (private val listFeed: List<Article>) : RecyclerView.Adapter<ListBeautyFeedAdapter.ViewHolder>() {
