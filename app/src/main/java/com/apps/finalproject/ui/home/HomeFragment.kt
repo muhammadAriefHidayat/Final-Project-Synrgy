@@ -14,6 +14,7 @@ import androidx.recyclerview.widget.DefaultItemAnimator
 import com.apps.finalproject.R
 import com.apps.finalproject.databinding.FragmentHomeBinding
 import com.apps.finalproject.remote.model.Article
+import com.apps.finalproject.remote.model.ProductsItem
 import com.apps.finalproject.remote.model.Trending
 import com.apps.finalproject.ui.ViewModelFactory
 import com.apps.finalproject.ui.adapter.ListTrendingAdapter
@@ -24,6 +25,7 @@ import com.apps.finalproject.ui.view.AuthActivity
 import com.apps.finalproject.utils.AppPref
 import com.apps.finalproject.utils.Utils
 import com.apps.finalproject.utils.objectToString
+import com.apps.finalproject.utils.stringToObject
 
 class HomeFragment : Fragment() {
 
@@ -49,7 +51,14 @@ class HomeFragment : Fragment() {
             showDataArticle(it)
         }
 
-        homeViewModel.searchProductByName("Product Name")
+        val dataProduct = ProductsItem::class.java
+        dataProduct.name.let {
+            homeViewModel.searchProductByName(it)
+        }
+        homeViewModel.productsItem.observe(viewLifecycleOwner){
+
+        }
+
         homeViewModel.getProductTrending()
         homeViewModel.trending.observe(viewLifecycleOwner){
             showProductTrending(it)
