@@ -5,29 +5,24 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.os.bundleOf
+import androidx.fragment.app.viewModels
+import androidx.navigation.Navigation
+import androidx.recyclerview.widget.DefaultItemAnimator
 import com.apps.finalproject.R
+import com.apps.finalproject.databinding.FragmentProductBinding
+import com.apps.finalproject.remote.model.Trending
+import com.apps.finalproject.ui.ViewModelFactory
+import com.apps.finalproject.ui.adapter.ListTrendingAdapter
+import com.apps.finalproject.ui.detail.DetailFragment
+import com.apps.finalproject.ui.home.HomeViewModel
+import com.apps.finalproject.utils.objectToString
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
-
-/**
- * A simple [Fragment] subclass.
- * Use the [ProductFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
 class ProductFragment : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
-        }
+    private lateinit var binding: FragmentProductBinding
+    private val homeViewModel: HomeViewModel by viewModels {
+        ViewModelFactory.getInstance(requireContext())
     }
 
     override fun onCreateView(
@@ -35,26 +30,39 @@ class ProductFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_product, container, false)
+        binding = FragmentProductBinding.inflate(inflater, container, false)
+        return binding.root
     }
 
-    companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment ProductFragment.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            ProductFragment().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
-                }
-            }
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        homeViewModel.getProductTrending()
+        homeViewModel.trending.observe(viewLifecycleOwner){
+            showProductTrending(it)
+        }
     }
+
+    private fun showProductTrending(listProductTrending: List<Trending>){
+        val listTrendingAdapter = ListTrendingAdapter(listProductTrending)
+        listTrendingAdapter.setOnItemClickListener(onItemClicked)
+        binding.listProdukItem.apply {
+            itemAnimator = DefaultItemAnimator()
+            adapter = listTrendingAdapter
+        }
+    }
+
+    private val onItemClicked = object : ListTrendingAdapter.OnItemClickListener{
+        override fun onItemClicked(data: Trending) {
+            detailTrending(data)
+        }
+    }
+
+    private fun detailTrending(data: Trending){
+        val mBundle = bundleOf(DetailFragment.EXTRA_PRODUCT to objectToString(data))
+
+        Navigation.findNavController(requireView()).navigate(R.id.action_productFragment_to_DetailFragment2, mBundle)
+
+    }
+
 }
