@@ -23,7 +23,7 @@
     </fragment>
     <fragment
         android:id="@+id/beautyFeedFragment"
-        android:name="com.apps.finalproject.ui.view.BeautyFeedFragment"
+        android:name="com.apps.finalproject.ui.beautyfeed.BeautyFeedFragment"
         android:label="fragment_beauty_feed"
         tools:layout="@layout/fragment_beauty_feed" >
         <action
