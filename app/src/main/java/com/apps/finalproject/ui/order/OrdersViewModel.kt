@@ -24,6 +24,7 @@ class OrdersViewModel(private val repository: MainRepository) : ViewModel() {
                     call: Call<OrdersResponse>,
                     response: Response<OrdersResponse>
                 ) {
+                    Log.d("ordervm", "vm")
                     mResponse.postValue(response.body()?.data)
                 }
 

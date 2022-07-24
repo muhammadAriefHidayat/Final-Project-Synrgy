@@ -1,17 +1,17 @@
 package com.apps.finalproject.ui.order
 
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.activityViewModels
 import com.apps.finalproject.R
 
 class OrderDikirimFragment : Fragment() {
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
 
-    }
+    private val ordersViewModel:OrdersViewModel by activityViewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -19,5 +19,16 @@ class OrderDikirimFragment : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_order_diproses, container, false)
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        ordersViewModel.getResponse().observe(requireActivity()){
+            if (it.isNotEmpty() and (!it.isNullOrEmpty())){
+                Log.d("orderdk", it[0].id.toString())
+            }else{
+                Log.d("order", "kosong")
+            }
+        }
     }
 }
