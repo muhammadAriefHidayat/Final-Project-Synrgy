@@ -3,6 +3,7 @@ package com.apps.finalproject.ui.view
 import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import androidx.navigation.findNavController
 import com.apps.finalproject.R
 import com.apps.finalproject.databinding.ActivityHomePageBinding
 import com.apps.finalproject.ui.cart.CartActivity
@@ -36,9 +37,12 @@ class HomePageActivity : AppCompatActivity() {
                     startActivity(Intent(this, ProfileActivity::class.java))
                 }
                 true
-            } else {
+            } else if (it.itemId == R.id.beautyFeedFragmentTitle) {
+                val navController = findNavController(R.id.nav_host_fragment)
+                    navController.navigate(R.id.beautyFeedFragment)
+            } else{
                 false
-            }
+            } as Boolean
             return@setOnNavigationItemSelectedListener bool
         }
     }
