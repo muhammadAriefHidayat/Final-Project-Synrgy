@@ -8,6 +8,7 @@ import com.apps.finalproject.remote.body.PaymentBody
 import com.apps.finalproject.remote.body.PengirimanBody
 import com.apps.finalproject.remote.body.RegisterBody
 import com.apps.finalproject.remote.model.*
+import com.apps.finalproject.remote.response.ProductsItemResponse
 import com.apps.finalproject.utils.AppPref
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.catch
@@ -91,9 +92,9 @@ class RemoteDataSource(private val apiServices: ApiServices) {
         Log.d("TAG", "getDetailProduct: failed = ${it.message}")
     }.flowOn(Dispatchers.IO)
 
-    fun searchProductByName(name: String) = flow<List<Trending>> {
-        apiServices.searchProduct(name).data.let {
-            emit(it.toListTrending())
+    fun searchProductByName(name: String) = flow<List<ProductsItemResponse>> {
+        apiServices.searchProduct(name, 1, 10).data.products.let {
+            emit(it)
         }
     }.catch {
         Log.d("TAG", "getDetailProduct: failed = ${it.message}")
