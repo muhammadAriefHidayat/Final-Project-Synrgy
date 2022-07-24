@@ -5,9 +5,9 @@ import android.os.Bundle
 import com.apps.finalproject.R
 import com.apps.finalproject.databinding.ActivityEditProfileBinding
 
-private lateinit var binding: ActivityEditProfileBinding
 
 class EditProfileActivity : AppCompatActivity() {
+    private lateinit var binding: ActivityEditProfileBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityEditProfileBinding.inflate(layoutInflater)

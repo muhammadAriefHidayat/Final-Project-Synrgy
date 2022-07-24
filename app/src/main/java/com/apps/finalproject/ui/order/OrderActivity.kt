@@ -13,6 +13,7 @@ class OrderActivity : AppCompatActivity() {
     private val ordersViewModel:OrdersViewModel by viewModels {
         ViewModelFactory.getInstance(this)
     }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityOrderBinding.inflate(layoutInflater)

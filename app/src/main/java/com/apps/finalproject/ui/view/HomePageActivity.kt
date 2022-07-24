@@ -37,6 +37,9 @@ class HomePageActivity : AppCompatActivity() {
                     startActivity(Intent(this, ProfileActivity::class.java))
                 }
                 true
+            } else if(it.itemId == R.id.orderFragment){
+               ""
+                true
             } else if (it.itemId == R.id.beautyFeedFragmentTitle) {
                 val navController = findNavController(R.id.nav_host_fragment)
                     navController.navigate(R.id.beautyFeedFragment)
