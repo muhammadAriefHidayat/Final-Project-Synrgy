@@ -35,7 +35,7 @@ data class Brand(
 	val id: String
 )
 
-data class ProductsItem(
+data class ProductsItemResponse(
 
 	@field:SerializedName("images")
 	val images: List<String>,
@@ -86,5 +86,5 @@ data class Data(
 	val numberOfItems: Int,
 
 	@field:SerializedName("products")
-	val products: List<ProductsItem>
+	val products: List<ProductsItemResponse>
 )
