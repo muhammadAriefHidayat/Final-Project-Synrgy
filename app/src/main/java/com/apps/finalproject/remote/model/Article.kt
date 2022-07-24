@@ -17,7 +17,7 @@ fun DataArticle.toArticle() : Article {
 		date = this.date,
 		photo = this.photo,
 		title = this.title,
-		content = this.title
+		content = this.content
 	)
 }
 
