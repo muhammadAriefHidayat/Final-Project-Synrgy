@@ -6,8 +6,7 @@ import androidx.appcompat.app.AppCompatActivity
 import com.apps.finalproject.databinding.ActivityFinishingPaymentBinding
 import com.apps.finalproject.remote.response.DataPayment
 import com.apps.finalproject.ui.order.OrderActivity
-import com.apps.finalproject.ui.view.HomePageActivity
-import com.apps.finalproject.utils.Utils
+import com.apps.finalproject.ui.home.HomePageActivity
 import com.apps.finalproject.utils.Utils.rupiah
 
 class FinishingPaymentActivity : AppCompatActivity() {

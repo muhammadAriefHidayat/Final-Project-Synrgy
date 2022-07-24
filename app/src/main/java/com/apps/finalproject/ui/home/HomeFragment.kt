@@ -114,7 +114,7 @@ class HomeFragment : Fragment() {
     private fun detailTrending(data: Trending){
         val mBundle = bundleOf(EXTRA_PRODUCT to objectToString(data))
 
-        Navigation.findNavController(requireView()).navigate(R.id.action_homeFragment_to_detailFragment, mBundle)
+        Navigation.findNavController(requireView()).navigate(R.id.action_HomeFragment_to_DetailFragment, mBundle)
 
     }
 }

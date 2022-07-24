@@ -13,7 +13,7 @@ import androidx.navigation.Navigation
 import com.apps.finalproject.R
 import com.apps.finalproject.databinding.FragmentRegisterBinding
 import com.apps.finalproject.remote.model.User
-import com.apps.finalproject.ui.view.HomePageActivity
+import com.apps.finalproject.ui.home.HomePageActivity
 import com.apps.finalproject.utils.AppPref
 import org.json.JSONObject
 import kotlin.random.Random
@@ -75,7 +75,7 @@ class RegisterFragment : Fragment() {
                 val token = token.token
                 AppPref.token = token
                 Log.d("regis",token.toString())
-                startActivity(Intent(requireActivity(),HomePageActivity::class.java))
+                startActivity(Intent(requireActivity(), HomePageActivity::class.java))
             }
         })
     }
