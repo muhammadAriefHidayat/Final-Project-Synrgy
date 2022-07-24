@@ -4,37 +4,15 @@
     android:layout_width="match_parent"
     android:orientation="vertical"
     android:layout_margin="@dimen/space_16"
-    android:layout_height="match_parent">
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+    android:layout_height="wrap_content">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/nunito"
-            android:text="@string/item_beauty_feed"
-            android:textColor="@color/md_grey_550"
-            android:textSize="@dimen/font_body_xs_size"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/nunito"
-            android:text="@string/total_feed"
-            android:textColor="@color/md_grey_550"
-            android:textSize="@dimen/font_body_xs_size"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-    </androidx.constraintlayout.widget.ConstraintLayout>
     <ImageView
-        android:layout_marginTop="@dimen/space_24"
+        android:id="@+id/iv_banner"
         android:layout_width="wrap_content"
         android:layout_height="@dimen/space_250"
         android:src="@drawable/item_beauty_feed_1"/>
     <TextView
+        android:id="@+id/tv_tips"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/space_8"
@@ -42,6 +20,7 @@
         android:textColor="@color/colorPrimary"
         android:text="@string/tips_and_trick"/>
     <TextView
+        android:id="@+id/tv_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/space_8"
@@ -50,6 +29,7 @@
         android:textSize="@dimen/font_body_xs_size"
         android:textColor="@color/textBlack"/>
     <TextView
+        android:id="@+id/tv_date"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/space_8"
@@ -57,32 +37,4 @@
         android:fontFamily="@font/nunito"
         android:textColor="@color/textGrey"
         android:text="@string/tanggal_beauty_feed_1"/>
-    <ImageView
-        android:layout_marginTop="@dimen/space_24"
-        android:layout_width="wrap_content"
-        android:layout_height="@dimen/space_250"
-        android:src="@drawable/item_beauty_feed_2"/>
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/space_8"
-        android:textSize="@dimen/font_body_xs_size"
-        android:textColor="@color/colorPrimary"
-        android:text="@string/tips_and_trick"/>
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/space_8"
-        android:text="@string/item_feed_2"
-        android:fontFamily="@font/nunito_bold"
-        android:textSize="@dimen/font_body_xs_size"
-        android:textColor="@color/textBlack"/>
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/space_8"
-        android:textSize="@dimen/font_body_xs_size"
-        android:fontFamily="@font/nunito"
-        android:textColor="@color/textGrey"
-        android:text="@string/tanggal_beauty_feed_2"/>
 </LinearLayout>
