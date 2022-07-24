@@ -10,7 +10,10 @@ import com.apps.finalproject.data.api.ApiServices
 import com.apps.finalproject.data.repository.MainRepository
 import com.apps.finalproject.remote.model.ProfilItem
 import com.apps.finalproject.remote.model.Token
+import com.apps.finalproject.ui.favorite.FavoriteActivity
 import com.apps.finalproject.ui.view.DaftarAlamatActivity
+import com.apps.finalproject.ui.view.ProfileActivity
+import com.apps.finalproject.ui.view.RiwayatPembelianActivity
 import com.apps.finalproject.ui.view.VoucerActivity
 import com.apps.finalproject.utils.Utils.peringatan
 import com.loopj.android.http.AsyncHttpClient
@@ -29,13 +32,13 @@ class ProfileviewModel(private val repository: MainRepository) : ViewModel() {
         val daftarAlamat = Intent(context, DaftarAlamatActivity::class.java)
         val riwayatPembelian = Intent(context, DaftarAlamatActivity::class.java)
         val Voucerku = Intent(context, VoucerActivity::class.java)
-        val ArtikelTersimpan = Intent(context, VoucerActivity::class.java)
+        val ArtikelTersimpan = Intent(context, FavoriteActivity::class.java)
 
         val itemProfils: MutableList<ProfilItem> = mutableListOf()
         itemProfils.add(ProfilItem("ic_marker","Daftar Alamat",daftarAlamat))
         itemProfils.add(ProfilItem("ic_clipboard","Riwayat Pembelian",riwayatPembelian))
         itemProfils.add(ProfilItem("ic_voucer","Voucer Ku",Voucerku))
-        itemProfils.add(ProfilItem("ic_bookmark","Artikel tersimpan",ArtikelTersimpan))
+        itemProfils.add(ProfilItem("ic_favorite_profil","Favorit",ArtikelTersimpan))
 
         PI.postValue(itemProfils)
     }

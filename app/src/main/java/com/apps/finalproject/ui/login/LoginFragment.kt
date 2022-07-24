@@ -13,7 +13,7 @@ import com.apps.finalproject.R
 import com.apps.finalproject.databinding.FragmentLoginBinding
 import com.apps.finalproject.remote.body.LoginBody
 import com.apps.finalproject.ui.ViewModelFactory
-import com.apps.finalproject.ui.view.HomePageActivity
+import com.apps.finalproject.ui.home.HomePageActivity
 import com.apps.finalproject.utils.Utils
 
 class LoginFragment : Fragment() {
