@@ -75,7 +75,9 @@ class RegisterFragment : Fragment() {
                 val token = token.token
                 AppPref.token = token
                 Log.d("regis",token.toString())
-                startActivity(Intent(requireActivity(), HomePageActivity::class.java))
+                val intents = Intent(requireActivity(), HomePageActivity::class.java)
+                intents.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK.or(Intent.FLAG_ACTIVITY_NEW_TASK)
+                startActivity(intents)
             }
         })
     }

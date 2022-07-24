@@ -1,41 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context=".ui.order.OrderActivity">
 
-    <LinearLayout
+    <include
+        android:id="@+id/include"
+        layout="@layout/item_order_belum_bayar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/cream"
-        android:orientation="vertical">
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="@dimen/space_16"
-            android:orientation="horizontal">
+        android:visibility="gone"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
-            <androidx.appcompat.widget.AppCompatImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:padding="@dimen/space_12"
-                android:layout_marginTop="@dimen/space_2"
-                android:src="@drawable/ic_back" />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/nunito_bold"
-                android:gravity="center"
-                android:padding="@dimen/space_12"
-                android:text="@string/status_pesanan"
-                android:textColor="@color/md_brown_400" />
-        </LinearLayout>
-
-    </LinearLayout>
-
-    <include layout="@layout/item_order_selesai"/>
-
-</LinearLayout>
+    <include
+        android:id="@+id/layout_kosong"
+        layout="@layout/layout_orders_kosong"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+</androidx.constraintlayout.widget.ConstraintLayout>
