@@ -99,4 +99,12 @@ class RemoteDataSource(private val apiServices: ApiServices) {
     }.catch {
         Log.d("TAG", "getDetailProduct: failed = ${it.message}")
     }.flowOn(Dispatchers.IO)
+
+    fun getAllProduct() = flow<List<Trending>> {
+        apiServices.getAllProduct().data.let {
+            emit(it.toListTrending())
+        }
+    }.catch {
+        Log.d("TAG", "getAllProduct: failed = ${it.message}")
+    }.flowOn(Dispatchers.IO)
 }
