@@ -25,6 +25,7 @@ class MainRepository (
     fun getOrders() = remoteDataSource.getOrders()
     fun getArticle() = remoteDataSource.getArticle()
     fun getProductTrending() = remoteDataSource.getProductTrending()
+    fun getAllProduct() = remoteDataSource.getAllProduct()
     fun getDetailTrending(productId: String) = remoteDataSource.getDetailTrending(productId)
     fun searchProductByName(name: String) = remoteDataSource.searchProductByName(name)
 

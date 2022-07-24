@@ -8,6 +8,7 @@ import androidx.lifecycle.viewModelScope
 import com.apps.finalproject.data.repository.MainRepository
 import com.apps.finalproject.remote.model.Article
 import com.apps.finalproject.remote.model.Trending
+import com.apps.finalproject.remote.response.ProductsItemResponse
 import kotlinx.coroutines.launch
 
 class HomeViewModel(private val repository: MainRepository): ViewModel() {
@@ -17,8 +18,11 @@ class HomeViewModel(private val repository: MainRepository): ViewModel() {
     private var _productTrending = MutableLiveData<List<Trending>>()
     val trending : LiveData<List<Trending>> = _productTrending
 
-        private val _isLoading = MutableLiveData<Boolean>()
-        val isLoading: LiveData<Boolean> = _isLoading
+    private var _productItem = MutableLiveData<List<ProductsItemResponse>>()
+    val productsItem: LiveData<List<ProductsItemResponse>> = _productItem
+
+    private val _isLoading = MutableLiveData<Boolean>()
+    val isLoading: LiveData<Boolean> = _isLoading
 
     fun getArticle() = viewModelScope.launch {
         _isLoading.value = true
@@ -40,7 +44,7 @@ class HomeViewModel(private val repository: MainRepository): ViewModel() {
 
     fun searchProductByName(name: String) = viewModelScope.launch {
         repository.searchProductByName(name).collect{
-            _productTrending.value = it
+            _productItem.value = it
         }
     }
 }

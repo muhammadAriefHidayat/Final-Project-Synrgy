@@ -10,13 +10,16 @@ import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.Navigation
+import androidx.navigation.findNavController
 import androidx.recyclerview.widget.DefaultItemAnimator
 import com.apps.finalproject.R
 import com.apps.finalproject.databinding.FragmentHomeBinding
 import com.apps.finalproject.remote.model.Article
+import com.apps.finalproject.remote.model.ProductsItem
 import com.apps.finalproject.remote.model.Trending
 import com.apps.finalproject.ui.ViewModelFactory
 import com.apps.finalproject.ui.adapter.ListTrendingAdapter
+import com.apps.finalproject.ui.article.DetailArticleFragment.Companion.EXTRA_ARTICLE
 import com.apps.finalproject.ui.article.ListArticleAdapter
 import com.apps.finalproject.ui.cart.CartActivity
 import com.apps.finalproject.ui.detail.DetailFragment.Companion.EXTRA_PRODUCT
@@ -24,6 +27,7 @@ import com.apps.finalproject.ui.view.AuthActivity
 import com.apps.finalproject.utils.AppPref
 import com.apps.finalproject.utils.Utils
 import com.apps.finalproject.utils.objectToString
+import com.apps.finalproject.utils.stringToObject
 
 class HomeFragment : Fragment() {
 
@@ -49,7 +53,14 @@ class HomeFragment : Fragment() {
             showDataArticle(it)
         }
 
-        homeViewModel.searchProductByName("Product Name")
+        val dataProduct = ProductsItem::class.java
+        dataProduct.name.let {
+            homeViewModel.searchProductByName(it)
+        }
+        homeViewModel.productsItem.observe(viewLifecycleOwner){
+
+        }
+
         homeViewModel.getProductTrending()
         homeViewModel.trending.observe(viewLifecycleOwner){
             showProductTrending(it)
@@ -77,6 +88,12 @@ class HomeFragment : Fragment() {
                 startActivity(Intent(requireContext(),CartActivity::class.java))
             }
         }
+        binding.tvLihatProdukTrending.setOnClickListener{
+            view.findNavController().navigate(R.id.action_HomeFragment_to_productFragment)
+        }
+        binding.tvLihatSemuaArtikel.setOnClickListener{
+            view.findNavController().navigate(R.id.action_HomeFragment_to_articleListFragment)
+        }
     }
 
     private fun searchProduct(mainViewModel: HomeViewModel){
@@ -89,11 +106,23 @@ class HomeFragment : Fragment() {
 
     private fun showDataArticle(listArticle: List<Article>) {
         val listArticleAdapter = ListArticleAdapter(listArticle)
+        listArticleAdapter.setOnItemClickListener(onItemClick)
         binding.itemListArticle.apply {
             setHasFixedSize(true)
             itemAnimator = DefaultItemAnimator()
             adapter = listArticleAdapter
         }
+    }
+
+    private val onItemClick = object : ListArticleAdapter.OnItemClickListener{
+        override fun onItemClick(article: Article) {
+            detailArticle(article)
+        }
+    }
+
+    private fun detailArticle(article: Article) {
+        val bundle = bundleOf(EXTRA_ARTICLE to objectToString(article))
+        Navigation.findNavController(requireView()).navigate(R.id.action_HomeFragment_to_detailArticleFragment, bundle)
     }
 
     private fun showProductTrending(listProductTrending: List<Trending>){
