@@ -18,13 +18,13 @@
         android:theme="@style/Theme.FinalProject"
         tools:targetApi="31">
         <activity
-            android:name=".AddressChoiceActivity"
+            android:name=".ui.view.AddressChoiceActivity"
             android:exported="false" />
         <activity
-            android:name=".ChangeAddressActivity"
+            android:name=".ui.view.ChangeAddressActivity"
             android:exported="false" />
         <activity
-            android:name=".AddressListActivity"
+            android:name=".ui.view.AddressListActivity"
             android:exported="false" />
         <activity
             android:name=".ui.order.OrderActivity"
