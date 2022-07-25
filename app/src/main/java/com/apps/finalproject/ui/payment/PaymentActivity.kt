@@ -2,7 +2,6 @@ package com.apps.finalproject.ui.payment
 
 import android.app.Dialog
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Gravity
 import android.view.View
@@ -10,6 +9,7 @@ import android.view.Window
 import android.view.WindowManager
 import android.widget.ImageView
 import androidx.activity.viewModels
+import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.RecyclerView
 import com.apps.finalproject.R
 import com.apps.finalproject.databinding.ActivityPaymentBinding
@@ -24,8 +24,9 @@ import com.xwray.groupie.GroupieViewHolder
 class PaymentActivity : AppCompatActivity() {
     lateinit var binding: ActivityPaymentBinding
     private val adaptebank = GroupAdapter<GroupieViewHolder>()
+    var namebank = ""
 
-    private val paymentviewmodel : PaymentViewModel by viewModels {
+    private val paymentviewmodel: PaymentViewModel by viewModels {
         ViewModelFactory.getInstance(this)
     }
 
@@ -34,19 +35,23 @@ class PaymentActivity : AppCompatActivity() {
         binding = ActivityPaymentBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        val total  = intent.getStringExtra("bayar")
-        val bank  = intent.getStringExtra("transfer")
+        val total = intent.getStringExtra("bayar")
+        val kurir = intent.getStringExtra("transfer")
+
 
         binding.totalpembayran.text = rupiah(total!!.toDouble())
         paymentviewmodel.getbank()
-        paymentviewmodel.getDataBank().observe(this){
-            it.forEach { bank->
+        paymentviewmodel.getDataBank().observe(this) {
+            it.forEach { bank ->
                 adaptebank.add(KurirAdapter(bank, this))
             }
         }
 
         binding.btnBayarCheckout.setOnClickListener {
-            setDataPembayaran(it)
+            binding.progressPaymenet.visibility = View.VISIBLE
+            if (kurir != "") {
+                setDataPembayaran(it, kurir!!)
+            }
         }
         binding.linearPembayaran3.setOnClickListener {
             getMetodePembayaran(R.layout.fragment_payment_method)
@@ -73,6 +78,7 @@ class PaymentActivity : AppCompatActivity() {
                 val itemekspedisi = item as KurirAdapter
 
                 binding.textbank.text = itemekspedisi.itemKurir.kurir
+                namebank = itemekspedisi.itemKurir.kurir
                 dialog.cancel()
             }
 
@@ -88,14 +94,15 @@ class PaymentActivity : AppCompatActivity() {
     }
 
 
-    private fun setDataPembayaran(view: View) {
-        val data = PaymentBody("BCA","JNE","REGULAR","BANK_TRANSFER")
+    private fun setDataPembayaran(view: View, kurir: String) {
+        val data = PaymentBody(namebank.uppercase(), kurir, "REGULAR", "BANK_TRANSFER")
         paymentviewmodel.chekcout(data)
-        paymentviewmodel.getDataPayment().observe(this){
-            if (it.toString() != "null"){
-                val paymentData:DataPayment = it
+        paymentviewmodel.getDataPayment().observe(this) {
+            if (it.toString() != "null") {
+                binding.progressPaymenet.visibility = View.GONE
+                val paymentData: DataPayment = it
                 val intentData = Intent(this, FinishingPaymentActivity::class.java)
-                intentData.putExtra("payment",paymentData)
+                intentData.putExtra("payment", paymentData)
                 startActivity(intentData)
             }
         }

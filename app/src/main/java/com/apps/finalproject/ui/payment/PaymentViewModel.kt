@@ -22,10 +22,10 @@ class PaymentViewModel(private val repository: MainRepository) : ViewModel() {
 
     fun getbank() = viewModelScope.launch {
         val itembank: MutableList<EkspedisiItem> = mutableListOf()
-        itembank.add(EkspedisiItem("bank_bca","BCA"))
-        itembank.add(EkspedisiItem("bank_bni","BNI"))
-        itembank.add(EkspedisiItem("bank_bri","BRI"))
-        itembank.add(EkspedisiItem("bank_mandiri","PERMATA"))
+        itembank.add(EkspedisiItem("bca","BCA"))
+        itembank.add(EkspedisiItem("bni","BNI"))
+        itembank.add(EkspedisiItem("bri","BRI"))
+        itembank.add(EkspedisiItem("bca","PERMATA"))
 
         dataBank.postValue(itembank)
     }

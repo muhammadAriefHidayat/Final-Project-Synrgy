@@ -26,8 +26,12 @@ class HomePageActivity : AppCompatActivity() {
         val bottomNavigationView = binding.bottomNavigationHomeView
 
 
-        if (intents) graph.setStartDestination(R.id.OrdersFragment) else if (intentp) graph.setStartDestination(R.id.myProfileFragment)
-        else graph.setStartDestination(R.id.HomeFragment)
+        if (intents) {
+            graph.setStartDestination(R.id.OrdersFragment)
+        }
+        else if (intentp){
+            graph.setStartDestination(R.id.myProfileFragment)
+        }else graph.setStartDestination(R.id.HomeFragment)
 
         val navController = navHostFragment.navController
         navController.setGraph(graph, intent.extras)

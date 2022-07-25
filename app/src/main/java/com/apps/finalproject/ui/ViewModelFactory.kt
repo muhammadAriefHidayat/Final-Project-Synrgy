@@ -12,6 +12,7 @@ import com.apps.finalproject.ui.payment.PaymentViewModel
 import com.apps.finalproject.ui.detail.DetailViewModel
 import com.apps.finalproject.ui.favorite.FavoriteViewModel
 import com.apps.finalproject.ui.home.HomeViewModel
+import com.apps.finalproject.ui.login.LoginGoogleViewModel
 import com.apps.finalproject.ui.login.LoginViewModel
 import com.apps.finalproject.ui.order.OrdersViewModel
 import com.apps.finalproject.ui.viewmodel.OngkirViewModel
@@ -44,6 +45,8 @@ class ViewModelFactory (private val mainRepository: MainRepository) : ViewModelP
             return OrdersViewModel(mainRepository) as T
         }else  if (modelClass.isAssignableFrom(VariantViewModel::class.java)){
             return VariantViewModel(mainRepository) as T
+        }else  if (modelClass.isAssignableFrom(LoginGoogleViewModel::class.java)){
+            return LoginGoogleViewModel(mainRepository) as T
         }
 
         throw IllegalArgumentException("unknown ViewModel class: " + modelClass.name)
