@@ -79,7 +79,7 @@ class LoginFragment : Fragment() {
                     loginViewModel.getToken().observe(requireActivity()) {
                         Log.d("token0", it.token)
                         if (it.token != "") {
-                            Log.d("token", igit t.token)
+                            Log.d("token", it.token)
                             val intents = Intent(requireContext(), HomePageActivity::class.java)
                             intents.flags =
                                 Intent.FLAG_ACTIVITY_CLEAR_TASK.or(Intent.FLAG_ACTIVITY_NEW_TASK)
@@ -112,18 +112,18 @@ class LoginFragment : Fragment() {
             Log.d("accunt", account.idToken.toString())
             Log.d("accunt", account.toString())
             val token = TokenBody(account.idToken.toString())
-//            googleViewModel.LoginGoogle(token)
-//            googleViewModel.getToken().observe(requireActivity()) {
-//                if (it.token != "") {
-//                    Log.d("token", it.token)
-//                    val intents = Intent(requireContext(), HomePageActivity::class.java)
-//                    intents.flags =
-//                        Intent.FLAG_ACTIVITY_CLEAR_TASK.or(Intent.FLAG_ACTIVITY_NEW_TASK)
-//                    startActivity(intents)
-//                } else {
-//                    Utils.peringatan(requireContext(), "password salah")
-//                }
-//            }
+            googleViewModel.LoginGoogle(token)
+            googleViewModel.getToken().observe(requireActivity()) {
+                if (it.token != "") {
+                    Log.d("token", it.token)
+                    val intents = Intent(requireContext(), HomePageActivity::class.java)
+                    intents.flags =
+                        Intent.FLAG_ACTIVITY_CLEAR_TASK.or(Intent.FLAG_ACTIVITY_NEW_TASK)
+                    startActivity(intents)
+                } else {
+                    Utils.peringatan(requireContext(), "password salah")
+                }
+            }
         } catch (e: ApiException) {
             Log.w("accunt", "signInResult:failed code=" + e.statusCode)
         }
