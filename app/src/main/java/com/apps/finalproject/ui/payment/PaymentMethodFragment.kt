@@ -1,4 +1,4 @@
-package com.apps.finalproject.ui.checkoutshiping
+package com.apps.finalproject.ui.payment
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment

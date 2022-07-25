@@ -17,6 +17,7 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <androidx.constraintlayout.widget.ConstraintLayout
+            android:paddingBottom="@dimen/space_16"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_marginHorizontal="@dimen/space_16"
@@ -279,6 +280,22 @@
                 tools:itemCount="2"
                 tools:listitem="@layout/item_list_reviews" />
 
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btn_lihat_semua"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/space_36"
+                android:layout_marginHorizontal="@dimen/space_16"
+                android:layout_marginTop="15dp"
+                android:background="@drawable/item_rounded_edt"
+                android:fontFamily="@font/nunito"
+                android:text="Lihat Semua"
+                android:textAllCaps="false"
+                android:textSize="10sp"
+                app:layout_constraintTop_toBottomOf="@id/rvReview"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
+
         </androidx.constraintlayout.widget.ConstraintLayout>
 
     </androidx.core.widget.NestedScrollView>
@@ -286,35 +303,20 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/constrainbottom"
         android:layout_width="match_parent"
-        android:paddingBottom="@dimen/space_60"
         android:layout_height="wrap_content"
         android:background="@color/md_white_1000"
         app:layout_constraintBottom_toBottomOf="parent">
 
-        <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/btn_lihat_semua"
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/space_36"
-            android:layout_marginHorizontal="@dimen/space_16"
-            android:layout_marginTop="15dp"
-            android:background="@drawable/item_rounded_edt"
-            android:fontFamily="@font/nunito"
-            android:text="Lihat Semua"
-            android:textAllCaps="false"
-            android:textSize="10sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
 
         <View
+            app:layout_constraintTop_toTopOf="parent"
             android:id="@+id/pembatas"
             android:layout_width="match_parent"
             android:layout_height="1dp"
-            android:layout_marginTop="@dimen/space_30"
-            android:background="@color/darkBrown"
+            android:layout_marginTop="@dimen/space_1"
+            android:background="#E6E0DA"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/btn_lihat_semua" />
+            app:layout_constraintStart_toStartOf="parent" />
 
         <View
             android:id="@+id/btn_min_produk"

@@ -11,28 +11,28 @@ data class OrdersResponse(
     @field:SerializedName("status")
     val status: String,
     @field:SerializedName("data")
-    val data: List<DataOrders>
+    val data: List<DataOrders>?
     )
 
 data class DataOrders(
     @field:SerializedName("id")
     val id: String,
-//    @field:SerializedName("user")
-//    val user: User?,
-//    @field:SerializedName("address")
-//    val address: String?,
-//    @field:SerializedName("orders")
-//    val orders: List<ItemOrders>,
-//    @field:SerializedName("promo")
-//    val promo: String?,
-//    @field:SerializedName("delivery")
-//    val delivery: String,
-//    @field:SerializedName("status")
-//    val status: String,
-//    @field:SerializedName("date")
-//    val date: Long,
-//    @field:SerializedName("total")
-//    val total: Int,
+    @field:SerializedName("user")
+    val user: User?,
+    @field:SerializedName("address")
+    val address: String?,
+    @field:SerializedName("orders")
+    val orders: List<ItemOrders>,
+    @field:SerializedName("promo")
+    val promo: String?,
+    @field:SerializedName("delivery")
+    val delivery: String,
+    @field:SerializedName("status")
+    val status: String,
+    @field:SerializedName("date")
+    val date: Long,
+    @field:SerializedName("total")
+    val total: Int,
 )
 
 data class ItemOrders(

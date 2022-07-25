@@ -1,4 +1,4 @@
-package com.apps.finalproject.ui.checkoutshiping
+package com.apps.finalproject.ui.payment
 
 import android.content.Intent
 import android.os.Bundle

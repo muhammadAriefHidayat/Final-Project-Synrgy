@@ -33,10 +33,10 @@
             android:name=".ui.favorite.FavoriteActivity"
             android:exported="false" />
         <activity
-            android:name=".ui.checkoutshiping.PaymentActivity"
+            android:name=".ui.payment.PaymentActivity"
             android:exported="false" />
         <activity
-            android:name=".ui.checkoutshiping.FinishingPaymentActivity"
+            android:name=".ui.payment.FinishingPaymentActivity"
             android:exported="false" />
         <activity
             android:name=".ui.view.SearchActivity"
@@ -76,6 +76,11 @@
             android:theme="@style/Theme.FinalProject.White" />
         <activity
             android:name=".ui.home.HomePageActivity"
+            android:exported="false" />
+
+        <activity
+            android:theme="@style/Theme.App.Starting"
+            android:name=".ui.view.RoutingActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

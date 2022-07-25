@@ -18,9 +18,8 @@ import com.apps.finalproject.utils.Utils
 
 class LoginFragment : Fragment() {
     private lateinit var binding: FragmentLoginBinding
-//    private lateinit var dataToken: ModelviewToken
 
-    private val loginViewModel : LoginViewModel by viewModels {
+    private val loginViewModel: LoginViewModel by viewModels {
         ViewModelFactory.getInstance(requireContext())
     }
 
@@ -35,7 +34,7 @@ class LoginFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        binding.tvDaftar.setOnClickListener (
+        binding.tvDaftar.setOnClickListener(
             Navigation.createNavigateOnClickListener(R.id.action_loginFragment_to_registerFragment)
         )
 
@@ -50,21 +49,25 @@ class LoginFragment : Fragment() {
                     binding.edtEmail.error = "Masukkan Password"
                 }
                 else -> {
-                    val loginBody = LoginBody(email,password)
+                    val loginBody = LoginBody(email, password)
                     loginViewModel.Login(loginBody)
                     loginViewModel.getToken().observe(requireActivity()) {
-                        Log.d("token0",it.token)
-                        if (it.token != ""){
-                            Log.d("token",it.token)
-                            startActivity(Intent(requireContext(), HomePageActivity::class.java))
-                        }else {
-                            Utils.peringatan(requireContext(),"password salah")
+                        Log.d("token0", it.token)
+                        if (it.token != "") {
+                            Log.d("token", it.token)
+                            val intents = Intent(requireContext(), HomePageActivity::class.java)
+                            intents.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK.or(Intent.FLAG_ACTIVITY_NEW_TASK)
+                            startActivity(intents)
+                        } else {
+                            Utils.peringatan(requireContext(), "password salah")
                         }
                     }
                 }
             }
         }
     }
+
+
 
 //    fun logoin(username: String, password: String) {
 //        Log.d("yang", "email $username")

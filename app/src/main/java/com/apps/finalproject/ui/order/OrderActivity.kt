@@ -21,13 +21,13 @@ class OrderActivity : AppCompatActivity() {
 
         ordersViewModel.getOrders()
         ordersViewModel.getResponse().observe(this){
-            if (it.isNotEmpty()){
+            if (it?.isNotEmpty() == true){
                 setData(it)
             }
         }
     }
 
     fun setData(list: List<DataOrders>) {
-        
+        list.toString()
     }
 }

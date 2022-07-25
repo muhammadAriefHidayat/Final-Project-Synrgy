@@ -1,4 +1,4 @@
-package com.apps.finalproject.ui.checkoutshiping
+package com.apps.finalproject.ui.payment
 
 import android.app.Dialog
 import android.content.Intent
@@ -17,7 +17,6 @@ import com.apps.finalproject.remote.body.PaymentBody
 import com.apps.finalproject.remote.response.DataPayment
 import com.apps.finalproject.ui.ViewModelFactory
 import com.apps.finalproject.ui.adapter.KurirAdapter
-import com.apps.finalproject.utils.Utils
 import com.apps.finalproject.utils.Utils.rupiah
 import com.xwray.groupie.GroupAdapter
 import com.xwray.groupie.GroupieViewHolder
@@ -95,7 +94,7 @@ class PaymentActivity : AppCompatActivity() {
         paymentviewmodel.getDataPayment().observe(this){
             if (it.toString() != "null"){
                 val paymentData:DataPayment = it
-                val intentData = Intent(this,FinishingPaymentActivity::class.java)
+                val intentData = Intent(this, FinishingPaymentActivity::class.java)
                 intentData.putExtra("payment",paymentData)
                 startActivity(intentData)
             }

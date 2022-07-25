@@ -6,7 +6,7 @@
     app:startDestination="@id/paymentFragment">
     <fragment
         android:id="@+id/paymentMethodFragment"
-        android:name="com.apps.finalproject.ui.checkoutshiping.PaymentMethodFragment"
+        android:name="com.apps.finalproject.ui.payment.PaymentMethodFragment"
         android:label="fragment_payment_method"
         tools:layout="@layout/fragment_payment_method" >
         <action
@@ -15,7 +15,7 @@
     </fragment>
     <fragment
         android:id="@+id/paymentFragment"
-        android:name="com.apps.finalproject.ui.checkoutshiping.PaymentFragment"
+        android:name="com.apps.finalproject.ui.payment.PaymentFragment"
         android:label="PaymentFragment"
         tools:layout="@layout/fragment_payment">
         <action

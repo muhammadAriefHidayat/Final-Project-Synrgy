@@ -7,7 +7,7 @@ import com.apps.finalproject.data.repository.MainRepository
 import com.apps.finalproject.di.Injection
 import com.apps.finalproject.ui.cart.CartViewModel
 import com.apps.finalproject.ui.cart.GetCartViewModel
-import com.apps.finalproject.ui.checkoutshiping.PaymentViewModel
+import com.apps.finalproject.ui.payment.PaymentViewModel
 import com.apps.finalproject.ui.detail.DetailViewModel
 import com.apps.finalproject.ui.favorite.FavoriteViewModel
 import com.apps.finalproject.ui.home.HomeViewModel
