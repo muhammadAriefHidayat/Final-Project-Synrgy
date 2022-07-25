@@ -37,6 +37,9 @@
         <action
             android:id="@+id/action_BeautyFeedFragment_to_OrdersFragment"
             app:destination="@id/OrdersFragment" />
+        <action
+            android:id="@+id/action_BeautyFeedFragment_to_detailArticleFragment"
+            app:destination="@id/detailArticleFragment" />
     </fragment>
     <fragment
         android:id="@+id/myProfileFragment"
