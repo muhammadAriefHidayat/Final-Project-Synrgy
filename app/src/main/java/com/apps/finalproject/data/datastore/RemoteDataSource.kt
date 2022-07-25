@@ -35,6 +35,13 @@ class RemoteDataSource(private val apiServices: ApiServices) {
         Log.d("cart", "cart: failed = ${it.message}")
     }.flowOn(Dispatchers.IO)
 
+
+    fun getVariants(id: String) = flow {
+        emit(apiServices.getVariants(id))
+    }.catch {
+        Log.d("variants", "var: failed = ${it.message}")
+    }.flowOn(Dispatchers.IO)
+
     fun getCart() = flow  {
        emit(apiServices.getCart("Bearer ${AppPref.token}"))
     }.catch {

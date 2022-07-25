@@ -31,6 +31,11 @@ interface ApiServices {
         @Body loginBody : LoginBody
     ): Call<LoginResponse>
 
+
+    @GET("/api/v1/variant/{id}")
+    fun getVariants(@Path("id") id: String
+    ):Call<VariantsResponse>
+
     @POST("/api/v1/carts")
     fun addCart(
         @Header("Authorization") token: String,
