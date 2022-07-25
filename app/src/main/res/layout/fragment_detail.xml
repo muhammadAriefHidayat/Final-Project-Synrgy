@@ -42,7 +42,7 @@
                     android:src="@drawable/ic_back" />
 
                 <ImageView
-                    android:id="@+id/favorite"
+                    android:id="@+id/iv_search"
                     android:layout_width="wrap_content"
                     android:layout_height="@dimen/space_24"
                     android:layout_marginLeft="@dimen/space_230"
@@ -272,7 +272,6 @@
                 android:id="@+id/rvReview"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/space_24"
                 app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -397,5 +396,16 @@
             app:layout_constraintStart_toEndOf="@+id/img_addtobg"
             app:layout_constraintTop_toTopOf="@+id/bg_add_bg" />
     </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <ProgressBar
+        android:id="@+id/progressBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="visible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:visibility="visible" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -41,6 +41,10 @@ class ProductFragment : Fragment() {
         homeViewModel.trending.observe(viewLifecycleOwner){
             showProductTrending(it)
         }
+
+        homeViewModel.isLoading.observe(viewLifecycleOwner){
+            showLoading(it)
+        }
     }
 
     private fun showProductTrending(listProductTrending: List<Trending>){
@@ -60,9 +64,11 @@ class ProductFragment : Fragment() {
 
     private fun detailTrending(data: Trending){
         val mBundle = bundleOf(DetailFragment.EXTRA_PRODUCT to objectToString(data))
-
         Navigation.findNavController(requireView()).navigate(R.id.action_productFragment_to_DetailFragment2, mBundle)
+    }
 
+    private fun showLoading(isLoading: Boolean) {
+        binding.progressBar.visibility = if (isLoading) View.VISIBLE else View.GONE
     }
 
 }
