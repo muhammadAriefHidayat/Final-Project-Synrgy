@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/md_white_1000"
-    tools:context=".ui.checkoutshiping.FinishingPaymentActivity">
+    tools:context=".ui.payment.FinishingPaymentActivity">
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar_top"
