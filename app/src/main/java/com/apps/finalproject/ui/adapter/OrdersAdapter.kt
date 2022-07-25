@@ -1,5 +1,6 @@
 package com.apps.finalproject.ui.adapter
 
+import android.app.Activity
 import android.content.Context
 import android.view.View
 import android.widget.Button
@@ -12,8 +13,13 @@ import com.apps.finalproject.utils.Utils.setDateTime
 import com.xwray.groupie.GroupieViewHolder
 import com.xwray.groupie.Item
 
-class OrdersAdapter(val itemOrders: DataOrders,val status : Int,val context: Context) : Item<GroupieViewHolder>() {
+class OrdersAdapter(val itemOrders: DataOrders,val status : Int) : Item<GroupieViewHolder>() {
+
+
+
     override fun bind(viewHolder: GroupieViewHolder, position: Int) {
+
+        viewHolder.itemView.context
 
         val tvIdPesanan = viewHolder.itemView.findViewById<TextView>(R.id.tv_obb_idorders)
         val tvtanggal = viewHolder.itemView.findViewById<TextView>(R.id.tv_obb_tanggal_pesanan)

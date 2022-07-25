@@ -46,7 +46,7 @@ class OrderDiprosesFragment : Fragment() {
                     total+=1
                     if(mOrders.status == "PAID"){
                         cek+=1
-                        adapters.add(OrdersAdapter(mOrders,1,requireParentFragment().requireContext()))
+                        adapters.add(OrdersAdapter(mOrders,1))
                     }
                     if ((size == total) and (cek == 0)){
                         bindin.layoutKosong.constraintKosong.visibility = View.VISIBLE

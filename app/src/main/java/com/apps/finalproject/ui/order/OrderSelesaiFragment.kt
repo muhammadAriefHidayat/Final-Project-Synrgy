@@ -44,7 +44,7 @@ class OrderSelesaiFragment : Fragment() {
                     total+=1
                     if(mOrders.status == "DELIVERED"){
                         cek+=1
-                        adapters.add(OrdersAdapter(mOrders,1,requireParentFragment().requireContext()))
+                        adapters.add(OrdersAdapter(mOrders,1))
                     }
                     if ((size == total) and (cek == 0)){
                         binding.layoutKosong.constraintKosong.visibility = View.VISIBLE

@@ -53,7 +53,7 @@ class OrderBelumBayarFragment : Fragment() {
                     total+=1
                     if(mOrders.status == "WAITING_FOR_PAYMENT"){
                         cek+=1
-                        setData(mOrders)
+                        adapters.add(OrdersAdapter(mOrders,0))
                     }
                     if ((size == total) and (cek == 0)){
                         binding.layoutKosong.constraintKosong.visibility = View.VISIBLE
@@ -66,7 +66,4 @@ class OrderBelumBayarFragment : Fragment() {
         }
     }
 
-    private fun setData(mOrders: DataOrders) {
-        adapters.add(OrdersAdapter(mOrders,0,requireParentFragment().requireContext()))
-    }
 }

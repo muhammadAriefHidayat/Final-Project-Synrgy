@@ -59,6 +59,6 @@ class OrderDikirimFragment : Fragment() {
     }
 
     private fun setData(mOrders: DataOrders) {
-        adapters.add(OrdersAdapter(mOrders,1,requireParentFragment().requireContext()))
+        adapters.add(OrdersAdapter(mOrders,1))
     }
 }
