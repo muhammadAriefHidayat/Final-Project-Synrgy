@@ -88,13 +88,6 @@ class DetailFragment : Fragment() {
             populateDataFavorite(it)
         }
 
-        binding.favorite.setOnClickListener {
-            activity?.let {
-                val intent = Intent(it, FavoriteActivity::class.java)
-                it.startActivity(intent)
-            }
-        }
-
         binding.apply {
             tvSubtotl.text = "Rp $sub_Total"
             btnPlusProduk.setOnClickListener {
@@ -134,6 +127,10 @@ class DetailFragment : Fragment() {
                     }
                 }
             }
+        }
+
+        detailViewModel.isLoading.observe(viewLifecycleOwner){
+            showLoading(it)
         }
 
     }
@@ -205,6 +202,10 @@ class DetailFragment : Fragment() {
             itemAnimator = DefaultItemAnimator()
             adapter = listReviewAdapter
         }
+    }
+
+    private fun showLoading(isLoading: Boolean) {
+        binding.progressBar.visibility = if (isLoading) View.VISIBLE else View.GONE
     }
 
     companion object {

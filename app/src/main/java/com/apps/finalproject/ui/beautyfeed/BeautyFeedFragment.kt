@@ -37,6 +37,10 @@ class BeautyFeedFragment : Fragment() {
         homeViewModel.article.observe(viewLifecycleOwner){
             showDataArticle(it)
         }
+
+        homeViewModel.isLoading.observe(viewLifecycleOwner){
+            showLoading(it)
+        }
     }
 
     private fun showDataArticle(it: List<Article>) {
@@ -46,5 +50,9 @@ class BeautyFeedFragment : Fragment() {
                 itemAnimator = DefaultItemAnimator()
                 adapter = listBeautyFeedAdapter
             }
+    }
+
+    private fun showLoading(isLoading: Boolean) {
+        binding.progressBar.visibility = if (isLoading) View.VISIBLE else View.GONE
     }
 }

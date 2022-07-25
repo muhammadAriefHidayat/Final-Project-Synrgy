@@ -40,6 +40,10 @@ class ArticleListFragment : Fragment() {
             showDataArticle(it)
         }
 
+        homeViewModel.isLoading.observe(viewLifecycleOwner){
+            showLoading(it)
+        }
+
     }
 
     private fun showDataArticle(dataArticle: List<Article>) {
@@ -61,6 +65,10 @@ class ArticleListFragment : Fragment() {
     private fun detailArticle(article: Article) {
         val bundle = bundleOf(DetailArticleFragment.EXTRA_ARTICLE to objectToString(article))
         Navigation.findNavController(requireView()).navigate(R.id.action_articleListFragment_to_detailArticleFragment, bundle)
+    }
+
+    private fun showLoading(isLoading: Boolean) {
+        binding.progressBar.visibility = if (isLoading) View.VISIBLE else View.GONE
     }
 
 }
