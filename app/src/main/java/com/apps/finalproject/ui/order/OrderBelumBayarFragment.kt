@@ -13,10 +13,15 @@ import com.apps.finalproject.R
 import com.apps.finalproject.databinding.FragmentOrderBelumBayarBinding
 import com.apps.finalproject.databinding.FragmentOrderDikirimBinding
 import com.apps.finalproject.ui.ViewModelFactory
+import com.apps.finalproject.ui.adapter.KurirAdapter
+import com.apps.finalproject.ui.adapter.OrdersAdapter
+import com.xwray.groupie.GroupAdapter
+import com.xwray.groupie.GroupieViewHolder
 
 class OrderBelumBayarFragment : Fragment() {
     private val ordersViewModel:OrdersViewModel by activityViewModels()
     lateinit var binding: FragmentOrderBelumBayarBinding
+    private val adapters = GroupAdapter<GroupieViewHolder>()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -35,6 +40,10 @@ class OrderBelumBayarFragment : Fragment() {
             }else{
                 binding.layoutKosong.constraintKosong.visibility = View.GONE
                 Log.d("order",it?.get(0).toString())
+                it?.forEach { mOrders ->
+                    adapters.add(OrdersAdapter(mOrders, requireContext()))
+                }
+                binding.rvOrdersBelumBayar.adapter = adapters
             }
         }
     }

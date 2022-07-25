@@ -18,7 +18,7 @@ class PengirimanAdapter(val itemService: Service,val ekspedisi: String, val cont
     override fun bind(viewHolder: GroupieViewHolder, position: Int) {
 
         viewHolder.itemView.findViewById<TextView>(R.id.tv_code_kurir).text = "${ekspedisi.uppercase()} ${itemService.service}"
-        viewHolder.itemView.findViewById<TextView>(R.id.tv_estimasi).text = itemService.cost[0].etd
+        viewHolder.itemView.findViewById<TextView>(R.id.tv_estimasi).text = "${itemService.cost[0].etd} hari"
         viewHolder.itemView.findViewById<TextView>(R.id.harga_service).text = "(${itemService.cost[0].value.toString()})"
     }
 
