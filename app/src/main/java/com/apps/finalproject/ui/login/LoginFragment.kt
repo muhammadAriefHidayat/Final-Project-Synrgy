@@ -49,6 +49,7 @@ class LoginFragment : Fragment() {
                     binding.edtEmail.error = "Masukkan Password"
                 }
                 else -> {
+                    binding.progress.visibility = View.VISIBLE
                     val loginBody = LoginBody(email, password)
                     loginViewModel.Login(loginBody)
                     loginViewModel.getToken().observe(requireActivity()) {
@@ -61,6 +62,7 @@ class LoginFragment : Fragment() {
                         } else {
                             Utils.peringatan(requireContext(), "password salah")
                         }
+                        binding.progress.visibility = View.GONE
                     }
                 }
             }

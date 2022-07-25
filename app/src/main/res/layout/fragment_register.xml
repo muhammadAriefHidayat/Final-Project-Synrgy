@@ -33,6 +33,7 @@
         </androidx.appcompat.widget.Toolbar>
 
 
+
         <ImageView
             android:id="@+id/imageView"
             android:layout_width="@dimen/space_60"
@@ -310,8 +311,9 @@
                 android:layout_height="36dp"
                 android:layout_marginHorizontal="16dp"
                 android:layout_marginTop="20dp"
-                android:background="@drawable/btn_rounded_login"
+                android:background="@drawable/item_brown_rounded"
                 android:text="@string/daftar"
+                android:textColor="@color/md_white_1000"
                 android:textAllCaps="false"
                 android:textSize="10sp"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -342,6 +344,17 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/tv_description_register" />
+
+            <ProgressBar
+                android:id="@+id/progress"
+                android:visibility="gone"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:backgroundTint="@color/darkBrown"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
