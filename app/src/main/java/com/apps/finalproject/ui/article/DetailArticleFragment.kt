@@ -6,10 +6,13 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.viewModels
+import androidx.recyclerview.widget.DefaultItemAnimator
 import com.apps.finalproject.R
 import com.apps.finalproject.databinding.FragmentDetailArticleBinding
 import com.apps.finalproject.remote.model.Article
+import com.apps.finalproject.remote.model.Trending
 import com.apps.finalproject.ui.ViewModelFactory
+import com.apps.finalproject.ui.adapter.ListTrendingAdapter
 import com.apps.finalproject.ui.home.HomeViewModel
 import com.apps.finalproject.utils.Utils
 import com.apps.finalproject.utils.stringToObject
@@ -42,6 +45,10 @@ class DetailArticleFragment : Fragment() {
         val article = stringToObject(dataArticle, Article::class.java)
         populateDataAtricle(article)
 
+        homeViewModel.getProductTrending()
+        homeViewModel.trending.observe(viewLifecycleOwner){
+            showProductTrending(it)
+        }
     }
 
     private fun populateDataAtricle(dataArticle: Article?) {
@@ -58,6 +65,14 @@ class DetailArticleFragment : Fragment() {
         } else {
             Utils.peringatan(requireContext(), "Koneksi tidak stabil, Terjadi kesalahan")
             requireActivity().onBackPressed()
+        }
+    }
+
+    private fun showProductTrending(listProductTrending: List<Trending>){
+        val listTrendingAdapter = ListTrendingAdapter(listProductTrending)
+        binding.listProdukTrending.apply {
+            itemAnimator = DefaultItemAnimator()
+            adapter = listTrendingAdapter
         }
     }
 
