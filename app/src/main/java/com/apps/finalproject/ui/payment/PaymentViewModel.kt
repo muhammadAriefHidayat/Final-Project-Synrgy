@@ -1,4 +1,4 @@
-package com.apps.finalproject.ui.checkoutshiping
+package com.apps.finalproject.ui.payment
 
 import android.util.Log
 import androidx.lifecycle.LiveData
@@ -6,15 +6,10 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.apps.finalproject.data.repository.MainRepository
-import com.apps.finalproject.remote.body.LoginBody
 import com.apps.finalproject.remote.body.PaymentBody
 import com.apps.finalproject.remote.model.EkspedisiItem
-import com.apps.finalproject.remote.model.Token
 import com.apps.finalproject.remote.response.DataPayment
-import com.apps.finalproject.remote.response.LoginResponse
 import com.apps.finalproject.remote.response.PaymentResponse
-import com.apps.finalproject.utils.AppPref
-import com.auth0.android.jwt.JWT
 import kotlinx.coroutines.launch
 import retrofit2.Call
 import retrofit2.Callback
