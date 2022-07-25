@@ -48,6 +48,7 @@ class HomeFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        binding.itemHeader.username.text = AppPref.username
         homeViewModel.getArticle()
         homeViewModel.article.observe(viewLifecycleOwner){
             showDataArticle(it)

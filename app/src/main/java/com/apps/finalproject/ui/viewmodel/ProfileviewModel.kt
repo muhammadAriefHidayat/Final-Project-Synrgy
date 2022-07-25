@@ -29,18 +29,6 @@ class ProfileviewModel(private val repository: MainRepository) : ViewModel() {
     private val PI = MutableLiveData<List<ProfilItem>>()
 
     fun setProfilItems(context: Context) {
-        val daftarAlamat = Intent(context, DaftarAlamatActivity::class.java)
-        val riwayatPembelian = Intent(context, DaftarAlamatActivity::class.java)
-        val Voucerku = Intent(context, VoucerActivity::class.java)
-        val ArtikelTersimpan = Intent(context, FavoriteActivity::class.java)
-
-        val itemProfils: MutableList<ProfilItem> = mutableListOf()
-        itemProfils.add(ProfilItem("ic_marker","Daftar Alamat",daftarAlamat))
-        itemProfils.add(ProfilItem("ic_clipboard","Riwayat Pembelian",riwayatPembelian))
-        itemProfils.add(ProfilItem("ic_voucer","Voucer Ku",Voucerku))
-        itemProfils.add(ProfilItem("ic_favorite_profil","Favorit",ArtikelTersimpan))
-
-        PI.postValue(itemProfils)
     }
 
     internal fun getProfilItems(): LiveData<List<ProfilItem>> {
