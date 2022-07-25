@@ -15,6 +15,7 @@ import androidx.recyclerview.widget.DefaultItemAnimator
 import com.apps.finalproject.R
 import com.apps.finalproject.databinding.FragmentHomeBinding
 import com.apps.finalproject.remote.model.Article
+import com.apps.finalproject.remote.model.DataProduct
 import com.apps.finalproject.remote.model.ProductsItem
 import com.apps.finalproject.remote.model.Trending
 import com.apps.finalproject.ui.ViewModelFactory
@@ -23,6 +24,7 @@ import com.apps.finalproject.ui.article.DetailArticleFragment.Companion.EXTRA_AR
 import com.apps.finalproject.ui.article.ListArticleAdapter
 import com.apps.finalproject.ui.cart.CartActivity
 import com.apps.finalproject.ui.detail.DetailFragment.Companion.EXTRA_PRODUCT
+import com.apps.finalproject.ui.product.ListSearchProductResultAdapter
 import com.apps.finalproject.ui.view.AuthActivity
 import com.apps.finalproject.utils.AppPref
 import com.apps.finalproject.utils.Utils
@@ -54,12 +56,14 @@ class HomeFragment : Fragment() {
             showDataArticle(it)
         }
 
-        val dataProduct = ProductsItem::class.java
+        val dataProduct = DataProduct::class.java
         dataProduct.name.let {
             homeViewModel.searchProductByName(it)
         }
-        homeViewModel.productsItem.observe(viewLifecycleOwner){
 
+        homeViewModel.searchProductByName("")
+        homeViewModel.productsItem.observe(viewLifecycleOwner){
+            showProductItem(it)
         }
 
         homeViewModel.getProductTrending()
@@ -95,6 +99,15 @@ class HomeFragment : Fragment() {
         binding.tvLihatSemuaArtikel.setOnClickListener{
             view.findNavController().navigate(R.id.action_HomeFragment_to_articleListFragment)
         }
+    }
+
+    private fun showProductItem(it: List<ProductsItem>) {
+        val listSearchProductResultAdapter = ListSearchProductResultAdapter(it)
+//        binding.itemListArticle.apply {
+//            setHasFixedSize(true)
+//            itemAnimator = DefaultItemAnimator()
+//            adapter = listSearchProductResultAdapter
+//        }
     }
 
     private fun searchProduct(mainViewModel: HomeViewModel){
