@@ -32,11 +32,9 @@ class OrdersFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        if (isVisible){
-            sectionpageAdapter = SectionAdapter(childFragmentManager)
-            binding.dashViewPagger.adapter = sectionpageAdapter
-            binding.tablayoutid.setupWithViewPager(binding.dashViewPagger)
-        }
+        sectionpageAdapter = SectionAdapter(childFragmentManager)
+        binding.dashViewPagger.adapter = sectionpageAdapter
+        binding.tablayoutid.setupWithViewPager(binding.dashViewPagger)
         ordersViewModel.getOrders()
     }
 }

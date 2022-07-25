@@ -91,6 +91,7 @@ class CheckoutActivity : AppCompatActivity() {
                 } else {
                     val intent = Intent(this@CheckoutActivity, PaymentActivity::class.java)
                     intent.putExtra("bayar", txTotalAkhir.toString())
+                    intent.putExtra("transfer", kurir.toString().uppercase())
                     startActivity(intent)
                 }
 

@@ -20,7 +20,7 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="@dimen/space_12"
             android:layout_marginTop="@dimen/space_3"
-            android:src="@drawable/bank_bca" />
+            android:src="@drawable/bca" />
 
         <TextView
             android:layout_width="match_parent"
@@ -48,7 +48,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="@dimen/space_12"
-            android:src="@drawable/bank_mandiri" />
+            android:src="@drawable/mandiri" />
 
         <TextView
             android:layout_width="match_parent"
