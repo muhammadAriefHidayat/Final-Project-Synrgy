@@ -28,7 +28,8 @@ class FinishingPaymentActivity : AppCompatActivity() {
         }
 
         binding.btnCekstatuspesanan.setOnClickListener {
-            val dashBoardIntent = Intent(this, OrderActivity::class.java)
+            val dashBoardIntent = Intent(this, HomePageActivity::class.java)
+            dashBoardIntent.putExtra("order",true)
             dashBoardIntent.flags =
                 Intent.FLAG_ACTIVITY_CLEAR_TASK.or(Intent.FLAG_ACTIVITY_NEW_TASK)
             startActivity(dashBoardIntent)
