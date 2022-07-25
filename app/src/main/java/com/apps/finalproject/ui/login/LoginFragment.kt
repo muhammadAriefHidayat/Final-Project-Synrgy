@@ -15,10 +15,16 @@ import com.apps.finalproject.remote.body.LoginBody
 import com.apps.finalproject.ui.ViewModelFactory
 import com.apps.finalproject.ui.home.HomePageActivity
 import com.apps.finalproject.utils.Utils
+import com.google.android.gms.auth.api.signin.GoogleSignIn
+import com.google.android.gms.auth.api.signin.GoogleSignInAccount
+import com.google.android.gms.auth.api.signin.GoogleSignInOptions
+import com.google.android.gms.common.api.ApiException
+import com.google.android.gms.tasks.Task
+
 
 class LoginFragment : Fragment() {
     private lateinit var binding: FragmentLoginBinding
-
+    val RC_SIGN_IN = 1111
     private val loginViewModel: LoginViewModel by viewModels {
         ViewModelFactory.getInstance(requireContext())
     }
@@ -37,6 +43,17 @@ class LoginFragment : Fragment() {
         binding.tvDaftar.setOnClickListener(
             Navigation.createNavigateOnClickListener(R.id.action_loginFragment_to_registerFragment)
         )
+
+        val gso = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
+            .requestEmail()
+            .build()
+        var mGoogleSignInClient = GoogleSignIn.getClient(requireActivity(), gso);
+
+        binding.appCompatImageButton.setOnClickListener{
+            binding.progress.visibility = View.VISIBLE
+            val signInIntent = mGoogleSignInClient.signInIntent
+            startActivityForResult(signInIntent, RC_SIGN_IN)
+        }
 
         binding.button.setOnClickListener {
             val email = binding.editText.text.toString()
@@ -67,6 +84,28 @@ class LoginFragment : Fragment() {
                 }
             }
         }
+    }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+
+        // Result returned from launching the Intent from GoogleSignInClient.getSignInIntent(...);
+        if (requestCode == RC_SIGN_IN) {
+            // The Task returned from this call is always completed, no need to attach
+            // a listener.
+            val task: Task<GoogleSignInAccount> = GoogleSignIn.getSignedInAccountFromIntent(data)
+            handleSignInResult(task)
+        }
+    }
+
+    private fun handleSignInResult(completedTask: Task<GoogleSignInAccount>) {
+        try {
+            val account = completedTask.getResult(ApiException::class.java)
+            Log.d("accunt",account.idToken.toString())
+        } catch (e: ApiException) {
+            Log.w("accunt", "signInResult:failed code=" + e.statusCode)
+        }
+        binding.progress.visibility = View.INVISIBLE
     }
 
 

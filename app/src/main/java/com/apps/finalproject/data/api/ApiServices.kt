@@ -1,9 +1,6 @@
 package com.apps.finalproject.data.api
 
-import com.apps.finalproject.remote.body.LoginBody
-import com.apps.finalproject.remote.body.PaymentBody
-import com.apps.finalproject.remote.body.PengirimanBody
-import com.apps.finalproject.remote.body.RegisterBody
+import com.apps.finalproject.remote.body.*
 import com.apps.finalproject.remote.model.Cart
 import com.apps.finalproject.remote.model.Review
 import com.apps.finalproject.remote.model.Token
@@ -31,6 +28,10 @@ interface ApiServices {
         @Body loginBody : LoginBody
     ): Call<LoginResponse>
 
+    @POST("/api/v1/auth/oauth2")
+    fun loginGoogle(
+        @Body tokenBody: TokenBody
+    ): Call<LoginResponse>
 
     @GET("/api/v1/variant/{id}")
     fun getVariants(@Path("id") id: String

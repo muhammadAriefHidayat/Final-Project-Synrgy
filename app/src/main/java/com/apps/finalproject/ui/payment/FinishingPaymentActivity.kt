@@ -3,11 +3,14 @@ package com.apps.finalproject.ui.payment
 import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import com.apps.finalproject.R
 import com.apps.finalproject.databinding.ActivityFinishingPaymentBinding
 import com.apps.finalproject.remote.response.DataPayment
 import com.apps.finalproject.ui.order.OrderActivity
 import com.apps.finalproject.ui.home.HomePageActivity
+import com.apps.finalproject.utils.Utils.getDrawableInt
 import com.apps.finalproject.utils.Utils.rupiah
+import com.bumptech.glide.Glide
 
 class FinishingPaymentActivity : AppCompatActivity() {
     private lateinit var binding: ActivityFinishingPaymentBinding
@@ -18,6 +21,15 @@ class FinishingPaymentActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         val intentPayment = intent.getParcelableExtra<DataPayment>("payment")
+
+        binding.iconVirtualimg
+
+        val image = getDrawableInt(this,intentPayment?.bankName?.lowercase())
+        Glide.with(this)
+            .load(image)
+            .placeholder(R.drawable.bca)
+            .into(binding.iconVirtualimg)
+
         binding.apply {
             if (intentPayment != null) {
                 tvNomorVirtual.text = intentPayment.vaNumber

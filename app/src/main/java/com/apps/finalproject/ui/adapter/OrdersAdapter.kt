@@ -23,6 +23,7 @@ class OrdersAdapter(val itemOrders: DataOrders,val status : Int) : Item<GroupieV
 
         val tvIdPesanan = viewHolder.itemView.findViewById<TextView>(R.id.tv_obb_idorders)
         val tvtanggal = viewHolder.itemView.findViewById<TextView>(R.id.tv_obb_tanggal_pesanan)
+        val tvreminder = viewHolder.itemView.findViewById<TextView>(R.id.tv_obb_remainder_order)
         val foto = viewHolder.itemView.findViewById<ImageView>(R.id.iv_obb_varian)
         val tvtotal = viewHolder.itemView.findViewById<TextView>(R.id.tv_obb_totalprice)
 
@@ -35,6 +36,7 @@ class OrdersAdapter(val itemOrders: DataOrders,val status : Int) : Item<GroupieV
         val rupiah = rupiah(itemOrders.total.toDouble())
 
         tvtanggal.text =  "Tanggal: $tanggal"
+        tvreminder.text = ""
         tvtotal.text =  "Total: $rupiah"
 
 

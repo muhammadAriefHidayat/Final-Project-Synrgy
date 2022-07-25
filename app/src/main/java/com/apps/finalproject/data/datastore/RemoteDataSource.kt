@@ -3,10 +3,7 @@ package com.apps.finalproject.data.datastore
 import android.util.Log
 import com.apps.finalproject.data.api.ApiServices
 import com.apps.finalproject.remote.*
-import com.apps.finalproject.remote.body.LoginBody
-import com.apps.finalproject.remote.body.PaymentBody
-import com.apps.finalproject.remote.body.PengirimanBody
-import com.apps.finalproject.remote.body.RegisterBody
+import com.apps.finalproject.remote.body.*
 import com.apps.finalproject.remote.model.*
 import com.apps.finalproject.remote.response.ProductsItemResponse
 import com.apps.finalproject.utils.AppPref
@@ -21,6 +18,12 @@ class RemoteDataSource(private val apiServices: ApiServices) {
         emit(apiServices.login(loginBody))
     }.catch {
         Log.d("login", "login: failed = ${it.message}")
+    }.flowOn(Dispatchers.IO)
+
+    fun loginGoogle(tokenBody: TokenBody) = flow {
+        emit(apiServices.loginGoogle(tokenBody))
+    }.catch {
+        Log.d("google", "login: failed = ${it.message}")
     }.flowOn(Dispatchers.IO)
 
     fun register(registerBody: RegisterBody) = flow {
