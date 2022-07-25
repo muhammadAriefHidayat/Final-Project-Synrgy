@@ -12,6 +12,7 @@ import androidx.navigation.Navigation
 import com.apps.finalproject.R
 import com.apps.finalproject.databinding.FragmentLoginBinding
 import com.apps.finalproject.remote.body.LoginBody
+import com.apps.finalproject.remote.body.TokenBody
 import com.apps.finalproject.ui.ViewModelFactory
 import com.apps.finalproject.ui.home.HomePageActivity
 import com.apps.finalproject.utils.Utils
@@ -26,6 +27,9 @@ class LoginFragment : Fragment() {
     private lateinit var binding: FragmentLoginBinding
     val RC_SIGN_IN = 1111
     private val loginViewModel: LoginViewModel by viewModels {
+        ViewModelFactory.getInstance(requireContext())
+    }
+    private val googleViewModel: LoginGoogleViewModel by viewModels {
         ViewModelFactory.getInstance(requireContext())
     }
 
@@ -102,6 +106,18 @@ class LoginFragment : Fragment() {
         try {
             val account = completedTask.getResult(ApiException::class.java)
             Log.d("accunt",account.idToken.toString())
+            val token = TokenBody(account.idToken.toString())
+            googleViewModel.LoginGoogle(token)
+            googleViewModel.getToken().observe(requireActivity()){
+                if (it.token != "") {
+                    Log.d("token", it.token)
+                    val intents = Intent(requireContext(), HomePageActivity::class.java)
+                    intents.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK.or(Intent.FLAG_ACTIVITY_NEW_TASK)
+                    startActivity(intents)
+                } else {
+                    Utils.peringatan(requireContext(), "password salah")
+                }
+            }
         } catch (e: ApiException) {
             Log.w("accunt", "signInResult:failed code=" + e.statusCode)
         }
