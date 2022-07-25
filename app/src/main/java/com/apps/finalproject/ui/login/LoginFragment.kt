@@ -32,6 +32,7 @@ class LoginFragment : Fragment() {
     private val googleViewModel: LoginGoogleViewModel by viewModels {
         ViewModelFactory.getInstance(requireContext())
     }
+    lateinit var gso: GoogleSignInOptions
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -48,12 +49,14 @@ class LoginFragment : Fragment() {
             Navigation.createNavigateOnClickListener(R.id.action_loginFragment_to_registerFragment)
         )
 
-        val gso = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
+        gso = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
+            .requestIdToken(getString(R.string.client_id))
             .requestEmail()
             .build()
-        var mGoogleSignInClient = GoogleSignIn.getClient(requireActivity(), gso);
 
-        binding.appCompatImageButton.setOnClickListener{
+        val mGoogleSignInClient = GoogleSignIn.getClient(requireActivity(), gso);
+
+        binding.appCompatImageButton.setOnClickListener {
             binding.progress.visibility = View.VISIBLE
             val signInIntent = mGoogleSignInClient.signInIntent
             startActivityForResult(signInIntent, RC_SIGN_IN)
@@ -76,9 +79,10 @@ class LoginFragment : Fragment() {
                     loginViewModel.getToken().observe(requireActivity()) {
                         Log.d("token0", it.token)
                         if (it.token != "") {
-                            Log.d("token", it.token)
+                            Log.d("token", igit t.token)
                             val intents = Intent(requireContext(), HomePageActivity::class.java)
-                            intents.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK.or(Intent.FLAG_ACTIVITY_NEW_TASK)
+                            intents.flags =
+                                Intent.FLAG_ACTIVITY_CLEAR_TASK.or(Intent.FLAG_ACTIVITY_NEW_TASK)
                             startActivity(intents)
                         } else {
                             Utils.peringatan(requireContext(), "password salah")
@@ -105,25 +109,26 @@ class LoginFragment : Fragment() {
     private fun handleSignInResult(completedTask: Task<GoogleSignInAccount>) {
         try {
             val account = completedTask.getResult(ApiException::class.java)
-            Log.d("accunt",account.idToken.toString())
+            Log.d("accunt", account.idToken.toString())
+            Log.d("accunt", account.toString())
             val token = TokenBody(account.idToken.toString())
-            googleViewModel.LoginGoogle(token)
-            googleViewModel.getToken().observe(requireActivity()){
-                if (it.token != "") {
-                    Log.d("token", it.token)
-                    val intents = Intent(requireContext(), HomePageActivity::class.java)
-                    intents.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK.or(Intent.FLAG_ACTIVITY_NEW_TASK)
-                    startActivity(intents)
-                } else {
-                    Utils.peringatan(requireContext(), "password salah")
-                }
-            }
+//            googleViewModel.LoginGoogle(token)
+//            googleViewModel.getToken().observe(requireActivity()) {
+//                if (it.token != "") {
+//                    Log.d("token", it.token)
+//                    val intents = Intent(requireContext(), HomePageActivity::class.java)
+//                    intents.flags =
+//                        Intent.FLAG_ACTIVITY_CLEAR_TASK.or(Intent.FLAG_ACTIVITY_NEW_TASK)
+//                    startActivity(intents)
+//                } else {
+//                    Utils.peringatan(requireContext(), "password salah")
+//                }
+//            }
         } catch (e: ApiException) {
             Log.w("accunt", "signInResult:failed code=" + e.statusCode)
         }
         binding.progress.visibility = View.INVISIBLE
     }
-
 
 
 //    fun logoin(username: String, password: String) {
