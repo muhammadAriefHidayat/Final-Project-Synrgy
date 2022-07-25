@@ -5,7 +5,7 @@ import com.google.gson.annotations.SerializedName
 data class SearchResponse(
 
 	@field:SerializedName("data")
-	val data: Data,
+	val data: DataResponse,
 
 	@field:SerializedName("success")
 	val success: Boolean,
@@ -17,7 +17,7 @@ data class SearchResponse(
 	val status: String
 )
 
-data class Brand(
+data class BrandItem(
 
 	@field:SerializedName("name")
 	val name: String,
@@ -53,7 +53,7 @@ data class ProductsItemResponse(
 	val id: String,
 
 	@field:SerializedName("brand")
-	val brand: Brand
+	val brand: BrandItem
 )
 
 data class VariantItem(
@@ -77,7 +77,7 @@ data class VariantItem(
 	val imageIndex: Int
 )
 
-data class Data(
+data class DataResponse(
 
 	@field:SerializedName("numberOfPages")
 	val numberOfPages: Int,
