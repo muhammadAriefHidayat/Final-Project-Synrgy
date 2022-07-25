@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/md_white_1000"
     tools:context=".ui.beautyfeed.BeautyFeedFragment">
 
     <LinearLayout
@@ -33,7 +34,7 @@
             <Spinner
                 android:id="@+id/spinner"
                 android:layout_margin="@dimen/space_16"
-                android:padding="@dimen/space_20"
+                android:padding="@dimen/space_10"
                 android:layout_width="match_parent"
                 android:background="@drawable/item_rounded_edt"
                 android:entries="@array/dropdown_beauty_feed"

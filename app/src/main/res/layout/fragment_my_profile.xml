@@ -72,7 +72,7 @@
         app:layout_constraintTop_toBottomOf="@+id/tv_name" />
 
     <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/appCompatButton2"
+        android:id="@+id/btn_edit_profile"
         android:layout_width="74dp"
         android:layout_height="@dimen/space_24"
         android:layout_marginBottom="@dimen/space_12"
