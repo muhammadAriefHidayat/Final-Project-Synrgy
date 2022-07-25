@@ -19,7 +19,7 @@ class OrdersFragment : Fragment() {
     lateinit var binding: FragmentOrdersBinding
 
     private val ordersViewModel: OrdersViewModel by activityViewModels {
-        ViewModelFactory.getInstance(requireContext())
+        ViewModelFactory.getInstance(requireParentFragment().requireContext())
     }
 
     override fun onCreateView(
@@ -32,10 +32,11 @@ class OrdersFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        sectionpageAdapter = SectionAdapter(childFragmentManager)
-        binding.dashViewPagger.adapter = sectionpageAdapter
-        binding.tablayoutid.setupWithViewPager(binding.dashViewPagger)
-
+        if (isVisible){
+            sectionpageAdapter = SectionAdapter(childFragmentManager)
+            binding.dashViewPagger.adapter = sectionpageAdapter
+            binding.tablayoutid.setupWithViewPager(binding.dashViewPagger)
+        }
         ordersViewModel.getOrders()
     }
 }

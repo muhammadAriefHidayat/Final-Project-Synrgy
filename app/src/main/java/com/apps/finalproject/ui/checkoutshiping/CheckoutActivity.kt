@@ -163,8 +163,8 @@ class CheckoutActivity : AppCompatActivity() {
                     txOngkir = itemekspedisi.itemService.cost[0].value
                     txTotalAkhir = txTotal + txOngkir
                     tvTotalPembayaran.text = rupiah(txTotalAkhir.toDouble())
-                    dialog.hide()
                 }
+                dialog.hide()
             }
 
             rvMetode.adapter = adapterPengiriman

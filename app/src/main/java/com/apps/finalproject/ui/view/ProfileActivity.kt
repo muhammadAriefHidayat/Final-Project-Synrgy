@@ -5,8 +5,10 @@ import android.os.Bundle
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import com.apps.finalproject.databinding.ActivityProfileBinding
+import com.apps.finalproject.remote.model.ProfilItem
 import com.apps.finalproject.ui.ViewModelFactory
 import com.apps.finalproject.ui.adapter.ProfilAdapter
+import com.apps.finalproject.ui.favorite.FavoriteActivity
 import com.apps.finalproject.ui.viewmodel.ProfileviewModel
 import com.apps.finalproject.utils.AppPref
 import com.xwray.groupie.GroupAdapter
@@ -23,18 +25,9 @@ class ProfileActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
         binding = ActivityProfileBinding.inflate(layoutInflater)
         val view = binding.root
         setContentView(view)
-
-        profileViewModel.setProfilItems(this)
-        profileViewModel.getProfilItems().observe(this) {
-            it.forEach { profile ->
-                adapter.add(ProfilAdapter(profile, this))
-            }
-        }
-        binding.rvProfil.adapter = adapter
 
         binding.apply {
             tvName.text = AppPref.username
@@ -48,4 +41,6 @@ class ProfileActivity : AppCompatActivity() {
         }
 
     }
+
+
 }

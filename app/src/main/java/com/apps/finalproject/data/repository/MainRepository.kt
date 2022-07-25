@@ -21,6 +21,7 @@ class MainRepository (
     fun getCart() = remoteDataSource.getCart()
     fun postOngkir(pengirimanBody:PengirimanBody) = remoteDataSource.postOngkir(pengirimanBody)
     fun payment(paymentbody:PaymentBody) = remoteDataSource.postPayment(paymentbody)
+    fun getVariants(id:String) = remoteDataSource.getVariants(id)
     fun getReview() = remoteDataSource.getReview()
     fun getOrders() = remoteDataSource.getOrders()
     fun getArticle() = remoteDataSource.getArticle()

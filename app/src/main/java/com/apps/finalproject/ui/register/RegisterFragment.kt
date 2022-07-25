@@ -5,11 +5,13 @@ import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.*
+import android.widget.Button
 import android.widget.ImageView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.Navigation
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.apps.finalproject.R
 import com.apps.finalproject.databinding.FragmentRegisterBinding
@@ -54,10 +56,14 @@ class RegisterFragment : Fragment() {
                 email.isEmpty() -> {
                     binding.edtEmail.error = "Masukkan Email"
                 }
+                !email.contains('@') ->{
+                    binding.edtEmail.error = "Masukkan Email dengan Benar"
+                }
                 password.isEmpty() -> {
                     binding.edtPassword.error = "Masukkan Password"
                 }
                 else -> {
+                    binding.progress.visibility = View.VISIBLE
                     val user = User(name,"skinteyp")
                     val jsonuser = JSONObject()
                     jsonuser.put("name", name);
@@ -78,6 +84,7 @@ class RegisterFragment : Fragment() {
                 AppPref.token = token
                 dialogRegistered(R.layout.dialog_registered)
             }
+            binding.progress.visibility = View.GONE
         })
     }
 
@@ -94,10 +101,10 @@ class RegisterFragment : Fragment() {
             lp.width = WindowManager.LayoutParams.MATCH_PARENT
             lp.height = WindowManager.LayoutParams.WRAP_CONTENT
 
-            val positiveButton = dialog.findViewById<ImageView>(R.id.btn_x)
+            val positiveButton = dialog.findViewById<Button>(R.id.btn_dialog_login)
 
             positiveButton.setOnClickListener {
-                Navigation.createNavigateOnClickListener(R.id.action_registerFragment_to_loginFragment)
+                findNavController().navigate(RegisterFragmentDirections.actionRegisterFragmentToLoginFragment())
                 dialog.hide()
             }
             dialog.show()

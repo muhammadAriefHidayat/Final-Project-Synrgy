@@ -10,19 +10,19 @@ import com.bumptech.glide.Glide
 import com.xwray.groupie.GroupieViewHolder
 import com.xwray.groupie.Item
 
-class ProfilAdapter(val profilItem: ProfilItem, val context: Context) : Item<GroupieViewHolder>() {
+class ProfilAdapter(val profilItem: ProfilItem) : Item<GroupieViewHolder>() {
 
 
     override fun bind(viewHolder: GroupieViewHolder, position: Int) {
         val imge = viewHolder.itemView.findViewById<ImageView>(R.id.img_profil_item)
-        val idDrawable = getDrawableInt(context,profilItem.img)
-        Glide.with(context)
+        val idDrawable = getDrawableInt(viewHolder.itemView.context,profilItem.img)
+        Glide.with(viewHolder.itemView.context)
             .load(idDrawable)
             .placeholder(R.drawable.home)
             .into(imge);
         viewHolder.itemView.findViewById<TextView>(R.id.tv_email_profil).text =  profilItem.itemProfil
         viewHolder.itemView.setOnClickListener {
-            context.startActivity(profilItem.intent)
+            viewHolder.itemView.context.startActivity(profilItem.intent)
         }
     }
 

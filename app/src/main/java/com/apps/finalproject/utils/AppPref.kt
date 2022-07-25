@@ -13,6 +13,7 @@ object AppPref {
     private val TOKEN = Pair("token", "")
     private val USERNAME = Pair("username", "")
     private val EMAIL = Pair("email", "")
+    private val NOMOR = Pair("nomor", "")
     private val AVATAR = Pair("avatar", "")
     private val PASSWORD = Pair("pw", "")
     private val USERID = Pair("userId", "")
@@ -32,6 +33,11 @@ object AppPref {
         get() = preferences.getString(TOKEN.first, TOKEN.second) ?: ""
         set(value) = preferences.edit(){
             it.putString(TOKEN.first, value)
+        }
+    var nomor: String
+        get() = preferences.getString(NOMOR.first, NOMOR.second) ?: ""
+        set(value) = preferences.edit(){
+            it.putString(NOMOR.first, value)
         }
 
     var avatar: String
