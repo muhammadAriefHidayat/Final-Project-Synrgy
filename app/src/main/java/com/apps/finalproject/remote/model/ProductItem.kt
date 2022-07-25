@@ -1,29 +1,42 @@
 package com.apps.finalproject.remote.model
 
 import android.os.Parcelable
-import com.apps.finalproject.remote.response.Brand
 import com.apps.finalproject.remote.response.ProductsItemResponse
-import com.apps.finalproject.remote.response.VariantItem
 import kotlinx.android.parcel.Parcelize
 
-
+@Parcelize
 data class ProductsItem(
 	val images: List<String>,
 	val isOrganic: Boolean,
-	val variant: List<VariantItem>,
+	val variant: List<Variant>,
 	val name: String,
 	val id: String,
 	val brand: Brand
-) 
+) : Parcelable
 
 fun ProductsItemResponse.toProductItem() : ProductsItem {
 	return ProductsItem(
 		images = this.images,
 		isOrganic = this.isOrganic,
-		variant = this.variant,
+		variant = listOf(
+			Variant(
+				id_entity = 0,
+				price = 0,
+				name = "",
+				id_product = "",
+				imageIndex = 0,
+				quantity = 0,
+			)
+		),
 		name = this.name,
 		id = this.id,
-		brand = this.brand
+		brand = Brand(
+				name = "",
+				description = "",
+				logo = "",
+				banner = "",
+				id = ""
+			)
 	)
 }
 
