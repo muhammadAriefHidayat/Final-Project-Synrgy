@@ -18,7 +18,6 @@ import com.apps.finalproject.utils.Utils
 
 class LoginFragment : Fragment() {
     private lateinit var binding: FragmentLoginBinding
-//    private lateinit var dataToken: ModelviewToken
 
     private val loginViewModel: LoginViewModel by viewModels {
         ViewModelFactory.getInstance(requireContext())

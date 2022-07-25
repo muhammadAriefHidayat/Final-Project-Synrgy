@@ -149,4 +149,6 @@
     <string name="tambah_alamat">Tambah Alamat</string>
     <string name="rumah">Rumah</string>
     <string name="alamat_rumah">Perumahan A, Jalan Bandung 8 Blok I5, Kecamatan Bandung, Kota Bandung, Jawa Barat 16320</string>
+    <string name="tv_dialog">Akun Mu Berhasil Terdaftar</string>
+    <string name="dialog_login_info">Masuk ke akunmu untuk mulai eksplorasi di Flambo</string>
 </resources>

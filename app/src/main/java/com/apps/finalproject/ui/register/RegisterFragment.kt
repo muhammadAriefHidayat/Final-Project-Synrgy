@@ -1,18 +1,20 @@
 package com.apps.finalproject.ui.register
 
+import android.app.Dialog
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
+import android.view.*
+import android.widget.ImageView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.Navigation
+import androidx.recyclerview.widget.RecyclerView
 import com.apps.finalproject.R
 import com.apps.finalproject.databinding.FragmentRegisterBinding
 import com.apps.finalproject.remote.model.User
+import com.apps.finalproject.ui.adapter.KurirAdapter
 import com.apps.finalproject.ui.home.HomePageActivity
 import com.apps.finalproject.utils.AppPref
 import org.json.JSONObject
@@ -59,7 +61,7 @@ class RegisterFragment : Fragment() {
                     val user = User(name,"skinteyp")
                     val jsonuser = JSONObject()
                     jsonuser.put("name", name);
-                    jsonuser.put("skinType", "skinteyp");
+                    jsonuser.put("skinType", "skinteype");
                         register(email,password,jsonuser)
                 }
             }
@@ -74,12 +76,33 @@ class RegisterFragment : Fragment() {
             if (token != null) {
                 val token = token.token
                 AppPref.token = token
-                Log.d("regis",token.toString())
-                val intents = Intent(requireActivity(), HomePageActivity::class.java)
-                intents.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK.or(Intent.FLAG_ACTIVITY_NEW_TASK)
-                startActivity(intents)
+                dialogRegistered(R.layout.dialog_registered)
             }
         })
+    }
+
+    private fun dialogRegistered(layoutId: Int) {
+        val dialog = Dialog(requireContext())
+        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE)
+        dialog.setContentView(layoutId)
+
+        val lp = WindowManager.LayoutParams()
+        if (dialog.window != null) {
+
+            lp.copyFrom(dialog.window?.attributes)
+            lp.gravity = Gravity.CENTER
+            lp.width = WindowManager.LayoutParams.MATCH_PARENT
+            lp.height = WindowManager.LayoutParams.WRAP_CONTENT
+
+            val positiveButton = dialog.findViewById<ImageView>(R.id.btn_x)
+
+            positiveButton.setOnClickListener {
+                Navigation.createNavigateOnClickListener(R.id.action_registerFragment_to_loginFragment)
+                dialog.hide()
+            }
+            dialog.show()
+            dialog.window?.attributes = lp
+        }
     }
 
 }
