@@ -22,6 +22,7 @@ import com.apps.finalproject.ui.ViewModelFactory
 import com.apps.finalproject.ui.adapter.KurirAdapter
 import com.apps.finalproject.ui.adapter.PengirimanAdapter
 import com.apps.finalproject.ui.cart.GetCartViewModel
+import com.apps.finalproject.ui.payment.PaymentActivity
 import com.apps.finalproject.ui.viewmodel.OngkirViewModel
 import com.apps.finalproject.utils.Utils
 import com.apps.finalproject.utils.Utils.rupiah

@@ -28,6 +28,6 @@ class OrderActivity : AppCompatActivity() {
     }
 
     fun setData(list: List<DataOrders>) {
-        
+        list.toString()
     }
 }

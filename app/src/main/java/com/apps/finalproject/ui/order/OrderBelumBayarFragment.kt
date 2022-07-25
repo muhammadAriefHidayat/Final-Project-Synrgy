@@ -34,6 +34,7 @@ class OrderBelumBayarFragment : Fragment() {
                 binding.layoutKosong.constraintKosong.visibility = View.VISIBLE
             }else{
                 binding.layoutKosong.constraintKosong.visibility = View.GONE
+                Log.d("order",it?.get(0).toString())
             }
         }
     }
