@@ -11,6 +11,8 @@ import com.apps.finalproject.remote.response.CartItems
 import com.apps.finalproject.remote.response.CartOverview
 import com.apps.finalproject.ui.ViewModelFactory
 import com.apps.finalproject.ui.checkoutshiping.CheckoutActivity
+import com.apps.finalproject.utils.Utils
+import com.apps.finalproject.utils.Utils.rupiah
 import com.xwray.groupie.GroupAdapter
 import com.xwray.groupie.GroupieViewHolder
 
@@ -21,6 +23,7 @@ class CartActivity : AppCompatActivity() {
     private val cartViewmodel: GetCartViewModel by viewModels {
         ViewModelFactory.getInstance(this)
     }
+    var barang = false
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityCartBinding.inflate(layoutInflater)
@@ -42,7 +45,11 @@ class CartActivity : AppCompatActivity() {
             }
         }
         binding.btnCheckout.setOnClickListener{
-            startActivity(Intent(this,CheckoutActivity::class.java))
+            if (!barang){
+                Utils.peringatan(this,"Keranjang mu Kosong nih, Pilih dulu makeup impian mu")
+            }else{
+                startActivity(Intent(this,CheckoutActivity::class.java))
+            }
         }
     }
 
@@ -51,7 +58,8 @@ class CartActivity : AppCompatActivity() {
             binding.apply {
                 tvCartkosong.visibility = View.GONE
                 imgCartKosong.visibility = View.GONE
-                tvSubtotal.text = it?.total.toString()
+                tvSubtotal.text = rupiah(it!!.total.toDouble())
+                barang = true
             }
         }else{
             binding.apply {
@@ -73,6 +81,7 @@ class CartActivity : AppCompatActivity() {
                 itemAnimator = DefaultItemAnimator()
                 adapter = adapterrv
             }
+            barang = true
             binding.imgCartKosong.visibility = View.GONE
         }else{
             binding.imgCartKosong.visibility = View.VISIBLE

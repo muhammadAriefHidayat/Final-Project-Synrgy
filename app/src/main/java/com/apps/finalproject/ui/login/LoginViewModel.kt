@@ -27,27 +27,32 @@ class LoginViewModel(private val repository: MainRepository) : ViewModel() {
                     call: Call<LoginResponse>,
                     response: Response<LoginResponse>
                 ) {
-                    val dataToken = response.body()?.data
+                    val status =  response.body()?.success
                     val token = Token()
-                    token.token = dataToken?.token.toString()
-                    try {
-                        val jwt = JWT(token.token)
-                        val uid = jwt.getClaim("userId")
-                        val email = jwt.getClaim("email")
-                        val name = jwt.getClaim("name")
+                    if (status == true){
+                        val dataToken = response.body()?.data
+                        try {
+                            token.token = dataToken?.token.toString()
+                            Log.d("token", token.token!!)
+                            val jwt = JWT(token.token!!)
+                            val uid = jwt.getClaim("userId")
+                            val email = jwt.getClaim("email")
+                            val name = jwt.getClaim("name")
 
-                        AppPref.userId = uid.asString().toString()
-                        AppPref.pw = loginBody.password
-                        AppPref.token = token.token
-                        AppPref.email = email.asString().toString()
-                        AppPref.username = name.asString().toString()
+                            AppPref.userId = uid.asString().toString()
+                            AppPref.pw = loginBody.password
+                            AppPref.token = token.token
+                            AppPref.email = email.asString().toString()
+                            AppPref.username = name.asString().toString()
 
+                            listToken.postValue(token)
+                        }catch (e: Throwable){
+                            Log.d("errr",e.message.toString())
+                        }
+                    }else{
+                        token.token = ""
                         listToken.postValue(token)
-                    }catch (e: Throwable){
-                        Log.d("errr",e.message.toString())
                     }
-
-
                 }
 
                 override fun onFailure(call: Call<LoginResponse>, t: Throwable) {

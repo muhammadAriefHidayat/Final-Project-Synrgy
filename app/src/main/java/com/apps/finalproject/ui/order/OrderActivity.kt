@@ -13,6 +13,7 @@ class OrderActivity : AppCompatActivity() {
     private val ordersViewModel:OrdersViewModel by viewModels {
         ViewModelFactory.getInstance(this)
     }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityOrderBinding.inflate(layoutInflater)
@@ -20,13 +21,13 @@ class OrderActivity : AppCompatActivity() {
 
         ordersViewModel.getOrders()
         ordersViewModel.getResponse().observe(this){
-            if (it.isNotEmpty()){
+            if (it?.isNotEmpty() == true){
                 setData(it)
             }
         }
     }
 
     fun setData(list: List<DataOrders>) {
-        
+        list.toString()
     }
 }

@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/bg_gradien"
-    tools:context=".ui.checkoutshiping.PaymentActivity">
+    tools:context=".ui.payment.PaymentActivity">
 
     <ImageView
         android:id="@+id/iv_back"
@@ -29,7 +29,7 @@
         android:textSize="@dimen/font_body_s_size"
         android:textStyle="bold"
         app:layout_constraintStart_toEndOf="@+id/iv_back"
-        app:layout_constraintTop_toTopOf="parent"/>
+        app:layout_constraintTop_toTopOf="parent" />
 
     <LinearLayout
         android:id="@+id/linear_pembayaran"
@@ -70,7 +70,7 @@
             android:layout_margin="@dimen/space_4"
             android:text="@string/pengiriman"
             android:textColor="@color/textGrey"
-            android:textSize="@dimen/font_body_xs_size"/>
+            android:textSize="@dimen/font_body_xs_size" />
 
         <ImageView
             android:id="@+id/im_next"
@@ -110,13 +110,14 @@
             android:textSize="@dimen/font_body_xs_size" />
     </LinearLayout>
 
-    <LinearLayout
+    <RelativeLayout
         android:id="@+id/linear_pembayaran_2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/space_16"
         android:background="@drawable/rounded_full_brown"
         android:orientation="horizontal"
+        android:padding="16dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/linear_pembayaran">
@@ -124,8 +125,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="@dimen/space_16"
-            android:padding="@dimen/space_12"
+            android:layout_centerVertical="true"
             android:text="@string/total_pembayaran"
             android:textColor="@color/md_white_1000"
             android:textStyle="bold" />
@@ -134,13 +134,15 @@
             android:id="@+id/totalpembayran"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="@dimen/space_120"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:layout_marginEnd="@dimen/space_16"
             android:text="@string/price_payment"
             android:textColor="@color/md_white_1000"
             android:textStyle="bold" />
-    </LinearLayout>
+    </RelativeLayout>
 
-    <LinearLayout
+    <RelativeLayout
         android:id="@+id/linear_pembayaran_3"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -156,7 +158,10 @@
             android:id="@+id/textbank"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_margin="@dimen/space_16"
+            android:layout_marginStart="@dimen/space_16"
+            android:layout_marginTop="@dimen/space_16"
+            android:layout_marginEnd="@dimen/space_16"
+            android:layout_marginBottom="@dimen/space_16"
             android:text="@string/payment"
             android:textColor="@color/textBlack"
             android:textSize="@dimen/font_body_s_size" />
@@ -164,10 +169,11 @@
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="@dimen/space_180"
+            android:layout_alignParentEnd="true"
             android:layout_marginTop="@dimen/space_19"
+            android:layout_marginEnd="@dimen/space_16"
             android:background="@drawable/ic_next" />
-    </LinearLayout>
+    </RelativeLayout>
 
     <LinearLayout
         android:id="@+id/linear_pembayaran_4"
@@ -194,25 +200,26 @@
             android:ellipsize="end"
             android:maxLines="1"
             android:padding="@dimen/space_16"
-            android:textSize="@dimen/font_body_xs_size"
             android:text="@string/default_pembayaran"
             android:textAppearance="?attr/textAppearanceSubtitle1"
-            android:textColor="@color/colorPrimary" />
+            android:textColor="@color/colorPrimary"
+            android:textSize="@dimen/font_body_xs_size" />
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/space_12"
             android:background="@drawable/white_grey"
             android:ellipsize="end"
             android:maxLines="1"
-            android:visibility="invisible"
-            android:layout_marginTop="@dimen/space_12"
             android:padding="@dimen/space_16"
-            android:textSize="@dimen/font_body_xs_size"
             android:text="@string/default_pembayaran"
             android:textAppearance="?attr/textAppearanceSubtitle1"
-            android:textColor="@color/colorPrimary" />
+            android:textColor="@color/colorPrimary"
+            android:textSize="@dimen/font_body_xs_size"
+            android:visibility="invisible" />
     </LinearLayout>
+
     <Button
         android:id="@+id/btn_bayar_checkout"
         android:layout_width="match_parent"
@@ -221,6 +228,15 @@
         android:background="@drawable/rounded_full_brown"
         android:text="@string/bayar"
         android:textColor="@color/md_white_1000"
-        app:layout_constraintBottom_toBottomOf="parent"/>
+        app:layout_constraintBottom_toBottomOf="parent" />
 
+    <ProgressBar
+        android:id="@+id/progress_paymenet"
+        android:visibility="invisible"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

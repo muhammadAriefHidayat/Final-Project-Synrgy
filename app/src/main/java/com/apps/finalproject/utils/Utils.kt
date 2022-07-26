@@ -33,6 +33,8 @@ import com.google.android.material.bottomnavigation.BottomNavigationMenuView
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import java.io.IOException
 import java.io.InputStream
+import java.text.NumberFormat
+import java.text.SimpleDateFormat
 import java.util.*
 
 /**
@@ -45,6 +47,23 @@ object Utils {
     val isRTL: Boolean
         get() = isRTL(Locale.getDefault())
 
+
+    fun rupiah(number: Double): String{
+        val localeID =  Locale("in", "ID")
+        val numberFormat = NumberFormat.getCurrencyInstance(localeID)
+        val matauang =numberFormat.format(number).toString().split(",")
+        return matauang[0]
+    }
+
+    fun setDateTime(s: Long): String? {
+        return try {
+            val sdf = SimpleDateFormat("dd MMMM yyyy, HH:mm:ss", Locale.getDefault())
+            val netDate = Date(s)
+            sdf.format(netDate)
+        } catch (e: Exception) {
+            e.toString()
+        }
+    }
 
     fun inputStreamToString(inputStream: InputStream): String? {
         try {

@@ -1,9 +1,6 @@
 package com.apps.finalproject.data.api
 
-import com.apps.finalproject.remote.body.LoginBody
-import com.apps.finalproject.remote.body.PaymentBody
-import com.apps.finalproject.remote.body.PengirimanBody
-import com.apps.finalproject.remote.body.RegisterBody
+import com.apps.finalproject.remote.body.*
 import com.apps.finalproject.remote.model.Cart
 import com.apps.finalproject.remote.model.Review
 import com.apps.finalproject.remote.model.Token
@@ -30,6 +27,15 @@ interface ApiServices {
     fun login(
         @Body loginBody : LoginBody
     ): Call<LoginResponse>
+
+    @POST("/api/v1/auth/oauth2")
+    fun loginGoogle(
+        @Body tokenBody: TokenBody
+    ): Call<LoginResponse>
+
+    @GET("/api/v1/variant/{id}")
+    fun getVariants(@Path("id") id: String
+    ):Call<VariantsResponse>
 
     @POST("/api/v1/carts")
     fun addCart(
@@ -72,8 +78,13 @@ interface ApiServices {
         @Path("productId") productId: String
     ): ListTrendingResponse
 
-    @GET("/api/v1/product/q/trending")
+    @GET("/api/v1/product/search")
     suspend fun searchProduct(
-        @Query("q") name: String
-    ): TrendingResponse
+        @Query("keyword") name: String,
+        @Query("page") page: Int,
+        @Query("size") size: Int
+    ): SearchResponse
+
+    @GET("/api/v1/product")
+    suspend fun getAllProduct() : TrendingResponse
 }

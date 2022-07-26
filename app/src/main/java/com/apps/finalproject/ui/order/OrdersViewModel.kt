@@ -15,7 +15,7 @@ import retrofit2.Response
 
 class OrdersViewModel(private val repository: MainRepository) : ViewModel() {
 
-    private val mResponse = MutableLiveData<List<DataOrders>>()
+    private val mResponse = MutableLiveData<List<DataOrders>?>()
 
     fun getOrders() = viewModelScope.launch {
         repository.getOrders().collect {
@@ -24,6 +24,7 @@ class OrdersViewModel(private val repository: MainRepository) : ViewModel() {
                     call: Call<OrdersResponse>,
                     response: Response<OrdersResponse>
                 ) {
+                    Log.d("ordervm", response.body()?.data.toString())
                     mResponse.postValue(response.body()?.data)
                 }
 
@@ -35,7 +36,7 @@ class OrdersViewModel(private val repository: MainRepository) : ViewModel() {
         }
     }
 
-    internal fun getResponse(): LiveData<List<DataOrders>> {
+    internal fun getResponse(): MutableLiveData<List<DataOrders>?> {
         return mResponse
     }
 

@@ -18,16 +18,25 @@
         android:theme="@style/Theme.FinalProject"
         tools:targetApi="31">
         <activity
+            android:name=".ui.view.AddressChoiceActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.view.ChangeAddressActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.view.AddressListActivity"
+            android:exported="false" />
+        <activity
             android:name=".ui.order.OrderActivity"
             android:exported="false" />
         <activity
             android:name=".ui.favorite.FavoriteActivity"
             android:exported="false" />
         <activity
-            android:name=".ui.checkoutshiping.PaymentActivity"
+            android:name=".ui.payment.PaymentActivity"
             android:exported="false" />
         <activity
-            android:name=".ui.checkoutshiping.FinishingPaymentActivity"
+            android:name=".ui.payment.FinishingPaymentActivity"
             android:exported="false" />
         <activity
             android:name=".ui.view.SearchActivity"
@@ -66,7 +75,12 @@
             android:exported="false"
             android:theme="@style/Theme.FinalProject.White" />
         <activity
-            android:name=".ui.view.HomePageActivity"
+            android:name=".ui.home.HomePageActivity"
+            android:exported="false" />
+
+        <activity
+            android:theme="@style/Theme.App.Starting"
+            android:name=".ui.view.RoutingActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

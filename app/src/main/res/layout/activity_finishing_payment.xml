@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/md_white_1000"
-    tools:context=".ui.checkoutshiping.FinishingPaymentActivity">
+    tools:context=".ui.payment.FinishingPaymentActivity">
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar_top"
@@ -78,8 +78,8 @@
 
     <ImageView
         android:id="@+id/icon_virtualimg"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="@dimen/space_120"
+        android:layout_height="@dimen/space_52"
         android:layout_marginTop="@dimen/space_10"
         android:src="@drawable/mandiri_virtual"
         app:layout_constraintEnd_toEndOf="parent"

@@ -11,7 +11,7 @@ data class OrdersResponse(
     @field:SerializedName("status")
     val status: String,
     @field:SerializedName("data")
-    val data: List<DataOrders>
+    val data: List<DataOrders>?
     )
 
 data class DataOrders(

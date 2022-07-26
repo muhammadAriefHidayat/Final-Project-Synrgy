@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Final Project</string>
+    <string name="app_name">Flambo</string>
     <string name="masuk_ke_akun">Masuk Ke Akun</string>
     <string name="info_login">Masuk untuk melakukan penjelajahan</string>
     <string name="belum_memiliki_akun">Belum Memiliki akun?</string>
@@ -9,7 +9,6 @@
     <string name="alamat_email">Alamat Email</string>
     <string name="password">Password</string>
     <string name="lupa_password">lupa Password?</string>
-    <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="register">Register</string>
     <string name="buat_akun">Buat Akun</string>
@@ -17,6 +16,7 @@
     <string name="name">Nama</string>
     <string name="sudah_memiliki_akun">Sudah memiliki akun</string>
     <string name="masuk">Masuk</string>
+    <string name="client_id">194151100205-svifp4eeghe3enrl23erqvv11lid5dv5.apps.googleusercontent.com</string>
     <string name="description_register">Dengan melakukan pendaftaran, kamu telah menyetujui</string>
     <string name="description_register2">Ketentuan layanan dan Kebijakan privasi</string>
     <string name="kategori">Kategori</string>
@@ -144,4 +144,11 @@
     <string name="penilaian_produk_whitelab">4.0</string>
     <string name="penilaian_produk_azarine">4.9</string>
     <string name="penilaian_produk_some_by_mi">4.4</string>
+    <string name="alamat">Daftar Alamat</string>
+    <string name="banyaknya_alamat">2 Alamat Tersimpan</string>
+    <string name="tambah_alamat">Tambah Alamat</string>
+    <string name="rumah">Rumah</string>
+    <string name="alamat_rumah">Perumahan A, Jalan Bandung 8 Blok I5, Kecamatan Bandung, Kota Bandung, Jawa Barat 16320</string>
+    <string name="tv_dialog">Akun Mu Berhasil Terdaftar</string>
+    <string name="dialog_login_info">Masuk ke akunmu untuk mulai eksplorasi di Flambo</string>
 </resources>

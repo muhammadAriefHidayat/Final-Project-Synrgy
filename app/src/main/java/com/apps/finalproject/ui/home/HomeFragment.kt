@@ -10,20 +10,26 @@ import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.Navigation
+import androidx.navigation.findNavController
 import androidx.recyclerview.widget.DefaultItemAnimator
 import com.apps.finalproject.R
 import com.apps.finalproject.databinding.FragmentHomeBinding
 import com.apps.finalproject.remote.model.Article
+import com.apps.finalproject.remote.model.DataProduct
+import com.apps.finalproject.remote.model.ProductsItem
 import com.apps.finalproject.remote.model.Trending
 import com.apps.finalproject.ui.ViewModelFactory
 import com.apps.finalproject.ui.adapter.ListTrendingAdapter
+import com.apps.finalproject.ui.article.DetailArticleFragment.Companion.EXTRA_ARTICLE
 import com.apps.finalproject.ui.article.ListArticleAdapter
 import com.apps.finalproject.ui.cart.CartActivity
 import com.apps.finalproject.ui.detail.DetailFragment.Companion.EXTRA_PRODUCT
+import com.apps.finalproject.ui.product.ListSearchProductResultAdapter
 import com.apps.finalproject.ui.view.AuthActivity
 import com.apps.finalproject.utils.AppPref
 import com.apps.finalproject.utils.Utils
 import com.apps.finalproject.utils.objectToString
+import com.apps.finalproject.utils.stringToObject
 
 class HomeFragment : Fragment() {
 
@@ -44,12 +50,22 @@ class HomeFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        binding.itemHeader.username.text = AppPref.username
         homeViewModel.getArticle()
         homeViewModel.article.observe(viewLifecycleOwner){
             showDataArticle(it)
         }
 
-        homeViewModel.searchProductByName("Product Name")
+        val dataProduct = DataProduct::class.java
+        dataProduct.name.let {
+            homeViewModel.searchProductByName(it)
+        }
+
+        homeViewModel.searchProductByName("")
+        homeViewModel.productsItem.observe(viewLifecycleOwner){
+            showProductItem(it)
+        }
+
         homeViewModel.getProductTrending()
         homeViewModel.trending.observe(viewLifecycleOwner){
             showProductTrending(it)
@@ -77,6 +93,21 @@ class HomeFragment : Fragment() {
                 startActivity(Intent(requireContext(),CartActivity::class.java))
             }
         }
+        binding.tvLihatProdukTrending.setOnClickListener{
+            view.findNavController().navigate(R.id.action_HomeFragment_to_productFragment)
+        }
+        binding.tvLihatSemuaArtikel.setOnClickListener{
+            view.findNavController().navigate(R.id.action_HomeFragment_to_articleListFragment)
+        }
+    }
+
+    private fun showProductItem(it: List<ProductsItem>) {
+        val listSearchProductResultAdapter = ListSearchProductResultAdapter(it)
+//        binding.itemListArticle.apply {
+//            setHasFixedSize(true)
+//            itemAnimator = DefaultItemAnimator()
+//            adapter = listSearchProductResultAdapter
+//        }
     }
 
     private fun searchProduct(mainViewModel: HomeViewModel){
@@ -89,11 +120,23 @@ class HomeFragment : Fragment() {
 
     private fun showDataArticle(listArticle: List<Article>) {
         val listArticleAdapter = ListArticleAdapter(listArticle)
+        listArticleAdapter.setOnItemClickListener(onItemClick)
         binding.itemListArticle.apply {
             setHasFixedSize(true)
             itemAnimator = DefaultItemAnimator()
             adapter = listArticleAdapter
         }
+    }
+
+    private val onItemClick = object : ListArticleAdapter.OnItemClickListener{
+        override fun onItemClick(article: Article) {
+            detailArticle(article)
+        }
+    }
+
+    private fun detailArticle(article: Article) {
+        val bundle = bundleOf(EXTRA_ARTICLE to objectToString(article))
+        Navigation.findNavController(requireView()).navigate(R.id.action_HomeFragment_to_detailArticleFragment, bundle)
     }
 
     private fun showProductTrending(listProductTrending: List<Trending>){
@@ -114,7 +157,7 @@ class HomeFragment : Fragment() {
     private fun detailTrending(data: Trending){
         val mBundle = bundleOf(EXTRA_PRODUCT to objectToString(data))
 
-        Navigation.findNavController(requireView()).navigate(R.id.action_homeFragment_to_detailFragment, mBundle)
+        Navigation.findNavController(requireView()).navigate(R.id.action_HomeFragment_to_DetailFragment, mBundle)
 
     }
 }

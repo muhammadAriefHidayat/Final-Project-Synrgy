@@ -15,9 +15,14 @@ class DetailViewModel (private val repository: MainRepository): ViewModel(){
     private var _review = MutableLiveData<List<Review>>()
     val review : LiveData<List<Review>> = _review
 
+    private val _isLoading = MutableLiveData<Boolean>()
+    val isLoading: LiveData<Boolean> = _isLoading
+
     fun getReview() = viewModelScope.launch {
+        _isLoading.value = true
         repository.getReview().collect{
              _review.value = it
+            _isLoading.value = false
         }
     }
 

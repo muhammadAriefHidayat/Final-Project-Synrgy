@@ -3,11 +3,9 @@ package com.apps.finalproject.data.datastore
 import android.util.Log
 import com.apps.finalproject.data.api.ApiServices
 import com.apps.finalproject.remote.*
-import com.apps.finalproject.remote.body.LoginBody
-import com.apps.finalproject.remote.body.PaymentBody
-import com.apps.finalproject.remote.body.PengirimanBody
-import com.apps.finalproject.remote.body.RegisterBody
+import com.apps.finalproject.remote.body.*
 import com.apps.finalproject.remote.model.*
+import com.apps.finalproject.remote.response.ProductsItemResponse
 import com.apps.finalproject.utils.AppPref
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.catch
@@ -22,6 +20,12 @@ class RemoteDataSource(private val apiServices: ApiServices) {
         Log.d("login", "login: failed = ${it.message}")
     }.flowOn(Dispatchers.IO)
 
+    fun loginGoogle(tokenBody: TokenBody) = flow {
+        emit(apiServices.loginGoogle(tokenBody))
+    }.catch {
+        Log.d("google", "login: failed = ${it.message}")
+    }.flowOn(Dispatchers.IO)
+
     fun register(registerBody: RegisterBody) = flow {
         emit(apiServices.register(registerBody))
     }.catch {
@@ -32,6 +36,13 @@ class RemoteDataSource(private val apiServices: ApiServices) {
         emit(apiServices.addCart("Bearer ${AppPref.token}",cart))
     }.catch {
         Log.d("cart", "cart: failed = ${it.message}")
+    }.flowOn(Dispatchers.IO)
+
+
+    fun getVariants(id: String) = flow {
+        emit(apiServices.getVariants(id))
+    }.catch {
+        Log.d("variants", "var: failed = ${it.message}")
     }.flowOn(Dispatchers.IO)
 
     fun getCart() = flow  {
@@ -91,11 +102,19 @@ class RemoteDataSource(private val apiServices: ApiServices) {
         Log.d("TAG", "getDetailProduct: failed = ${it.message}")
     }.flowOn(Dispatchers.IO)
 
-    fun searchProductByName(name: String) = flow<List<Trending>> {
-        apiServices.searchProduct(name).data.let {
+    fun searchProductByName(name: String) = flow<List<ProductsItemResponse>> {
+        apiServices.searchProduct(name, 1, 10).data.products.let {
+            emit(it)
+        }
+    }.catch {
+        Log.d("TAG", "getSearchProductResult: failed = ${it.message}")
+    }.flowOn(Dispatchers.IO)
+
+    fun getAllProduct() = flow<List<Trending>> {
+        apiServices.getAllProduct().data.let {
             emit(it.toListTrending())
         }
     }.catch {
-        Log.d("TAG", "getDetailProduct: failed = ${it.message}")
+        Log.d("TAG", "getAllProduct: failed = ${it.message}")
     }.flowOn(Dispatchers.IO)
 }

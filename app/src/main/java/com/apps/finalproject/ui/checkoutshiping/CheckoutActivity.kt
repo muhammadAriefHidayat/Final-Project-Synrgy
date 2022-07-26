@@ -22,8 +22,11 @@ import com.apps.finalproject.ui.ViewModelFactory
 import com.apps.finalproject.ui.adapter.KurirAdapter
 import com.apps.finalproject.ui.adapter.PengirimanAdapter
 import com.apps.finalproject.ui.cart.GetCartViewModel
+import com.apps.finalproject.ui.payment.PaymentActivity
 import com.apps.finalproject.ui.viewmodel.OngkirViewModel
+import com.apps.finalproject.utils.AppPref
 import com.apps.finalproject.utils.Utils
+import com.apps.finalproject.utils.Utils.rupiah
 import com.xwray.groupie.GroupAdapter
 import com.xwray.groupie.GroupieViewHolder
 
@@ -51,6 +54,7 @@ class CheckoutActivity : AppCompatActivity() {
         binding = ActivityCheckoutBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        binding.tvRumahValue.text = "${AppPref.username} (0858092809867)"
         ongkirViewModel.ekspedisi()
         ongkirViewModel.getItemEkspedisi().observe(this) {
             it.forEach { eksp ->
@@ -89,6 +93,7 @@ class CheckoutActivity : AppCompatActivity() {
                 } else {
                     val intent = Intent(this@CheckoutActivity, PaymentActivity::class.java)
                     intent.putExtra("bayar", txTotalAkhir.toString())
+                    intent.putExtra("transfer", kurir.toString().uppercase())
                     startActivity(intent)
                 }
 
@@ -119,9 +124,9 @@ class CheckoutActivity : AppCompatActivity() {
     private fun setDataRingkasan(it: CartOverview?) {
         if (it?.total != null) {
             binding.apply {
-                tvSubtotal.text = it.total.toString()
+                tvSubtotal.text = rupiah( it.total.toDouble())
                 txTotal = it.total
-                tvTotalPembayaran.text = "${it.total + txOngkir}"
+                tvTotalPembayaran.text = rupiah((it.total + txOngkir).toDouble())
             }
         }
     }
@@ -157,12 +162,12 @@ class CheckoutActivity : AppCompatActivity() {
                 metodePengiriman = "${ekspediri.uppercase()} ${itemekspedisi.itemService.service}"
                 binding.apply {
                     tvMetodePengiriman.text = metodePengiriman
-                    tvOngkoskirim.text = "${itemekspedisi.itemService.cost[0].value.toString()}"
+                    tvOngkoskirim.text = rupiah(itemekspedisi.itemService.cost[0].value.toDouble())
                     txOngkir = itemekspedisi.itemService.cost[0].value
                     txTotalAkhir = txTotal + txOngkir
-                    tvTotalPembayaran.text = txTotalAkhir.toString()
-                    dialog.hide()
+                    tvTotalPembayaran.text = rupiah(txTotalAkhir.toDouble())
                 }
+                dialog.hide()
             }
 
             rvMetode.adapter = adapterPengiriman
