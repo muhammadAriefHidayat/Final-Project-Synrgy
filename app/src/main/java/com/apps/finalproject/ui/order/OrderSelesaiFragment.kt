@@ -35,6 +35,7 @@ class OrderSelesaiFragment : Fragment() {
         ordersViewModel.getResponse().observe(requireActivity()){
             if ((it == null) or (it.isNullOrEmpty())){
                 binding.layoutKosong.constraintKosong.visibility = View.VISIBLE
+                binding.progresOrder.visibility = View.GONE
             }else{
                 adapters.clear()
                 adapters.notifyDataSetChanged()

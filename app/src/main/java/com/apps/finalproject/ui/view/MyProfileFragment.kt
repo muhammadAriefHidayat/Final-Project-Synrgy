@@ -17,8 +17,11 @@ import com.apps.finalproject.ui.adapter.ProfilAdapter
 import com.apps.finalproject.ui.favorite.FavoriteActivity
 import com.apps.finalproject.ui.viewmodel.ProfileviewModel
 import com.apps.finalproject.utils.AppPref
+import com.apps.finalproject.utils.Utils
+import com.bumptech.glide.util.Util
 import com.xwray.groupie.GroupAdapter
 import com.xwray.groupie.GroupieViewHolder
+import okhttp3.internal.notify
 
 class MyProfileFragment : Fragment() {
 
@@ -39,18 +42,35 @@ class MyProfileFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
+        adapter.clear()
+        adapter.notifyDataSetChanged()
         setData()
         binding.apply {
             btnEditProfile.setOnClickListener {
-                startActivity(Intent(requireActivity(),EditProfileActivity::class.java))
+                if (AppPref.token == ""){
+                    Utils.peringatan(requireContext(),"harap login terlebih dahulu")
+                }else{
+                    startActivity(Intent(requireActivity(),EditProfileActivity::class.java))
+                }
             }
-            tvName.text = AppPref.username
-            tvEmailProfil.text = AppPref.email
+            if (AppPref.username == ""){
+                tvName.text = "Silahkan Login"
+                tvPhone.text = "Silahkan Login"
+                tvEmailProfil.text = "Silahkan Login"
+                tvUsername.text = "Silahkan Login"
+                btnLogoutProfile.text = "Login"
+            }else{
+                tvName.text = AppPref.username
+                tvUsername.text = "Customer"
+                tvPhone.text = AppPref.nomor
+                tvEmailProfil.text = AppPref.email
+                btnLogoutProfile.text = "Logout"
+            }
             btnLogoutProfile.setOnClickListener {
                 AppPref.token = ""
                 AppPref.username = ""
                 AppPref.email = ""
+                AppPref.nomor = ""
                 val intents = Intent(requireContext(), AuthActivity::class.java)
                 startActivity(intents)
             }

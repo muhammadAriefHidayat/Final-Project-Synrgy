@@ -27,8 +27,8 @@ class EditProfileActivity : AppCompatActivity() {
             btnSimpanProfile.setOnClickListener {
                 AppPref.apply {
                     username = edtName.text.toString()
-                    email =  edtName.text.toString()
-                    nomor =  edtName.text.toString()
+                    email =  edtEmail.text.toString()
+                    nomor =  edtNomor.text.toString()
                 }
                 val intent = Intent(this@EditProfileActivity,HomePageActivity::class.java)
                 intent.putExtra("profil",true)
