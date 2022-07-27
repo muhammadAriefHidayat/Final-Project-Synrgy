@@ -19,13 +19,15 @@ class OrdersAdapter(val itemOrders: DataOrders,val status : Int) : Item<GroupieV
 
     override fun bind(viewHolder: GroupieViewHolder, position: Int) {
 
-        viewHolder.itemView.context
 
         val tvIdPesanan = viewHolder.itemView.findViewById<TextView>(R.id.tv_obb_idorders)
         val tvtanggal = viewHolder.itemView.findViewById<TextView>(R.id.tv_obb_tanggal_pesanan)
         val tvreminder = viewHolder.itemView.findViewById<TextView>(R.id.tv_obb_remainder_order)
         val foto = viewHolder.itemView.findViewById<ImageView>(R.id.iv_obb_varian)
         val tvtotal = viewHolder.itemView.findViewById<TextView>(R.id.tv_obb_totalprice)
+
+        val itemotal = viewHolder.itemView.findViewById<TextView>(R.id.item_total)
+        itemotal.text = itemOrders.total.toString()
 
         val tvnama = viewHolder.itemView.findViewById<TextView>(R.id.tv_obb_namevariant)
         val tvstatus = viewHolder.itemView.findViewById<TextView>(R.id.tv_obb_remainder_order)
@@ -38,11 +40,10 @@ class OrdersAdapter(val itemOrders: DataOrders,val status : Int) : Item<GroupieV
         tvtanggal.text =  "Tanggal: $tanggal"
         tvreminder.text = ""
         tvtotal.text =  "Total: $rupiah"
-
+        val btnbayar = viewHolder.itemView.findViewById<Button>(R.id.btn_bayar_adapter)
 
         if (status == 1){
             tvstatus.text =  "Status : Terbayar"
-            val btnbayar = viewHolder.itemView.findViewById<Button>(R.id.btn_bayar_adapter)
             btnbayar.visibility = View.GONE
         }
     }
