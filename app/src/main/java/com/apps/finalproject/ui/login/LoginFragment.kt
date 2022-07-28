@@ -109,8 +109,7 @@ class LoginFragment : Fragment() {
     private fun handleSignInResult(completedTask: Task<GoogleSignInAccount>) {
         try {
             val account = completedTask.getResult(ApiException::class.java)
-            Log.d("accunt", account.idToken.toString())
-            Log.d("accunt", account.toString())
+
             val token = TokenBody(account.idToken.toString())
             googleViewModel.LoginGoogle(token)
             googleViewModel.getToken().observe(requireActivity()) {
@@ -126,7 +125,6 @@ class LoginFragment : Fragment() {
             }
         } catch (e: ApiException) {
             Log.w("accunt", "${e.status}")
-            Log.w("accunt", "signInResult:failed code=" + e.statusCode)
         }
         binding.progress.visibility = View.INVISIBLE
     }

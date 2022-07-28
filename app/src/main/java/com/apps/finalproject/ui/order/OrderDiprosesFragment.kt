@@ -37,6 +37,7 @@ class OrderDiprosesFragment : Fragment() {
         ordersViewModel.getResponse().observe(requireActivity()){
             if ((it == null) or (it.isNullOrEmpty())){
                 bindin.layoutKosong.constraintKosong.visibility = View.VISIBLE
+                bindin.progresOrder.visibility = View.GONE
             }else{
                 adapters.clear()
                 adapters.notifyDataSetChanged()
