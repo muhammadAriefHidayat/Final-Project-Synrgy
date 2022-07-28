@@ -97,20 +97,19 @@ class LoginFragment : Fragment() {
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
 
-        // Result returned from launching the Intent from GoogleSignInClient.getSignInIntent(...);
         if (requestCode == RC_SIGN_IN) {
             // The Task returned from this call is always completed, no need to attach
             // a listener.
             val task: Task<GoogleSignInAccount> = GoogleSignIn.getSignedInAccountFromIntent(data)
             handleSignInResult(task)
+            Log.d("accunt", "sini")
         }
     }
 
     private fun handleSignInResult(completedTask: Task<GoogleSignInAccount>) {
         try {
             val account = completedTask.getResult(ApiException::class.java)
-            Log.d("accunt", account.idToken.toString())
-            Log.d("accunt", account.toString())
+
             val token = TokenBody(account.idToken.toString())
             googleViewModel.LoginGoogle(token)
             googleViewModel.getToken().observe(requireActivity()) {
@@ -125,11 +124,16 @@ class LoginFragment : Fragment() {
                 }
             }
         } catch (e: ApiException) {
-            Log.w("accunt", "signInResult:failed code=" + e.statusCode)
+            Log.w("accunt", "${e.status}")
         }
         binding.progress.visibility = View.INVISIBLE
     }
 
+//    override fun onStart() {
+//        super.onStart()
+//        val account = GoogleSignIn.getLastSignedInAccount(requireContext())
+//        Log.d("accuns","${account?.idToken}")
+//    }
 
 //    fun logoin(username: String, password: String) {
 //        Log.d("yang", "email $username")
